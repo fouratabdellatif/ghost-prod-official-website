@@ -1,7 +1,7 @@
 import Aos from "aos";
 import React, { useEffect, useState } from "react";
 import Dropdown from "./components/Dropdown";
-import Hero from "./components/Hero";
+import HomeStart from "./components/HomeStart";
 import InfoSection from "./components/InfoSection";
 import Navbar from "./components/Navbar";
 import { InfoData } from "./data/InfoData";
@@ -25,7 +25,7 @@ function App() {
       <GlobalStyle />
       <Navbar toggle={toggle} />
       <Dropdown isOpen={isOpen} toggle={toggle} />
-      <Hero slides={SliderData} />
+      <HomeStart slides={SliderData} />
       <InfoSection {...InfoData} />
     </>
   );
