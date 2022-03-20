@@ -1,0 +1,187 @@
+@media only screen and (max-width: 600px) {
+    .card-container{
+        width:203px ;
+        height:311px;
+        overflow: hidden;
+        box-shadow: 0px 0px 15px -5px ;
+        transition: 0.3s;
+        animation: ease-in;
+        position: relative;
+        font-family: 'Baloo Thambi 2';
+    }
+    .card-container:hover{
+        transform: scale(1.1);
+        box-shadow: 0px 0px 15px -5px;
+    
+    }
+    .image-container img {
+        overflow: hidden;
+        height: 311px;
+    }
+    .card-content{
+
+        position: absolute;
+        text-align: left;
+        background-color: rgba(0,0,0,.6);
+        padding-left: 10px;
+        padding-right: 10px;
+        bottom: 0px;
+        
+    }
+    
+    h3,p{
+        font-weight: normal;
+        margin:0;
+        padding:0;
+        font-size: 26px;
+    }
+    h{
+        margin:0;
+        padding:0;
+        font-size: 26px;   
+    }
+    p{
+        color: #ffffff;
+        font-weight: normal;
+        font-size: 12px;
+        line-height: 1.19em;
+        padding-bottom: 1em;
+    
+    }
+    .card-stitle{
+        font-weight: bold;
+        color: #ffffff ;
+        
+    }
+    .card-title{
+        
+        color: #E1A33B ;
+        margin-bottom: -0.9rem;
+    }
+}
+@media only screen and (min-width: 600px) {
+    .card-container{
+        width:303px ;
+        height:511px;
+        overflow: hidden;
+        box-shadow: 0px 0px 15px -5px ;
+        transition: 0.3s;
+        animation: ease-in;
+        position: relative;
+        font-family: 'Baloo Thambi 2';
+    }
+    .card-container:hover{
+        transform: scale(1.1);
+        box-shadow: 0px 0px 15px -5px;
+    
+    }
+    .image-container img {
+        overflow: hidden;
+        height: 511px;
+    }
+    .card-content{
+
+        position: absolute;
+        text-align: left;
+        background-color: rgba(0,0,0,.6);
+        padding-left: 10px;
+        padding-right: 10px;
+        bottom: 0px;
+        
+    }
+    
+    h3,p{
+        font-weight: normal;
+        margin:0;
+        padding:0;
+        font-size: 36px;
+    }
+    h{
+        margin:0;
+        padding:0;
+        font-size: 36px;   
+    }
+    p{
+        color: #ffffff;
+        font-weight: normal;
+        font-size: 18px;
+        line-height: 1.19em;
+        padding-bottom: 1em;
+    
+    }
+    .card-stitle{
+        font-weight: bold;
+        color: #ffffff ;
+        
+    }
+    .card-title{
+        
+        color: #E1A33B ;
+        margin-bottom: -0.9rem;
+    }
+}
+@media only screen and (min-width: 768px) {
+.card-container{
+    width:403px ;
+    height:511px;
+    overflow: hidden;
+    box-shadow: 0px 0px 15px -5px ;
+    transition: 0.3s;
+    animation: ease-in;
+    position: relative;
+    font-family: 'Baloo Thambi 2';
+}
+.card-container:hover{
+    transform: scale(1.1);
+    box-shadow: 0px 0px 15px -5px;
+
+}
+.image-container img {
+    overflow: hidden;
+    height: 611px;
+    
+}
+.card-content{
+
+    position: absolute;
+    text-align: left;
+    background-color: rgba(0,0,0,.6);
+    padding-left: 10px;
+    padding-right: 10px;
+    bottom: 0px;
+    
+}
+
+h3,p{
+    font-weight: normal;
+    margin:0;
+    padding:0;
+    font-size: 36px;
+}
+h{
+    margin:0;
+    padding:0;
+    font-size: 36px;   
+}
+p{
+    color: #ffffff;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 1.19em;
+    padding-bottom: 1em;
+
+}
+.card-stitle{
+    font-weight: bold;
+    color: #ffffff ;
+    
+}
+.card-title{
+    
+    color: #E1A33B ;
+    margin-bottom: -0.9rem;
+}}
+
+
+
+
