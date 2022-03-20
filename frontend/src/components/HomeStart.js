@@ -70,8 +70,8 @@ const HomeStart = ({ slides }) => {
                                     {/* <img className='homestart-image' src={slide.image} alt={slide.alt} data-aos="fade-right" /> */}
                                     <video className='homestart-video' src={slide.video} data-aos="fade-right" autoPlay loop muted={isMuted} />
                                     <div className='homestart-content'>
+                                        <h3 data-aos="fade-right">Votre boîte de production audiovisuelle</h3>
                                         <h1 data-aos="flip-up">{slide.title}</h1>
-                                        <p data-aos="flip-up">{slide.price}</p>
                                         {/* <Button
                                             data-aos="flip-up"
                                             to={slide.path}
