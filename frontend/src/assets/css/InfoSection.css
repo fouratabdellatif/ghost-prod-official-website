@@ -34,7 +34,8 @@
   cursor: pointer;
 }
 
-.info-column-left img:hover + .play-icon, .play-icon:hover {
+.info-column-left img:hover + .play-icon,
+.play-icon:hover {
   width: 85px;
   height: 85px;
   transition: 0.3s all ease-in-out;
@@ -87,6 +88,20 @@
 
 .info-column-right p {
   margin-bottom: 2rem;
+  text-align: justify;
+  width: 580px;
+}
+
+.show-more {
+  color: #e1a33b;
+  font-weight: 500;
+  cursor: pointer;
+  transition: 0.3s all ease-in-out;
+}
+
+.show-more:hover {
+  color: #dd9a27;
+  margin-left: 10px;
 }
 
 @media screen and (max-width: 768px) {

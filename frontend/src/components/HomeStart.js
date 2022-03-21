@@ -56,7 +56,6 @@ const HomeStart = ({ slides }) => {
 
     const handleVideoMute = () => {
         setIsMuted(!isMuted)
-        console.log(isMuted)
     }
 
     return (

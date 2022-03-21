@@ -2,9 +2,9 @@ import imageOne from '../images/house7.jpg';
 import imageTwo from '../images/house8.jpg';
 
 export const InfoData = {
-    heading: 'Pouqoui GHOSTPROD?',
-    paragraphOne: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-    paragraphTwo: 'Ornare arcu dui vivamus arcu felis. Facilisi cras fermentum odio eu. In nisl nisi scelerisque eu ultrices vitae auctor.',
+    heading: 'Pourqoui GHOSTPROD?',
+    paragraphOne: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ornare arcu dui vivamus arcu felis. Facilisi cras fermentum odio eu. In nisl nisi scelerisque eu ultrices vitae auctor. Interdum consectetur libero id faucibus nisl. Praesent elementum facilisis leo vel fringilla est ullamcorper eget nulla. In nisl nisi scelerisque eu ultrices vitae auctor. Interdum consectetur libero id faucibus nisl. Elementum nibh tellus molestie nunc.',
+    paragraphTwo: '',
     buttonLabel: 'Show More',
     image: imageOne,
     reverse: false,
@@ -14,7 +14,7 @@ export const InfoData = {
 export const InfoDataTwo = {
     heading: 'Modern Designs',
     paragraphOne: 'Interdum consectetur libero id faucibus nisl. Praesent elementum facilisis leo vel fringilla est ullamcorper eget nulla.',
-    paragraphTwo: 'In nisl nisi scelerisque eu ultrices vitae auctor. Interdum consectetur libero id faucibus nisl. Elementum nibh tellus molestie nunc. ',
+    paragraphTwo: 'In nisl nisi scelerisque eu ultrices vitae auctor. Interdum consectetur libero id faucibus nisl. Elementum nibh tellus molestie nunc.',
     buttonLabel: 'Show More',
     image: imageTwo,
     reverse: true,
