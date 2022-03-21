@@ -6,6 +6,7 @@ import React, {
 // import { IoMdArrowRoundForward } from 'react-icons/io';
 import { IoArrowForward, IoArrowBack } from 'react-icons/io5';
 import '../assets/css/HomeStart.css';
+import Typical from "react-typical";
 
 
 const HomeStart = ({ slides }) => {
@@ -58,6 +59,10 @@ const HomeStart = ({ slides }) => {
         setIsMuted(!isMuted)
     }
 
+
+    var typicalSlides = slides.map(i => [i.title, 4000]).flat();
+    console.log(typicalSlides);
+
     return (
         <section className='homestart-section'>
             <div className='homestart-wrapper'>
@@ -70,7 +75,13 @@ const HomeStart = ({ slides }) => {
                                     <video className='homestart-video' src={slide.video} data-aos="fade-right" autoPlay loop muted={isMuted} />
                                     <div className='homestart-content'>
                                         <h3 data-aos="fade-right">Votre boîte de production audiovisuelle</h3>
-                                        <h1 data-aos="flip-up">{slide.title}</h1>
+                                        <h1 data-aos="flip-up">
+                                            <Typical
+                                                steps={typicalSlides}
+                                                loop={Infinity}
+                                                wrapper="h1"
+                                            />
+                                        </h1>
                                         {/* <Button
                                             data-aos="flip-up"
                                             to={slide.path}
