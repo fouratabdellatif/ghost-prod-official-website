@@ -66,6 +66,7 @@
   width: 100vw;
   height: 100vw;
   object-fit: cover;
+  background-attachment: fixed;
 }
 
 .homestart-content {
@@ -85,6 +86,19 @@
   text-shadow: 0px 0px 20px rgba(0, 0, 0, 0.4);
   text-align: left;
   margin-bottom: 0.8rem;
+}
+
+.homestart-content h3 {
+  color: #e1a33b;
+  font-size: clamp(1rem, 8vw, 10px);
+  font-weight: 400;
+  text-transform: uppercase;
+  text-shadow: 0px 0px 20px rgba(0, 0, 0, 0.4);
+  text-align: left;
+  margin-bottom: 0.8rem;
+  border-left: #e1a33b solid 120px;
+  border-left-style: groove;
+  padding-left: 10px;
 }
 
 .homestart-content p {
@@ -109,7 +123,7 @@
   height: 50px;
   color: #ffffff;
   cursor: pointer;
-  background: #000d1a;
+  background: #000000;
   border-radius: 50px;
   padding: 10px;
   margin-right: 1rem;
