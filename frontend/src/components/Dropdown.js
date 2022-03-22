@@ -194,10 +194,10 @@ const Dropdown = ({ isOpen, toggle }) => {
                     ))}
                 </DropdownMenu>
                 <SocialMediaWrapper>
-                    <SocialMediaItem href='https://www.instagram.com/ghostprod_officiel/?hl=fr'>Youtube</SocialMediaItem>
-                    <SocialMediaItem href='https://www.instagram.com/ghostprod_officiel/?hl=fr'>Instagram</SocialMediaItem>
-                    <SocialMediaItem href='https://www.facebook.com/Ghostprod.net'>Facebook</SocialMediaItem>
-                    <SocialMediaItem href='https://www.instagram.com/ghostprod_officiel/?hl=fr'>Linkedin</SocialMediaItem>
+                    <SocialMediaItem href='https://www.instagram.com/ghostprod_officiel/?hl=fr' target='_blank'>Youtube</SocialMediaItem>
+                    <SocialMediaItem href='https://www.instagram.com/ghostprod_officiel/?hl=fr' target='_blank'>Instagram</SocialMediaItem>
+                    <SocialMediaItem href='https://www.facebook.com/Ghostprod.net' target='_blank'>Facebook</SocialMediaItem>
+                    <SocialMediaItem href='https://www.instagram.com/ghostprod_officiel/?hl=fr' target='_blank'>Linkedin</SocialMediaItem>
                 </SocialMediaWrapper>
             </DropdownWrapper>
         </DropdownContainer>
