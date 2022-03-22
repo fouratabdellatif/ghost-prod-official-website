@@ -64,6 +64,7 @@
 }
 
 .menu-bars {
+  z-index: 99999;
   display: block;
   background-size: contain;
   height: 40px;
