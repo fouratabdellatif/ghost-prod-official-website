@@ -102,6 +102,7 @@
 .show-more:hover {
   color: #dd9a27;
   margin-left: 10px;
+  transition: 0.3s all ease-in-out;
 }
 
 @media screen and (max-width: 768px) {
