@@ -22,3 +22,46 @@ font-size: ${({ big }) => (big ? '20px' : '14px')};
     transform: translateY(-2px);
 }
 `
+
+export const ContactButton = styled(Link)`
+background: #ffffff;
+padding: 14px 10px;
+display: flex;
+/* align-items: center;
+justify-content: center; */
+color: #231f20;
+font-size: 22px;
+left: 0;
+font-weight: 500;
+text-decoration: none;
+cursor: pointer;
+transition: 0.6s all ease-in-out;
+position: relative;
+overflow: hidden;
+width: auto;
+margin: auto;
+text-transform: uppercase;
+
+&:hover {
+    background: transparent;
+    color: #ffffff;
+}
+
+&::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  width: 0%;
+  height: 100%;
+  background: #e1a33b;
+  z-index: 0;
+  transition: 0.5s all ease-in-out;
+  bottom: 0;
+  border-radius: 0 50% 50% 0;
+}
+
+&:hover::before {
+  background: transparent;
+  width: 200%;
+}
+`
