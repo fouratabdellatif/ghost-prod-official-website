@@ -1,6 +1,7 @@
 import Aos from "aos";
 import React, { useEffect, useState } from "react";
 import Dropdown from "./components/Dropdown";
+import Footer from "./components/Footer";
 import HomeStart from "./components/HomeStart";
 import InfoSection from "./components/InfoSection";
 import Navbar from "./components/Navbar";
@@ -27,6 +28,7 @@ function App() {
       <Dropdown isOpen={isOpen} toggle={toggle} />
       <HomeStart slides={SliderData} />
       <InfoSection {...InfoData} />
+      <Footer />
     </>
   );
 }
