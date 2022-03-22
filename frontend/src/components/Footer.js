@@ -15,7 +15,7 @@ function Footer() {
                                 <img src={gpLogoDark} alt='logo-ghostprod' />
                             </Link>
                         </div>
-                        <p data-aos='fade-up'>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                        <p data-aos='fade-up'>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
                     </div>
                     <div className='footer-link-items'>
                         <h2 data-aos='slide-right'>Contact Info</h2>
