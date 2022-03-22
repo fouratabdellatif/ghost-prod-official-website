@@ -3,7 +3,7 @@ import { FaTimes } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components'
 import { menuData } from '../data/MenuData'
-import { ContactButton } from './Button';
+import { PrimaryButton } from './Button';
 import gpLogo from '../images/ghostprodLogo.png';
 
 const DropdownContainer = styled.div`
@@ -178,9 +178,9 @@ const Dropdown = ({ isOpen, toggle }) => {
                         <img className="logo-container active" src={gpLogo} alt="Logo" />
                     </Link>
                     <BtnWrap>
-                        <ContactButton primary="true" round="true" big="true" to="/contact">
+                        <PrimaryButton primary="true" round="true" big="true" to="/contact">
                             Contact Us
-                        </ContactButton>
+                        </PrimaryButton>
                     </BtnWrap>
                     <Icon onClick={toggle}>
                         <CloseIcon />
