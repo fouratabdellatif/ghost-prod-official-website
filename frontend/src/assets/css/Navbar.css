@@ -112,4 +112,13 @@
   .nav-btn {
     display: none;
   }
+
+  .logo-container {
+    padding: 10px 0;
+    margin-left: -20px;
+  }
+
+  .logo-image {
+    height: 60px;
+  }
 }
