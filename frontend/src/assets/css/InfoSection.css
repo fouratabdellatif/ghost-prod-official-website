@@ -34,6 +34,10 @@
   cursor: pointer;
 }
 
+.play-icon {
+  transition: 0.3s all ease-in-out;
+}
+
 .info-column-left img:hover + .play-icon,
 .play-icon:hover {
   width: 85px;
