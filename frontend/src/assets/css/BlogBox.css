@@ -1,0 +1,29 @@
+.image-container {
+    
+        margin-top: 100px;
+        margin-bottom: 100px;
+}
+.image-container img{
+    overflow: hidden;
+        height: 612px;
+        width:372px;
+        object-fit: cover;
+        cursor: pointer;
+        
+}
+.blog-container{
+    width: 80%;
+  height: 100%;
+  margin: auto;
+  background-color: #d2cccc;
+  position: relative;
+  z-index: 99;
+}
+.blog-content{
+    height: 333px;
+    width:868px;
+    background-color: #E1A33B;
+    z-index: 39;
+   
+
+}

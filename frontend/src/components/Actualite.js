@@ -1,7 +1,7 @@
 import React from 'react'
-import '../assets/css/Card.css'
+import '../assets/css/Actualite.css'
 
-function card({title,soustitle,imageUrl,body}) {
+function Actualite({title,soustitle,imageUrl,body}) {
   return (
     <div className='card-container'>
       
@@ -27,12 +27,10 @@ function card({title,soustitle,imageUrl,body}) {
 
         </div>
         
-       
-        
-        
+            
          
     </div>
   )
 }
 
-export default card
+export default Actualite  
