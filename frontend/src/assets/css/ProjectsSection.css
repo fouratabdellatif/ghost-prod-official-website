@@ -1,0 +1,27 @@
+.projects-section {
+  width: 90%;
+  height: 100%;
+  margin: 80px auto 0 auto;
+  /* top: -20px; */
+  position: relative;
+  z-index: 99;
+}
+
+.projects-container {
+  display: flex;
+  margin: auto;
+  min-height: 80vh;
+}
+
+@media screen and (max-width: 1200px) {
+}
+
+@media screen and (max-width: 768px) {
+  .projects-container {
+    display: block;
+  }
+
+  .projects-section {
+    margin: 80px auto;
+  }
+}
