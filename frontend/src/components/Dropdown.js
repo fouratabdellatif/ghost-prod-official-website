@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import styled from 'styled-components'
 import { menuData } from '../data/MenuData'
 import { PrimaryButton } from './Button';
-import gpLogo from '../images/ghostprodLogo.png';
+import gpLogo from '../assets/images/ghostprodLogo.png';
 
 const DropdownContainer = styled.div`
 position: fixed;

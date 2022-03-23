@@ -1,7 +1,7 @@
 import React from 'react';
 import '../assets/css/Footer.css'
 import { Link } from 'react-router-dom';
-import gpLogoDark from '../images/ghostprodLogoDark.png';
+import gpLogoDark from '../assets/images/ghostprodLogoDark.png';
 
 
 function Footer() {

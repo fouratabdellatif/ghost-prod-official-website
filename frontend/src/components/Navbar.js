@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 // import { menuData } from "../data/MenuData";
 // import Bars from '../images/bars.svg';
 import { FaBars } from 'react-icons/fa';
-import gpLogo from '../images/ghostprodLogo.png';
+import gpLogo from '../assets/images/ghostprodLogo.png';
 import '../assets/css/Navbar.css';
 import CasualButton from "./CasualButton";
 
