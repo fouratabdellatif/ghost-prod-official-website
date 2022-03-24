@@ -83,18 +83,6 @@
   margin-top: -10px;
 }
 
-.btn-container {
-  display: flex;
-  height: 50px;
-}
-
-.nav-btn {
-  display: block;
-  align-items: center;
-  margin: auto;
-  height: 100%;
-}
-
 .menu-bars {
   z-index: 99999;
   display: block;
@@ -105,13 +93,13 @@
   color: #ffffff;
   background: #e1a33b;
   padding: 6px;
-  margin: auto;
+  margin: 0;
 }
 
 @media screen and (max-width: 768px) {
-  .nav-btn {
+  /* .nav-btn {
     display: none;
-  }
+  } */
 
   .logo-container {
     padding: 10px 0;

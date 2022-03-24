@@ -1,0 +1,11 @@
+.btn-container {
+  display: flex;
+  height: 50px;
+}
+
+.nav-btn {
+  display: block;
+  align-items: center;
+  margin: auto 0 auto auto;
+  height: 100%;
+}
