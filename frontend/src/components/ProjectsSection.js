@@ -21,7 +21,7 @@ const ProjectsSection = () => {
                     />
                 ))}
             </div>
-            <div data-aos="slide-right" className='projects-btn'>
+            <div data-aos="slide-left" className='projects-btn'>
                 <CasualButton
                     text="Tous nos projets"
                     link="/projects"
