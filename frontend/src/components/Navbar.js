@@ -42,7 +42,7 @@ const Navbar = ({ toggle }) => {
                     link="/contact"
                     text="Contact Us"
                     icon={
-                        <FaBars className="menu-bars" onClick={toggle} />
+                        <FaBars className="icon-btn" onClick={toggle} />
                     }
                 />
             </div>
