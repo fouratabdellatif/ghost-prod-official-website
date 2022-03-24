@@ -31,7 +31,7 @@ display: flex;
 justify-content: center; */
 color: #231f20;
 font-size: 22px;
-left: 0;
+text-align: center;
 font-weight: 500;
 text-decoration: none;
 cursor: pointer;
