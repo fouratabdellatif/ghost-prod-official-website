@@ -23,7 +23,7 @@ font-size: ${({ big }) => (big ? '20px' : '14px')};
 }
 `
 
-export const ContactButton = styled(Link)`
+export const PrimaryButton = styled(Link)`
 background: #ffffff;
 padding: 14px 10px;
 display: flex;
@@ -31,7 +31,7 @@ display: flex;
 justify-content: center; */
 color: #231f20;
 font-size: 22px;
-left: 0;
+text-align: center;
 font-weight: 500;
 text-decoration: none;
 cursor: pointer;
@@ -43,7 +43,7 @@ margin: auto;
 text-transform: uppercase;
 
 &:hover {
-    background: transparent;
+    background: #e1a33b;
     color: #ffffff;
 }
 

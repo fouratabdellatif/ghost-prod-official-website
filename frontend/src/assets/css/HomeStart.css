@@ -30,12 +30,12 @@
   bottom: 0vh;
   left: 0;
   overflow: hidden;
-  opacity: 0.4;
+  opacity: 0.8;
   background: linear-gradient(
-    0deg,
+    180deg,
     rgba(0, 0, 0, 0.2) 0%,
-    rgba(0, 0, 0, 0.2) 50%,
-    rgba(0, 0, 0, 0.6) 100%
+    rgba(0, 0, 0, 0.6) 50%,
+    rgba(0, 0, 0, 1) 100%
   );
 }
 
@@ -64,9 +64,8 @@
   top: 0;
   left: 0;
   width: 100vw;
-  height: 100vw;
+  height: 100vh;
   object-fit: cover;
-  background-attachment: fixed;
 }
 
 .homestart-content {
@@ -80,7 +79,7 @@
 }
 
 .homestart-content h1 {
-  font-size: clamp(1rem, 8vw, 40px);
+  font-size: 40px;
   font-weight: 400;
   text-transform: uppercase;
   text-shadow: 0px 0px 20px rgba(0, 0, 0, 0.4);
@@ -90,7 +89,7 @@
 
 .homestart-content h3 {
   color: #e1a33b;
-  font-size: clamp(1rem, 8vw, 10px);
+  font-size: 16px;
   font-weight: 400;
   text-transform: uppercase;
   text-shadow: 0px 0px 20px rgba(0, 0, 0, 0.4);
@@ -134,4 +133,21 @@
 .arrow-btns:hover {
   background: #e1a33b;
   transform: scale(1.05);
+}
+
+@media screen and (max-width: 1200px) {
+  .homestart-content h1 {
+    font-size: 30px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .homestart-content h1 {
+    font-size: 20px;
+  }
+  .homestart-content h3 {
+    font-size: 14px;
+    border-left: #e1a33b solid 40px;
+    border-left-style: groove;
+  }
 }

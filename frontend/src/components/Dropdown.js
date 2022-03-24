@@ -3,8 +3,8 @@ import { FaTimes } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components'
 import { menuData } from '../data/MenuData'
-import { ContactButton } from './Button';
-import gpLogo from '../images/ghostprodLogo.png';
+import { PrimaryButton } from './Button';
+import gpLogo from '../assets/images/ghostprodLogo.png';
 
 const DropdownContainer = styled.div`
 position: fixed;
@@ -41,13 +41,16 @@ const DropdownWrapper = styled.div`
 
 const DropdownMenu = styled.div`
 display: grid;
-grid-template-columns: 1fr 1fr 1fr;
+grid-template-columns: repeat(3, 1fr);
 grid-template-rows: repeat(4, 80px);
 margin: auto auto 40px auto;
 width: 80%;
 
-@media screen and (max-width: 480px) {
-    grid-template-rows: repeat(4, 60px);
+@media screen and (max-width: 768px) {
+    grid-template-columns: repeat(1, 1fr);
+    grid-template-rows: repeat(1, 40px);
+    margin: -50px auto 150px auto;
+    width: 60%;
 }
 `;
 
@@ -104,12 +107,35 @@ text-transform: uppercase;
 &:nth-child(6) {
     margin: auto 0 auto auto;
 }
+
+@media screen and (max-width: 1200px) {
+padding: 8px 8px;
+align-items: center;
+justify-content: center;
+font-size: 26px;
+}
+
+@media screen and (max-width: 768px) {
+padding: 8px 8px;
+align-items: center;
+justify-content: center;
+font-size: 16px;
+margin: auto;
+
+&:nth-child(3) {
+    margin: auto;
+}
+&:nth-child(6) {
+    margin: auto;
+}
+}
 `;
 
 const BtnWrap = styled.div`
 display: flex;
 justify-content: center;
 height: 60px;
+width: 100%;
 top: 0;
 `;
 
@@ -118,7 +144,7 @@ const SocialMediaWrapper = styled.div`
     justify-content: center;
     flex-wrap: wrap;
     position: relative;
-    width: 600px;
+    width: 100%;
     margin: 10px auto auto auto;
 `;
 
@@ -137,7 +163,6 @@ const SocialMediaItem = styled.a`
 
     position: relative;
     text-decoration: none;
-    font-family: 'Poppins', sans-serif;
     color: #231F20;
     font-size: 18px;
     letter-spacing: 0.5px;
@@ -178,9 +203,9 @@ const Dropdown = ({ isOpen, toggle }) => {
                         <img className="logo-container active" src={gpLogo} alt="Logo" />
                     </Link>
                     <BtnWrap>
-                        <ContactButton primary="true" round="true" big="true" to="/contact">
+                        <PrimaryButton primary="true" round="true" big="true" to="/contact">
                             Contact Us
-                        </ContactButton>
+                        </PrimaryButton>
                     </BtnWrap>
                     <Icon onClick={toggle}>
                         <CloseIcon />
@@ -194,10 +219,10 @@ const Dropdown = ({ isOpen, toggle }) => {
                     ))}
                 </DropdownMenu>
                 <SocialMediaWrapper>
-                    <SocialMediaItem href='https://www.instagram.com/ghostprod_officiel/?hl=fr'>Youtube</SocialMediaItem>
-                    <SocialMediaItem href='https://www.instagram.com/ghostprod_officiel/?hl=fr'>Instagram</SocialMediaItem>
-                    <SocialMediaItem href='https://www.facebook.com/Ghostprod.net'>Facebook</SocialMediaItem>
-                    <SocialMediaItem href='https://www.instagram.com/ghostprod_officiel/?hl=fr'>Linkedin</SocialMediaItem>
+                    <SocialMediaItem href='https://www.instagram.com/ghostprod_officiel/?hl=fr' target='_blank'>Youtube</SocialMediaItem>
+                    <SocialMediaItem href='https://www.instagram.com/ghostprod_officiel/?hl=fr' target='_blank'>Instagram</SocialMediaItem>
+                    <SocialMediaItem href='https://www.facebook.com/Ghostprod.net' target='_blank'>Facebook</SocialMediaItem>
+                    <SocialMediaItem href='https://www.instagram.com/ghostprod_officiel/?hl=fr' target='_blank'>Linkedin</SocialMediaItem>
                 </SocialMediaWrapper>
             </DropdownWrapper>
         </DropdownContainer>
