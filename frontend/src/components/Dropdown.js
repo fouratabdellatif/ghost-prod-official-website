@@ -163,7 +163,6 @@ const SocialMediaItem = styled.a`
 
     position: relative;
     text-decoration: none;
-    font-family: 'Poppins', sans-serif;
     color: #231F20;
     font-size: 18px;
     letter-spacing: 0.5px;
