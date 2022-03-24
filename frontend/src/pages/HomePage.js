@@ -1,4 +1,5 @@
 import React from 'react'
+import BlogSection from '../components/BlogSection'
 import HomeStart from '../components/HomeStart'
 import InfoSection from '../components/InfoSection'
 import ProjectsSection from '../components/ProjectsSection'
@@ -11,6 +12,7 @@ const HomePage = () => {
             <HomeStart slides={SliderData} />
             <InfoSection {...InfoData} />
             <ProjectsSection />
+            <BlogSection />
         </>
     )
 }
