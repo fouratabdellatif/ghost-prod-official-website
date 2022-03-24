@@ -26,7 +26,7 @@ const ProjectsSection = () => {
                     text="Tous nos projets"
                     link="/projects"
                     icon={
-                        <MdOutlineArrowForwardIos className="menu-bars" />
+                        <MdOutlineArrowForwardIos className="icon-btn" />
                     }
                 />
             </div>

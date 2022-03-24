@@ -9,3 +9,16 @@
   margin: auto 0 auto auto;
   height: 100%;
 }
+
+.icon-btn {
+  z-index: 99999;
+  display: block;
+  background-size: contain;
+  height: 100%;
+  width: auto;
+  cursor: pointer;
+  color: #ffffff;
+  background: #e1a33b;
+  padding: 6px;
+  margin: 0;
+}

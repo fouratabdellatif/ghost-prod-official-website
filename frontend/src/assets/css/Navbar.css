@@ -83,19 +83,6 @@
   margin-top: -10px;
 }
 
-.menu-bars {
-  z-index: 99999;
-  display: block;
-  background-size: contain;
-  height: 100%;
-  width: auto;
-  cursor: pointer;
-  color: #ffffff;
-  background: #e1a33b;
-  padding: 6px;
-  margin: 0;
-}
-
 @media screen and (max-width: 768px) {
   /* .nav-btn {
     display: none;
