@@ -1,0 +1,33 @@
+.scroll-top-btn {
+  position: fixed;
+  width: 60px;
+  right: 10px;
+  bottom: 10px;
+  height: 60px;
+  font-size: 3rem;
+  z-index: 999999999999;
+  transition: 0.3s all ease-in-out !important;
+  cursor: pointer;
+  background-color: #e1a33b;
+  color: #ffffff;
+}
+
+.scroll-top-btn:hover {
+  background-color: #dd9a27;
+  color: #000000;
+  transition: 0.3s all ease-in-out;
+}
+
+.arrow-up-icon {
+  display: block;
+  margin: auto;
+  width: 100%;
+  transition: 0.3s all ease-in-out !important;
+  transform: translateY(4px);
+}
+
+.scroll-top-btn:hover + .arrow-up-icon,
+.arrow-up-icon:hover {
+  transform: translateY(0);
+  transition: 0.3s all ease-in-out;
+}
