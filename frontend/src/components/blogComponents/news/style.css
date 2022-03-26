@@ -1,0 +1,11 @@
+.title {
+  display: flex;
+  justify-content: left;
+  margin-top: 50px;
+  font-weight: bold;
+
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+.newsCardList {
+  margin-top: 3%;
+}

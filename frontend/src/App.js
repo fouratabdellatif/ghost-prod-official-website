@@ -7,16 +7,15 @@ import GlobalStyle from "./globalStyles";
 import HomePage from "./pages/HomePage";
 
 function App() {
-
   const [isOpen, setIsOpen] = useState(false);
 
   const toggle = () => {
-    setIsOpen(!isOpen)
-  }
+    setIsOpen(!isOpen);
+  };
 
   useEffect(() => {
     Aos.init({ duration: 1000 });
-  }, [])
+  }, []);
 
   return (
     <>

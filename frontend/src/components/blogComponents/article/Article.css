@@ -1,0 +1,22 @@
+.articleContainer {
+  position: relative;
+  width: 900px;
+}
+
+.topleft {
+  position: absolute;
+  top: 120px;
+  left: 140px;
+  font-size: 18px;
+  background-color: #e1a33b;
+  padding: 20px;
+  color: white;
+}
+
+.articleImg {
+  width: 400px;
+  height: 500px;
+}
+.articleTitle {
+  color: white;
+}
