@@ -1,18 +1,18 @@
 import React from 'react';
 import '../../assets/css/TeamCard.css';
 
-function TeamCard({ firstname, lastname, spec, image, instagram, facebook, linkedin }) {
+function TeamCard({ item }) {
     return (
         <div className="team-card-wrapper">
             <div className="team-card">
                 <div className="team-card-image">
-                    <img src={image} alt='team_member' />
+                    <img src={item.image} alt='team_member' />
                 </div>
                 <ul className="social-icons-cards">
                     <li>
                         <a
                             className='social-icon-link facebook'
-                            href={facebook}
+                            href={item.facebook}
                             target='_blank'
                             aria-label='Facebook'
                             rel="noreferrer"
@@ -23,7 +23,7 @@ function TeamCard({ firstname, lastname, spec, image, instagram, facebook, linke
                     <li>
                         <a
                             className='social-icon-link instagram'
-                            href={instagram}
+                            href={item.instagram}
                             target='_blank'
                             aria-label='Youtube'
                             rel="noreferrer"
@@ -34,7 +34,7 @@ function TeamCard({ firstname, lastname, spec, image, instagram, facebook, linke
                     <li>
                         <a
                             className='social-icon-link linkedin'
-                            href={linkedin}
+                            href={item.linkedin}
                             target='_blank'
                             aria-label='LinkedIn'
                             rel="noreferrer"
@@ -45,7 +45,7 @@ function TeamCard({ firstname, lastname, spec, image, instagram, facebook, linke
                 </ul>
                 <div className="member-details">
                     <h2>
-                        {firstname} {lastname} <span className="job-title">{spec}</span>
+                        {item.firstname} {item.lastname} <span className="job-title">{item.spec}</span>
                     </h2>
                 </div>
             </div>

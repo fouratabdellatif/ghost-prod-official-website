@@ -4,14 +4,11 @@ const SliderWrapper = styled("div")`
   .slick-list {
     overflow: ${props => (props.overflow ? "visible" : "hidden")};
     width: 90%;
-    margin: 0 auto!important;
+    margin: 50px auto!important;
   }
   /* Slider */
   .slick-slider {
-    margin-bottom: 30px;
-    padding-bottom: 50px;
-    margin-right: auto;
-    margin-left: auto;
+    margin: auto;
 
     position: relative;
 
@@ -36,8 +33,8 @@ const SliderWrapper = styled("div")`
     display: block;
     /* overflow: hidden; */
 
-    margin: 20px 0;
-    padding: 50px 0 330px 0;
+    margin: auto;
+    padding: 0;
   }
   .slick-list:focus {
     outline: none;
