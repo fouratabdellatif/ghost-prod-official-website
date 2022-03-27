@@ -23,6 +23,45 @@ const NextBtn = (props) => {
     );
 };
 const Testimonial = () => {
+
+    const settings = {
+        dots: false,
+        autoplay: false,
+        autoplaySpeed: 5000,
+        infinite: true,
+        slidesToShow: 2,
+        slidesToScroll: 1,
+        initialSlide: 0,
+        speed: 500,
+        arrows: true,
+        adaptiveHeight: true,
+        responsive: [
+            {
+                breakpoint: 1200,
+                settings: {
+                    slidesToShow: 2,
+                    slidesToScroll: 1
+                }
+            },
+            {
+                breakpoint: 1000,
+                settings: {
+                    slidesToShow: 1,
+                    slidesToScroll: 1
+                }
+            },
+            {
+                breakpoint: 600,
+                settings: {
+                    slidesToShow: 1,
+                    slidesToScroll: 1,
+                    centerMode: false,
+                }
+            }
+
+        ]
+    };
+
     return (
         <div
             className="testimonial"
@@ -31,7 +70,7 @@ const Testimonial = () => {
             <div style={{ width: "100%", textAlign: "center" }}>
                 {/* <SectionTitle title="Témoignages" /> */}
                 {/* <h1 style={{ marginBottom: 20 }}>TESTIMONIALS</h1> */}
-                <Slider slidesToShow={2} prevArrow={<PreviousBtn />} nextArrow={<NextBtn />} dots>
+                <Slider {...settings} prevArrow={<PreviousBtn />} nextArrow={<NextBtn />} dots>
                     <Card img="https://www.tutorialrepublic.com/examples/images/clients/1.jpg" />
                     <Card img="https://www.tutorialrepublic.com/examples/images/clients/2.jpg" />
                     <Card img="https://www.tutorialrepublic.com/examples/images/clients/3.jpg" />

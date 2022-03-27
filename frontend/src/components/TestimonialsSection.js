@@ -7,10 +7,12 @@ const TestimonialsSection = () => {
 
     return (
         <section className='testimonial-section'>
-            <div className='testimonial-container'>
-            <SectionTitle title="Témoignages" />
+            <div className='title-container'>
+                <SectionTitle title="Témoignages" />
             </div>
+            <div className='testimonial-container'>
                 <Testimonial />
+            </div>
         </section>
     )
 }
