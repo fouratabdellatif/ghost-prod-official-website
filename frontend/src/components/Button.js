@@ -65,7 +65,11 @@ text-transform: uppercase;
   width: 200%;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 1200px) {
   font-size: 18px;
+}
+
+@media screen and (max-width: 768px) {
+  font-size: 16px;
 }
 `
