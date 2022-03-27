@@ -5,7 +5,7 @@ import Footer from "./components/Footer";
 import Navbar from "./components/Navbar";
 import GlobalStyle from "./globalStyles";
 import HomePage from "./pages/HomePage";
-// import ScrollToTop from "./components/ScrollToTop";
+import ScrollToTop from "./components/ScrollToTop";
 import ScrollToTopButton from "./components/ScrollToTopButton";
 
 function App() {
@@ -23,7 +23,7 @@ function App() {
   return (
     <>
       <GlobalStyle />
-      {/* <ScrollToTop /> */}
+      <ScrollToTop />
       <ScrollToTopButton />
       <Navbar toggle={toggle} />
       <Dropdown isOpen={isOpen} toggle={toggle} />
