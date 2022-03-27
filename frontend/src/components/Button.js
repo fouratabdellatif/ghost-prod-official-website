@@ -64,4 +64,8 @@ text-transform: uppercase;
   background: transparent;
   width: 200%;
 }
+
+@media screen and (max-width: 768px) {
+  font-size: 18px;
+}
 `
