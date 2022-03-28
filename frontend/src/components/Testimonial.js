@@ -63,11 +63,8 @@ const Testimonial = () => {
     };
 
     return (
-        <div
-            className="testimonial"
-            style={{ display: "flex", justifyContent: "center", marginTop: 20, backgroundColor: '#e1a33b', padding: '100px' }}
-        >
-            <div style={{ width: "100%", textAlign: "center" }}>
+        <div className="testimonial">
+            <div className="testimonial-content">
                 {/* <SectionTitle title="Témoignages" /> */}
                 {/* <h1 style={{ marginBottom: 20 }}>TESTIMONIALS</h1> */}
                 <Slider {...settings} prevArrow={<PreviousBtn />} nextArrow={<NextBtn />} dots>
@@ -82,17 +79,7 @@ const Testimonial = () => {
 
 const Card = ({ img }) => {
     return (
-        <div
-            style={{
-                display: "flex",
-                alignItems: "center",
-                flexDirection: "column",
-                textAlign: "justify",
-                color: "#000000",
-                width: '80%',
-                margin: 'auto auto auto auto'
-            }}
-        >
+        <div className="card-img-container">
             {/* <Avatar
                 imgProps={{ style: { borderRadius: "50%" } }}
                 src={img}
@@ -104,9 +91,7 @@ const Card = ({ img }) => {
                     marginBottom: 20,
                 }}
             /> */}
-            <p style={{
-                color: '#000000'
-            }}>
+            <p className="testimonial-text">
                 Phasellus vitae suscipit justo. Mauris pharetra feugiat ante id lacinia.
                 Etiam faucibus mauris id tempor egestas. Duis luctus turpis at accumsan
                 tincidunt. Phasellus risus risus, volutpat vel tellus ac, tincidunt
@@ -116,8 +101,8 @@ const Card = ({ img }) => {
                 tincidunt. Phasellus risus risus, volutpat vel tellus ac, tincidunt
                 fringilla massa. Etiam hendrerit dolor eget rutrum
             </p>
-            <p style={{ fontStyle: "italic", marginTop: 25, textAlign: 'right' }}>
-                <span style={{ fontWeight: 800 }}>Jack Sparrow</span> ,
+            <p className="testimonial-client">
+                <span className="testimonial-client-name">Jack Sparrow</span> ,
                 Media Analyst
             </p>
         </div>
