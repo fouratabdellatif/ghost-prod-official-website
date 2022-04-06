@@ -37,18 +37,19 @@
 }
 
 .homeslider-content h1 {
-  font-size: 40px;
-  font-weight: 400;
+  font-size: 36px;
+  font-weight: 800;
   text-transform: uppercase;
   text-shadow: 0px 0px 20px rgba(0, 0, 0, 0.4);
   text-align: center;
   margin: 26px auto;
+  max-width: 800px;
 }
 
 .homeslider-content h3 {
   color: #e1a33b;
   font-size: 22px;
-  font-weight: 400;
+  font-weight: 800;
   text-transform: uppercase;
   text-shadow: 0px 0px 20px rgba(0, 0, 0, 0.4);
   text-align: center;
