@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/heading-has-content */
 import React, { useState } from 'react'
 import Slider from 'react-slick';
 import '../assets/css/HomeSlider.css';
@@ -91,9 +92,9 @@ const HomeSlider = () => {
                             <img className='home-video' src={item.image} alt='' />
                         )}
                         <div className='homeslider-content'>
-                            <h3 data-aos="fade-left">Votre boîte de production audiovisuelle</h3>
-                            <h2 className='divider'></h2>
-                            <h1 data-aos="fade-left">{item.title}</h1>
+                            <h3 data-aos="fade-down">Votre boîte de production audiovisuelle</h3>
+                            <h2 data-aos='fade' className='divider'></h2>
+                            <h1 data-aos="fade-up">{item.title}</h1>
                         </div>
                     </div>
                 )
