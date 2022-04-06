@@ -1,5 +1,6 @@
 import React from 'react'
 import BlogSection from '../components/BlogSection'
+import HomeSlider from '../components/HomeSlider'
 import HomeStart from '../components/HomeStart'
 import InfoSection from '../components/InfoSection'
 import PartnershipsSection from '../components/PartnershipsSection'
@@ -12,7 +13,8 @@ import { SliderData } from '../data/SliderData'
 const HomePage = () => {
     return (
         <>
-            <HomeStart slides={SliderData} />
+            {/* <HomeStart slides={SliderData} /> */}
+            <HomeSlider />
             <InfoSection {...InfoData} />
             <ProjectsSection />
             <TeamSection />
