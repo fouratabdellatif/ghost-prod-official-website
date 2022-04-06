@@ -68,7 +68,7 @@
   content: "";
   flex: 1;
   background: #ffffff;
-  padding: 50px 0;
+  padding: 10px 0;
   height: 10px;
   transform: rotate(45deg);
 }
@@ -79,9 +79,9 @@
   align-items: center;
   background: #e1a33b;
   color: #000000;
-  height: 4px;
+  height: 3px;
   line-height: 10px;
-  width: 800px;
+  width: 200px;
   margin: auto;
 }
 
