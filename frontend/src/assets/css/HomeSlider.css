@@ -63,14 +63,13 @@
   text-shadow: 0px 0px 20px rgba(0, 0, 0, 0.4);
 }
 
-.divider::before,
-.divider::after {
+.divider::before {
   content: "";
   flex: 1;
   background: #ffffff;
   padding: 10px 0;
   height: 10px;
-  transform: rotate(45deg);
+  transform: rotate(40deg);
 }
 
 .divider {
