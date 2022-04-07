@@ -53,7 +53,7 @@ const PartnershipsSection = () => {
         <section className='partnerships-section'>
             <div className='partnerships-container'>
                 <div className='part-section'>
-                    <SectionTitle title="Nos Clients & Références" />
+                    <SectionTitle miniTitle="Nos Clients " title="& Références" />
                     <p data-aos="slide-right" className='part-msg'>Ils font partie de ceux qui ont choisi GhostProd</p>
                 </div>
                 <div className='part-section'>

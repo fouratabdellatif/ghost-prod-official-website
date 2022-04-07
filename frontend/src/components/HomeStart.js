@@ -105,7 +105,7 @@ const HomeStart = ({ slides }) => {
                     <IoArrowForward className='arrow-btns' onClick={nextSlide} />
                 </div>
             </div>
-        </section >
+        </section>
     )
 }
 

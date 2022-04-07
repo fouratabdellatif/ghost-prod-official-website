@@ -1,5 +1,5 @@
 .footer-container {
-  background-color: #d2cccc;
+  background-color: #f3f3f3;
   padding: 4rem 0 0 0;
   display: flex;
   flex-direction: column;
@@ -268,7 +268,7 @@ a:hover i::before {
   }
 
   .social-media {
-    margin-top: 580px;
+    margin-top: 520px;
   }
 
   .social-media-wrap {

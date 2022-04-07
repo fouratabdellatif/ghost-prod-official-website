@@ -1,9 +1,9 @@
 import React from 'react'
 import '../assets/css/SectionTitle.css'
 
-const SectionTitle = ({ title }) => {
+const SectionTitle = ({ miniTitle, title }) => {
     return (
-        <h1 className='section-title' data-aos="fade-right">{title}</h1>
+        <h1 className='section-title' data-aos="fade-right"><span>{miniTitle}</span>{title}</h1>
     )
 }
 

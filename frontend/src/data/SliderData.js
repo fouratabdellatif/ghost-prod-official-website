@@ -12,7 +12,7 @@ export const SliderData = [
     {
         title: 'POUR CONCEVOIR ET PRODUIRE VOS FILMS ET CONTENUS VIDEOS',
         path: '/homes',
-        image: imageOne,
+        // image: imageOne,
         video: videoOne,
         alt: 'video'
     },
@@ -20,21 +20,21 @@ export const SliderData = [
         title: "POUR ENGAGER VOS AUDIENCES À PASSER À L'ACTION",
         path: '/homes',
         image: imageTwo,
-        video: videoTwo,
+        // video: videoTwo,
         alt: 'video'
     },
     {
         title: 'POUR FACILITER VOTRE BUSINESS',
         path: '/homes',
         image: imageThree,
-        video: videoThree,
+        // video: videoThree,
         alt: 'video'
     },
     {
         title: 'POUR VOUS RENDRE INOUBLIABLE',
         path: '/homes',
         image: imageFour,
-        video: videoFour,
+        // video: videoFour,
         alt: 'video'
     },
 ]
