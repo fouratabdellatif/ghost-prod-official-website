@@ -1,5 +1,6 @@
 import imageOne from '../assets/images/image1.jpg';
 import imageTwo from '../assets/images/image2.jpg';
+import imageThree from '../assets/images/image3.png';
 
 import videoOne from '../assets/videos/video1.mp4';
 import videoTwo from '../assets/videos/video2.mp4';
@@ -16,6 +17,13 @@ export const BlogData = [
         category: 'conseil',
         text: 'Comment bien choisir une agence audiovisuelle?',
         image: imageOne,
+        video: videoOne,
+        alt: 'post'
+    },
+    {
+        category: 'conseil',
+        text: 'Comment bien choisir une agence audiovisuelle?',
+        image: imageThree,
         video: videoOne,
         alt: 'post'
     },
