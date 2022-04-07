@@ -2,6 +2,7 @@
 import React, { useState } from 'react'
 import Slider from 'react-slick';
 import '../assets/css/HomeSlider.css';
+import '../assets/css/HomeStart.css';
 import { SliderData } from '../data/SliderData';
 import { SliderHomeWrapper } from './Sliders/_SlickSliderStyle';
 
