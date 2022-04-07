@@ -89,11 +89,20 @@
   } */
 
   .logo-container {
-    padding: 10px 0;
+    padding: 20px 0;
+    margin-left: -20px;
+  }
+
+  .logo-container.active {
+    padding: 0;
     margin-left: -20px;
   }
 
   .logo-image {
-    height: 60px;
+    height: 30px;
+  }
+
+  .logo-image.active {
+    height: 26px;
   }
 }
