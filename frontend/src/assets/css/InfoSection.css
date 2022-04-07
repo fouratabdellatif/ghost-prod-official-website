@@ -99,7 +99,7 @@
   color: #e1a33b;
   font-weight: 500;
   cursor: pointer;
-  transition: 0.3s all ease-in-out;
+  transition: 0.3s all ease-in-out !important;
 }
 
 .show-more:hover {
@@ -109,7 +109,6 @@
 }
 
 @media screen and (max-width: 1200px) {
-
   .info-column-right {
     padding: 1rem 2rem;
     margin: auto;
