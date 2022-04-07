@@ -1,12 +1,12 @@
-import imageOne from '../assets/images/image1.jpg';
+// import imageOne from '../assets/images/image1.jpg';
 import imageTwo from '../assets/images/image2.jpg';
 import imageThree from '../assets/images/image3.png';
 import imageFour from '../assets/images/image4.jpg';
 
 import videoOne from '../assets/videos/video1.mp4';
-import videoTwo from '../assets/videos/video2.mp4';
-import videoThree from '../assets/videos/video3.mp4';
-import videoFour from '../assets/videos/video4.mp4';
+// import videoTwo from '../assets/videos/video2.mp4';
+// import videoThree from '../assets/videos/video3.mp4';
+// import videoFour from '../assets/videos/video4.mp4';
 
 export const SliderData = [
     {
