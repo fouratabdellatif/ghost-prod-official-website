@@ -9,7 +9,7 @@ import { MdOutlineArrowForwardIos } from 'react-icons/md'
 const BlogSection = () => {
     return (
         <section className='blog-section'>
-            <SectionTitle title="Nos Actualités" />
+            <SectionTitle miniTitle="Nos " title="Actualités" />
             <div className='blog-container'>
                 {BlogData.map((item, index) => (
                     <PostCard

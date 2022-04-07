@@ -10,45 +10,45 @@ function Footer() {
             <div className='footer-links'>
                 <div className='footer-link-wrapper'>
                     <div className='footer-link-items isLogo'>
-                        <div data-aos='slide-right' className='footer-logo'>
+                        <div className='footer-logo'>
                             <Link to='/' className='social-logo'>
                                 <img src={gpLogoDark} alt='logo-ghostprod' />
                             </Link>
                         </div>
-                        <p data-aos='fade-up'>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
                     </div>
                     <div className='footer-link-items'>
-                        <h2 data-aos='slide-right'>Contact Info</h2>
+                        <h2>Contact Info</h2>
                         <hr className="solid" />
-                        <div data-aos='fade-up' className="material-icons">
+                        <div className="material-icons">
                             <i className="fas fa-map-marker-alt"></i>
                             <span> Immeuble Malek, Bloc B, étage 4, Appt 3</span>
                             <span> Boulevard de la terre, Centre Urbain Nord</span>
                         </div>
-                        <div data-aos='fade-up' className="material-icons">
+                        <div className="material-icons">
                             <i className="fas fa-phone-alt"></i>
                             <a href="tel:+21622926686"> 00 216 22 92 66 86</a>
                         </div>
-                        <div data-aos='fade-up' className="material-icons">
+                        <div className="material-icons">
                             <i className="fas fa-envelope"></i>
                             <a href="mailto:contact@ghostprod.net"> contact@ghostprod.net</a>
                         </div>
                     </div>
                     <div className='footer-link-items'>
-                        <h2 data-aos='slide-right'>More on the Blog</h2>
+                        <h2>More on the Blog</h2>
                         <hr className="solid" />
-                        <Link data-aos='fade-up' to='/contact'><span1><i className="fas fa-chevron-right"></i>&nbsp;&nbsp;Contact us</span1></Link>
-                        <Link data-aos='fade-up' to='/'><span1><i className="fas fa-chevron-right"></i>&nbsp;&nbsp;Contributors And Writers</span1></Link>
-                        <Link data-aos='fade-up' to='/'><span1><i className="fas fa-chevron-right"></i>&nbsp;&nbsp;Write for us</span1></Link>
-                        <Link data-aos='fade-up' to='/about-us'><span1><i className="fas fa-chevron-right"></i>&nbsp;&nbsp;A propos de GhostProd</span1></Link>
-                        <Link data-aos='fade-up' to='/privacy'><span1><i className="fas fa-chevron-right"></i>&nbsp;&nbsp;Privacy Policy</span1></Link>
+                        <Link to='/contact'><span1><i className="fas fa-chevron-right"></i>&nbsp;&nbsp;Contact us</span1></Link>
+                        <Link to='/'><span1><i className="fas fa-chevron-right"></i>&nbsp;&nbsp;Contributors And Writers</span1></Link>
+                        <Link to='/'><span1><i className="fas fa-chevron-right"></i>&nbsp;&nbsp;Write for us</span1></Link>
+                        <Link to='/about-us'><span1><i className="fas fa-chevron-right"></i>&nbsp;&nbsp;A propos de GhostProd</span1></Link>
+                        <Link to='/privacy'><span1><i className="fas fa-chevron-right"></i>&nbsp;&nbsp;Privacy Policy</span1></Link>
                     </div>
                     <div className='footer-link-items'>
-                        <h2 data-aos='slide-right'>More on GhostProd</h2>
+                        <h2>More on GhostProd</h2>
                         <hr className="solid" />
-                        <Link data-aos='fade-up' to='/team'><span1><i className="fas fa-chevron-right"></i>&nbsp;&nbsp;The Team</span1></Link>
-                        <Link data-aos='fade-up' to='/jobs'><span1><i className="fas fa-chevron-right"></i>&nbsp;&nbsp;Jobs</span1></Link>
-                        <Link data-aos='fade-up' to='/press'><span1><i className="fas fa-chevron-right"></i>&nbsp;&nbsp;Press</span1></Link>
+                        <Link to='/team'><span1><i className="fas fa-chevron-right"></i>&nbsp;&nbsp;The Team</span1></Link>
+                        <Link to='/jobs'><span1><i className="fas fa-chevron-right"></i>&nbsp;&nbsp;Jobs</span1></Link>
+                        <Link to='/press'><span1><i className="fas fa-chevron-right"></i>&nbsp;&nbsp;Press</span1></Link>
                     </div>
                 </div>
             </div>

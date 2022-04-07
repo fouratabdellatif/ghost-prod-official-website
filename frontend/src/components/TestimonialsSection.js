@@ -8,7 +8,7 @@ const TestimonialsSection = () => {
     return (
         <section className='testimonial-section'>
             <div className='title-container'>
-                <SectionTitle title="Témoignages" />
+                <SectionTitle miniTitle="Nos " title="Témoignages" />
             </div>
             <div className='testimonial-container'>
                 <Testimonial />

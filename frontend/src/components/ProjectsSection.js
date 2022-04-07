@@ -9,7 +9,7 @@ import { MdOutlineArrowForwardIos } from 'react-icons/md'
 const ProjectsSection = () => {
     return (
         <section className='projects-section'>
-            <SectionTitle title="Nos Projets" />
+            <SectionTitle miniTitle="Nos " title="Projets" />
             <div className='projects-container'>
                 {ProjectsData.map((item, index) => (
                     <ProjectCard

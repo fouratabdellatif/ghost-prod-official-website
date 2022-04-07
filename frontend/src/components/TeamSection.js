@@ -54,7 +54,7 @@ const TeamSection = () => {
 
     return (
         <section className='team-section'>
-            <SectionTitle title="Notre équipe" />
+            <SectionTitle miniTitle="Notre " title="équipe" />
             <div className='team-container'>
                 <CardSlider settings={settings} data={TeamData} />
             </div>
