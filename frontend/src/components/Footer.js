@@ -1,7 +1,7 @@
 import React from 'react';
 import '../assets/css/Footer.css'
 import { Link } from 'react-router-dom';
-import gpLogoDark from '../assets/images/ghostprodLogoDark.png';
+import gpLogoDark from '../assets/images/logoDark.png';
 
 
 function Footer() {
@@ -12,7 +12,7 @@ function Footer() {
                     <div className='footer-link-items isLogo'>
                         <div className='footer-logo'>
                             <Link to='/' className='social-logo'>
-                                <img src={gpLogoDark} alt='logo-ghostprod' />
+                                <img src={gpLogoDark} className='footer-gp-logo' alt='logo-ghostprod' />
                             </Link>
                         </div>
                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>

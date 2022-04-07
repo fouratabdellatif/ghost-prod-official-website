@@ -36,7 +36,7 @@
   height: 80px;
   transition: 0.3s ease-in;
   background-color: #000000ce;
-  margin-top: -8px;
+  margin-top: -10px;
   padding: 10px;
   transition: 0.3s ease-in;
 }
@@ -50,14 +50,14 @@
 }
 
 .logo-image {
-  height: 80px;
+  height: 40px;
   margin: auto;
   display: block;
   transition: 0.3s ease-in;
 }
 
 .logo-image.active {
-  height: 60px;
+  height: 30px;
   margin: auto;
   display: block;
   transition: 0.3s ease-in;
