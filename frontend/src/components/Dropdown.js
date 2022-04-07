@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import styled from 'styled-components'
 import { menuData } from '../data/MenuData'
 import { PrimaryButton } from './Button';
-import gpLogo from '../assets/images/ghostprodLogo.png';
+import gpLogo from '../assets/images/logoLight.png';
 
 const DropdownContainer = styled.div`
 position: fixed;
@@ -188,6 +188,15 @@ const SocialMediaItem = styled.a`
     }
 `;
 
+const LogoImage = styled.img`
+height: 50px;
+transition: 0.3s ease-in;
+background-color: #000000ce;
+margin-top: -28px;
+padding: 10px;
+transition: 0.3s ease-in;
+`;
+
 const Dropdown = ({ isOpen, toggle }) => {
     return (
         <DropdownContainer isOpen={isOpen} onClick={toggle}>
@@ -200,7 +209,7 @@ const Dropdown = ({ isOpen, toggle }) => {
                     marginTop: '-40px'
                 }}>
                     <Link className="logo" to="/">
-                        <img className="logo-container active" src={gpLogo} alt="Logo" />
+                        <LogoImage src={gpLogo} alt="Logo" />
                     </Link>
                     <BtnWrap>
                         <PrimaryButton primary="true" round="true" big="true" to="/contact">

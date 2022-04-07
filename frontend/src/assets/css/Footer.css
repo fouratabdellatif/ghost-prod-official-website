@@ -8,7 +8,11 @@
 }
 
 .footer-logo {
-  margin: -30px auto auto auto;
+  margin: -20px auto 10px auto;
+}
+
+.footer-gp-logo {
+  height: 28px;
 }
 
 .footer-links {
@@ -282,6 +286,7 @@ a:hover i::before {
 
   .footer-logo {
     margin-top: -60px;
+    margin-bottom: -60px;
   }
 
   .social-logo {
