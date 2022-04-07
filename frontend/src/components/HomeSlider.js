@@ -58,28 +58,6 @@ const HomeSlider = () => {
     }
 
     return (
-
-
-        // <div>
-        //     <Slider duration={2000} autoplay={5000} className="slider-wrapper">
-        //         {SliderData.map((item, index) => (
-        //             <div
-        //                 onClick={handleVideoMute}
-        //                 key={index}
-        //                 className="slider-content"
-        //                 style={{ background: item.image && `url('${item.image}') no-repeat center center` }}
-        //             >
-        //                 <video className='home-video' src={item.video} data-aos="fade-right" autoPlay loop muted={isMuted} />
-        //                 <div className="inner">
-        //                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-        //                     <h1>{item.title}</h1>
-        //                 </div>
-        //             </div>
-        //         ))}
-        //     </Slider>
-        // </div>
-
-
         <SliderHomeWrapper>
             <Slider
                 {...settings}
