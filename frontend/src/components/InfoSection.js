@@ -21,7 +21,7 @@ const InfoSection = ({
 
     return (
         <>
-            <ModalVideo channel='youtube' autoplay isOpen={isOpen} videoId="c2QTAMJOBe8" onClose={() => setOpen(false)} />
+            <ModalVideo channel='youtube' autoplay isOpen={isOpen} videoId="WjnsXb3K9O8" onClose={() => setOpen(false)} />
             <section className='info-section' data-aos="fade">
                 <div className='info-container'>
                     <div className='info-column-left' onClick={() => setOpen(true)}>
