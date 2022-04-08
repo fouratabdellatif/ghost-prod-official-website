@@ -132,7 +132,7 @@ export const SliderWrapper = styled("div")`
 
     color: #ffffff;
     background: #e1a33b;
-    z-index: 99999;
+    z-index: 9;
     transition: 0.3 all ease-in-out;
   }
   .slick-prev:hover,
