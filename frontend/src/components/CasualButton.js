@@ -9,7 +9,7 @@ const CasualButton = ({ link, text, icon }) => {
                 <PrimaryButton
                     style={{
                         height: '100%',
-                        textTransform: 'initial',
+                        textTransform: 'uppercase',
                     }}
                     to={link}
                     primary='true'
