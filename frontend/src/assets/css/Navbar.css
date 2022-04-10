@@ -35,7 +35,7 @@
 .logo-container.active {
   height: 80px;
   transition: 0.3s ease-in;
-  background-color: #000000ce;
+  background-color: rgba(0, 0, 0, 0.9);
   margin-top: -10px;
   padding: 10px;
   transition: 0.3s ease-in;
@@ -50,23 +50,28 @@
 }
 
 .logo-image {
-  height: 40px;
-  margin: auto;
-  display: block;
-  transition: 0.3s ease-in;
-}
-
-.logo-image.active {
   height: 30px;
   margin: auto;
   display: block;
   transition: 0.3s ease-in;
 }
 
+.logo-image.active {
+  height: 26px;
+  margin: auto;
+  display: block;
+  transition: 0.3s ease-in;
+}
+
 .nav-menu {
-  display: none;
-  align-items: center;
-  margin-right: -48px;
+  display: flex;
+  margin-top: -10px;
+}
+
+.nav-menu.active {
+  background-color: rgba(0, 0, 0, 0.9);
+  transition: 0.3s ease-in;
+  margin-top: -10px;
 }
 
 .nav-menu-link {
@@ -77,10 +82,26 @@
   height: 100%;
   cursor: pointer;
   text-decoration: none;
+  text-transform: uppercase;
+  font-size: 14px;
+  transition: all 0.3s ease-in-out;
+}
+
+.nav-menu-link:hover {
+  color: #e1a33b;
+  border-bottom: #e1a33b solid 1px;
+  transition: all 0.3s ease-in-out;
 }
 
 .right-side-menu {
   margin-top: -10px;
+  right: 0;
+}
+
+@media screen and (max-width: 1000px) {
+  .nav-menu {
+    display: none;
+  }
 }
 
 @media screen and (max-width: 768px) {

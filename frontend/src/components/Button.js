@@ -30,7 +30,7 @@ display: flex;
 /* align-items: center;
 justify-content: center; */
 color: #231f20;
-font-size: 22px;
+font-size: 18px;
 text-align: center;
 font-weight: 500;
 text-decoration: none;
