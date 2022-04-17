@@ -1,7 +1,5 @@
 import React from 'react'
-// import Article from '../components/Blog/Article'
 import CasualPage from './CasualPage'
-// import News from '../components/Blog/News'
 import bgImage from '../assets/images/bg02.jpg'
 import PaginatedItems from '../components/Blog/PaginatedItems'
 import { BlogPageData } from '../data/BlogData'
@@ -17,8 +15,6 @@ const BlogPage = () => {
                     <PaginatedItems itemsPerPage={6} items={BlogPageData} />
                 </>
             } />
-            {/* <Article /> */}
-            {/* <News /> */}
         </>
     )
 }
