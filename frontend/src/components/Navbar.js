@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 // import Bars from '../images/bars.svg';
 import { FaBars } from 'react-icons/fa';
 import gpLogo from '../assets/images/logoLight.png';
@@ -32,9 +32,9 @@ const Navbar = ({ toggle }) => {
             </div>
             <div className={navbar ? "nav-menu active" : "nav-menu"}>
                 {navbarData.map((item, index) => (
-                    <Link className="nav-menu-link" to={item.link} key={index}>
+                    <NavLink exact className="nav-menu-link" activeClassName="nav-menu-link active" to={item.link} key={index}>
                         {item.title}
-                    </Link>
+                    </NavLink>
                 ))}
             </div>
             <div className="right-side-menu">
