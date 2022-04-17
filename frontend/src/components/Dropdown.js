@@ -11,7 +11,7 @@ position: fixed;
 z-index: 999;
 width: 100%;
 height: 100%;
-background: #e1a33b;
+background: #f3f3f3;
 display: grid;
 align-items: center;
 /* left: 0; */
@@ -74,7 +74,7 @@ margin: auto auto auto 0;
 text-transform: uppercase;
 
 &:hover {
-    color: #e1a33b;
+    color: #f3f3f3;
 }
 
 &::before {
@@ -83,7 +83,7 @@ text-transform: uppercase;
   left: 0;
   width: 0%;
   height: 100%;
-  background: #231f20;
+  background: #e1a33b;
   z-index: -1;
   transition: 0.8s;
   bottom: 0;
