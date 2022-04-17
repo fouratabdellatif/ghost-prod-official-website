@@ -118,7 +118,7 @@
   } */
 
   .logo-container {
-    padding: 20px 0;
+    padding: 0;
     margin-left: -20px;
   }
 
@@ -128,10 +128,10 @@
   }
 
   .logo-image {
-    height: 30px;
+    height: 26px;
   }
 
   .logo-image.active {
-    height: 26px;
+    height: 24px;
   }
 }
