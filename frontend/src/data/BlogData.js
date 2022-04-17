@@ -28,3 +28,69 @@ export const BlogData = [
         alt: 'post'
     },
 ]
+
+export const BlogPageData = [
+    {
+        category: 'offre',
+        text: "Quel est le prix d'une vidéo en motion design?",
+        image: imageTwo,
+        video: videoTwo,
+        alt: 'post'
+    },
+    {
+        category: 'conseil',
+        text: 'Comment bien choisir une agence audiovisuelle?',
+        image: imageOne,
+        video: videoOne,
+        alt: 'post'
+    },
+    {
+        category: 'conseil',
+        text: 'Comment bien choisir une agence audiovisuelle?',
+        image: imageThree,
+        video: videoOne,
+        alt: 'post'
+    },
+    {
+        category: 'offre',
+        text: "Quel est le prix d'une vidéo en motion design?",
+        image: imageTwo,
+        video: videoTwo,
+        alt: 'post'
+    },
+    {
+        category: 'conseil',
+        text: 'Comment bien choisir une agence audiovisuelle?',
+        image: imageOne,
+        video: videoOne,
+        alt: 'post'
+    },
+    {
+        category: 'conseil',
+        text: 'Comment bien choisir une agence audiovisuelle?',
+        image: imageThree,
+        video: videoOne,
+        alt: 'post'
+    },
+    {
+        category: 'offre',
+        text: "Quel est le prix d'une vidéo en motion design?",
+        image: imageTwo,
+        video: videoTwo,
+        alt: 'post'
+    },
+    {
+        category: 'conseil',
+        text: 'Comment bien choisir une agence audiovisuelle?',
+        image: imageOne,
+        video: videoOne,
+        alt: 'post'
+    },
+    {
+        category: 'conseil',
+        text: 'Comment bien choisir une agence audiovisuelle?',
+        image: imageThree,
+        video: videoOne,
+        alt: 'post'
+    },
+]

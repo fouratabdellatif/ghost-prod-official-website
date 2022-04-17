@@ -7,7 +7,9 @@
 }
 
 .blog-container {
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
   margin: 0 auto 0 auto;
   min-height: 70vh;
 }
