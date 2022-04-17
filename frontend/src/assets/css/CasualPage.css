@@ -42,3 +42,23 @@
   align-items: center;
   background-color: #ffffff;
 }
+
+@media screen and (max-width: 1200px) {
+  .page-title {
+    font-size: 34px;
+  }
+  
+  .mini-title {
+    font-size: 22px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .page-title {
+    font-size: 30px;
+  }
+  
+  .mini-title {
+    font-size: 18px;
+  }
+}
