@@ -6,7 +6,7 @@
   transition: 0.3s;
   animation: ease-in;
   position: relative;
-  margin: auto 10px;
+  margin: auto auto;
   cursor: pointer;
   display: block;
 }
