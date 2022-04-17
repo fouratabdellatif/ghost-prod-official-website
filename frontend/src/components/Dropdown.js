@@ -116,10 +116,10 @@ font-size: 26px;
 }
 
 @media screen and (max-width: 768px) {
-padding: 8px 8px;
+padding: 4px;
 align-items: center;
 justify-content: center;
-font-size: 16px;
+font-size: 20px;
 margin: auto;
 
 &:nth-child(3) {
@@ -137,6 +137,9 @@ justify-content: center;
 height: 60px;
 width: 100%;
 top: 0;
+@media screen and (max-width: 768px) {
+    display: none;
+}
 `;
 
 const SocialMediaWrapper = styled.div`
@@ -186,6 +189,10 @@ const SocialMediaItem = styled.a`
     &:hover::after {
         width: 0;
     }
+
+@media screen and (max-width: 768px) {
+    font-size: 14px;
+}
 `;
 
 const LogoImage = styled.img`
