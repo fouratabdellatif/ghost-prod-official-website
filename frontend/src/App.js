@@ -11,6 +11,7 @@ import ScrollToTopButton from "./components/ScrollToTopButton";
 import LoadingScreen from "./components/LoadingScreen";
 import { Route, Switch } from "react-router-dom";
 import BlogPage from "./pages/BlogPage";
+import AboutUsPage from "./pages/AboutUsPage";
 
 function App() {
 
@@ -51,6 +52,7 @@ function App() {
       <Switch>
         <Route path='/' exact component={HomePage} />
         <Route path='/blog' exact component={BlogPage} />
+        <Route path='/about-us' exact component={AboutUsPage} />
       </Switch>
       
       <Footer />
