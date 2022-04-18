@@ -1,0 +1,98 @@
+.contact-form-container {
+  background-color: #ffffff;
+  width: 90%;
+  min-width: 400px;
+  padding: 50px;
+}
+
+.contact-title {
+  text-transform: uppercase;
+  font-size: 40px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.custom-divider {
+  display: flex;
+  overflow: hidden;
+  align-items: center;
+  background: #e1a33b;
+  color: #000000;
+  height: 3px;
+  line-height: 10px;
+  width: 200px;
+  margin: 0 auto 40px auto;
+}
+
+.contact-form {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  grid-template-rows: 50px 160px 40px;
+  grid-gap: 10px;
+  background: #ffffff;
+  padding: 20px;
+  width: 100%;
+}
+
+.contact-form-first {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  column-gap: 10px;
+  width: 100%;
+}
+
+.contact-form-first.second {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.contact-form-second {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: 100px;
+  column-gap: 10px;
+}
+
+.contact-form-third {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  grid-template-rows: 50px;
+  row-gap: 20px;
+}
+
+.send-button {
+  height: 40px;
+  width: 100px;
+  margin-left: auto;
+  margin-right: 0;
+}
+
+@media screen and (max-width: 1200px) {
+}
+
+@media screen and (max-width: 768px) {
+  .contact-form-container {
+    width: 100%;
+    padding: 10px;
+  }
+
+  .contact-title {
+    font-size: 24px;
+  }
+
+  .contact-form,
+  .contact-form-first,
+  .contact-form-first.second,
+  .contact-form-second,
+  .contact-form-third {
+    display: block;
+  }
+
+  .btn-wrapper {
+    margin-top: 80px;
+  }
+
+  .send-button {
+    margin-left: auto;
+    margin-right: 0;
+  }
+}
