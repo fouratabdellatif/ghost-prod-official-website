@@ -5,5 +5,5 @@ export const menuData = [
     { title: 'Savoir-Faire', link: '/savoir-faire' },
     { title: 'Réalisations', link: '/realisations' },
     { title: 'Blog', link: '/blog' },
-    { title: 'Contact', link: '/contact-us' },
+    { title: 'Contact', link: '/contact' },
 ]
