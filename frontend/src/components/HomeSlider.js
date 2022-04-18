@@ -64,7 +64,7 @@ const HomeSlider = () => {
                 {...settings}
             >
                 {SliderData.map((item, index) => (
-                    <div className="home-video-container" key={index} onClick={handleVideoMute}>
+                    <div className="home-video-container" key={index} onClick={item.video && handleVideoMute}>
                         {item.video ? (
                             <video className='home-video' src={item.video} data-aos="fade-right" autoPlay loop muted={isMuted} />
                         ) : (
