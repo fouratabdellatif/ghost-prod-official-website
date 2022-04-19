@@ -1,23 +1,30 @@
 /* eslint-disable jsx-a11y/heading-has-content */
 import Input from "../Input/Input";
-import '../../assets/css/ContactForm.css';
+import '../../assets/css/JobForm.css';
 import { Button } from "../Button";
+import Select from "../Input/Select";
 
-const ContactForm = () => {
+const JobForm = () => {
+
+    const options = [
+        { value: "1", label: "alternance" },
+        { value: "2", label: "stage" },
+        { value: "3", label: "contrat pro" },
+    ]
 
     return (
-        <div className="contact-form-container">
-            <h1 className="contact-title">Let's Work Together</h1>
+        <div className="job-form-container">
+            <h1 className="job-title">Join Us Now</h1>
             <h2 className='custom-divider'></h2>
-            <form className="contact-form">
-                <div className="contact-form-first">
+            <form className="job-form">
+                <div className="job-form-first">
                     <Input
                         placeholder="How can we help you?"
                     />
                 </div>
-                <div className="contact-form-first second">
-                    <div className="contact-form-second">
-                        <div className="contact-form-third">
+                <div className="job-form-first second">
+                    <div className="job-form-second">
+                        <div className="job-form-third">
                             <Input
                                 placeholder="Name"
                             />
@@ -25,23 +32,25 @@ const ContactForm = () => {
                                 placeholder="Email"
                             />
                         </div>
-                        <div className="contact-form-third">
+                        <div className="job-form-third">
                             <Input
                                 placeholder="Phone"
                             />
-                            <Input
-                                placeholder="Organization"
+                            <Select
+                                placeholder="Choix"
+                                options={options}
+                                title="Choix"
                             />
                         </div>
                     </div>
-                    <div className="contact-form-second.second">
+                    <div className="job-form-second.second">
                         <Input
                             placeholder="Message"
                             textarea
                         />
                     </div>
                 </div>
-                <div className="contact-form-first">
+                <div className="job-form-first">
                     <div className="btn-wrapper">
                         <Button className="send-button" type="submit">
                             Send
@@ -53,4 +62,4 @@ const ContactForm = () => {
     );
 };
 
-export default ContactForm;
+export default JobForm;

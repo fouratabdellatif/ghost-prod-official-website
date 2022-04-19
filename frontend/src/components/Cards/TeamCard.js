@@ -1,13 +1,16 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import '../../assets/css/TeamCard.css';
 
 function TeamCard({ item }) {
     return (
         <div className="team-card-wrapper">
             <div className="team-card">
-                <div className="team-card-image">
-                    <img src={item.image} alt='team_member' />
-                </div>
+                <Link className='member-link' to={item.link}>
+                    <div className="team-card-image">
+                        <img src={item.image} alt='team_member' />
+                    </div>
+                </Link>
                 <ul className="social-icons-cards">
                     <li>
                         <a
@@ -43,11 +46,13 @@ function TeamCard({ item }) {
                         </a>
                     </li>
                 </ul>
-                <div className="member-details">
-                    <h2>
-                        {item.firstname} {item.lastname} <span className="job-title">{item.spec}</span>
-                    </h2>
-                </div>
+                <Link className='member-link' to={item.link}>
+                    <div className="member-details">
+                        <h2>
+                            {item.firstname} {item.lastname} <span className="job-title">{item.spec}</span>
+                        </h2>
+                    </div>
+                </Link>
             </div>
         </div>
     )
