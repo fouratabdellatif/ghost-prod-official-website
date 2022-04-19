@@ -13,6 +13,7 @@ import { Route, Switch } from "react-router-dom";
 import BlogPage from "./pages/BlogPage";
 import AboutUsPage from "./pages/AboutUsPage";
 import ContactPage from "./pages/ContactPage";
+import TeamPage from "./pages/TeamPage";
 
 function App() {
 
@@ -55,8 +56,9 @@ function App() {
         <Route path='/blog' component={BlogPage} />
         <Route path='/about-us' component={AboutUsPage} />
         <Route path='/contact' component={ContactPage} />
+        <Route path='/team' component={TeamPage} />
       </Switch>
-      
+
       <Footer />
     </>
   );

@@ -10,13 +10,14 @@ min-width: 100px;
 max-width: 200px;
 cursor: pointer;
 text-decoration: none;
+text-transform: uppercase;
 transition: 0ms.3s;
 display: flex;
 justify-content: center;
 align-items: center;
 padding: ${({ big }) => (big ? '16px 40px' : '12px 24px')};
 color: ${({ primary }) => (primary ? '#000000' : '#ffffff')};
-font-size: ${({ big }) => (big ? '20px' : '14px')};
+font-size: ${({ big }) => (big ? '20px' : '16px')};
     transition: all 0.3s ease-in-out;
 
 &:hover {
