@@ -1,7 +1,7 @@
 import React from 'react'
-import '../assets/css/TestimonialsSection.css';
+import '../../assets/css/TestimonialsSection.css';
 import SectionTitle from './SectionTitle';
-import Testimonial from './Testimonial';
+import Testimonial from '../Testimonial';
 
 const TestimonialsSection = () => {
 

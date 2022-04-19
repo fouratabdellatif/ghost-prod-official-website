@@ -1,5 +1,5 @@
 import React from 'react'
-import '../assets/css/SectionTitle.css'
+import '../../assets/css/SectionTitle.css'
 
 const SectionTitle = ({ miniTitle, title }) => {
     return (
