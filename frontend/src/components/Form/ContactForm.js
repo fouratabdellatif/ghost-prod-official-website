@@ -44,7 +44,7 @@ const ContactForm = () => {
                 <div className="contact-form-first">
                     <div className="btn-wrapper">
                         <Button className="send-button" type="submit">
-                            Submit
+                            Send
                         </Button>
                     </div>
                 </div>
