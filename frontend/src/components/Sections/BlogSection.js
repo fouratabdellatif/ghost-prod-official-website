@@ -1,9 +1,9 @@
 import React from 'react'
-import { BlogData } from '../data/BlogData'
-import PostCard from './Cards/PostCard'
-import '../assets/css/BlogSection.css'
+import { BlogData } from '../../data/BlogData'
+import PostCard from '../Cards/PostCard'
+import '../../assets/css/BlogSection.css'
 import SectionTitle from './SectionTitle'
-import CasualButton from './CasualButton'
+import CasualButton from '../CasualButton'
 import { MdOutlineArrowForwardIos } from 'react-icons/md'
 
 const BlogSection = () => {

@@ -1,10 +1,10 @@
 import React from 'react'
 import { MdOutlineArrowForwardIos } from 'react-icons/md';
-import '../assets/css/TeamSection.css';
-import { TeamData } from '../data/TeamData';
-import CasualButton from './CasualButton';
+import '../../assets/css/TeamSection.css';
+import { TeamData } from '../../data/TeamData';
+import CasualButton from '../CasualButton';
 import SectionTitle from './SectionTitle';
-import CardSlider from './Sliders/CardSlider';
+import CardSlider from '../Sliders/CardSlider';
 
 const TeamSection = () => {
 

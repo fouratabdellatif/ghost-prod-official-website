@@ -1,9 +1,9 @@
 import React from 'react'
-import { ProjectsData } from '../data/ProjectsData'
-import ProjectCard from './Cards/ProjectCard'
-import '../assets/css/ProjectsSection.css'
+import { ProjectsData } from '../../data/ProjectsData'
+import ProjectCard from '../Cards/ProjectCard'
+import '../../assets/css/ProjectsSection.css'
 import SectionTitle from './SectionTitle'
-import CasualButton from './CasualButton'
+import CasualButton from '../CasualButton'
 import { MdOutlineArrowForwardIos } from 'react-icons/md'
 
 const ProjectsSection = () => {

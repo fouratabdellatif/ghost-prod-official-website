@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 // import { Button } from './Button';
 import "aos/dist/aos.css";
 // import { animations } from '../data/aosData';
-import '../assets/css/InfoSection.css';
+import '../../assets/css/InfoSection.css';
 import { BsFillPlayCircleFill } from 'react-icons/bs';
 import 'react-modal-video/scss/modal-video.scss';
 import ModalVideo from 'react-modal-video';

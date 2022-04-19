@@ -1,8 +1,8 @@
 import React from 'react'
 import SectionTitle from './SectionTitle'
-import '../assets/css/PartnershipsSection.css'
-import CardSlider from './Sliders/CardSlider'
-import { PartnersData } from '../data/PartnersData'
+import '../../assets/css/PartnershipsSection.css'
+import CardSlider from '../Sliders/CardSlider'
+import { PartnersData } from '../../data/PartnersData'
 
 const PartnershipsSection = () => {
 
