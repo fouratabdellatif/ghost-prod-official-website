@@ -2,7 +2,7 @@ import React from 'react';
 import '../../assets/css/ProjectCard.css';
 import { Link } from 'react-router-dom';
 
-function ProjectCard({ category, name, image, description }) {
+function ProjectCard({ item }) {
     return (
         <Link to='/' className='project-card-container' data-aos="slide-up"
             // style={{
@@ -13,17 +13,17 @@ function ProjectCard({ category, name, image, description }) {
         >
             <div className="project-card-content">
                 <div className="project-card-category">
-                    <h3>{category}</h3>
+                    <h3>{item.category}</h3>
                 </div>
                 <div className="project-card-name">
-                    <h2>{name}</h2>
+                    <h2>{item.name}</h2>
                 </div>
                 <div className="project-card-description">
-                    <p>{description}</p>
+                    <p>{item.description}</p>
                 </div>
             </div>
             <div className="project-image-container">
-                <img src={image} alt='' />
+                <img src={item.image} alt='' />
             </div>
         </Link>
     )

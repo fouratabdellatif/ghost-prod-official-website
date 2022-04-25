@@ -15,6 +15,7 @@ import AboutUsPage from "./pages/AboutUsPage";
 import ContactPage from "./pages/ContactPage";
 import TeamPage from "./pages/TeamPage";
 import Loader from "./components/Loader";
+import ProjectsPage from "./pages/ProjectsPage";
 
 function App() {
 
@@ -62,6 +63,7 @@ function App() {
         <Route path='/about-us' component={AboutUsPage} />
         <Route path='/contact' component={ContactPage} />
         <Route path='/team' component={TeamPage} />
+        <Route path='/realisations' component={ProjectsPage} />
       </Switch>
 
       <Footer />

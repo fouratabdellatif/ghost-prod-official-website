@@ -14,10 +14,7 @@ const ProjectsSection = () => {
                 {ProjectsData.map((item, index) => (
                     <ProjectCard
                         key={index}
-                        name={item.name}
-                        category={item.category}
-                        description={item.description}
-                        image={item.image}
+                        item={item}
                     />
                 ))}
             </div>
