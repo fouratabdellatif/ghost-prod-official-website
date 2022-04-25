@@ -8,12 +8,13 @@ import GlobalStyle from "./globalStyles";
 import HomePage from "./pages/HomePage";
 import ScrollToTop from "./components/ScrollToTop";
 import ScrollToTopButton from "./components/ScrollToTopButton";
-import LoadingScreen from "./components/LoadingScreen";
+// import LoadingScreen from "./components/LoadingScreen";
 import { Route, Switch } from "react-router-dom";
 import BlogPage from "./pages/BlogPage";
 import AboutUsPage from "./pages/AboutUsPage";
 import ContactPage from "./pages/ContactPage";
 import TeamPage from "./pages/TeamPage";
+import Loader from "./components/Loader";
 
 function App() {
 
@@ -23,7 +24,7 @@ function App() {
   useEffect(() => {
     setTimeout(() =>
       setLoading(!isLoading)
-      , 1500)
+      , 3000)
   }, []);
 
   const toggle = () => {
@@ -35,13 +36,17 @@ function App() {
   }, [])
 
   return isLoading ? (
-    <LoadingScreen
+    // <LoadingScreen
+    //   loading={isLoading}
+    //   bgColor='#292929'
+    // // spinnerColor='#000'
+    // // textColor='#676767'
+    // // logoSrc='../public/images/logo/logo.png'
+    // // text='Veuillez patienter pendant le chargement de la page...'
+    // />
+    <Loader
       loading={isLoading}
       bgColor='#292929'
-    // spinnerColor='#000'
-    // textColor='#676767'
-    // logoSrc='../public/images/logo/logo.png'
-    // text='Veuillez patienter pendant le chargement de la page...'
     />
   ) : (
     <>
