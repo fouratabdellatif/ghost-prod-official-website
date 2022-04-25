@@ -7,7 +7,7 @@ const CasualPage = ({ bg, text, title, pageTitle, pageContent }) => {
     return (
         <>
             <Helmet>
-                <title>{pageTitle} - GHOSTPROD</title>
+                <title>{pageTitle} - GHOSTPROD &copy;</title>
             </Helmet>
             <div className="starting-container" style={{
                 backgroundImage: `
