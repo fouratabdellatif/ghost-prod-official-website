@@ -12,9 +12,7 @@ function Items({ currentItems }) {
             {currentItems && currentItems.map((item, index) => (
                 <PostCard
                     key={index}
-                    name={item.text}
-                    category={item.category}
-                    image={item.image}
+                    item={item}
                 />
             ))}
         </div>

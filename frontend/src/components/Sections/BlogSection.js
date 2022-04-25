@@ -14,9 +14,7 @@ const BlogSection = () => {
                 {BlogData.map((item, index) => (
                     <PostCard
                         key={index}
-                        name={item.text}
-                        category={item.category}
-                        image={item.image}
+                        item={item}
                     />
                 ))}
             </div>
