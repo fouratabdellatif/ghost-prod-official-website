@@ -14,11 +14,11 @@
   z-index: 99999;
   display: block;
   background-size: contain;
-  height: 100%;
+  height: 38px;
   width: auto;
   cursor: pointer;
   color: #ffffff;
   background: #e1a33b;
-  padding: 6px;
+  padding: 8px;
   margin: 0;
 }
