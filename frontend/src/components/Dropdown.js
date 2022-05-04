@@ -3,12 +3,12 @@ import { FaTimes } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components'
 import { menuData } from '../data/MenuData'
-import { PrimaryButton } from './Button';
+// import { PrimaryButton } from './Button';
 import gpLogo from '../assets/images/logoLight.png';
 
 const DropdownContainer = styled.div`
 position: fixed;
-z-index: 999;
+z-index: 100;
 width: 100%;
 height: 100%;
 background: #f3f3f3;
@@ -61,7 +61,7 @@ display: flex;
 /* align-items: center;
 justify-content: center; */
 color: #231f20;
-font-size: 36px;
+font-size: 32px;
 left: 0;
 font-weight: 500;
 text-decoration: none;
@@ -83,11 +83,11 @@ text-transform: uppercase;
   left: 0;
   width: 0%;
   height: 100%;
-  background: #e1a33b;
+  background: #231f20;
   z-index: -1;
   transition: 0.8s;
   bottom: 0;
-  border-radius: 0 50% 50% 0;
+  border-radius: 0 0 0 0;
 }
 
 &:hover::before {
@@ -131,16 +131,16 @@ margin: auto;
 }
 `;
 
-const BtnWrap = styled.div`
-display: flex;
-justify-content: center;
-height: 60px;
-width: 100%;
-top: 0;
-@media screen and (max-width: 768px) {
-    display: none;
-}
-`;
+// const BtnWrap = styled.div`
+// display: flex;
+// justify-content: center;
+// height: 60px;
+// width: 100%;
+// top: 0;
+// @media screen and (max-width: 768px) {
+//     display: none;
+// }
+// `;
 
 const SocialMediaWrapper = styled.div`
     display: flex;
@@ -196,10 +196,10 @@ const SocialMediaItem = styled.a`
 `;
 
 const LogoImage = styled.img`
-height: 50px;
+height: 45px;
 transition: 0.3s ease-in;
 background-color: #000000ce;
-margin-top: -28px;
+margin-top: -30px;
 padding: 10px;
 transition: 0.3s ease-in;
 `;
@@ -218,11 +218,11 @@ const Dropdown = ({ isOpen, toggle }) => {
                     <Link className="logo" to="/">
                         <LogoImage src={gpLogo} alt="Logo" />
                     </Link>
-                    <BtnWrap>
+                    {/* <BtnWrap>
                         <PrimaryButton primary="true" round="true" big="true" to="/contact">
                             Contact Us
                         </PrimaryButton>
-                    </BtnWrap>
+                    </BtnWrap> */}
                     <Icon onClick={toggle}>
                         <CloseIcon />
                     </Icon>
@@ -239,6 +239,7 @@ const Dropdown = ({ isOpen, toggle }) => {
                     <SocialMediaItem href='https://www.instagram.com/ghostprod_officiel/?hl=fr' target='_blank'>Instagram</SocialMediaItem>
                     <SocialMediaItem href='https://www.facebook.com/Ghostprod.net' target='_blank'>Facebook</SocialMediaItem>
                     <SocialMediaItem href='https://www.instagram.com/ghostprod_officiel/?hl=fr' target='_blank'>Linkedin</SocialMediaItem>
+                    <SocialMediaItem href='https://www.instagram.com/ghostprod_officiel/?hl=fr' target='_blank'>Tiktok</SocialMediaItem>
                 </SocialMediaWrapper>
             </DropdownWrapper>
         </DropdownContainer>

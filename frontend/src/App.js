@@ -54,7 +54,7 @@ function App() {
       <GlobalStyle />
       <ScrollToTop />
       <ScrollToTopButton />
-      <Navbar toggle={toggle} />
+      <Navbar toggle={toggle} isOpen={isOpen} />
       <Dropdown isOpen={isOpen} toggle={toggle} />
 
       <Switch>

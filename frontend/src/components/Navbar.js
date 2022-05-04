@@ -1,14 +1,14 @@
 import React, { useState } from "react";
 import { Link, NavLink } from 'react-router-dom';
 // import Bars from '../images/bars.svg';
-import { FaBars } from 'react-icons/fa';
+// import { FaBars } from 'react-icons/fa';
 import gpLogo from '../assets/images/logoLight.png';
 import '../assets/css/Navbar.css';
-import CasualButton from "./CasualButton";
 import { navbarData } from "../data/NavbarData";
+import MenuButton from "./MenuButton";
 
 
-const Navbar = ({ toggle }) => {
+const Navbar = ({ toggle, isOpen }) => {
 
     const [navbar, setNavbar] = useState(false);
 
@@ -38,13 +38,8 @@ const Navbar = ({ toggle }) => {
                 ))}
             </div>
             <div className="right-side-menu">
-                <CasualButton
-                    link="/contact"
-                    text="Contact Us"
-                    icon={
-                        <FaBars className="icon-btn" onClick={toggle} />
-                    }
-                />
+                {/* <FaBars className="icon-btn" onClick={toggle} /> */}
+                <MenuButton toggle={toggle} isOpen={isOpen} />
             </div>
         </nav>
     )
