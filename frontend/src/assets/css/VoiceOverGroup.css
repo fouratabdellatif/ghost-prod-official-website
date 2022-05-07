@@ -1,0 +1,40 @@
+.voice-over-section {
+  width: 90%;
+  height: 100%;
+  margin: 0 auto;
+  position: relative;
+  z-index: 99;
+}
+
+.voice-over-group-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  row-gap: 20px;
+  margin: 0 auto;
+}
+
+@media screen and (max-width: 1200px) {
+
+  .voice-over-section {
+    margin: 0 auto;
+  }
+
+  .voice-over-group-container {
+    grid-template-columns: repeat(2, 1fr);
+    padding: 0 10px;
+    margin: 0 auto 50px auto;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .voice-over-group-container {
+    grid-template-columns: repeat(1, 1fr);
+    padding: 0 10px;
+    margin: 0 auto 50px auto;
+  }
+
+  .voice-over-section {
+    margin: 0 auto;
+  }
+}
+

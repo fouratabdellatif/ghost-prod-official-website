@@ -16,6 +16,7 @@ import ContactPage from "./pages/ContactPage";
 import TeamPage from "./pages/TeamPage";
 import Loader from "./components/Loader";
 import ProjectsPage from "./pages/ProjectsPage";
+import VoiceOverPage from "./pages/VoiceOverPage";
 
 function App() {
 
@@ -64,6 +65,7 @@ function App() {
         <Route path='/contact' component={ContactPage} />
         <Route path='/team' component={TeamPage} />
         <Route path='/realisations' component={ProjectsPage} />
+        <Route path='/voice-over' component={VoiceOverPage} />
       </Switch>
 
       <Footer />
