@@ -12,18 +12,6 @@
   text-align: center;
 }
 
-.custom-divider {
-  display: flex;
-  overflow: hidden;
-  align-items: center;
-  background: #e1a33b;
-  color: #000000;
-  height: 3px;
-  line-height: 10px;
-  width: 200px;
-  margin: 0 auto 40px auto;
-}
-
 .job-form {
   display: grid;
   grid-template-columns: repeat(1, 1fr);

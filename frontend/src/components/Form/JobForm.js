@@ -3,6 +3,7 @@ import Input from "../Input/Input";
 import '../../assets/css/JobForm.css';
 import { Button } from "../Button";
 import Select from "../Input/Select";
+import CustomDivider from "../CustomDivider";
 
 const JobForm = () => {
 
@@ -15,7 +16,7 @@ const JobForm = () => {
     return (
         <div className="job-form-container">
             <h1 className="job-title">Join Us Now</h1>
-            <h2 className='custom-divider'></h2>
+            <CustomDivider />
             <form className="job-form">
                 <div className="job-form-first">
                     <Input
