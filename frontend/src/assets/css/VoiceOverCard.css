@@ -83,7 +83,7 @@
 }
 
 .voice-over-card:hover .artist-details {
-  bottom: 85px;
+  bottom: 71px;
 }
 
 .artist-play-icon {
@@ -110,8 +110,8 @@
 }
 
 .voice-over-card:hover .artist-play-section {
-  -webkit-transform: translateY(-85px);
-  transform: translateY(-85px);
+  -webkit-transform: translateY(-75px);
+  transform: translateY(-75px);
   -webkit-transition: all 0.9s;
   transition: all 0.9s;
 }
