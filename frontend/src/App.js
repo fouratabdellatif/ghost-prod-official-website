@@ -17,6 +17,7 @@ import TeamPage from "./pages/TeamPage";
 import Loader from "./components/Loader";
 import ProjectsPage from "./pages/ProjectsPage";
 import VoiceOverPage from "./pages/VoiceOverPage";
+import VoiceOverArtistPage from "./pages/VoiceOverArtistPage";
 
 function App() {
 
@@ -59,13 +60,14 @@ function App() {
       <Dropdown isOpen={isOpen} toggle={toggle} />
 
       <Switch>
-        <Route path='/' exact component={HomePage} />
+        <Route exact path='/' component={HomePage} />
         <Route path='/blog' component={BlogPage} />
         <Route path='/about-us' component={AboutUsPage} />
         <Route path='/contact' component={ContactPage} />
         <Route path='/team' component={TeamPage} />
         <Route path='/realisations' component={ProjectsPage} />
-        <Route path='/voice-over' component={VoiceOverPage} />
+        <Route exact path='/voice-over' component={VoiceOverPage} />
+        <Route exact path='/voice-over/:id' component={VoiceOverArtistPage} />
       </Switch>
 
       <Footer />

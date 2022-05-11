@@ -11,10 +11,15 @@ import audioFour from '../assets/audios/voiceover4.mp3';
 
 export const VoiceOverData = [
     {
+        id: 0,
         firstname: 'FirstName',
         lastname: 'LastName',
         spec: 'Photographer',
         image: imageOne,
+        city: 'Kelibia',
+        phone: '26699906',
+        email: 'someone@email.com',
+        bio: 'adadsdqqsd dsq dqsf qsd qsd fklk mlfmldlmfk sflm sdkf sdfmsdlmf sdùfm sdmf sdlfm ùsdfl sdfk sdffm sdmf sdlfm ùsdfl sdfk sdffm sdmf sdlfm ùsdfl sdfk sdflms fksdl fmsdf lm',
         facebook: 'https://www.facebook.com/Ghostprod.net',
         instagram: 'https://www.facebook.com/Ghostprod.net',
         linkedin: 'https://www.facebook.com/Ghostprod.net',
@@ -28,10 +33,15 @@ export const VoiceOverData = [
         ]
     },
     {
+        id: 1,
         firstname: 'FirstName',
         lastname: 'LastName',
         spec: 'Web Developer',
         image: imageTwo,
+        city: 'Monastir',
+        phone: '55742938',
+        email: 'someone@email.com',
+        bio: 'adadsdqqsd dsq dqsf qsd qsd fklk mlfmldlmfk sflm sdkf sdfmsdlmf sdùfm sdmf sdlfm ùsdfl sdfk sdflms fksdl fmsdf lm',
         facebook: 'https://www.facebook.com/Ghostprod.net',
         instagram: 'https://www.facebook.com/Ghostprod.net',
         linkedin: 'https://www.facebook.com/Ghostprod.net',
@@ -45,10 +55,15 @@ export const VoiceOverData = [
         ]
     },
     {
+        id: 2,
         firstname: 'FirstName',
         lastname: 'LastName',
         spec: 'Graphic Designer',
         image: imageThree,
+        city: 'Mahdia',
+        phone: '26699906',
+        email: 'someone@email.com',
+        bio: 'adadsdqqsd dsq dqsf qsd qsd fklk mlfmldlmfk sflm sdkf sdfmsdlmf sdùfm sdmf sdlfm ùsdfl sdfk sdflms fksdl fmsdf lm',
         facebook: 'https://www.facebook.com/Ghostprod.net',
         instagram: 'https://www.facebook.com/Ghostprod.net',
         linkedin: 'https://www.facebook.com/Ghostprod.net',
@@ -58,14 +73,25 @@ export const VoiceOverData = [
                 singer: 'FirstName LastName',
                 cover: imageThree,
                 musicSrc: audioThree
+            },
+            {
+                name: 'VoiceOver 2',
+                singer: 'FirstName LastName',
+                cover: imageTwo,
+                musicSrc: audioTwo
             }
         ]
     },
     {
+        id: 3,
         firstname: 'FirstName',
         lastname: 'LastName',
         spec: 'CEO',
         image: imageFour,
+        city: 'Gafsa',
+        phone: '26699906',
+        email: 'someone@email.com',
+        bio: 'adadsdqqsd dsq dqsf qsd qsd fklk mlfmldlmfk sflm sdkf sdfmsdlmf sdùfm sdmf sdlfm ùsdfl sdfk sdflms fksdl fmsdf lm',
         facebook: 'https://www.facebook.com/Ghostprod.net',
         instagram: 'https://www.facebook.com/Ghostprod.net',
         linkedin: 'https://www.facebook.com/Ghostprod.net',
@@ -82,10 +108,12 @@ export const VoiceOverData = [
 
 export const VoiceOverData2 = [
     {
+        id: 0,
         firstname: 'FirstName',
         lastname: 'LastName',
         spec: 'Photographer',
         image: imageOne,
+        bio: 'adadsdqqsd dsq dqsf qsd qsd fklk mlfmldlmfk sflm sdkf sdfmsdlmf sdùfm sdmf sdlfm ùsdfl sdfk sdflms fksdl fmsdf lm',
         facebook: 'https://www.facebook.com/Ghostprod.net',
         instagram: 'https://www.facebook.com/Ghostprod.net',
         linkedin: 'https://www.facebook.com/Ghostprod.net',

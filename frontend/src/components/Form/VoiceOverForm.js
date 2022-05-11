@@ -2,13 +2,14 @@
 import Input from "../Input/Input";
 import '../../assets/css/VoiceOverForm.css';
 import { Button } from "../Button";
+import CustomDivider from "../CustomDivider";
 
 const VoiceOverForm = () => {
 
     return (
         <div className="voice-over-form-container">
             <h1 className="voice-over-title">Apply now</h1>
-            <h2 className='custom-divider'></h2>
+            <CustomDivider />
             <form className="voice-over-form">
                 {/* <div className="voice-over-form-first">
                     <Input

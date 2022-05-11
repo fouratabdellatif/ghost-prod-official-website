@@ -2,13 +2,14 @@
 import Input from "../Input/Input";
 import '../../assets/css/ContactForm.css';
 import { Button } from "../Button";
+import CustomDivider from "../CustomDivider";
 
 const ContactForm = () => {
 
     return (
         <div className="contact-form-container">
             <h1 className="contact-title">Let's Work Together</h1>
-            <h2 className='custom-divider'></h2>
+            <CustomDivider />
             <form className="contact-form">
                 <div className="contact-form-first">
                     <Input
