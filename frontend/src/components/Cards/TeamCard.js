@@ -6,7 +6,7 @@ function TeamCard({ item }) {
     return (
         <div className="team-card-wrapper">
             <div className="team-card">
-                <Link className='member-link' to={item.link}>
+                <Link className='member-link' to={`/team/${item.id}`}>
                     <div className="team-card-image">
                         <img src={item.image} alt='team_member' />
                     </div>

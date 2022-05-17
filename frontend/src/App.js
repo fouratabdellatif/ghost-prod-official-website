@@ -19,6 +19,7 @@ import ProjectsPage from "./pages/ProjectsPage";
 import VoiceOverPage from "./pages/VoiceOverPage";
 import VoiceOverArtistPage from "./pages/VoiceOverArtistPage";
 import ProjectPage from "./pages/ProjectPage";
+import MemberPage from "./pages/MemberPage";
 
 function App() {
 
@@ -65,7 +66,8 @@ function App() {
         <Route path='/blog' component={BlogPage} />
         <Route path='/about-us' component={AboutUsPage} />
         <Route path='/contact' component={ContactPage} />
-        <Route path='/team' component={TeamPage} />
+        <Route exact path='/team' component={TeamPage} />
+        <Route exact path='/team/:id' component={MemberPage} />
         <Route exact path='/realisations' component={ProjectsPage} />
         <Route exact path='/realisations/:id' component={ProjectPage} />
         <Route exact path='/voice-over' component={VoiceOverPage} />
