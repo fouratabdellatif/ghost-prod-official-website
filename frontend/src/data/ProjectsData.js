@@ -10,34 +10,84 @@ import videoFour from '../assets/videos/video4.mp4';
 
 export const ProjectsData = [
     {
+        id: 0,
         name: 'Corporate',
         category: 'Film',
-        description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, Lorem ipsum dolor sit amet, consectLorem ipsum dolor sit amet, consectetur adipiscing elit,etur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',        image: imageOne,
+        description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, Lorem ipsum dolor sit amet, consectLorem ipsum dolor sit amet, consectetur adipiscing elit,etur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.', image: imageOne,
         video: videoOne,
-        alt: 'video'
+        alt: 'video',
+        client: 'Klay BBJ',
+        clientLink: 'https://www.youtube.com/channel/UCI6ER2eyvJ098z_qrHZiZdA',
+        partners: [
+            {
+                name: 'Burger King',
+                partnerLink: 'https://www.bk.com',
+            },
+            {
+                name: 'Burger King',
+                partnerLink: 'https://www.bk.com',
+            },
+            {
+                name: 'Burger King',
+                partnerLink: 'https://www.bk.com',
+            },
+        ],
     },
     {
+        id: 1,
         name: "Corporate",
         category: 'Documentaire',
         description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
         image: imageTwo,
         video: videoTwo,
-        alt: 'video'
+        alt: 'video',
+        client: 'Klay BBJ',
+        clientLink: 'https://www.youtube.com/channel/UCI6ER2eyvJ098z_qrHZiZdA',
+        partners: [
+            {
+                name: 'Burger King',
+                partnerLink: 'https://www.bk.com',
+            },
+            {
+                name: 'Burger King',
+                partnerLink: 'https://www.bk.com',
+            },
+        ],
     },
     {
+        id: 2,
         name: 'Publicitaire',
         category: 'Annonce',
         description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
         image: imageThree,
         video: videoThree,
-        alt: 'video'
+        alt: 'video',
+        clientLink: 'https://www.youtube.com/channel/UCI6ER2eyvJ098z_qrHZiZdA',
+        partners: [
+            {
+                name: 'Burger King',
+                partnerLink: 'https://www.bk.com',
+            },
+        ],
     },
     {
+        id: 3,
         name: 'Musical',
         category: 'Clip',
         description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
         image: imageFour,
         video: videoFour,
-        alt: 'video'
+        alt: 'video',
+        clientLink: 'https://www.youtube.com/channel/UCI6ER2eyvJ098z_qrHZiZdA',
+        partners: [
+            {
+                name: 'Burger King',
+                partnerLink: 'https://www.bk.com',
+            },
+            {
+                name: 'Burger King',
+                partnerLink: 'https://www.bk.com',
+            },
+        ],
     },
 ]

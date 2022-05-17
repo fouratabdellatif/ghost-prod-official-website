@@ -5,7 +5,7 @@ import HoverVideoPlayer from "react-hover-video-player";
 
 function ProjectCard({ item }) {
     return (
-        <Link to='/' className='project-card-container' data-aos="slide-up"
+        <Link to={`/realisations/${item.id}`} className='project-card-container' data-aos="slide-up"
         // style={{
         //     background: `url(${image})`,
         //     backgroundPosition: 'fixed',
