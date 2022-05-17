@@ -18,6 +18,7 @@ import Loader from "./components/Loader";
 import ProjectsPage from "./pages/ProjectsPage";
 import VoiceOverPage from "./pages/VoiceOverPage";
 import VoiceOverArtistPage from "./pages/VoiceOverArtistPage";
+import ProjectPage from "./pages/ProjectPage";
 
 function App() {
 
@@ -65,7 +66,8 @@ function App() {
         <Route path='/about-us' component={AboutUsPage} />
         <Route path='/contact' component={ContactPage} />
         <Route path='/team' component={TeamPage} />
-        <Route path='/realisations' component={ProjectsPage} />
+        <Route exact path='/realisations' component={ProjectsPage} />
+        <Route exact path='/realisations/:id' component={ProjectPage} />
         <Route exact path='/voice-over' component={VoiceOverPage} />
         <Route exact path='/voice-over/:id' component={VoiceOverArtistPage} />
       </Switch>

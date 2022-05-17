@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import styled from 'styled-components'
 import { menuData } from '../data/MenuData'
 // import { PrimaryButton } from './Button';
-import gpLogo from '../assets/images/logoLight.png';
+import gpLogo from '../assets/images/logoDark.png';
 
 const DropdownContainer = styled.div`
 position: fixed;
@@ -49,7 +49,7 @@ width: 80%;
 @media screen and (max-width: 768px) {
     grid-template-columns: repeat(1, 1fr);
     grid-template-rows: repeat(1, 40px);
-    margin: -50px auto 150px auto;
+    margin: -80px auto 120px auto;
     width: 60%;
 }
 `;
@@ -143,12 +143,21 @@ margin: auto;
 // `;
 
 const SocialMediaWrapper = styled.div`
-    display: flex;
+display: grid;
+grid-template-columns: repeat(4, 1fr);
     justify-content: center;
-    flex-wrap: wrap;
     position: relative;
-    width: 100%;
+    width: 120px;
     margin: 10px auto auto auto;
+
+    
+@media screen and (max-width: 768px) {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 50px);
+    width: 150px;
+}
+
 `;
 
 const SocialMediaItem = styled.a`
@@ -192,16 +201,17 @@ const SocialMediaItem = styled.a`
 
 @media screen and (max-width: 768px) {
     font-size: 14px;
+    width: 100px;
+    text-align: center;
 }
 `;
 
 const LogoImage = styled.img`
 height: 45px;
 transition: 0.3s ease-in;
-background-color: #000000ce;
-margin-top: -30px;
+/* background-color: #000000ce; */
+/* margin-top: -30px; */
 padding: 10px;
-transition: 0.3s ease-in;
 `;
 
 const Dropdown = ({ isOpen, toggle }) => {
@@ -238,7 +248,7 @@ const Dropdown = ({ isOpen, toggle }) => {
                     <SocialMediaItem href='https://www.instagram.com/ghostprod_officiel/?hl=fr' target='_blank'>Youtube</SocialMediaItem>
                     <SocialMediaItem href='https://www.instagram.com/ghostprod_officiel/?hl=fr' target='_blank'>Instagram</SocialMediaItem>
                     <SocialMediaItem href='https://www.facebook.com/Ghostprod.net' target='_blank'>Facebook</SocialMediaItem>
-                    <SocialMediaItem href='https://www.instagram.com/ghostprod_officiel/?hl=fr' target='_blank'>Linkedin</SocialMediaItem>
+                    {/* <SocialMediaItem href='https://www.instagram.com/ghostprod_officiel/?hl=fr' target='_blank'>Linkedin</SocialMediaItem> */}
                     <SocialMediaItem href='https://www.instagram.com/ghostprod_officiel/?hl=fr' target='_blank'>Tiktok</SocialMediaItem>
                 </SocialMediaWrapper>
             </DropdownWrapper>
