@@ -22,7 +22,7 @@ const VoiceOverArtistPage = () => {
 
     return (
         <>
-            <CasualPage pageTitle="Voice Over" bg={bgImage} text="where you can find the best voice-over artists" title="Voice-Over" pageContent={
+            <CasualPage pageTitle={`${artist.firstname} ${artist.lastname} | Voice-Over`} bg={bgImage} text="where you can find the best voice-over artists" title="Voice-Over" pageContent={
                 <>
                     <VoiceOverArtist
                         item={artist}
