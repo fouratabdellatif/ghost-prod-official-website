@@ -15,6 +15,7 @@ export const ProjectsData = [
         category: 'Film',
         description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, Lorem ipsum dolor sit amet, consectLorem ipsum dolor sit amet, consectetur adipiscing elit,etur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.', image: imageOne,
         video: videoOne,
+        videoId: '7vKhWuejtYs',
         alt: 'video',
         client: 'Klay BBJ',
         clientLink: 'https://www.youtube.com/channel/UCI6ER2eyvJ098z_qrHZiZdA',
@@ -30,6 +31,14 @@ export const ProjectsData = [
             {
                 name: 'Burger King',
                 partnerLink: 'https://www.bk.com',
+            },
+        ],
+        videos: [
+            {
+                videoId: 'WjnsXb3K9O8',
+            },
+            {
+                videoId: '7vKhWuejtYs',
             },
         ],
     },
@@ -40,6 +49,7 @@ export const ProjectsData = [
         description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
         image: imageTwo,
         video: videoTwo,
+        videoId: 'WjnsXb3K9O8',
         alt: 'video',
         client: 'Klay BBJ',
         clientLink: 'https://www.youtube.com/channel/UCI6ER2eyvJ098z_qrHZiZdA',
@@ -53,6 +63,17 @@ export const ProjectsData = [
                 partnerLink: 'https://www.bk.com',
             },
         ],
+        videos: [
+            {
+                videoId: '7vKhWuejtYs',
+            },
+            {
+                videoId: 'WjnsXb3K9O8',
+            },
+            {
+                videoId: 'WjnsXb3K9O8',
+            },
+        ],
     },
     {
         id: 2,
@@ -61,12 +82,18 @@ export const ProjectsData = [
         description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
         image: imageThree,
         video: videoThree,
+        videoId: 'WjnsXb3K9O8',
         alt: 'video',
         clientLink: 'https://www.youtube.com/channel/UCI6ER2eyvJ098z_qrHZiZdA',
         partners: [
             {
                 name: 'Burger King',
                 partnerLink: 'https://www.bk.com',
+            },
+        ],
+        videos: [
+            {
+                videoId: 'WjnsXb3K9O8',
             },
         ],
     },
@@ -77,6 +104,7 @@ export const ProjectsData = [
         description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
         image: imageFour,
         video: videoFour,
+        videoId: 'Zd1U2QhGUcM',
         alt: 'video',
         clientLink: 'https://www.youtube.com/channel/UCI6ER2eyvJ098z_qrHZiZdA',
         partners: [
@@ -87,6 +115,11 @@ export const ProjectsData = [
             {
                 name: 'Burger King',
                 partnerLink: 'https://www.bk.com',
+            },
+        ],
+        videos: [
+            {
+                videoId: 'WjnsXb3K9O8',
             },
         ],
     },

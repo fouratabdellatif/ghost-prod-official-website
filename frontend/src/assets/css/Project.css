@@ -39,7 +39,7 @@
   margin-top: 30px;
 }
 
-.one-project-column-right h1 {
+.one-project-column-right .one-project-title {
   margin-bottom: 1rem;
   font-size: clamp(1.5rem, 6vw, 2rem);
 }
@@ -64,6 +64,24 @@
   height: 320px;
   display: block;
   margin: auto;
+}
+
+.other-projects-section {
+  padding: 0 20px;
+}
+
+.other-projects-title {
+  margin-bottom: 1rem;
+  font-size: clamp(1.5rem, 6vw, 2rem);
+}
+
+.other-projects {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  /* gap: 10px; */
+  row-gap: 50px;
+  margin: 0 auto 40px auto;
+  min-height: 70vh;
 }
 
 @media screen and (max-width: 1200px) {
