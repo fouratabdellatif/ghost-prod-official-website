@@ -1,6 +1,6 @@
 .aboutus__hero-row {
   align-items: center;
-  width: 100%;
+  width: 90%;
   margin-right: auto;
   margin-left: auto;
   display: block;
@@ -31,7 +31,7 @@
   line-height: 1.1;
   font-weight: 600;
   text-align: left;
-  width: 90%;
+  width: 100%;
   margin-left: auto;
   margin-right: auto;
   text-transform: uppercase;
@@ -42,7 +42,7 @@
 } */
 
 .aboutus__hero-paragraph {
-  width: 90%;
+  width: 100%;
   margin-bottom: 35px;
   font-size: 18px;
   line-height: 24px;
@@ -51,24 +51,17 @@
   margin-right: auto;
 }
 
-.aboutus__hero-img-wrapper {
-  max-width: 555px;
-}
+/* .aboutus__hero-text-wrapper div {
+  width: 100%;
+} */
 
-.aboutus__hero-img {
-  max-width: 95%;
-  margin-top: 0;
-  margin-right: 0;
-  margin-left: 10px;
-  padding-right: 0;
+.aboutus__hero-text-wrapper img {
+  float: right;
+  width: 600px;
+  margin: 0 0 10px 20px;
 }
 
 @media screen and (max-width: 1200px) {
-  .container {
-    padding-right: 30px;
-    padding-left: 30px;
-  }
-
   .about-us-col {
     flex: 1;
     max-width: 100%;
@@ -81,7 +74,7 @@
     font-size: 35px;
     width: 100%;
   }
-  
+
   .aboutus__hero-paragraph {
     width: 100%;
   }
@@ -90,12 +83,17 @@
     max-width: 100%;
     align-items: center;
   }
+
+  .aboutus__hero-text-wrapper img {
+    float: none;
+    width: 100%;
+    margin: 0 auto 40px auto;
+  }
 }
 
 @media screen and (max-width: 768px) {
-  .col {
-    max-width: 100%;
-    flex-basis: 100%;
+  .aboutus__hero-row {
+    width: 400px;
   }
 
   .about-us-heading {
@@ -104,5 +102,11 @@
 
   .aboutus__hero-paragraph {
     width: 100%;
+  }
+
+  .aboutus__hero-text-wrapper img {
+    float: none;
+    width: 100%;
+    margin: 0 auto 40px auto;
   }
 }
