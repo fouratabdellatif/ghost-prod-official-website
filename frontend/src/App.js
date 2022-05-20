@@ -20,6 +20,7 @@ import VoiceOverPage from "./pages/VoiceOverPage";
 import VoiceOverArtistPage from "./pages/VoiceOverArtistPage";
 import ProjectPage from "./pages/ProjectPage";
 import MemberPage from "./pages/MemberPage";
+import PostPage from "./pages/PostPage";
 
 function App() {
 
@@ -63,7 +64,8 @@ function App() {
 
       <Switch>
         <Route exact path='/' component={HomePage} />
-        <Route path='/blog' component={BlogPage} />
+        <Route exact path='/blog' component={BlogPage} />
+        <Route exact path='/blog/:id' component={PostPage} />
         <Route path='/about-us' component={AboutUsPage} />
         <Route path='/contact' component={ContactPage} />
         <Route exact path='/team' component={TeamPage} />

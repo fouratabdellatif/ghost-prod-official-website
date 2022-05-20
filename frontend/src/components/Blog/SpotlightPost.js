@@ -14,7 +14,7 @@ const SpotlightPost = () => {
                                     transitionDuration: '0s',
                                     transform: 'translate3d(0%, 0px, 0px)',
                                 }}>
-                                    <a href="https://www.ghostprod.net/" target="_blank" className="tns-item" rel="noreferrer">
+                                    <a href="https://www.ghostprod.net/" className="tns-item">
                                         <picture>
                                             <source media="(min-width: 768px)" srcset={postLogo} />
                                             <source media="(min-width: 0px)" srcset={postLogo} />
