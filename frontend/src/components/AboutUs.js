@@ -1,6 +1,7 @@
 import React from 'react'
 import '../assets/css/AboutUs.css'
 import { TextData } from '../data/TextData'
+import teamImage from '../assets/images/bg08.jpg'
 
 function AboutUs() {
     return (
@@ -11,6 +12,7 @@ function AboutUs() {
                         <h1 className='about-us-heading'>
                             <span>à</span> propos de Nous
                         </h1>
+                        <img src={teamImage} alt="our_team" />
                         {TextData.map((item, index) => (
                             <p key={index} className='aboutus__hero-paragraph'>
                                 {item.text}
