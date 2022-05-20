@@ -70,7 +70,10 @@ const HomeSlider = () => {
                         ) : (
                             <img className='home-video' src={item.image} alt='' />
                         )}
-                        <div className='homeslider-content'>
+                        <div className='homeslider-content' style={{
+                            opacity: isMuted ? 1 : 0,
+                            transition: 'ease-in-out 0.7s all'
+                        }}>
                             <h3 data-aos="fade-down">Votre boîte de production audiovisuelle</h3>
                             <h2 data-aos='fade' className='divider'></h2>
                             <h1 data-aos="fade-up">{item.title}</h1>
