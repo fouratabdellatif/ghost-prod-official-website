@@ -4,7 +4,7 @@ import CasualPage from './CasualPage'
 import bgImage from '../assets/images/bg07.jpg'
 import { VoiceOverData } from '../data/VoiceOverData'
 import { useParams } from 'react-router-dom'
-import VoiceOverArtist from '../components/VoiceOverArtist'
+import VoiceOverArtist from '../components/VoiceOver/VoiceOverArtist'
 
 
 const VoiceOverArtistPage = () => {

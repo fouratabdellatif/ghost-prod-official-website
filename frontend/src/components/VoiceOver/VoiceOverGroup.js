@@ -2,10 +2,10 @@ import React, { createContext, useContext, useState } from 'react'
 import { BsFillPlayCircleFill } from 'react-icons/bs';
 import ReactJkMusicPlayer from 'react-jinke-music-player';
 import { Link } from 'react-router-dom';
-import '../assets/css/VoiceOverGroup.css';
-import { VoiceOverData } from '../data/VoiceOverData';
-import '../assets/css/VoiceOverCard.css';
-import '../assets/css/JinkeMusicPlayer.css';
+import '../../assets/css/VoiceOverGroup.css';
+import { VoiceOverData } from '../../data/VoiceOverData';
+import '../../assets/css/VoiceOverCard.css';
+import '../../assets/css/JinkeMusicPlayer.css';
 
 
 const options = {

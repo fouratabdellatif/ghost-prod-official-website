@@ -4,7 +4,7 @@ import CasualPage from './CasualPage'
 import bgImage from '../assets/images/bg07.jpg'
 import { useParams } from 'react-router-dom'
 import { TeamData } from '../data/TeamData'
-import Member from '../components/Member'
+import Member from '../components/Team/Member'
 
 
 const MemberPage = () => {

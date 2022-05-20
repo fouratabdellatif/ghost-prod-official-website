@@ -1,7 +1,7 @@
 import React from 'react'
-import '../assets/css/TeamGroup.css';
-import { TeamData } from '../data/TeamData';
-import TeamCard from './Cards/TeamCard';
+import '../../assets/css/TeamGroup.css';
+import { TeamData } from '../../data/TeamData';
+import TeamCard from '../Cards/TeamCard';
 
 const TeamGroup = () => {
 

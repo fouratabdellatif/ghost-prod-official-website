@@ -1,7 +1,7 @@
 import React from 'react'
 import CasualPage from './CasualPage'
 import bgImage from '../assets/images/bg07.jpg'
-import TeamGroup from '../components/TeamGroup'
+import TeamGroup from '../components/Team/TeamGroup'
 import JobForm from '../components/Form/JobForm'
 
 const TeamPage = () => {

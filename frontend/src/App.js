@@ -21,6 +21,7 @@ import VoiceOverArtistPage from "./pages/VoiceOverArtistPage";
 import ProjectPage from "./pages/ProjectPage";
 import MemberPage from "./pages/MemberPage";
 import PostPage from "./pages/PostPage";
+import ServicesPage from "./pages/ServicesPage";
 
 function App() {
 
@@ -74,6 +75,7 @@ function App() {
         <Route exact path='/realisations/:id' component={ProjectPage} />
         <Route exact path='/voice-over' component={VoiceOverPage} />
         <Route exact path='/voice-over/:id' component={VoiceOverArtistPage} />
+        <Route exact path='/services' component={ServicesPage} />
       </Switch>
 
       <Footer />

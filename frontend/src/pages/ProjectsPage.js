@@ -1,7 +1,7 @@
 import React from 'react'
 import CasualPage from './CasualPage'
 import bgImage from '../assets/images/bg07.jpg'
-import ProjectsGroup from '../components/ProjectsGroup'
+import ProjectsGroup from '../components/Projects/ProjectsGroup'
 
 const ProjectsPage = () => {
 
