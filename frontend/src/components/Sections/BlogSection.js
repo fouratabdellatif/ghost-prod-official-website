@@ -1,5 +1,5 @@
 import React from 'react'
-import { BlogData } from '../../data/BlogData'
+import { BlogPageData } from '../../data/BlogData'
 import PostCard from '../Cards/PostCard'
 import '../../assets/css/BlogSection.css'
 import SectionTitle from './SectionTitle'
@@ -7,11 +7,16 @@ import CasualButton from '../CasualButton'
 import { MdOutlineArrowForwardIos } from 'react-icons/md'
 
 const BlogSection = () => {
+
+    let somePosts = BlogPageData.slice(0, 3).map(item => {
+        return item;
+    });
+
     return (
         <section className='blog-section'>
             <SectionTitle miniTitle="Nos " title="Actualités" />
             <div className='blog-container'>
-                {BlogData.map((item, index) => (
+                {somePosts.map((item, index) => (
                     <PostCard
                         key={index}
                         item={item}
