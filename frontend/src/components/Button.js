@@ -60,7 +60,7 @@ text-transform: uppercase;
   z-index: 0;
   transition: 0.5s all ease-in-out;
   bottom: 0;
-  border-radius: 0 50% 50% 0;
+  border-radius: 0 0 0 0;
 }
 
 &:hover::before {

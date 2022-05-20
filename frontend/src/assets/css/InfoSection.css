@@ -79,7 +79,7 @@
 .info-column-right h3 {
   color: #e1a33b;
   font-size: clamp(1rem, 8vw, 10px);
-  font-weight: 400;
+  font-weight: 700;
   text-transform: uppercase;
   text-shadow: 0px 0px 20px rgba(0, 0, 0, 0.4);
   text-align: left;
@@ -87,6 +87,8 @@
   border-left: #e1a33b solid 40px;
   border-left-style: groove;
   padding-left: 10px;
+  -webkit-text-stroke-width: 0.5px;
+  -webkit-text-stroke-color: black;
 }
 
 .info-column-right p {
@@ -97,9 +99,11 @@
 
 .show-more {
   color: #e1a33b;
-  font-weight: 500;
+  font-weight: 700;
   cursor: pointer;
   transition: 0.3s all ease-in-out !important;
+  -webkit-text-stroke-width: 0.5px;
+  -webkit-text-stroke-color: black;
 }
 
 .show-more:hover {
