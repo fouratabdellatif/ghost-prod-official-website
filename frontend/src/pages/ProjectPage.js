@@ -2,7 +2,7 @@
 import React from 'react'
 import CasualPage from './CasualPage'
 import { useParams } from 'react-router-dom'
-import Project from '../components/Project'
+import Project from '../components/Projects/Project'
 import { ProjectsData } from '../data/ProjectsData'
 
 

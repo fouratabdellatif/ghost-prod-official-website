@@ -1,5 +1,5 @@
-import "../assets/css/Post.css";
-import CustomDivider from "./CustomDivider";
+import "../../assets/css/Post.css";
+import CustomDivider from "../CustomDivider";
 
 export default function Post({ item }) {
     return (

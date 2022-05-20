@@ -1,6 +1,6 @@
 import React from 'react'
-import '../assets/css/Project.css'
-import CustomDivider from './CustomDivider'
+import '../../assets/css/Project.css'
+import CustomDivider from '../CustomDivider'
 import YouTube from 'react-youtube';
 
 const Project = ({ item }) => {

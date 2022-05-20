@@ -2,7 +2,7 @@
 import React from 'react'
 import CasualPage from './CasualPage'
 import bgImage from '../assets/images/bg02.jpg'
-import Post from '../components/Post'
+import Post from '../components/Blog/Post'
 import { useParams } from 'react-router-dom'
 import { BlogPageData } from '../data/BlogData'
 import Sidebar from '../components/Sidebar'

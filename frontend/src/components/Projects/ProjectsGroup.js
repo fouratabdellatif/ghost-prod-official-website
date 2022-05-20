@@ -1,7 +1,7 @@
 import React from 'react'
-import '../assets/css/ProjectsGroup.css';
-import { ProjectsData } from '../data/ProjectsData';
-import ProjectCard from './Cards/ProjectCard';
+import '../../assets/css/ProjectsGroup.css';
+import { ProjectsData } from '../../data/ProjectsData';
+import ProjectCard from '../Cards/ProjectCard';
 
 const ProjectsGroup = () => {
 

@@ -1,22 +1,21 @@
 import React from 'react'
-import '../assets/css/VoiceOverArtist.css'
-import CustomDivider from './CustomDivider'
-import AudioPlayer from 'react-h5-audio-player';
+import '../../assets/css/Member.css'
+import CustomDivider from '../CustomDivider'
 
-const VoiceOverArtist = ({ item }) => {
+const Member = ({ item }) => {
     return (
-        <section className='voice-over-artist-section'>
-            <div className='voice-over-artist-container'>
-                <div className='voice-over-artist-column-left'>
+        <section className='one-member-section'>
+            <div className='one-member-container'>
+                <div className='one-member-column-left'>
                     <img src={item.image} alt={`${item.firstname} ${item.lastname}`} />
                 </div>
-                <div className='voice-over-artist-column-right'>
-                    <div className='artist-top'>
+                <div className='one-member-column-right'>
+                    <div className='one-member-top'>
                         <h1>{item.firstname} {item.lastname}</h1>
-                        <ul className="artist-socials">
+                        <ul className="one-member-socials">
                             <li>
                                 <a
-                                    className='artist-social-link facebook'
+                                    className='one-member-social-link facebook'
                                     href={item.facebook}
                                     target='_blank'
                                     aria-label='Facebook'
@@ -27,7 +26,7 @@ const VoiceOverArtist = ({ item }) => {
                             </li>
                             <li>
                                 <a
-                                    className='artist-social-link instagram'
+                                    className='one-member-social-link instagram'
                                     href={item.instagram}
                                     target='_blank'
                                     aria-label='Youtube'
@@ -38,7 +37,7 @@ const VoiceOverArtist = ({ item }) => {
                             </li>
                             <li>
                                 <a
-                                    className='artist-social-link linkedin'
+                                    className='one-member-social-link linkedin'
                                     href={item.linkedin}
                                     target='_blank'
                                     aria-label='LinkedIn'
@@ -49,27 +48,16 @@ const VoiceOverArtist = ({ item }) => {
                             </li>
                         </ul>
                     </div>
+                    <h3>{item.spec}</h3>
                     <CustomDivider fullWidth />
                     <p><span>City: </span>{item.city}</p>
                     <p><span>Phone: </span><a className='contact-link' href={`tel:${item.phone}`}>+216 {item.phone}</a></p>
                     <p><span>Email: </span><a className='contact-link' href={`mailto:${item.email}`}>{item.email}</a></p>
                     <p><span>About: </span><br />{item.bio}</p>
-                    <p><span>Voice-over: </span>
-                    </p>
-                    {item.audioLists.map((audio) => (
-                        <>
-                            <p>{audio.name}</p>
-                            <AudioPlayer
-                                // autoPlay
-                                src={`${audio.musicSrc}`}
-                                style={{ marginBottom: '20px' }}
-                            />
-                        </>
-                    ))}
                 </div>
             </div>
         </section>
     )
 }
 
-export default VoiceOverArtist
+export default Member
