@@ -31,7 +31,7 @@ function ProjectCard({ item }) {
                     videoStyle={{
                         height: '360px',
                     }}
-                    pausedOverlay={<img src={item.image} alt='' />}
+                    pausedOverlay={<img src={item.image} alt='video' />}
                 // loadingOverlay={<LoadingOverlay />}
                 />
             </div>
