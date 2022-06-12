@@ -4,9 +4,9 @@ import {
   Card,
   Radio
 } from "antd";
-import PostCard from '../components/layout/PostCard.js'
+import PostCard from '../components/layout/StandardCard.js'
 import { BlogData } from '../data/BlogData'
-import '../assets/styles/BlogSection.css'
+import '../assets/css/BlogSection.css'
 
 function Tables() {
   const onChange = (e) => console.log(`radio checked:${e.target.value}`);

@@ -1,10 +1,10 @@
 import React from 'react';
-import '../../assets/styles/PostCard.css';
+import '../../assets/css/StandardCard.css';
 import { Link } from 'react-router-dom';
 
-function PostCard({ postId,category, name, image }) {
+function StandardCard({ type, item }) {
     return (
-        <Link to={`/single/${postId}`} className='post-card-container' data-aos="slide-up"
+        <Link to={`/single/${item.id}`} className='post-card-container' data-aos="slide-up"
         // style={{
         //     background: `url(${image})`,
         //     backgroundPosition: 'fixed',
@@ -13,17 +13,17 @@ function PostCard({ postId,category, name, image }) {
         >
             <div className="post-card-content">
                 <div className="post-card-category">
-                    <h3>{category}</h3>
+                    <h3>{item.category}</h3>
                 </div>
                 <div className="post-card-name">
-                    <h2>{name}</h2>
+                    <h2>{item.name}</h2>
                 </div>
             </div>
             <div className="post-image-container">
-                <img src={image} alt='' />
+                <img src={`../../../../backend/public/uploads/${item.imageFile}`} alt={item.imageFile} />
             </div>
         </Link>
     )
 }
 
-export default PostCard;
+export default StandardCard;

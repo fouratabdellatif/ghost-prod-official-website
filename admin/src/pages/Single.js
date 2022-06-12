@@ -3,7 +3,7 @@ import {
   Col,
   Card
 } from "antd";
-import '../assets/styles/BlogSection.css'
+import '../assets/css/BlogSection.css'
 import SinglePost from "../components/layout/SinglePost";
 import { BlogData } from '../data/BlogData'
 import { useParams } from "react-router-dom";

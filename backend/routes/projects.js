@@ -5,7 +5,7 @@ import { createProject, deleteProject, getProjectById, getProjects, updateProjec
 
 const storage = multer.diskStorage({
     destination: (req, file, callback) => {
-        callback(null, "C:/Github/erp-secretary/frontend/public/uploads/projects");
+        callback(null, "C:/Github/ghost-prod-official-website/backend/public/uploads");
     },
 
     filename: (req, file, callback) => {
@@ -19,7 +19,11 @@ const router = express.Router();
 
 router.get('/', getProjects);
 router.get('/:id', getProjectById);
-router.post('/createProject', createProject);
+router.post('/createProject', uploads.fields([{
+    name: 'imageFile', maxCount: 1
+}, {
+    name: 'videoFile', maxCount: 1
+}]), createProject);
 router.patch('/updateProject/:id', updateProject);
 router.delete('/deleteProject/:id', deleteProject);
 

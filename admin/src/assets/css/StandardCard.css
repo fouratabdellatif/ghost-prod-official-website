@@ -10,7 +10,6 @@
   cursor: pointer;
   display: inline-block;
   border-radius: 12px;
-
 }
 
 /* .post-card-container:hover {
@@ -59,10 +58,7 @@
 
 @media screen and (max-width: 1200px) {
   .post-image-container img {
-    
     height: 300px !important;
-    
-    
   }
   .post-card-container {
     height: 260px;
@@ -84,9 +80,7 @@
     height: 360px;
   }
   .post-image-container img {
-    
     height: 380px !important;
-   
   }
   /* .post-image-container img {
     height: 300px;
