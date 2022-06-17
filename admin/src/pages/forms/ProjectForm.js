@@ -1,17 +1,10 @@
-/* eslint-disable no-unused-vars */
 import React, { useState } from "react";
 import {
   Layout,
   Button,
   Row,
   Col,
-  Upload,
-  Typography,
-  Form,
-  Input,
-  // message,
-  Space,
-  Modal,
+  Typography
 } from "antd";
 import { MinusCircleOutlined, PlusOutlined, ToTopOutlined } from "@ant-design/icons";
 import { createProject } from "../../actions/projects";
@@ -23,21 +16,18 @@ const { Content } = Layout;
 
 const ProjectForm = () => {
 
+  const [partners, setPartners] = useState([
+    {
+      name: "",
+      partnerLink: ""
+    },
+  ]);
 
-  // const inputRef = useRef(null);
-  // const triggerFileSelectPopup = () => inputRef.current.click();
-
-  // const uploadButton = (
-  //   <div onClick={triggerFileSelectPopup}>
-  //     <PlusOutlined />
-  //     <div className="ant-upload-text">Upload</div>
-  //   </div>
-  // );
-
-  const [previewVisible, setPreviewVisible] = useState(false);
-  const [previewImage, setPreviewImage] = useState('');
-  // const [imageFile, setImageFile] = useState("");
-  // const [videoFile, setVideoFile] = useState("");
+  const [videos, setVideos] = useState([
+    {
+      videoId: ""
+    }
+  ]);
 
   const initState = {
     name: '',
@@ -48,39 +38,75 @@ const ProjectForm = () => {
     videoId: '',
     client: '',
     clientLink: '',
-    partners: [{
-      name: '',
-      partnerLink: ''
-    },],
-    videos: [{
-      videoId: ''
-    },]
+    partners: partners,
+    videos: videos
   }
 
   const [formData, setFormData] = useState(initState);
 
-  // const handlePreview = (file) => {
-  //   setPreviewVisible(true);
-  //   setPreviewImage(file.url || file.thumbUrl);
-  // }
-
-  const handleCancel = () => {
-    setPreviewVisible(false);
+  let addPartnerFields = () => {
+    setPartners([...partners, { name: "", partnerLink: "" }])
+    setFormData({
+      ...formData,
+      partners: partners
+    })
   }
 
-  // const handleVideo = ({ file }) => {
-  //   setVideoFile(file.name);
-  //   setFormData({
-  //     ...formData,
-  //     "video": file
-  //   });
-  //   console.log('formData', formData);
-  //   console.log('value', file.name);
-  // }
+  let removePartnerFields = (i) => {
+    let newFormValues = [...partners];
+    newFormValues.splice(i, 1);
+    setPartners(newFormValues)
+    setFormData({
+      ...formData,
+      partners: partners
+    })
+  }
+
+  let addVideoFields = () => {
+    setVideos([...videos, { videoId: "" }])
+    setFormData({
+      ...formData,
+      videos: videos
+    })
+  }
+
+  let removeVideoFields = (i) => {
+    let newFormValues = [...videos];
+    newFormValues.splice(i, 1);
+    setVideos(newFormValues)
+    setFormData({
+      ...formData,
+      videos: videos
+    })
+  }
+
+  const handleInputPartnersChange = (index, event) => {
+    const values = [...partners];
+    const updatedValue = event.target.name;
+    values[index][updatedValue] = event.target.value;
+
+    setPartners(values);
+    setFormData({
+      ...formData,
+      partners: partners
+    })
+  };
+
+  const handleInputVideosChange = (index, event) => {
+    const values = [...videos];
+    const updatedValue = event.target.name;
+    values[index][updatedValue] = event.target.value;
+
+    setVideos(values);
+    setFormData({
+      ...formData,
+      videos: videos
+    })
+  };
 
   const handleChange = (e) => {
     e.preventDefault();
-    const name = e.target.id;
+    const name = e.target.name;
     const value = e.target.value;
     setFormData({
       ...formData,
@@ -91,42 +117,18 @@ const ProjectForm = () => {
   }
 
   const dispatch = useDispatch();
-  const [form] = Form.useForm();
 
-  function handleFinish() {
-    console.log("VALUES", formData);
-    dispatch(createProject(formData));
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    await setFormData({
+      ...formData,
+      partners: partners,
+      videos: videos
+    })
+    await console.log("FORMDATA", formData);
+    await dispatch(createProject(formData));
   }
 
-  // const onChange = (e) => {
-  //   let formData = new FormData()
-  //   formData.append('imageFile', e.file)
-  //   console.log(e.file)
-  //   console.log(formData)
-  // }
-
-  // const formProps = {
-  //   name: "imageFile",
-  //   action: "http://localhost:5000",
-  //   headers: {
-  //     authorization: "authorization-text",
-  //   },
-  //   onChange(info) {
-  //     if (info.file.status !== "uploading") {
-  //       // console.log(info.file, info.fileList);
-  //       let formData = new FormData()
-  //       formData.append('imageFile', info.fileList[0].originFileObj, info.fileList[0].name)
-  //       console.log('file', info.file)
-  //       console.log('fileList', info.fileList[0].originFileObj)
-  //       console.log(formData)
-  //     }
-  //     if (info.file.status === "done") {
-  //       message.success(`${info.file.name} file uploaded successfully`);
-  //     } else if (info.file.status === "error") {
-  //       message.error(`${info.file.name} file upload failed.`);
-  //     }
-  //   },
-  // };
 
   return (
     <Layout className="Form-layout layout-default">
@@ -141,299 +143,124 @@ const ProjectForm = () => {
             <Title className="font-regular text-muted" level={5}>
               veuillez remplir ces champs pour ajouter un projet!
             </Title>
-            <Form
-              form={form}
-              layout="vertical"
+            <form
               className="row-col"
-              onFinish={handleFinish}
+              onSubmit={handleSubmit}
               encType="multiple/form-data"
             >
-              <Form.Item
-                className="username"
-                label="Nom"
+              <input placeholder="Nom"
                 name="name"
-                rules={[
-                  {
-                    required: true,
-                    message: "veuillez entrer le nom!",
-                  },
-                ]}
-              >
-                <Input placeholder="Nom"
-                  onChange={handleChange}
-                />
-              </Form.Item>
-
-              <Form.Item
-                className="username"
-                label="Catégorie"
+                onChange={handleChange}
+              />
+              <input
+                placeholder="Catégorie"
                 name="category"
-                rules={[
-                  {
-                    required: true,
-                    message: "veuillez entrer la catégorie!",
-                  },
-                ]}
-              >
-                <Input
-                  placeholder="Catégorie"
-                  onChange={handleChange}
-                />
-              </Form.Item>
-              <Form.Item
-                className="username"
-                label="Description"
+                onChange={handleChange}
+              />
+              <input placeholder="à propos de ce projet"
                 name="description"
-                rules={[
-                  {
-                    required: true,
-                    message: "veuillez entrer la description!",
-                  },
-                ]}
-              >
-                <Input placeholder="à propos de ce projet"
-                  onChange={handleChange}
-                />
-              </Form.Item>
-
-              <Form.Item
-                name="imageFile">
-                <div className="uploadfile pb-15 shadow-none">
-                  {/* <Upload
-                    // {...formProps}
-                    accept={"image/*"}
-                    type='file'
-                    listType="picture-card"
-                    onPreview={handlePreview}
-                    // onChange={handleImage}
-                    // onChange={onChange}
-                    onChange={(e) => {
-                      console.log(e.fileList[0]);
-                      setFormData({
-                        ...formData,
-                        imageFile: e.fileList[0]
-                      });
-                    }}
-                    beforeUpload={() => false}
-                    maxCount={1}
-                    name="imageFile"
-                  > */}
-                  {/* {fileList.length >= 1 ? null : uploadButton} */}
-                  {/* {uploadButton} */}
-                  {/* </Upload> */}
-                  <input
-                    type='file'
-                    accept='image/*'
-                    // ref={inputRef}
-                    filename="imageFile"
-                    onChange={(e) => {
-                      console.log(e.target.files[0])
-                      setFormData({ ...formData, imageFile: e.target.files[0] })
-                    }}
-                  />
-                  {/* <Upload
-                    listType="picture-card"
-                    onPreview={handlePreview}
-                    beforeUpload={() => false}
-                    maxCount={1}
-                  >
-                    {uploadButton}
-                  </Upload> */}
-                  <Modal visible={previewVisible} footer={null} onCancel={handleCancel}>
-                    <img alt="example" style={{ width: '100%' }} src={previewImage} />
-                  </Modal>
-                </div>
-              </Form.Item>
-
-              <Form.Item name="videoFile">
-                <div className="uploadfile pb-15 shadow-none">
-                  {/* <Upload
-                    // {...formProps}
-                    accept={"video/*"}
-                    // onChange={handleVideo}
-                    beforeUpload={() => false}
-                    maxCount={1}
-                  >
-                    <Button
-                      type="dashed"
-                      className="ant-full-box"
-                      icon={<ToTopOutlined />}
-                    >
-                      Ajouter video
-                    </Button>
-                  </Upload> */}
-                  <input
-                    type='file'
-                    accept='video/*'
-                    // ref={inputRef}
-                    filename="videoFile"
-                    onChange={(e) => {
-                      console.log(e.target.files[0])
-                      setFormData({ ...formData, videoFile: e.target.files[0] })
-                    }}
-                  />
-                </div>
-              </Form.Item>
-
-              <Form.Item
-                className="username"
-                label="Vidéo principal (Youtube)"
-                name="videoId"
-                rules={[
-                  {
-                    required: true,
-                    message: "veuillez entrer l'id du vidéo!",
-                  },
-                ]}
-              >
-                <Input placeholder="ID VIDEO"
-                  onChange={handleChange}
-                />
-              </Form.Item>
-              <Form.Item
-                className="username"
-                label="Client"
-                name="client"
-                rules={[
-                  {
-                    required: true,
-                    message: "veuillez entrer le nom du client!",
-                  },
-                ]}
-              >
-                <Input placeholder="Nom du client"
-                  onChange={handleChange}
-                />
-              </Form.Item>
-
-              <Form.Item
-                className="username"
-                label="Lien client (Youtube, ...)"
-                name="clientLink"
-                type="url"
-
-                pattern="https://.*"
-                rules={[
-                  {
-                    required: true,
-                    message: "veuillez entrer le lien du client!",
-                  },
-                ]}
-              >
-                <Input placeholder="Lien client"
-                  onChange={handleChange}
-                />
-              </Form.Item>
-
-              <Form.List name="partners">
-                {(fields, { add, remove }) => (
-                  <>
-                    {fields.map(({ key, name, ...restField }) => (
-                      <Space
-                        key={key}
-                        style={{
-                          display: 'flex',
-                          marginBottom: 8,
-                        }}
-                        align="baseline"
-                      >
-                        <Form.Item
-                          {...restField}
-                          className="username"
-                          label="Partenaire"
-                          name={[name, 'name']}
-                          rules={[
-                            {
-                              required: true,
-                              message: 'Missing name',
-                            },
-                          ]}
-                        >
-                          <Input placeholder="Nom du partenaire"
-
-                          />
-                        </Form.Item>
-                        <Form.Item
-                          {...restField}
-                          className="username"
-                          label="Lien"
-                          name={[name, 'partnerLink']}
-                          rules={[
-                            {
-                              required: true,
-                              message: 'Missing link',
-                            },
-                          ]}
-                        >
-                          <Input placeholder="Lien du partenaire"
-
-                          />
-                        </Form.Item>
-                        <MinusCircleOutlined onClick={() => remove(name)} />
-                      </Space>
-                    ))}
-                    <Form.Item>
-                      <Button type="dashed" onClick={() => add()} block icon={<PlusOutlined />}>
-                        Ajouter partenaire
-                      </Button>
-                    </Form.Item>
-                  </>
-                )}
-              </Form.List>
-
-              <Form.List name="videos">
-                {(fields, { add, remove }) => {
-                  return (
-                    <div>
-                      {fields.map((field, index) => (
-                        <div key={field.key}>
-                          <Form.Item
-                            name={[index, "videoId"]}
-                            label="ID Video (Youtube)"
-                            rules={[{ required: true }]}
-                          >
-                            <Input placeholder="ID Video" onChange={(e) => {
-                              console.log("id", e.target.id);
-                              console.log("value", e.target.value);
-                            }} />
-                          </Form.Item>
-                          {fields.length > 1 ? (
-                            <Button
-                              type="danger"
-                              className="dynamic-delete-button"
-                              onClick={() => remove(field.name)}
-                              icon={<MinusCircleOutlined />}
-                            >
-                              Remove Above Field
-                            </Button>
-                          ) : null}
-                        </div>
-                      ))}
-                      <Form.Item>
-                        <Button
-                          type="dashed"
-                          onClick={() => add()}
-                          style={{ width: "60%" }}
-                        >
-                          <PlusOutlined /> Add field
-                        </Button>
-                      </Form.Item>
-                    </div>
-                  );
+                onChange={handleChange}
+              />
+              <input
+                type='file'
+                accept='image/*'
+                // ref={inputRef}
+                filename="imageFile"
+                onChange={(e) => {
+                  console.log(e.target.files[0])
+                  setFormData({ ...formData, imageFile: e.target.files[0] })
                 }}
-              </Form.List>
+              />
+              <input
+                type='file'
+                accept='video/*'
+                // ref={inputRef}
+                filename="videoFile"
+                onChange={(e) => {
+                  console.log(e.target.files[0])
+                  setFormData({ ...formData, videoFile: e.target.files[0] })
+                }}
+              />
+              <input placeholder="ID VIDEO"
+                name="videoId"
+                onChange={handleChange}
+              />
+              <input placeholder="Nom du client"
+                name="client"
+                onChange={handleChange}
+              />
+              <input placeholder="Lien client"
+                name="clientLink"
+                onChange={handleChange}
+              />
 
-              <Form.Item>
-                <Button
-                  type="primary"
-                  htmlType="submit"
-                  style={{ width: "100%" }}
-                >
-                  AJOUTER
-                </Button>
-              </Form.Item>
+              {partners.map((field, index) => (
+                <div className="form-inline" key={index}>
+                  <label>Name</label>
+                  <input
+                    name="name"
+                    placeholder="Enter Name"
+                    onChange={(event) => {
+                      handleInputPartnersChange(index, event)
+                    }}
+                    defaultValue=""
+                  />
+                  <label>partnerLink</label>
+                  <input
+                    name="partnerLink"
+                    placeholder="Enter Link"
+                    onChange={(event) => {
+                      handleInputPartnersChange(index, event)
+                    }}
+                    defaultValue=""
+                  />
+                  {
+                    index ?
+                      <button type="button" className="button remove" onClick={() => removePartnerFields(index)}>Remove</button>
+                      : null
+                  }
+                </div>
+              ))}
+              <div className="button-section">
+                <button className="button add" type="button" onClick={() => addPartnerFields()}>Add</button>
+              </div>
 
-            </Form>
+
+
+
+              {videos.map((field, index) => (
+                <div className="form-inline" key={index}>
+                  <label>ID VIDEO</label>
+                  <input
+                    name="videoId"
+                    placeholder="Enter VIDEO ID"
+                    onChange={(event) => {
+                      handleInputVideosChange(index, event)
+                    }}
+                    defaultValue=""
+                  />
+                  {
+                    index ?
+                      <button type="button" className="button remove" onClick={() => removeVideoFields(index)}>Remove</button>
+                      : null
+                  }
+                </div>
+              ))}
+              <div className="button-section">
+                <button className="button add" type="button" onClick={() => addVideoFields()}>Add</button>
+              </div>
+
+
+
+              <Button
+                type="primary"
+                htmlType="submit"
+                style={{ width: "100%" }}
+              >
+                AJOUTER
+              </Button>
+
+            </form>
 
           </Col>
 

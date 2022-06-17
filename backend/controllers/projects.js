@@ -35,7 +35,7 @@ export const getProjectById = async (req, res) => {
     }
 }
 
-export const createProject = async (req, res, next) => {
+export const createProject = async (req, res) => {
     const {
         name,
         category,
@@ -47,10 +47,12 @@ export const createProject = async (req, res, next) => {
         videos
     } = req.body;
 
-    const imageFile = req.files['imageFile'];
-    const videoFile = req.files['videoFile'];
+    const imageFile = req.files.imageFile[0];
+    const videoFile = req.files.videoFile[0];
 
-    // console.log(imageFile, videoFile)
+    console.log("req.body", req.body)
+
+    console.log(imageFile, videoFile)
 
     const newProject = new Project({
         name,
@@ -61,8 +63,8 @@ export const createProject = async (req, res, next) => {
         videoId,
         client,
         clientLink,
-        partners,
-        videos
+        partners: partners,
+        videos: videos
     })
 
     try {

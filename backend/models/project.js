@@ -11,13 +11,13 @@ const projectSchema = mongoose.Schema({
     clientLink: { type: String },
     partners: [
         {
-            name: { type: String },
-            partnerLink: { type: String },
+            name: String,
+            partnerLink: String,
         },
     ],
     videos: [
         {
-            videoId: { type: String },
+            videoId: String,
         },
     ],
 })

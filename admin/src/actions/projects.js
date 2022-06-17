@@ -53,15 +53,24 @@ export const createProject = (project) => async (dispatch) => {
         formData.append('videoId', project.videoId);
         formData.append('client', project.client);
         formData.append('clientLink', project.clientLink);
-        for (let i = 0; i < project.partners.length; i++) {
-            formData.append('partners', project.partners[i]);
-            console.log(project.partners[i]);
+
+        for (var i = 0; i < project.partners.length; i++) {
+            formData.append(`partners[${i}][name]`, project.partners[i].name);
+            formData.append(`partners[${i}][partnerLink]`, project.partners[i].partnerLink);
+            console.log("element", project.partners[i]);
         }
-        formData.append('videos', project.videos);
+
+        for (var j = 0; j < project.videos.length; j++) {
+            formData.append(`videos[${j}][videoId]`, project.videos[j].videoId);
+            console.log("element", project.videos[j]);
+        }
+
         formData.append('imageFile', project.imageFile);
         formData.append('videoFile', project.videoFile);
         // console.log('formdata from actions img: ', project.imageFile);
         // console.log('formdata from actions vid: ', project.videoFile);
+        // console.log('values from actions allllll: ', values);
+        
         console.log('formdata from actions allllll: ', formData);
         const { data } = await api.createProject(formData);
 

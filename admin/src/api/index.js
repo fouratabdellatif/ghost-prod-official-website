@@ -16,6 +16,6 @@ API.interceptors.request.use((req) => {
 // export const updateUserPassword = (updatedUserPassword) => API.post("/profile/updateUserPassword", updatedUserPassword);
 export const fetchProjects = () => API.get('/projects');
 export const fetProjectById = (id) => API.get(`/projects/${id}`);
-export const createProject = (newProject) => API.post('/projects/createProject', newProject);
+export const createProject = (newProject, others) => API.post('/projects/createProject', newProject, others);
 export const updateProject = (id, updatedProject) => API.patch(`/projects/updateProject/${id}`, updatedProject);
 export const deleteProject = (id) => API.delete(`/projects/deleteProject/${id}`);
