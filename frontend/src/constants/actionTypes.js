@@ -1,0 +1,10 @@
+export const AUTH = "AUTH";
+export const AUTHERROR = "AUTHERROR";
+export const LOGOUT = "LOGOUT";
+export const CREATE = "CREATE";
+export const UPDATE = 'UPDATE';
+export const DELETE = "DELETE";
+export const FETCH_ALL = "FETCH_ALL";
+export const FETCH_PROJECT = "FETCH_PROJECT";
+export const FETCH_ALL_PROJECTS = "FETCH_ALL_PROJECTS";
+export const FETCH_ALL_ADMINS = "FETCH_ALL_ADMINS";

@@ -6,7 +6,7 @@ import PostCard from "./Cards/PostCard";
 export default function Sidebar({ id }) {
 
 
-    let posts = BlogPageData.filter((item) => item.id != id).map((item, index) => {
+    let posts = BlogPageData.filter((item) => item._id != id).map((item, index) => {
         return item;
     });
 

@@ -7,7 +7,7 @@ const CasualPage = ({ bg, text, title, pageTitle, pageContent }) => {
     return (
         <>
             <Helmet>
-                <title>{pageTitle} - GHOSTPROD &copy;</title>
+                <title>{`${pageTitle} - GHOSTPROD &copy;`}</title>
             </Helmet>
             <div className="starting-container" style={{
                 backgroundImage: `
@@ -15,7 +15,7 @@ const CasualPage = ({ bg, text, title, pageTitle, pageContent }) => {
         90deg,
         rgba(0, 0, 0, 0.5),
         rgba(0, 0, 0, 0.8)
-      ), url(${bg})`,
+      ), url(/uploads/${bg})`,
             }}>
                 <h1 className="page-title">{title}</h1>
                 <h3 className="mini-title">{text}</h3>
@@ -26,7 +26,7 @@ const CasualPage = ({ bg, text, title, pageTitle, pageContent }) => {
         90deg,
         rgba(0, 0, 0, 0.5),
         rgba(0, 0, 0, 0.8)
-      ), url(${bg})`,
+      ), url(/uploads/${bg})`,
             }}>
                 <div className="page-paper">
                     {pageContent}

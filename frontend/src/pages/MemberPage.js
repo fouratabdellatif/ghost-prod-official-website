@@ -13,7 +13,7 @@ const MemberPage = () => {
     console.log(id)
 
 
-    let members = TeamData.filter((item) => item.id == id).map((item, index) => {
+    let members = TeamData.filter((item) => item._id == id).map((item, index) => {
         return item;
     });
 

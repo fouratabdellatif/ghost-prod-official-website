@@ -13,7 +13,7 @@ const VoiceOverArtistPage = () => {
     console.log(id)
 
 
-    let artists = VoiceOverData.filter((item) => item.id == id).map((item, index) => {
+    let artists = VoiceOverData.filter((item) => item._id == id).map((item, index) => {
         return item;
     });
 

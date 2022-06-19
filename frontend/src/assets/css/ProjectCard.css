@@ -33,9 +33,10 @@
   text-align: left;
   background-color: rgba(0, 0, 0, 0.6);
   padding: 10px 15px;
+  width: 100%;
   bottom: 0;
   z-index: 99;
-  height: 120px;
+  height: 140px;
 }
 
 .project-card-description p {
@@ -55,10 +56,13 @@
 .project-card-name h2 {
   margin: 0;
   padding: 0;
-  font-size: 26px;
+  font-size: 24px;
   text-transform: uppercase;
   font-weight: bold;
   color: #ffffff;
+  inline-size: 100%;
+  overflow-wrap: break-word;
+  hyphens: manual;
 }
 
 .project-card-category h3 {
