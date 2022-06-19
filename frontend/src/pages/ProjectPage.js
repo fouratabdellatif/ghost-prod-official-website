@@ -5,7 +5,7 @@ import CasualPage from './CasualPage'
 import { useParams } from 'react-router-dom'
 import Project from '../components/Projects/Project'
 import { useDispatch, useSelector } from 'react-redux'
-import { getProjectById, getProjects } from '../actions/projects'
+import { getProjects } from '../actions/projects'
 
 
 const ProjectPage = () => {

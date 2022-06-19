@@ -16,11 +16,15 @@ const ProjectsSection = () => {
       dispatch(getProjects());
     }, [dispatch]);
 
+    let someProjects = projects.slice(0, 4).map(item => {
+        return item;
+    });
+
     return (
         <section className='projects-section'>
             <SectionTitle miniTitle="Nos " title="Projets" />
             <div className='projects-container'>
-                {projects.map((item, index) => (
+                {someProjects.map((item, index) => (
                     <ProjectCard
                         key={index}
                         item={item}
