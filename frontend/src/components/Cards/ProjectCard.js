@@ -5,7 +5,7 @@ import HoverVideoPlayer from "react-hover-video-player";
 
 function ProjectCard({ item }) {
     return (
-        <Link to={`/realisations/${item.id}`} className='project-card-container' data-aos="slide-up"
+        <Link to={`/realisations/${item._id}`} className='project-card-container' data-aos="slide-up"
         // style={{
         //     background: `url(${image})`,
         //     backgroundPosition: 'fixed',
@@ -27,11 +27,11 @@ function ProjectCard({ item }) {
                 {/* <img src={item.image} alt='' /> */}
                 <HoverVideoPlayer
                     className='project-hover-video'
-                    videoSrc={item.video}
+                    videoSrc={`/uploads/${item.videoFile}`}
                     videoStyle={{
                         height: '360px',
                     }}
-                    pausedOverlay={<img src={item.image} alt='' />}
+                    pausedOverlay={<img src={`/uploads/${item.imageFile}`} alt='video' />}
                 // loadingOverlay={<LoadingOverlay />}
                 />
             </div>

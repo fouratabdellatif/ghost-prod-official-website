@@ -11,7 +11,7 @@ const PostPage = () => {
 
     const { id } = useParams();
 
-    let posts = BlogPageData.filter((item) => item.id == id).map((item, index) => {
+    let posts = BlogPageData.filter((item) => item._id == id).map((item, index) => {
         return item;
     });
 
@@ -27,7 +27,7 @@ const PostPage = () => {
                         <Post
                             item={post}
                         />
-                        <Sidebar id={post.id} />
+                        <Sidebar id={post._id} />
                     </div>
                 </>
             } />

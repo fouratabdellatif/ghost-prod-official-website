@@ -1,17 +1,26 @@
-import React from 'react'
-import { ProjectsData } from '../../data/ProjectsData'
+import React, { useEffect } from 'react'
 import ProjectCard from '../Cards/ProjectCard'
 import '../../assets/css/ProjectsSection.css'
 import SectionTitle from './SectionTitle'
 import CasualButton from '../CasualButton'
 import { MdOutlineArrowForwardIos } from 'react-icons/md'
+import { useDispatch, useSelector } from 'react-redux'
+import { getProjects } from '../../actions/projects'
 
 const ProjectsSection = () => {
+
+    const projects = useSelector((state) => state.projects);
+  
+    const dispatch = useDispatch();
+    useEffect(() => {
+      dispatch(getProjects());
+    }, [dispatch]);
+
     return (
         <section className='projects-section'>
             <SectionTitle miniTitle="Nos " title="Projets" />
             <div className='projects-container'>
-                {ProjectsData.map((item, index) => (
+                {projects.map((item, index) => (
                     <ProjectCard
                         key={index}
                         item={item}

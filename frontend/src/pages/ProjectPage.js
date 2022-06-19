@@ -1,9 +1,11 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable eqeqeq */
-import React from 'react'
+import React, { useEffect } from 'react'
 import CasualPage from './CasualPage'
 import { useParams } from 'react-router-dom'
 import Project from '../components/Projects/Project'
-import { ProjectsData } from '../data/ProjectsData'
+import { useDispatch, useSelector } from 'react-redux'
+import { getProjectById, getProjects } from '../actions/projects'
 
 
 const ProjectPage = () => {
@@ -11,8 +13,15 @@ const ProjectPage = () => {
     const { id } = useParams();
     console.log(id)
 
+    const projectsData = useSelector((state) => state.projects);
 
-    let projects = ProjectsData.filter((item) => item.id == id).map((item, index) => {
+    const dispatch = useDispatch();
+    useEffect(async () => {
+        await dispatch(getProjects());
+    }, [dispatch]);
+
+
+    let projects = projectsData.filter((item) => item._id == id).map((item, index) => {
         return item;
     });
 
@@ -22,7 +31,7 @@ const ProjectPage = () => {
 
     return (
         <>
-            <CasualPage pageTitle={project.name} bg={project.image} text={project.category} title={project.name} pageContent={
+            <CasualPage pageTitle={project?.name} bg={project?.imageFile} text={project?.category} title={project?.name} pageContent={
                 <>
                     <Project
                         item={project}

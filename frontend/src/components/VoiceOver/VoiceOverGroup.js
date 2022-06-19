@@ -176,7 +176,7 @@ function VoiceOverCard({ item, index }) {
         <div className="voice-over-card-wrapper">
             <div className="voice-over-card">
                 <div className="voice-over-card-image">
-                    <Link className='artist-link' to={`/voice-over/${item.id}`}>
+                    <Link className='artist-link' to={`/voice-over/${item._id}`}>
                         <img src={item.image} alt='voice-over_artist' />
                     </Link>
                     <div className='artist-play-section'>
@@ -194,7 +194,7 @@ function VoiceOverCard({ item, index }) {
                                 onClick={audiofunction}
                                 ref={player} /> */}
                     </div>
-                    <Link className='artist-link' to={`/voice-over/${item.id}`}>
+                    <Link className='artist-link' to={`/voice-over/${item._id}`}>
                         <div className="artist-details">
                             <h2>
                                 {item.firstname} {item.lastname}
