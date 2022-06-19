@@ -1,5 +1,6 @@
 import express from 'express';
 import mongoose from 'mongoose';
+import fs from 'fs';
 
 import Project from '../models/project.js';
 import "moment/locale/fr.js";
@@ -50,9 +51,9 @@ export const createProject = async (req, res) => {
     const imageFile = req.files.imageFile[0];
     const videoFile = req.files.videoFile[0];
 
-    console.log("req.body", req.body)
+    // console.log("req.body", req.body)
 
-    console.log(imageFile, videoFile)
+    // console.log(imageFile, videoFile)
 
     const newProject = new Project({
         name,
@@ -68,7 +69,18 @@ export const createProject = async (req, res) => {
     })
 
     try {
+
         await newProject.save();
+
+        fs.copyFile(`C:/Github/ghost-prod-official-website/frontend/public/uploads/${imageFile.filename}`, `C:/Github/ghost-prod-official-website/admin/public/uploads/${imageFile.filename}`, (err) => {
+            if (err) throw err;
+            console.log(`${imageFile.filename} was copied`);
+        });
+
+        fs.copyFile(`C:/Github/ghost-prod-official-website/frontend/public/uploads/${videoFile.filename}`, `C:/Github/ghost-prod-official-website/admin/public/uploads/${videoFile.filename}`, (err) => {
+            if (err) throw err;
+            console.log(`${videoFile.filename} was copied`);
+        });
 
         res.status(201).json(newProject);
     } catch (error) {
