@@ -1,10 +1,12 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable eqeqeq */
-import React from 'react'
+import React, { useEffect } from 'react'
 import CasualPage from './CasualPage'
 import bgImage from '../assets/images/bg07.jpg'
 import { useParams } from 'react-router-dom'
-import { TeamData } from '../data/TeamData'
 import Member from '../components/Team/Member'
+import { useDispatch, useSelector } from 'react-redux'
+import { getMembers } from '../actions/members'
 
 
 const MemberPage = () => {
@@ -12,8 +14,14 @@ const MemberPage = () => {
     const { id } = useParams();
     console.log(id)
 
+    const membersData = useSelector((state) => state.members);
 
-    let members = TeamData.filter((item) => item._id == id).map((item, index) => {
+    const dispatch = useDispatch();
+    useEffect(async () => {
+        await dispatch(getMembers());
+    }, [dispatch]);
+
+    let members = membersData.filter((item) => item._id == id).map((item, index) => {
         return item;
     });
 

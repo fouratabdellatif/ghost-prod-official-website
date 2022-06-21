@@ -24,7 +24,7 @@ function ProjectCard({ item }) {
                 </div>
             </div>
             <div className="project-image-container">
-                {/* <img src={item?.image} alt='' /> */}
+                {/* <img src={item?.imageFile} alt='' /> */}
                 <HoverVideoPlayer
                     className='project-hover-video'
                     videoSrc={`/uploads/${item?.videoFile}`}

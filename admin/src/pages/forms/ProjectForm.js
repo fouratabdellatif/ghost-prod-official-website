@@ -4,11 +4,13 @@ import {
   Button,
   Row,
   Col,
-  Typography
+  Typography,
+  Space
 } from "antd";
-import { MinusCircleOutlined, PlusOutlined, ToTopOutlined } from "@ant-design/icons";
+import { MinusOutlined, PlusOutlined } from "@ant-design/icons";
 import { createProject } from "../../actions/projects";
 import { useDispatch } from "react-redux";
+import { useHistory } from "react-router-dom";
 
 
 const { Title } = Typography;
@@ -117,6 +119,7 @@ const ProjectForm = () => {
   }
 
   const dispatch = useDispatch();
+  const history = useHistory();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -127,6 +130,7 @@ const ProjectForm = () => {
     })
     await console.log("FORMDATA", formData);
     await dispatch(createProject(formData));
+    await history.push('/projects');
   }
 
 
@@ -148,125 +152,181 @@ const ProjectForm = () => {
               onSubmit={handleSubmit}
               encType="multiple/form-data"
             >
-              <input placeholder="Nom"
-                name="name"
-                onChange={handleChange}
-              />
-              <input
-                placeholder="Catégorie"
-                name="category"
-                onChange={handleChange}
-              />
-              <input placeholder="à propos de ce projet"
-                name="description"
-                onChange={handleChange}
-              />
-              <input
-                type='file'
-                accept='image/*'
-                // ref={inputRef}
-                filename="imageFile"
-                onChange={(e) => {
-                  console.log(e.target.files[0])
-                  setFormData({ ...formData, imageFile: e.target.files[0] })
-                }}
-              />
-              <input
-                type='file'
-                accept='video/*'
-                // ref={inputRef}
-                filename="videoFile"
-                onChange={(e) => {
-                  console.log(e.target.files[0])
-                  setFormData({ ...formData, videoFile: e.target.files[0] })
-                }}
-              />
-              <input placeholder="ID VIDEO"
-                name="videoId"
-                onChange={handleChange}
-              />
-              <input placeholder="Nom du client"
-                name="client"
-                onChange={handleChange}
-              />
-              <input placeholder="Lien client"
-                name="clientLink"
-                onChange={handleChange}
-              />
-
-              {partners.map((field, index) => (
-                <div className="form-inline" key={index}>
-                  <label>Name</label>
+              <Space direction="vertical" size="middle" style={{ display: 'flex' }}>
+                <Col
+                  xs={{ span: 24, offset: 0 }}
+                  lg={{ span: 7, offset: 2 }}
+                  md={{ span: 12 }}
+                >
+                  <Space direction="horizontal" size="middle" style={{ display: 'flex' }}>
+                    <input placeholder="Nom"
+                      name="name"
+                      onChange={handleChange}
+                    />
+                    <input
+                      placeholder="Catégorie"
+                      name="category"
+                      onChange={handleChange}
+                    />
+                  </Space>
+                </Col>
+                <Col
+                  xs={{ span: 24, offset: 0 }}
+                  lg={{ span: 7, offset: 2 }}
+                  md={{ span: 12 }}
+                >
                   <input
-                    name="name"
-                    placeholder="Enter Name"
-                    onChange={(event) => {
-                      handleInputPartnersChange(index, event)
+                    type='file'
+                    accept='image/*'
+                    // ref={inputRef}
+                    filename="imageFile"
+                    onChange={(e) => {
+                      console.log(e.target.files[0])
+                      setFormData({ ...formData, imageFile: e.target.files[0] })
                     }}
-                    defaultValue=""
                   />
-                  <label>partnerLink</label>
                   <input
-                    name="partnerLink"
-                    placeholder="Enter Link"
-                    onChange={(event) => {
-                      handleInputPartnersChange(index, event)
+                    type='file'
+                    accept='video/*'
+                    // ref={inputRef}
+                    filename="videoFile"
+                    onChange={(e) => {
+                      console.log(e.target.files[0])
+                      setFormData({ ...formData, videoFile: e.target.files[0] })
                     }}
-                    defaultValue=""
                   />
-                  {
-                    index ?
-                      <button type="button" className="button remove" onClick={() => removePartnerFields(index)}>Remove</button>
-                      : null
-                  }
-                </div>
-              ))}
-              <div className="button-section">
-                <button className="button add" type="button" onClick={() => addPartnerFields()}>Add</button>
-              </div>
-
-
-
-
-              {videos.map((field, index) => (
-                <div className="form-inline" key={index}>
-                  <label>ID VIDEO</label>
-                  <input
+                </Col>
+                <Col
+                  xs={{ span: 24, offset: 0 }}
+                  lg={{ span: 7, offset: 2 }}
+                  md={{ span: 12 }}
+                >
+                  <input placeholder="ID VIDEO"
                     name="videoId"
-                    placeholder="Enter VIDEO ID"
-                    onChange={(event) => {
-                      handleInputVideosChange(index, event)
-                    }}
-                    defaultValue=""
+                    onChange={handleChange}
                   />
-                  {
-                    index ?
-                      <button type="button" className="button remove" onClick={() => removeVideoFields(index)}>Remove</button>
-                      : null
-                  }
-                </div>
-              ))}
-              <div className="button-section">
-                <button className="button add" type="button" onClick={() => addVideoFields()}>Add</button>
-              </div>
-
-
-
-              <Button
-                type="primary"
-                htmlType="submit"
-                style={{ width: "100%" }}
-              >
-                AJOUTER
-              </Button>
-
+                </Col>
+                <Col
+                  xs={{ span: 24, offset: 0 }}
+                  lg={{ span: 7, offset: 2 }}
+                  md={{ span: 12 }}
+                >
+                  <Space direction="horizontal" size="middle" style={{ display: 'flex' }}>
+                    <input placeholder="Nom du client"
+                      name="client"
+                      onChange={handleChange}
+                    />
+                    <input placeholder="Lien client"
+                      name="clientLink"
+                      onChange={handleChange}
+                    />
+                  </Space>
+                </Col>
+                <Col
+                  xs={{ span: 24, offset: 0 }}
+                  lg={{ span: 7, offset: 2 }}
+                  md={{ span: 12 }}
+                >
+                  <label style={{
+                    fontWeight: 700,
+                  }}>Partenaires</label>
+                  {partners.map((field, index) => (
+                    <div className="form-inline" key={index}>
+                      <Space direction="horizontal" size="middle" style={{ display: 'flex' }}>
+                        <input
+                          name="name"
+                          placeholder="Partenaire (Nom)"
+                          onChange={(event) => {
+                            handleInputPartnersChange(index, event)
+                          }}
+                          defaultValue=""
+                        />
+                        <input
+                          name="partnerLink"
+                          placeholder="Partenaire (Lien)"
+                          onChange={(event) => {
+                            handleInputPartnersChange(index, event)
+                          }}
+                          defaultValue=""
+                        />
+                      {
+                        index ?
+                        <button type="button" className="button remove" onClick={() => removePartnerFields(index)}>
+                            <MinusOutlined />
+                          </button>
+                          : null
+                        }
+                        </Space>
+                    </div>
+                  ))}
+                  <div className="button-section">
+                    <button className="button add" type="button" onClick={() => addPartnerFields()}>
+                      <PlusOutlined />
+                    </button>
+                  </div>
+                </Col>
+                <Col
+                  xs={{ span: 24, offset: 0 }}
+                  lg={{ span: 7, offset: 2 }}
+                  md={{ span: 12 }}
+                >
+                  <label style={{
+                    fontWeight: 700,
+                  }}>Autres videos</label>
+                  {videos.map((field, index) => (
+                    <div className="form-inline" key={index}>
+                      <input
+                        name="videoId"
+                        placeholder="VIDEO ID"
+                        onChange={(event) => {
+                          handleInputVideosChange(index, event)
+                        }}
+                        defaultValue=""
+                      />
+                      {
+                        index ?
+                          <button type="button" className="button remove" onClick={() => removeVideoFields(index)}>
+                            <MinusOutlined />
+                          </button>
+                          : null
+                      }
+                    </div>
+                  ))}
+                  <div className="button-section">
+                    <button className="button add" type="button" onClick={() => addVideoFields()}>
+                      <PlusOutlined />
+                    </button>
+                  </div>
+                </Col>
+                <Col
+                  xs={{ span: 24, offset: 0 }}
+                  lg={{ span: 7, offset: 2 }}
+                  md={{ span: 12 }}
+                >
+                  <textarea placeholder="à propos de ce projet"
+                    name="description"
+                    onChange={handleChange}
+                    rows={4}
+                  />
+                </Col>
+                <Col
+                  xs={{ span: 24, offset: 0 }}
+                  lg={{ span: 7, offset: 2 }}
+                  md={{ span: 12 }}
+                >
+                  <Button
+                    type="primary"
+                    htmlType="submit"
+                    style={{ width: "100%" }}
+                  >
+                    AJOUTER
+                  </Button>
+                </Col>
+              </Space>
             </form>
-
           </Col>
-
         </Row>
       </Content>
-
     </Layout>
   )
 }

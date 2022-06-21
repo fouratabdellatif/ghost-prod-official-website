@@ -7,23 +7,26 @@ const Member = ({ item }) => {
         <section className='one-member-section'>
             <div className='one-member-container'>
                 <div className='one-member-column-left'>
-                    <img src={item.image} alt={`${item.firstname} ${item.lastname}`} />
+                    <img src={`/uploads/${item.profileImage}`} alt={`${item.firstname} ${item.lastname}`} />
                 </div>
                 <div className='one-member-column-right'>
                     <div className='one-member-top'>
                         <h1>{item.firstname} {item.lastname}</h1>
                         <ul className="one-member-socials">
-                            <li>
-                                <a
-                                    className='one-member-social-link facebook'
-                                    href={item.facebook}
-                                    target='_blank'
-                                    aria-label='Facebook'
-                                    rel="noreferrer"
-                                >
-                                    <i class="fab fa-facebook-square" />
-                                </a>
-                            </li>
+                            {item.facebook && (
+                                <li>
+                                    <a
+                                        className='one-member-social-link facebook'
+                                        href={item.facebook}
+                                        target='_blank'
+                                        aria-label='Facebook'
+                                        rel="noreferrer"
+                                    >
+                                        <i class="fab fa-facebook-square" />
+                                    </a>
+                                </li>
+                            )}
+                            {item.instagram && (
                             <li>
                                 <a
                                     className='one-member-social-link instagram'
@@ -35,6 +38,8 @@ const Member = ({ item }) => {
                                     <i class='fab fa-instagram' />
                                 </a>
                             </li>
+                            )}
+                            {item.linkedin && (
                             <li>
                                 <a
                                     className='one-member-social-link linkedin'
@@ -43,9 +48,23 @@ const Member = ({ item }) => {
                                     aria-label='LinkedIn'
                                     rel="noreferrer"
                                 >
+                                    <i class='fab fa-behance' />
+                                </a>
+                            </li>
+                            )}
+                            {item.behance && (
+                            <li>
+                                <a
+                                    className='one-member-social-link behance'
+                                    href={item.behance}
+                                    target='_blank'
+                                    aria-label='Behance'
+                                    rel="noreferrer"
+                                >
                                     <i class='fab fa-linkedin' />
                                 </a>
                             </li>
+                            )}
                         </ul>
                     </div>
                     <h3>{item.spec}</h3>

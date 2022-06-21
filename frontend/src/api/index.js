@@ -10,4 +10,11 @@ const API = axios.create({ baseURL: "http://localhost:5000" });
 // });
 
 export const fetchProjects = () => API.get('/projects');
-export const fetProjectById = (id) => API.get(`/projects/${id}`);
+export const fetchProjectById = (id) => API.get(`/projects/${id}`);
+export const fetchMembers = () => API.get('/members');
+export const fetchMemberById = (id) => API.get(`/members/${id}`);
+export const fetchPosts = () => API.get('/posts');
+export const fetchPostById = (id) => API.get(`/posts/${id}`);
+export const fetchLastPost = () => API.get('/posts/lastPost');
+export const fetchPartners = () => API.get('/partners');
+export const fetchPartnerById = (id) => API.get(`/partners/${id}`);

@@ -63,7 +63,12 @@ router.post('/createProject',
         name: 'videoFile', maxCount: 1
     }]), createProject);
 // router.post('/createProject', fileUpload, createProject);
-router.patch('/updateProject/:id', updateProject);
+router.patch('/updateProject/:id',
+    uploads.fields([{
+        name: 'imageFile', maxCount: 1
+    }, {
+        name: 'videoFile', maxCount: 1
+    }]), updateProject);
 router.delete('/deleteProject/:id', deleteProject);
 
 export default router;

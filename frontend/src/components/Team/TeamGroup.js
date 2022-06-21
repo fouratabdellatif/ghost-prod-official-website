@@ -1,14 +1,22 @@
-import React from 'react'
+import React, { useEffect } from 'react'
+import { useDispatch, useSelector } from 'react-redux';
+import { getMembers } from '../../actions/members';
 import '../../assets/css/TeamGroup.css';
-import { TeamData } from '../../data/TeamData';
 import TeamCard from '../Cards/TeamCard';
 
 const TeamGroup = () => {
 
+    const members = useSelector((state) => state.members);
+  
+    const dispatch = useDispatch();
+    useEffect(() => {
+      dispatch(getMembers());
+    }, [dispatch]);
+
     return (
         <section className='team-section'>
             <div className='team-group-container'>
-                {TeamData.map((item, index) => (
+                {members.map((item, index) => (
                     <TeamCard
                         key={index}
                         item={item}

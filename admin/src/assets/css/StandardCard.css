@@ -49,6 +49,14 @@
   color: #ffffff;
 }
 
+.post-card-text h2 {
+  margin: 0;
+  padding: 0;
+  font-size: 20px;
+  font-weight: bold;
+  color: #ffffff;
+}
+
 .post-card-category h3 {
   color: #e1a33b;
   text-transform: uppercase;

@@ -36,7 +36,7 @@ export const getProjectById = (id) => async (dispatch) => {
     try {
         //   dispatch({ type: START_LOADING });
 
-        const { data } = await api.fetProjectById(id);
+        const { data } = await api.fetchProjectById(id);
 
         dispatch({ type: FETCH_PROJECT, payload: { project: data } });
     } catch (error) {
@@ -86,7 +86,29 @@ export const createProject = (project) => async (dispatch) => {
 
 export const updateProject = (id, project) => async (dispatch) => {
     try {
-        const { data } = await api.updateProject(id, project);
+        const formData = new FormData();
+        formData.append('name', project.name);
+        formData.append('category', project.category);
+        formData.append('description', project.description);
+        formData.append('videoId', project.videoId);
+        formData.append('client', project.client);
+        formData.append('clientLink', project.clientLink);
+
+        for (var i = 0; i < project.partners.length; i++) {
+            formData.append(`partners[${i}][name]`, project.partners[i].name);
+            formData.append(`partners[${i}][partnerLink]`, project.partners[i].partnerLink);
+            console.log("element", project.partners[i]);
+        }
+
+        for (var j = 0; j < project.videos.length; j++) {
+            formData.append(`videos[${j}][videoId]`, project.videos[j].videoId);
+            console.log("element", project.videos[j]);
+        }
+
+        formData.append('imageFile', project.imageFile);
+        formData.append('videoFile', project.videoFile);
+
+        const { data } = await api.updateProject(id, formData);
 
         dispatch({ type: UPDATE, payload: data });
 
