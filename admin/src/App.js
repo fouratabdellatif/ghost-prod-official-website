@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import { Switch, Route } from "react-router-dom";
 import Home from "./pages/Home";
 import Tables from "./pages/Tables";
@@ -7,7 +8,6 @@ import SignUp from "./pages/SignUp";
 import Form from "./pages/Form";
 import SignIn from "./pages/SignIn";
 import Blog from "./pages/Blog";
-import Equipe from "./pages/Equipe";
 import AjoutBlog from "./pages/AjoutBlog";
 import Single from "./pages/Single";
 import Main from "./components/layout/Main";
@@ -16,19 +16,13 @@ import "./assets/css/main.css";
 import "./assets/css/responsive.css";
 import Projects from "./pages/Projects";
 import { BrowserRouter as Router } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
-import { useEffect } from "react";
-import { getProjects } from "./actions/projects";
 import ProjectForm from "./pages/forms/ProjectForm";
+import Members from "./pages/Members";
+import MemberForm from "./pages/forms/MemberForm";
+import Posts from "./pages/Posts";
+import PostForm from "./pages/forms/PostForm";
 
 function App() {
-
-  const projects = useSelector((state) => state.projects);
-
-  const dispatch = useDispatch();
-  useEffect(() => {
-    dispatch(getProjects());
-  }, [dispatch]);
 
   return (
     <div className="App">
@@ -39,10 +33,14 @@ function App() {
 
 
           <Main>
-            <Route exact path="/projects">
-              <Projects data={projects} />
-            </Route>
-            <Route exact path="/add-project" component={ProjectForm} />
+            <Route exact path="/projects" component={Projects} />
+            <Route exact path="/members" component={Members} />
+            <Route exact path="/posts" component={Posts} />
+            <Route exact path="/project" component={ProjectForm} />
+            <Route exact path="/member" component={MemberForm} />
+            <Route exact path="/member/:id" component={MemberForm} />
+            <Route exact path="/post" component={PostForm} />
+            <Route exact path="/post/:id" component={PostForm} />
 
             <Route exact path="/Single/:postId" component={Single} />
             <Route exact path="/AjoutBlog" component={AjoutBlog} />
@@ -51,7 +49,6 @@ function App() {
             <Route exact path="/dashboard" component={Home} />
             <Route exact path="/tables" component={Tables} />
             <Route exact path="/billing" component={Billing} />
-            <Route exact path="/Equipe" component={Equipe} />
             <Route exact path="/profile" component={Profile} />
 
           </Main>

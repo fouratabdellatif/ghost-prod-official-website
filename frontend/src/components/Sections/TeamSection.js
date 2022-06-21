@@ -1,10 +1,11 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { MdOutlineArrowForwardIos } from 'react-icons/md';
 import '../../assets/css/TeamSection.css';
-import { TeamData } from '../../data/TeamData';
 import CasualButton from '../CasualButton';
 import SectionTitle from './SectionTitle';
-import CardSlider from '../Sliders/CardSlider';
+import { useDispatch, useSelector } from 'react-redux';
+import { getMembers } from '../../actions/members';
+import TeamCardSlider from '../Sliders/TeamCardSlider';
 
 const TeamSection = () => {
 
@@ -52,11 +53,20 @@ const TeamSection = () => {
         )
     };
 
-    return (
+    const members = useSelector((state) => state.members);
+
+    const dispatch = useDispatch();
+    useEffect(() => {
+        dispatch(getMembers());
+    }, [dispatch]);
+
+    return (!members || members.length === 0) ? (
+        null
+    ) : (
         <section className='team-section'>
             <SectionTitle miniTitle="Notre " title="équipe" />
             <div className='team-container'>
-                <CardSlider settings={settings} data={TeamData} />
+                <TeamCardSlider settings={settings} data={members} />
             </div>
             <div data-aos="slide-left" className='team-btn'>
                 <CasualButton

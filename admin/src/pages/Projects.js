@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 import {
   Row,
   Col,
@@ -8,8 +9,18 @@ import StandardCard from '../components/layout/StandardCard.js'
 import '../assets/css/BlogSection.css'
 import { useState } from "react";
 import Tracker from "./Tracker.js";
+import { useDispatch, useSelector } from "react-redux";
+import { useEffect } from "react";
+import { getProjects } from "../actions/projects.js";
 
-function Projects({ data }) {
+function Projects() {
+
+  const projects = useSelector((state) => state.projects);
+
+  const dispatch = useDispatch();
+  useEffect(async () => {
+    await dispatch(getProjects());
+  }, []);
 
   function replaceAcc(str) {
     return str
@@ -33,7 +44,7 @@ function Projects({ data }) {
   const query = new URLSearchParams(search).get('s');
   const [searchQuery, setSearchQuery] = useState(query || '');
 
-  const filteredData = filterData(data, searchQuery);
+  const filteredData = filterData(projects, searchQuery);
 
   return (
     <div className="tabled">
@@ -45,7 +56,7 @@ function Projects({ data }) {
             title="Projets"
             extra={
                 <Radio.Group defaultValue="a">
-                  <Radio.Button value="a"><a id="add-mem" href="/add-project">Ajouter un projet</a></Radio.Button>
+                  <Radio.Button value="a"><a id="add-mem" href="/project">Ajouter un projet</a></Radio.Button>
                 </Radio.Group>
             }
           >

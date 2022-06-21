@@ -10,17 +10,19 @@ import { getProjects } from '../../actions/projects'
 const ProjectsSection = () => {
 
     const projects = useSelector((state) => state.projects);
-  
+
     const dispatch = useDispatch();
     useEffect(() => {
-      dispatch(getProjects());
+        dispatch(getProjects());
     }, [dispatch]);
 
     let someProjects = projects.slice(0, 4).map(item => {
         return item;
     });
 
-    return (
+    return (!projects || projects.length === 0) ? (
+        null
+    ) : (
         <section className='projects-section'>
             <SectionTitle miniTitle="Nos " title="Projets" />
             <div className='projects-container'>
@@ -34,7 +36,7 @@ const ProjectsSection = () => {
             <div data-aos="slide-left" className='projects-btn'>
                 <CasualButton
                     text="Tous nos projets"
-                    link="/projects"
+                    link="/realisations"
                     icon={
                         <MdOutlineArrowForwardIos className="icon-btn" />
                     }

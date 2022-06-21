@@ -1,8 +1,7 @@
 import React from 'react'
 import '../../assets/css/SpotlightPost.css'
-import postLogo from '../../assets/images/image1.jpg'
 
-const SpotlightPost = () => {
+const SpotlightPost = ({ item }) => {
     return (
         <div className="spotlight-container">
             <div className="sub-container">
@@ -16,9 +15,9 @@ const SpotlightPost = () => {
                                 }}>
                                     <a href="https://www.ghostprod.net/" className="tns-item">
                                         <picture>
-                                            <source media="(min-width: 768px)" srcset={postLogo} />
-                                            <source media="(min-width: 0px)" srcset={postLogo} />
-                                            <img className="rocket-lazyload lazyloaded" alt="Les origines de ghostprod-Récit, origine, création, fondation, idée, fondateur" src={postLogo} />
+                                            <source media="(min-width: 768px)" srcset={`/uploads/${item?.imageFile}`} />
+                                            <source media="(min-width: 0px)" srcset={`/uploads/${item?.imageFile}`} />
+                                            <img className="rocket-lazyload lazyloaded" alt="Les origines de ghostprod-Récit, origine, création, fondation, idée, fondateur" src={`/uploads/${item?.imageFile}`} />
                                         </picture>
                                     </a>
                                 </div>
@@ -34,10 +33,10 @@ const SpotlightPost = () => {
                                     <div className="text tns-item tns-slide-active">
                                         <span className="alaune">À la une</span>
                                         <a href="https://www.ghostprod.net/">
-                                            <h2>Les origines de GHOSTPROD</h2>
-                                            <span className="categorie">Comment ça marche?</span>
+                                            <h2>{item?.category}</h2>
+                                            {/* <span className="categorie">Comment ça marche?</span> */}
                                             <div className="resume">
-                                                <p>Car toutes les belles aventures ont le droit d’être racontées, voici le Storytelling de GHOSTPROD...</p>
+                                                <p>{item?.text}</p>
                                             </div>
                                         </a>
                                     </div>

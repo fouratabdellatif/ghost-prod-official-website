@@ -4,12 +4,7 @@ import { Link } from 'react-router-dom';
 
 function StandardCard({ type, item }) {
     return (
-        <Link to={`/single/${item?._id}`} className='post-card-container' data-aos="slide-up"
-        // style={{
-        //     background: `url(${image})`,
-        //     backgroundPosition: 'fixed',
-        //     backgroundSize: 'cover'
-        // }}
+        <Link to={`/post/${item?._id}`} className='post-card-container' data-aos="slide-up"
         >
             <div className="post-card-content">
                 <div className="post-card-category">
@@ -17,6 +12,9 @@ function StandardCard({ type, item }) {
                 </div>
                 <div className="post-card-name">
                     <h2>{item?.name}</h2>
+                </div>
+                <div className="post-card-text">
+                    <h2>{item?.text}</h2>
                 </div>
             </div>
             <div className="post-image-container">

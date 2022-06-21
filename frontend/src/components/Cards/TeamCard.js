@@ -8,7 +8,7 @@ function TeamCard({ item }) {
             <div className="team-card">
                 <Link className='member-link' to={`/team/${item._id}`}>
                     <div className="team-card-image">
-                        <img src={item.image} alt='team_member' />
+                        <img src={`/uploads/${item.profileImage}`} alt='team_member' />
                     </div>
                 </Link>
                 <ul className="social-icons-cards">

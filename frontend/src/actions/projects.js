@@ -15,7 +15,7 @@ export const getProjectById = (id) => async (dispatch) => {
     try {
         //   dispatch({ type: START_LOADING });
 
-        const { data } = await api.fetProjectById(id);
+        const { data } = await api.fetchProjectById(id);
 
         dispatch({ type: FETCH_PROJECT, payload: { project: data } });
     } catch (error) {

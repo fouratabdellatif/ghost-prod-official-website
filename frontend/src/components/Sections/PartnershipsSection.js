@@ -1,20 +1,22 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import SectionTitle from './SectionTitle'
 import '../../assets/css/PartnershipsSection.css'
-import CardSlider from '../Sliders/CardSlider'
 import { PartnersData } from '../../data/PartnersData'
+import PartnerCardSlider from '../Sliders/PartnerCardSlider'
+import { useDispatch, useSelector } from 'react-redux'
+import { getPartners } from '../../actions/partners'
 
 const PartnershipsSection = () => {
 
     const settings = {
         dots: false,
         autoplay: true,
-        autoplaySpeed: 5000,
+        autoplaySpeed: 2500,
         infinite: true,
         slidesToShow: 6,
         slidesToScroll: 1,
         initialSlide: 0,
-        speed: 500,
+        speed: 2000,
         arrows: true,
         adaptiveHeight: true,
         responsive: [
@@ -49,7 +51,17 @@ const PartnershipsSection = () => {
             </div>
         )
     };
-    return (
+
+    const partners = useSelector((state) => state.partners);
+
+    const dispatch = useDispatch();
+    useEffect(() => {
+        dispatch(getPartners());
+    }, [dispatch]);
+    
+    return (!partners || partners.length === 0) ? (
+        null
+    ) : (
         <section className='partnerships-section'>
             <div className='partnerships-container'>
                 <div className='part-section'>
@@ -63,7 +75,7 @@ const PartnershipsSection = () => {
                 </div>
             </div>
             <div className='part-section'>
-                <CardSlider settings={settings} data={PartnersData} />
+                <PartnerCardSlider settings={settings} data={partners} />
             </div>
         </section>
     )

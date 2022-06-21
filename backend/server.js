@@ -5,11 +5,12 @@ import User from "./models/user.js"
 import cors from "cors";
 import { createRequire } from "module";
 const require = createRequire(import.meta.url);
-import bcrypt from "bcryptjs";
-import { ROLES } from "./models/role.js";
+import profileRoute from "./routes/profile.js";
 import usersRoutes from "./routes/users.js";
 import projectsRoutes from "./routes/projects.js";
-import profileRoute from "./routes/profile.js"
+import membersRoutes from "./routes/members.js";
+import postsRoutes from "./routes/posts.js";
+import partnersRoutes from "./routes/partners.js";
 
 mongoose.Promise = global.Promise;
 
@@ -60,7 +61,9 @@ io.on("connection", (socket) => {
 app.use("/users", usersRoutes);
 app.use('/profile', profileRoute);
 app.use("/projects", projectsRoutes);
-
+app.use("/members", membersRoutes);
+app.use("/posts", postsRoutes);
+app.use("/partners", partnersRoutes);
 
 const CONNECTION_URL = "mongodb+srv://root:root@cluster0.nk0en.mongodb.net/ghostprod?retryWrites=true&w=majority";
 

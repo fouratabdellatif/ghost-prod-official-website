@@ -15,15 +15,12 @@ function PostCard({ item }) {
                 <div className="post-card-category">
                     <h3>{item.category}</h3>
                 </div>
-                <div className="post-card-name">
-                    <h2>{item.name}</h2>
-                </div>
                 <div className="post-card-description">
                     <p>{item.text}</p>
                 </div>
             </div>
             <div className="post-image-container">
-                <img src={item.image} alt='' />
+                <img src={`/uploads/${item.imageFile}`} alt='' />
             </div>
         </Link>
     )
