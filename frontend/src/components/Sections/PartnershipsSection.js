@@ -1,7 +1,6 @@
 import React, { useEffect } from 'react'
 import SectionTitle from './SectionTitle'
 import '../../assets/css/PartnershipsSection.css'
-import { PartnersData } from '../../data/PartnersData'
 import PartnerCardSlider from '../Sliders/PartnerCardSlider'
 import { useDispatch, useSelector } from 'react-redux'
 import { getPartners } from '../../actions/partners'

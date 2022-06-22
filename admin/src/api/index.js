@@ -38,6 +38,6 @@ export const deletePost = (id) => API.delete(`/posts/deletePost/${id}`);
 
 export const fetchPartners = () => API.get('/partners');
 export const fetchPartnerById = (id) => API.get(`/partners/${id}`);
-export const createPartner = (newPartner, others) => API.partner('/partners/createPartner', newPartner, others);
+export const createPartner = (newPartner, others) => API.post('/partners/createPartner', newPartner, others);
 export const updatePartner = (id, updatedPartner) => API.patch(`/partners/updatePartner/${id}`, updatedPartner);
 export const deletePartner = (id) => API.delete(`/partners/deletePartner/${id}`);

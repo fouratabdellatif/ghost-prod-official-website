@@ -3,7 +3,7 @@ import '../../assets/css/PartnerCard.css'
 
 const PartnerCard = ({ item }) => {
     return (
-        <img className='partner-image' src={`/uploads/${item.imageFile}`} alt={item?.imageFile} />
+        <img className='partner-image' src={`/uploads/${item?.imageFile}`} alt={item?.imageFile} />
     )
 }
 
