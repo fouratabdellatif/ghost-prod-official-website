@@ -10,16 +10,16 @@ function Service({ item, color }) {
                 }}>
                     <div className='service__hero-text-wrapper'>
                         <h1 className='service-heading'>
-                            {item.title}
+                            {item?.title}
                         </h1>
                         <p className='service__hero-quote'>
-                            {item.quote}
+                            {item?.quote}
                         </p>
                         <p className='service__hero-paragraph'>
-                            {item.text}
+                            {item?.text}
                         </p>
                         <ul className='service__hero-list'>
-                        {item.steps.map((step, index) => (
+                        {item?.steps?.map((step, index) => (
                             <li key={index} className='service__hero-list-item'>
                                 {step}
                             </li>
