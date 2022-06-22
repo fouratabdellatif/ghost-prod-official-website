@@ -27,7 +27,7 @@ function PartnerCardSlider({ settings, data }) {
                 prevArrow={<MdOutlineArrowBackIos />}
                 nextArrow={<MdOutlineArrowForwardIos />}
             >
-                {data.map((item, index) => (
+                {data?.map((item, index) => (
                     <PartnerCard
                         key={index}
                         item={item}

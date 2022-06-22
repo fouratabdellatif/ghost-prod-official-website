@@ -149,7 +149,7 @@ function Sidenav({ color }) {
         </Menu.Item>
 
 
-        <Menu.Item key="7">
+        <Menu.Item>
           <NavLink to="/members">
             <span
               className="icon"
@@ -162,7 +162,7 @@ function Sidenav({ color }) {
             <span className="label">Members</span>
           </NavLink>
         </Menu.Item>
-        <Menu.Item key="7">
+        <Menu.Item>
           <NavLink to="/posts">
             <span
               className="icon"
@@ -175,7 +175,7 @@ function Sidenav({ color }) {
             <span className="label">Blog</span>
           </NavLink>
         </Menu.Item>
-        <Menu.Item key="7">
+        <Menu.Item>
           <NavLink to="/projects">
             <span
               className="icon"
@@ -186,6 +186,19 @@ function Sidenav({ color }) {
               <GiFilmProjector size="20px" />
             </span>
             <span className="label">Projets</span>
+          </NavLink>
+        </Menu.Item>
+        <Menu.Item>
+          <NavLink to="/partners">
+            <span
+              className="icon"
+              style={{
+                background: page === "partners" ? color : "",
+              }}
+            >
+              <GiFilmProjector size="20px" />
+            </span>
+            <span className="label">Partners</span>
           </NavLink>
         </Menu.Item>
       </Menu>

@@ -21,6 +21,8 @@ import Members from "./pages/Members";
 import MemberForm from "./pages/forms/MemberForm";
 import Posts from "./pages/Posts";
 import PostForm from "./pages/forms/PostForm";
+import Partners from "./pages/Partners";
+import PartnerForm from "./pages/forms/PartnerForm";
 
 function App() {
 
@@ -36,11 +38,14 @@ function App() {
             <Route exact path="/projects" component={Projects} />
             <Route exact path="/members" component={Members} />
             <Route exact path="/posts" component={Posts} />
+            <Route exact path="/partners" component={Partners} />
             <Route exact path="/project" component={ProjectForm} />
             <Route exact path="/member" component={MemberForm} />
             <Route exact path="/member/:id" component={MemberForm} />
             <Route exact path="/post" component={PostForm} />
             <Route exact path="/post/:id" component={PostForm} />
+            <Route exact path="/partner" component={PartnerForm} />
+            <Route exact path="/partner/:id" component={PartnerForm} />
 
             <Route exact path="/Single/:postId" component={Single} />
             <Route exact path="/AjoutBlog" component={AjoutBlog} />
