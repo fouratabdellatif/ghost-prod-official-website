@@ -23,6 +23,8 @@ import Posts from "./pages/Posts";
 import PostForm from "./pages/forms/PostForm";
 import Partners from "./pages/Partners";
 import PartnerForm from "./pages/forms/PartnerForm";
+import Services from "./pages/Services";
+import ServiceForm from "./pages/forms/ServiceForm";
 
 function App() {
 
@@ -39,6 +41,7 @@ function App() {
             <Route exact path="/members" component={Members} />
             <Route exact path="/posts" component={Posts} />
             <Route exact path="/partners" component={Partners} />
+            <Route exact path="/services" component={Services} />
             <Route exact path="/project" component={ProjectForm} />
             <Route exact path="/member" component={MemberForm} />
             <Route exact path="/member/:id" component={MemberForm} />
@@ -46,6 +49,8 @@ function App() {
             <Route exact path="/post/:id" component={PostForm} />
             <Route exact path="/partner" component={PartnerForm} />
             <Route exact path="/partner/:id" component={PartnerForm} />
+            <Route exact path="/service" component={ServiceForm} />
+            <Route exact path="/service/:id" component={ServiceForm} />
 
             <Route exact path="/Single/:postId" component={Single} />
             <Route exact path="/AjoutBlog" component={AjoutBlog} />

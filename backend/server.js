@@ -11,6 +11,7 @@ import projectsRoutes from "./routes/projects.js";
 import membersRoutes from "./routes/members.js";
 import postsRoutes from "./routes/posts.js";
 import partnersRoutes from "./routes/partners.js";
+import servicesRoutes from "./routes/services.js";
 
 mongoose.Promise = global.Promise;
 
@@ -64,6 +65,7 @@ app.use("/projects", projectsRoutes);
 app.use("/members", membersRoutes);
 app.use("/posts", postsRoutes);
 app.use("/partners", partnersRoutes);
+app.use("/services", servicesRoutes);
 
 const CONNECTION_URL = "mongodb+srv://root:root@cluster0.nk0en.mongodb.net/ghostprod?retryWrites=true&w=majority";
 

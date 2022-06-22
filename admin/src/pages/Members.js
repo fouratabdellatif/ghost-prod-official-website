@@ -168,8 +168,8 @@ function Members() {
       <Tracker
         searchQuery={searchQuery}
         setSearchQuery={setSearchQuery}
-        label="Rechercher un projet"
-        placeholder="Introduire le nom du projet"
+        label="Rechercher un membre"
+        placeholder="Introduire le nom du membre"
       />
       <div className="tabled">
         <Row gutter={[24, 0]}>

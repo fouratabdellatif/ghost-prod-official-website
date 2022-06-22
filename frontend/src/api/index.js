@@ -18,3 +18,5 @@ export const fetchPostById = (id) => API.get(`/posts/${id}`);
 export const fetchLastPost = () => API.get('/posts/lastPost');
 export const fetchPartners = () => API.get('/partners');
 export const fetchPartnerById = (id) => API.get(`/partners/${id}`);
+export const fetchServices = () => API.get('/services');
+export const fetchServiceById = (id) => API.get(`/services/${id}`);
