@@ -6,6 +6,7 @@ import members from "./members";
 import posts from "./posts";
 import partners from "./partners";
 import services from "./services";
+import artists from "./artists";
 
 export const reducers = combineReducers({
     auth,
@@ -13,5 +14,6 @@ export const reducers = combineReducers({
     members,
     posts,
     partners,
-    services
+    services,
+    artists
 });

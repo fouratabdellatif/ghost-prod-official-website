@@ -8,16 +8,16 @@ const VoiceOverArtist = ({ item }) => {
         <section className='voice-over-artist-section'>
             <div className='voice-over-artist-container'>
                 <div className='voice-over-artist-column-left'>
-                    <img src={item.image} alt={`${item.firstname} ${item.lastname}`} />
+                    <img src={`/uploads/${item?.imageFile}`} alt={`${item?.firstname} ${item?.lastname}`} />
                 </div>
                 <div className='voice-over-artist-column-right'>
                     <div className='artist-top'>
-                        <h1>{item.firstname} {item.lastname}</h1>
+                        <h1>{item?.firstname} {item?.lastname}</h1>
                         <ul className="artist-socials">
                             <li>
                                 <a
                                     className='artist-social-link facebook'
-                                    href={item.facebook}
+                                    href={item?.facebook}
                                     target='_blank'
                                     aria-label='Facebook'
                                     rel="noreferrer"
@@ -28,7 +28,7 @@ const VoiceOverArtist = ({ item }) => {
                             <li>
                                 <a
                                     className='artist-social-link instagram'
-                                    href={item.instagram}
+                                    href={item?.instagram}
                                     target='_blank'
                                     aria-label='Youtube'
                                     rel="noreferrer"
@@ -39,7 +39,7 @@ const VoiceOverArtist = ({ item }) => {
                             <li>
                                 <a
                                     className='artist-social-link linkedin'
-                                    href={item.linkedin}
+                                    href={item?.linkedin}
                                     target='_blank'
                                     aria-label='LinkedIn'
                                     rel="noreferrer"
@@ -50,18 +50,18 @@ const VoiceOverArtist = ({ item }) => {
                         </ul>
                     </div>
                     <CustomDivider fullWidth />
-                    <p><span>City: </span>{item.city}</p>
-                    <p><span>Phone: </span><a className='contact-link' href={`tel:${item.phone}`}>+216 {item.phone}</a></p>
-                    <p><span>Email: </span><a className='contact-link' href={`mailto:${item.email}`}>{item.email}</a></p>
+                    <p><span>City: </span>{item?.city}</p>
+                    <p><span>Phone: </span><a className='contact-link' href={`tel:${item?.phone}`}>+216 {item?.phone}</a></p>
+                    <p><span>Email: </span><a className='contact-link' href={`mailto:${item?.email}`}>{item?.email}</a></p>
                     <p><span>About: </span><br />{item.bio}</p>
                     <p><span>Voice-over: </span>
                     </p>
-                    {item.audioLists.map((audio) => (
+                    {item?.audioLists?.map((audio) => (
                         <>
-                            <p>{audio.name}</p>
+                            <p>{audio?.name}</p>
                             <AudioPlayer
                                 // autoPlay
-                                src={`${audio.musicSrc}`}
+                                src={`/uploads/${audio?.audioFile}`}
                                 style={{ marginBottom: '20px' }}
                             />
                         </>

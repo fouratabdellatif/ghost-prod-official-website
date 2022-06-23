@@ -2,7 +2,7 @@ import { Menu } from "antd";
 import { NavLink, useLocation } from "react-router-dom";
 import logo from "../../assets/images/logo.png";
 import { GiFilmProjector } from 'react-icons/gi';
-import { BiNews } from 'react-icons/bi';
+import { BiNews, BiUserVoice } from 'react-icons/bi';
 import { FaUserCircle } from 'react-icons/fa';
 import { SiGithubsponsors } from 'react-icons/si';
 import { FcServices } from 'react-icons/fc';
@@ -194,6 +194,19 @@ function Sidenav({ color }) {
               <FcServices size="20px" />
             </span>
             <span className="label">Services</span>
+          </NavLink>
+        </Menu.Item>
+        <Menu.Item>
+          <NavLink to="/voice-over-artists">
+            <span
+              className="icon"
+              style={{
+                background: page === "voice-over-artists" ? color : "",
+              }}
+            >
+              <BiUserVoice size="20px" />
+            </span>
+            <span className="label">Voice-Over</span>
           </NavLink>
         </Menu.Item>
       </Menu>
