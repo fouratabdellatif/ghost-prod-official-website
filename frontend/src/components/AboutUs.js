@@ -13,7 +13,7 @@ function AboutUs() {
                             <span>à</span> propos de Nous
                         </h1>
                         <img src={teamImage} alt="our_team" />
-                        {TextData.map((item, index) => (
+                        {TextData?.map((item, index) => (
                             <p key={index} className='aboutus__hero-paragraph'>
                                 {item.text}
                             </p>

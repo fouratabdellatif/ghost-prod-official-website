@@ -54,7 +54,7 @@ function Footer() {
             </div>
             <section className='social-media'>
                 <div className='social-media-wrap'>
-                    <small className='website-rights'>© Made
+                    <small className='website-rights'>© 2022, Made
                         by <a href="https://inceptum.tn/" target="_blank" rel="noreferrer">INCEPTUM Junior Entreprise</a>
                     </small>
                     <div className='social-icons'>
