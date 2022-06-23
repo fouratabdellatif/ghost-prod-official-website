@@ -25,7 +25,7 @@ const options = {
         bottom: 10,
     },
     defaultPlayMode: 'order',
-    mode: 'full',
+    mode: 'mini',
     once: false,
     autoPlay: false,
     toggleMode: true,
