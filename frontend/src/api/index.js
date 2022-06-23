@@ -20,3 +20,5 @@ export const fetchPartners = () => API.get('/partners');
 export const fetchPartnerById = (id) => API.get(`/partners/${id}`);
 export const fetchServices = () => API.get('/services');
 export const fetchServiceById = (id) => API.get(`/services/${id}`);
+export const fetchArtists = () => API.get('/artists');
+export const fetchArtistById = (id) => API.get(`/artists/${id}`);

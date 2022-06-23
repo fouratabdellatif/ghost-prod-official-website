@@ -6,8 +6,13 @@ import {
   Card,
   Radio,
   Table,
-  Typography
+  Typography,
+  Button
 } from "antd";
+import {
+  EditOutlined,
+  DeleteOutlined,
+} from "@ant-design/icons";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { deleteService, getServices } from "../actions/services";
@@ -117,10 +122,16 @@ function Services() {
         ),
         actions: (
           <div className="ant-employed">
-            <a href={`/service/${item._id}`}>Modifier</a>
+            <a href={`/service/${item._id}`}>
+              <Button type="link" className="darkbtn">
+                <EditOutlined />
+              </Button></a>
             <a onClick={() => {
               dispatch(deleteService(item._id))
-            }}>Supprimer</a>
+            }}>
+            <Button type="link" danger>
+              <DeleteOutlined />
+            </Button></a>
           </div>
         )
       })

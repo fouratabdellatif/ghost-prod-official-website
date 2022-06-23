@@ -8,7 +8,12 @@ import {
   Table,
   Avatar,
   Typography,
+  Button,
 } from "antd";
+import {
+  EditOutlined,
+  DeleteOutlined,
+} from "@ant-design/icons";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { deletePartner, getPartners } from "../actions/partners";
@@ -108,10 +113,16 @@ function Partners() {
         ),
         actions: (
           <div className="ant-employed">
-            <a href={`/partner/${item._id}`}>Modifier</a>
+            <a href={`/partner/${item._id}`}>
+              <Button type="link" className="darkbtn">
+                <EditOutlined />
+              </Button></a>
             <a onClick={() => {
               dispatch(deletePartner(item._id))
-            }}>Supprimer</a>
+            }}>
+            <Button type="link" danger>
+              <DeleteOutlined />
+            </Button></a>
           </div>
         )
       })

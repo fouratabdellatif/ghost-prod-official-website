@@ -12,28 +12,29 @@ import {
   Button,
 } from "antd";
 import {
-  BehanceOutlined,
   FacebookOutlined,
   InstagramOutlined,
   LinkedinOutlined,
   EditOutlined,
-  DeleteOutlined,
+  DeleteOutlined
 } from "@ant-design/icons";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { deleteMember, getMembers } from "../actions/members";
+import { deleteArtist, getArtists } from "../actions/artists";
 import { useState } from "react";
 import Tracker from "./Tracker";
+// import AudioPlayer from 'react-h5-audio-player';
+import '../assets/css/AudioPlayer.css';
 
 const { Title } = Typography;
 
-function Members() {
+function Artists() {
 
-  const members = useSelector((state) => state.members);
+  const artists = useSelector((state) => state.artists);
 
   const dispatch = useDispatch();
   useEffect(async () => {
-    await dispatch(getMembers());
+    await dispatch(getArtists());
   }, []);
 
   function replaceAcc(str) {
@@ -48,9 +49,9 @@ function Members() {
       return data;
     }
 
-    return data.filter((member) => {
-      var memberName = `${member.firstname} ${member.lastname}`;
-      return replaceAcc(memberName.toLowerCase()).includes(replaceAcc(query.toLowerCase()));
+    return data.filter((artist) => {
+      var artistName = `${artist.firstname} ${artist.lastname}`;
+      return replaceAcc(artistName.toLowerCase()).includes(replaceAcc(query.toLowerCase()));
     });
   };
 
@@ -58,18 +59,18 @@ function Members() {
   const query = new URLSearchParams(search).get('s');
   const [searchQuery, setSearchQuery] = useState(query || '');
 
-  const filteredData = filterData(members, searchQuery);
+  const filteredData = filterData(artists, searchQuery);
 
   const columns = [
     {
-      title: 'Member',
-      dataIndex: 'member',
-      key: 'member',
+      title: 'Artist',
+      dataIndex: 'artist',
+      key: 'artist',
     },
     {
-      title: 'Speciality',
-      dataIndex: 'spec',
-      key: 'spec',
+      title: 'Audios',
+      dataIndex: 'audioLists',
+      key: 'audioLists',
     },
     {
       title: 'City',
@@ -80,6 +81,11 @@ function Members() {
       title: 'Phone',
       dataIndex: 'phone',
       key: 'phone',
+    },
+    {
+      title: 'Email',
+      dataIndex: 'email',
+      key: 'email',
     },
     {
       title: 'Social Media',
@@ -97,32 +103,47 @@ function Members() {
     return (
       {
         key: `${item._id}`,
-        member: (
+        artist: (
           <>
             <Avatar.Group>
               <Avatar
                 className="shape-avatar"
                 shape="square"
                 size={40}
-                src={`/uploads/${item.profileImage}`}
+                src={`/uploads/${item?.imageFile}`}
               ></Avatar>
               <div className="avatar-info">
-                <Title level={5}>{item.firstname} {item.lastname}</Title>
+                <Title level={5}>{item?.firstname} {item?.lastname}</Title>
 
               </div>
             </Avatar.Group>{" "}
           </>
         ),
-        spec: (
+        audioLists: (
           <>
             <div className="author-info">
-              <Title level={5}>{item.spec}</Title>
-              <p>GhostProd</p>
+              <ul style={{
+                listStyle: 'none'
+              }}>
+                {item?.audioLists?.map((audio, index) => (
+                  <li>
+                    <>
+                      <Title level={5}>{audio?.name}</Title>
+                      {/* <AudioPlayer
+                              // autoPlay
+                              src={`/uploads/${audio?.audioFile}`}
+                              style={{ marginBottom: '20px' }}
+                          /> */}
+                    </>
+                  </li>
+                ))}
+              </ul>
             </div>
           </>
         ),
-        city: `${item.city}`,
-        phone: `${item.phone}`,
+        city: `${item?.city}`,
+        phone: `${item?.phone}`,
+        email: `${item?.email}`,
         social: (
           <>
             <div className="ant-employed">
@@ -130,23 +151,18 @@ function Members() {
                 <Descriptions >
                   <Descriptions.Item span={3}>
                     {item.linkedin && (
-                      <a href={`${item.linkedin}`} target='_blank' className="mx-5 px-5" rel="noreferrer">
+                      <a href={`${item?.linkedin}`} target='_blank' className="mx-5 px-5" rel="noreferrer">
                         {<LinkedinOutlined />}
                       </a>
                     )}
                     {item.facebook && (
-                      <a href={`${item.facebook}`} target='_blank' className="mx-5 px-5" rel="noreferrer">
+                      <a href={`${item?.facebook}`} target='_blank' className="mx-5 px-5" rel="noreferrer">
                         {<FacebookOutlined style={{ color: "#344e86" }} />}
                       </a>
                     )}
                     {item.instagram && (
-                      <a href={`${item.instagram}`} target='_blank' className="mx-5 px-5" rel="noreferrer">
+                      <a href={`${item?.instagram}`} target='_blank' className="mx-5 px-5" rel="noreferrer">
                         {<InstagramOutlined style={{ color: "#e1306c" }} />}
-                      </a>
-                    )}
-                    {item.behance && (
-                      <a href={`${item.behance}`} target='_blank' className="mx-5 px-5" rel="noreferrer">
-                        {<BehanceOutlined style={{ color: "#e1306c" }} />}
                       </a>
                     )}
                   </Descriptions.Item>
@@ -157,12 +173,12 @@ function Members() {
         ),
         actions: (
           <div className="ant-employed">
-            <a href={`/member/${item._id}`}>
+            <a href={`/artist/${item?._id}`}>
               <Button type="link" className="darkbtn">
                 <EditOutlined />
               </Button></a>
             <a onClick={() => {
-              dispatch(deleteMember(item._id))
+              dispatch(deleteArtist(item?._id))
             }}>
               <Button type="link" danger>
                 <DeleteOutlined />
@@ -177,8 +193,8 @@ function Members() {
       <Tracker
         searchQuery={searchQuery}
         setSearchQuery={setSearchQuery}
-        label="Rechercher un membre"
-        placeholder="Introduire le nom du membre"
+        label="Rechercher un artiste"
+        placeholder="Introduire le nom du artiste"
       />
       <div className="tabled">
         <Row gutter={[24, 0]}>
@@ -186,12 +202,12 @@ function Members() {
             <Card
               bordered={false}
               className="criclebox tablespace mb-24"
-              title="Mon équipe"
+              title="Mes Artistes (Voice-Over)"
               extra={
                 <>
                   <Radio.Group defaultValue="a">
 
-                    <Radio.Button value="a"><a id="add-mem" href="/member">Ajouter un membre</a></Radio.Button>
+                    <Radio.Button value="a"><a id="add-mem" href="/voice-over-artist">Ajouter un artiste</a></Radio.Button>
 
                   </Radio.Group>
                 </>
@@ -215,4 +231,4 @@ function Members() {
   );
 }
 
-export default Members;
+export default Artists;

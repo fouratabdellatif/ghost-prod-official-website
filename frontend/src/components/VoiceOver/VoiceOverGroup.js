@@ -1,11 +1,12 @@
-import React, { createContext, useContext, useState } from 'react'
+import React, { createContext, useContext, useEffect, useState } from 'react'
 import { BsFillPlayCircleFill } from 'react-icons/bs';
 import ReactJkMusicPlayer from 'react-jinke-music-player';
 import { Link } from 'react-router-dom';
 import '../../assets/css/VoiceOverGroup.css';
-import { VoiceOverData } from '../../data/VoiceOverData';
 import '../../assets/css/VoiceOverCard.css';
 import '../../assets/css/JinkeMusicPlayer.css';
+import { useDispatch, useSelector } from 'react-redux';
+import { getArtists } from '../../actions/artists';
 
 
 const options = {
@@ -176,14 +177,14 @@ function VoiceOverCard({ item, index }) {
         <div className="voice-over-card-wrapper">
             <div className="voice-over-card">
                 <div className="voice-over-card-image">
-                    <Link className='artist-link' to={`/voice-over/${item._id}`}>
-                        <img src={item.image} alt='voice-over_artist' />
+                    <Link className='artist-link' to={`/voice-over/${item?._id}`}>
+                        <img src={`/uploads/${item?.imageFile}`} alt='voice-over_artist' />
                     </Link>
                     <div className='artist-play-section'>
                         <BsFillPlayCircleFill className='artist-play-icon'
                             onClick={() => {
                                 console.log('before', options.audioLists)
-                                setOptions({ ...options, audioLists: item.audioLists })
+                                setOptions({ ...options, audioLists: item?.audioLists })
                                 console.log('after', options.audioLists)
                             }}
                         />
@@ -194,10 +195,10 @@ function VoiceOverCard({ item, index }) {
                                 onClick={audiofunction}
                                 ref={player} /> */}
                     </div>
-                    <Link className='artist-link' to={`/voice-over/${item._id}`}>
+                    <Link className='artist-link' to={`/voice-over/${item?._id}`}>
                         <div className="artist-details">
                             <h2>
-                                {item.firstname} {item.lastname}
+                                {item?.firstname} {item?.lastname}
                             </h2>
                         </div>
                     </Link>
@@ -209,6 +210,13 @@ function VoiceOverCard({ item, index }) {
 
 const VoiceOverGroup = () => {
 
+    const artists = useSelector((state) => state.artists);
+  
+    const dispatch = useDispatch();
+    useEffect(() => {
+      dispatch(getArtists());
+    }, [dispatch]);
+
     const [playerOptions, setPlayerOptions] = useState(options);
 
     return (
@@ -217,7 +225,7 @@ const VoiceOverGroup = () => {
         >
             <section className='voice-over-section'>
                 <div className='voice-over-group-container'>
-                    {VoiceOverData?.map((item, index) => (
+                    {artists?.map((item, index) => (
                         <VoiceOverCard
                             key={index}
                             index={index}

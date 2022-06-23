@@ -25,6 +25,8 @@ import Partners from "./pages/Partners";
 import PartnerForm from "./pages/forms/PartnerForm";
 import Services from "./pages/Services";
 import ServiceForm from "./pages/forms/ServiceForm";
+import Artists from "./pages/Artists";
+import ArtistForm from "./pages/forms/ArtistForm";
 
 function App() {
 
@@ -42,6 +44,7 @@ function App() {
             <Route exact path="/posts" component={Posts} />
             <Route exact path="/partners" component={Partners} />
             <Route exact path="/services" component={Services} />
+            <Route exact path="/voice-over-artists" component={Artists} />
             <Route exact path="/project" component={ProjectForm} />
             <Route exact path="/member" component={MemberForm} />
             <Route exact path="/member/:id" component={MemberForm} />
@@ -51,6 +54,8 @@ function App() {
             <Route exact path="/partner/:id" component={PartnerForm} />
             <Route exact path="/service" component={ServiceForm} />
             <Route exact path="/service/:id" component={ServiceForm} />
+            <Route exact path="/voice-over-artist" component={ArtistForm} />
+            <Route exact path="/voice-over-artist/:id" component={ArtistForm} />
 
 
             
