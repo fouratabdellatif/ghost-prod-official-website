@@ -98,7 +98,7 @@ const ServiceForm = () => {
       })
       await dispatch(createService(formData));
     }
-    // await history.push('/services');
+    await history.push('/services');
   }
 
 

@@ -31,7 +31,7 @@ const Navbar = ({ toggle, isOpen }) => {
                 </Link>
             </div>
             <div className={navbar ? "nav-menu active" : "nav-menu"}>
-                {navbarData.map((item, index) => (
+                {navbarData?.map((item, index) => (
                     <NavLink exact className="nav-menu-link" activeClassName="nav-menu-link active" to={item.link} key={index}>
                         {item.title}
                     </NavLink>

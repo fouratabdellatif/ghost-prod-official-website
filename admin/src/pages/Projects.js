@@ -71,7 +71,7 @@ function Projects() {
               />
 
               <div className='blog-container'>
-                {filteredData.map((item, index) => (
+                {filteredData?.map((item, index) => (
                   <StandardCard
                     type="project"
                     key={index}

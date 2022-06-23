@@ -5,11 +5,11 @@ import Tables from "./pages/Tables";
 import Billing from "./pages/Billing"
 import Profile from "./pages/Profile";
 import SignUp from "./pages/SignUp";
-import Form from "./pages/Form";
 import SignIn from "./pages/SignIn";
-import Blog from "./pages/Blog";
-import AjoutBlog from "./pages/AjoutBlog";
-import Single from "./pages/Single";
+// import Form from "./pages/Form";
+// import Blog from "./pages/Blog";
+// import AjoutBlog from "./pages/AjoutBlog";
+// import Single from "./pages/Single";
 import Main from "./components/layout/Main";
 import "antd/dist/antd.css";
 import "./assets/css/main.css";
@@ -52,10 +52,8 @@ function App() {
             <Route exact path="/service" component={ServiceForm} />
             <Route exact path="/service/:id" component={ServiceForm} />
 
-            <Route exact path="/Single/:postId" component={Single} />
-            <Route exact path="/AjoutBlog" component={AjoutBlog} />
-            <Route exact path="/Blog" component={Blog} />
-            <Route exact path="/Form" component={Form} />
+
+            
             <Route exact path="/dashboard" component={Home} />
             <Route exact path="/tables" component={Tables} />
             <Route exact path="/billing" component={Billing} />

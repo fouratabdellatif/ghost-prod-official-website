@@ -217,7 +217,7 @@ const VoiceOverGroup = () => {
         >
             <section className='voice-over-section'>
                 <div className='voice-over-group-container'>
-                    {VoiceOverData.map((item, index) => (
+                    {VoiceOverData?.map((item, index) => (
                         <VoiceOverCard
                             key={index}
                             index={index}

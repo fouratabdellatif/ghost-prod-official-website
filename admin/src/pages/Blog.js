@@ -34,7 +34,7 @@ function Tables() {
               <section className='blog-section'>
 
                 <div className='blog-container'>
-                  {BlogData.map((item, index) => (
+                  {BlogData?.map((item, index) => (
                     <PostCard
                       key={index}
                       postId={item.postId}

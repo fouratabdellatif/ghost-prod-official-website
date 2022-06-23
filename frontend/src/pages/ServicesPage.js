@@ -18,7 +18,7 @@ const ServicesPage = () => {
         <>
             <CasualPage pageTitle="Nos Services" bg={bgImage} text="what we are experts in..." title="Nos Services" pageContent={
                 <>
-                    {services.map((item, index) => (
+                    {services?.map((item, index) => (
                         index % 2 === 0 ?
                             <Service
                                 key={index}
