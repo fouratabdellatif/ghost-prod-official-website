@@ -54,7 +54,6 @@ height: 120px;
   font-size: 1em;
   font-weight: 400;
   letter-spacing: 1px;
-  text-transform: uppercase;
   width: 100%;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;

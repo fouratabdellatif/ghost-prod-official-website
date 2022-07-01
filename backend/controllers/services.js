@@ -63,8 +63,6 @@ export const updateService = async (req, res) => {
         steps
     } = req.body;
 
-    const profileImage = req.file;
-
     if (!mongoose.Types.ObjectId.isValid(id)) return res.status(404).send(`No service with id: ${id}`);
 
     const updatedService = {

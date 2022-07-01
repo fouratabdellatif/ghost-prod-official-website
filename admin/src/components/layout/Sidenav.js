@@ -5,7 +5,8 @@ import { GiFilmProjector } from 'react-icons/gi';
 import { BiNews, BiUserVoice } from 'react-icons/bi';
 import { FaUserCircle } from 'react-icons/fa';
 import { SiGithubsponsors } from 'react-icons/si';
-import { FcServices } from 'react-icons/fc';
+import { FcServices, FcRating } from 'react-icons/fc';
+import { AiOutlineDeploymentUnit } from 'react-icons/ai';
 
 function Sidenav({ color }) {
   const { pathname } = useLocation();
@@ -194,6 +195,32 @@ function Sidenav({ color }) {
               <FcServices size="20px" />
             </span>
             <span className="label">Services</span>
+          </NavLink>
+        </Menu.Item>
+        <Menu.Item>
+          <NavLink to="/feedbacks">
+            <span
+              className="icon"
+              style={{
+                background: page === "feedbacks" ? color : "",
+              }}
+            >
+              <FcRating size="20px" />
+            </span>
+            <span className="label">Feedbacks</span>
+          </NavLink>
+        </Menu.Item>
+        <Menu.Item>
+          <NavLink to="/workdms">
+            <span
+              className="icon"
+              style={{
+                background: page === "workdms" ? color : "",
+              }}
+            >
+              <AiOutlineDeploymentUnit size="20px" />
+            </span>
+            <span className="label">DMs</span>
           </NavLink>
         </Menu.Item>
         <Menu.Item>

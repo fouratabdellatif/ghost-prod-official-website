@@ -1,10 +1,9 @@
+/* eslint-disable jsx-a11y/alt-text */
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import "../assets/css/Testimonial.css";
-// import { Avatar } from "@material-ui/core";
-import { MdOutlineArrowForwardIos, MdOutlineArrowBackIos } from 'react-icons/md'
-// import SectionTitle from "./SectionTitle";
+import { MdOutlineArrowForwardIos, MdOutlineArrowBackIos } from 'react-icons/md';
 
 const PreviousBtn = (props) => {
     const { className, onClick } = props;
@@ -22,7 +21,7 @@ const NextBtn = (props) => {
         </div>
     );
 };
-const Testimonial = () => {
+const Testimonial = ({data}) => {
 
     const settings = {
         dots: false,
@@ -68,20 +67,21 @@ const Testimonial = () => {
                 {/* <SectionTitle title="Témoignages" /> */}
                 {/* <h1 style={{ marginBottom: 20 }}>TESTIMONIALS</h1> */}
                 <Slider {...settings} prevArrow={<PreviousBtn />} nextArrow={<NextBtn />} dots>
-                    <Card img="https://www.tutorialrepublic.com/examples/images/clients/1.jpg" />
-                    <Card img="https://www.tutorialrepublic.com/examples/images/clients/2.jpg" />
-                    <Card img="https://www.tutorialrepublic.com/examples/images/clients/3.jpg" />
+                    {data?.map((item, index) =>
+                        item?.visible && (
+                            <Card item={item} />
+                        )
+                    )}
                 </Slider>
             </div>
         </div>
     );
 };
 
-const Card = ({ img }) => {
+const Card = ({ item }) => {
     return (
         <div className="card-img-container">
-            {/* <Avatar
-                imgProps={{ style: { borderRadius: "50%" } }}
+            {/* <img
                 src={img}
                 style={{
                     width: 120,
@@ -91,19 +91,10 @@ const Card = ({ img }) => {
                     marginBottom: 20,
                 }}
             /> */}
-            <p className="testimonial-text">
-                Phasellus vitae suscipit justo. Mauris pharetra feugiat ante id lacinia.
-                Etiam faucibus mauris id tempor egestas. Duis luctus turpis at accumsan
-                tincidunt. Phasellus risus risus, volutpat vel tellus ac, tincidunt
-                fringilla massa. Etiam hendrerit dolor eget rutrum
-                Phasellus vitae suscipit justo. Mauris pharetra feugiat ante id lacinia.
-                Etiam faucibus mauris id tempor egestas. Duis luctus turpis at accumsan
-                tincidunt. Phasellus risus risus, volutpat vel tellus ac, tincidunt
-                fringilla massa. Etiam hendrerit dolor eget rutrum
-            </p>
+            <p className="testimonial-text">{item?.text}</p>
             <p className="testimonial-client">
-                <span className="testimonial-client-name">Jack Sparrow</span> ,
-                Media Analyst
+                <span className="testimonial-client-name">{item?.name}</span> ,
+                {item?.spec}
             </p>
         </div>
     );
