@@ -26,3 +26,6 @@ export const sendReclamation = (newReclamation) => API.post('/reclamations/sendR
 export const fetchReclamationById = (id) => API.get(`/reclamations/${id}`);
 export const fetchArtists = () => API.get('/artists');
 export const fetchArtistById = (id) => API.get(`/artists/${id}`);
+export const fetchJobRequests = () => API.get('/jobs');
+export const sendJobRequest = (newJobRequest) => API.post('/jobs/sendJobRequest', newJobRequest);
+export const fetchJobRequestById = (id) => API.get(`/jobs/${id}`);

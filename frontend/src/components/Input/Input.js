@@ -1,7 +1,7 @@
 import * as S from "./InputStyles";
 
 const Input =
-    ({ label, placeholder, textarea, name, onChange }) => {
+    ({ label, placeholder, textarea, name, onChange, type, accept, filename }) => {
 
         return (
             <S.Wrapper>
@@ -9,7 +9,7 @@ const Input =
                 {textarea ? (
                     <S.TextArea onChange={onChange} name={name} placeholder={placeholder} />
                 ) : (
-                    <S.Input onChange={onChange} name={name} placeholder={placeholder} />
+                    <S.Input accept={accept} filename={filename} type={type} onChange={onChange} name={name} placeholder={placeholder} />
                 )}
             </S.Wrapper>
         );

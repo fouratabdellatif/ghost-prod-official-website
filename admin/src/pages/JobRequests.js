@@ -10,26 +10,24 @@ import {
   Button
 } from "antd";
 import {
-  EyeOutlined,
-  EyeInvisibleOutlined,
   DeleteOutlined,
 } from "@ant-design/icons";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { deleteReclamation, getFeedbacks } from "../actions/reclamations";
+import { deleteJobRequest, getJobRequests } from "../actions/jobs";
 import { useState } from "react";
 import Tracker from "./Tracker";
-import { manageFeedback } from "../actions/reclamations";
+import { FaFileDownload } from 'react-icons/fa'
 
 const { Title } = Typography;
 
-function Feedbacks() {
+function JobRequests() {
 
-  const reclamations = useSelector((state) => state.reclamations);
+  const jobs = useSelector((state) => state.jobs);
 
   const dispatch = useDispatch();
   useEffect(async () => {
-    await dispatch(getFeedbacks());
+    await dispatch(getJobRequests());
   }, []);
 
   function replaceAcc(str) {
@@ -44,9 +42,9 @@ function Feedbacks() {
       return data;
     }
 
-    return data.filter((feedback) => {
-      var feedbackNum = feedback?.num;
-      return replaceAcc(feedbackNum.toLowerCase()).includes(replaceAcc(query.toLowerCase()));
+    return data.filter((job) => {
+      var jobNum = job?.num;
+      return replaceAcc(jobNum.toLowerCase()).includes(replaceAcc(query.toLowerCase()));
     });
   };
 
@@ -54,13 +52,13 @@ function Feedbacks() {
   const query = new URLSearchParams(search).get('s');
   const [searchQuery, setSearchQuery] = useState(query || '');
 
-  const filteredData = filterData(reclamations, searchQuery);
+  const filteredData = filterData(jobs, searchQuery);
 
   const columns = [
     {
-      title: 'Feedback',
-      dataIndex: 'feedback',
-      key: 'feedback',
+      title: 'Candidature',
+      dataIndex: 'job',
+      key: 'job',
     },
     {
       title: 'Name',
@@ -78,19 +76,14 @@ function Feedbacks() {
       key: 'email',
     },
     {
-      title: 'Spec.',
-      dataIndex: 'spec',
-      key: 'spec',
+      title: 'CV',
+      dataIndex: 'cv',
+      key: 'cv',
     },
     {
       title: 'Message',
       dataIndex: 'message',
       key: 'message',
-    },
-    {
-      title: 'Status',
-      dataIndex: 'status',
-      key: 'status',
     },
     {
       title: 'Actions',
@@ -103,7 +96,7 @@ function Feedbacks() {
     return (
       {
         key: `${item?._id}`,
-        feedback: (
+        job: (
           <>
             <div className="author-info">
               <Title level={5}>{item?.num}</Title>
@@ -120,11 +113,11 @@ function Feedbacks() {
         phone: (
           <>
             <div className="author-info">
-            <Title level={5}>
-              <a href={`tel:${item?.phone}`}>
-                {item?.phone}
-              </a>
-            </Title>
+              <Title level={5}>
+                <a href={`tel:${item?.phone}`}>
+                  {item?.phone}
+                </a>
+              </Title>
             </div>
           </>
         ),
@@ -139,48 +132,29 @@ function Feedbacks() {
             </div>
           </>
         ),
-        spec: (
+        cv: (
           <>
             <div className="author-info">
-              <Title level={5}>{item?.spec}</Title>
+              <Title level={5}>
+                <a href={`/uploads/${item?.cv}`} download>
+                  <FaFileDownload />
+                </a>
+              </Title>
             </div>
           </>
         ),
         message: (
           <>
             <div className="author-info">
-              <Title level={5}>{item?.text}</Title>
-            </div>
-          </>
-        ),
-        status: (
-          <>
-            <div className="author-info">
-              {item?.visible ? (
-                <Title level={5}>Visible</Title>
-              ) : (
-                <Title level={5}>Not Visible</Title>
-              )}
+              <h6>{item?.text}</h6>
             </div>
           </>
         ),
         actions: (
           <div className="ant-employed">
             <a onClick={async () => {
-              await dispatch(manageFeedback(item?._id))
-              await dispatch(getFeedbacks());
-            }}>
-              <Button type="link" className="darkbtn">
-                {item?.visible ? (
-                  <EyeInvisibleOutlined />
-                ) : (
-                  <EyeOutlined />
-                )}
-
-              </Button></a>
-            <a onClick={async () => {
-              await dispatch(deleteReclamation(item?._id))
-              await dispatch(getFeedbacks());
+              await dispatch(deleteJobRequest(item?._id))
+              await dispatch(getJobRequests());
             }}>
               <Button type="link" danger>
                 <DeleteOutlined />
@@ -195,8 +169,8 @@ function Feedbacks() {
       <Tracker
         searchQuery={searchQuery}
         setSearchQuery={setSearchQuery}
-        label="Rechercher un feedback"
-        placeholder="Introduire le nom du feedback"
+        label="Rechercher une candidature"
+        placeholder="Introduire le num de la candidature"
       />
       <div className="tabled">
         <Row gutter={[24, 0]}>
@@ -204,12 +178,12 @@ function Feedbacks() {
             <Card
               bordered={false}
               className="criclebox tablespace mb-24"
-              title="Nos feedbacks"
+              title="Candidatures"
               extra={
                 <>
                   <Radio.Group defaultValue="a">
 
-                    <Radio.Button value="a"><a id="add-mem" href="/feedback">Ajouter un feedback</a></Radio.Button>
+                    <Radio.Button value="a"><a id="add-mem" href="/job">Ajouter un job</a></Radio.Button>
 
                   </Radio.Group>
                 </>
@@ -233,4 +207,4 @@ function Feedbacks() {
   );
 }
 
-export default Feedbacks;
+export default JobRequests;

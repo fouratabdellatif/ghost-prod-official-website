@@ -8,6 +8,7 @@ import partners from "./partners";
 import services from "./services";
 import artists from "./artists";
 import reclamations from "./reclamations";
+import jobs from "./jobs";
 
 export const reducers = combineReducers({
     auth,
@@ -17,5 +18,6 @@ export const reducers = combineReducers({
     partners,
     services,
     reclamations,
-    artists
+    artists,
+    jobs
 });

@@ -7,6 +7,7 @@ import { FaUserCircle } from 'react-icons/fa';
 import { SiGithubsponsors } from 'react-icons/si';
 import { FcServices, FcRating } from 'react-icons/fc';
 import { AiOutlineDeploymentUnit } from 'react-icons/ai';
+import { FaFileContract } from 'react-icons/fa';
 
 function Sidenav({ color }) {
   const { pathname } = useLocation();
@@ -234,6 +235,19 @@ function Sidenav({ color }) {
               <BiUserVoice size="20px" />
             </span>
             <span className="label">Voice-Over</span>
+          </NavLink>
+        </Menu.Item>
+        <Menu.Item>
+          <NavLink to="/job-requests">
+            <span
+              className="icon"
+              style={{
+                background: page === "job-requests" ? color : "",
+              }}
+            >
+              <FaFileContract size="20px" />
+            </span>
+            <span className="label">Candidatures</span>
           </NavLink>
         </Menu.Item>
       </Menu>

@@ -42,8 +42,8 @@ function Collaborations() {
     }
 
     return data.filter((feedback) => {
-      var feedbackTitle = feedback.title;
-      return replaceAcc(feedbackTitle.toLowerCase()).includes(replaceAcc(query.toLowerCase()));
+      var feedbackNum = feedback?.num;
+      return replaceAcc(feedbackNum.toLowerCase()).includes(replaceAcc(query.toLowerCase()));
     });
   };
 
