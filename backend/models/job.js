@@ -1,15 +1,7 @@
 import mongoose from 'mongoose';
-import generator from 'generate-password';
-
-var nReq = generator.generate({
-    length: 10,
-    numbers: true,
-    lowercase: false,
-    uppercase: true
-});
 
 const jobSchema = mongoose.Schema({
-    num: { type: String, default: nReq },
+    num: { type: String },
     category: { type: String },
     name: { type: String },
     phone: { type: String },

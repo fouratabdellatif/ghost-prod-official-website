@@ -81,6 +81,11 @@ function JobRequests() {
       key: 'cv',
     },
     {
+      title: 'Type du contrat',
+      dataIndex: 'category',
+      key: 'category',
+    },
+    {
       title: 'Message',
       dataIndex: 'message',
       key: 'message',
@@ -140,6 +145,13 @@ function JobRequests() {
                   <FaFileDownload />
                 </a>
               </Title>
+            </div>
+          </>
+        ),
+        category: (
+          <>
+            <div className="author-info">
+              <h6>{item?.category}</h6>
             </div>
           </>
         ),
