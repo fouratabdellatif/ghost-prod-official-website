@@ -26,6 +26,31 @@ font-size: ${({ big }) => (big ? '20px' : '16px')};
 }
 `
 
+export const SubmitButton = styled.button`
+background: ${({ primary }) => (primary ? '#000000' : '#e1a33b')};
+white-space: nowrap;
+outline: none;
+border: none;
+min-width: 100px;
+max-width: 200px;
+cursor: pointer;
+text-decoration: none;
+text-transform: uppercase;
+transition: 0ms.3s;
+display: flex;
+justify-content: center;
+align-items: center;
+padding: ${({ big }) => (big ? '16px 40px' : '12px 24px')};
+color: ${({ primary }) => (primary ? '#000000' : '#ffffff')};
+font-size: ${({ big }) => (big ? '20px' : '16px')};
+    transition: all 0.3s ease-in-out;
+
+&:hover {
+    background-color: #dd9a27;
+    transition: all 0.3s ease-in-out;
+}
+`
+
 export const PrimaryButton = styled(Link)`
 background: #ffffff;
 padding: 14px 10px;

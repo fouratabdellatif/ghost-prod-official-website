@@ -10,24 +10,23 @@ import {
   Button
 } from "antd";
 import {
-  EditOutlined,
   DeleteOutlined,
 } from "@ant-design/icons";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { deleteService, getServices } from "../actions/services";
+import { deleteReclamation, getWorkDMs } from "../actions/reclamations";
 import { useState } from "react";
 import Tracker from "./Tracker";
 
 const { Title } = Typography;
 
-function Services() {
+function Collaborations() {
 
-  const services = useSelector((state) => state.services);
+  const reclamations = useSelector((state) => state.reclamations);
 
   const dispatch = useDispatch();
   useEffect(async () => {
-    await dispatch(getServices());
+    await dispatch(getWorkDMs());
   }, []);
 
   function replaceAcc(str) {
@@ -42,9 +41,9 @@ function Services() {
       return data;
     }
 
-    return data.filter((service) => {
-      var serviceTitle = service.title;
-      return replaceAcc(serviceTitle.toLowerCase()).includes(replaceAcc(query.toLowerCase()));
+    return data.filter((feedback) => {
+      var feedbackTitle = feedback.title;
+      return replaceAcc(feedbackTitle.toLowerCase()).includes(replaceAcc(query.toLowerCase()));
     });
   };
 
@@ -52,28 +51,38 @@ function Services() {
   const query = new URLSearchParams(search).get('s');
   const [searchQuery, setSearchQuery] = useState(query || '');
 
-  const filteredData = filterData(services, searchQuery);
+  const filteredData = filterData(reclamations, searchQuery);
 
   const columns = [
     {
-      title: 'Service',
-      dataIndex: 'service',
-      key: 'service',
+      title: 'Collaboration DM',
+      dataIndex: 'feedback',
+      key: 'feedback',
     },
     {
-      title: 'Quote',
-      dataIndex: 'quote',
-      key: 'quote',
+      title: 'Name',
+      dataIndex: 'name',
+      key: 'name',
     },
     {
-      title: 'Paragraphe',
-      dataIndex: 'text',
-      key: 'text',
+      title: 'Phone',
+      dataIndex: 'phone',
+      key: 'phone',
     },
     {
-      title: 'Steps',
-      dataIndex: 'steps',
-      key: 'steps',
+      title: 'Email',
+      dataIndex: 'email',
+      key: 'email',
+    },
+    {
+      title: 'Spec.',
+      dataIndex: 'spec',
+      key: 'spec',
+    },
+    {
+      title: 'Message',
+      dataIndex: 'message',
+      key: 'message',
     },
     {
       title: 'Actions',
@@ -85,53 +94,66 @@ function Services() {
   const dataSource = filteredData?.map((item, index) => {
     return (
       {
-        key: `${item._id}`,
-        service: (
+        key: `${item?._id}`,
+        feedback: (
           <>
             <div className="author-info">
-              <Title level={5}>{item?.title}</Title>
+              <Title level={5}>{item?.num}</Title>
             </div>
           </>
         ),
-        quote: (
+        name: (
           <>
             <div className="author-info">
-              <Title level={5}>{item?.quote}</Title>
+              <Title level={5}>{item?.name}</Title>
             </div>
           </>
         ),
-        text: (
+        phone: (
           <>
             <div className="author-info">
-              <Title level={5}>{item?.text}</Title>
+            <Title level={5}>
+              <a href={`tel:${item?.phone}`}>
+                {item?.phone}
+              </a>
+            </Title>
             </div>
           </>
         ),
-        steps: (
+        email: (
           <>
             <div className="author-info">
-              <ul>
-                {item?.steps?.map((step, index) => (
-                  <li>
-                    <Title level={5}>{step}</Title>
-                  </li>
-                ))}
-              </ul>
+              <Title level={5}>
+                <a href={`mailto:${item?.email}`}>
+                  {item?.email}
+                </a>
+              </Title>
+            </div>
+          </>
+        ),
+        spec: (
+          <>
+            <div className="author-info">
+              <Title level={5}>{item?.spec}</Title>
+            </div>
+          </>
+        ),
+        message: (
+          <>
+            <div className="author-info">
+              <h6>{item?.text}</h6>
             </div>
           </>
         ),
         actions: (
           <div className="ant-employed">
-            <a href={`/service/${item._id}`}>
-              <Button type="link" className="darkbtn">
-                <EditOutlined />
-              </Button></a>
-            <a onClick={() => {
-              dispatch(deleteService(item._id))
+            <a onClick={async () => {
+              await dispatch(deleteReclamation(item?._id))
+              await dispatch(getWorkDMs());
             }}>
-            <Button type="link" danger>
-              <DeleteOutlined />
-            </Button></a>
+              <Button type="link" danger>
+                <DeleteOutlined />
+              </Button></a>
           </div>
         )
       })
@@ -142,8 +164,8 @@ function Services() {
       <Tracker
         searchQuery={searchQuery}
         setSearchQuery={setSearchQuery}
-        label="Rechercher un service"
-        placeholder="Introduire le nom du service"
+        label="Rechercher un feedback"
+        placeholder="Introduire le nom du feedback"
       />
       <div className="tabled">
         <Row gutter={[24, 0]}>
@@ -151,12 +173,12 @@ function Services() {
             <Card
               bordered={false}
               className="criclebox tablespace mb-24"
-              title="Nos services"
+              title="Nos feedbacks"
               extra={
                 <>
                   <Radio.Group defaultValue="a">
 
-                    <Radio.Button value="a"><a id="add-mem" href="/service">Ajouter un service</a></Radio.Button>
+                    <Radio.Button value="a"><a id="add-mem" href="/feedback">Ajouter un feedback</a></Radio.Button>
 
                   </Radio.Group>
                 </>
@@ -180,4 +202,4 @@ function Services() {
   );
 }
 
-export default Services;
+export default Collaborations;
