@@ -1,5 +1,6 @@
 import express from 'express';
 import mongoose from 'mongoose';
+import generator from 'generate-password';
 
 import Reclamation from '../models/reclamation.js';
 import "moment/locale/fr.js";
@@ -48,7 +49,15 @@ export const sendReclamation = async (req, res) => {
         text
     } = req.body;
 
+    var nRec = generator.generate({
+        length: 10,
+        numbers: true,
+        lowercase: false,
+        uppercase: true
+    });
+
     const newReclamation = new Reclamation({
+        num: nRec,
         category,
         name,
         phone,

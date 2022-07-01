@@ -1,5 +1,6 @@
 import express from 'express';
 import mongoose from 'mongoose';
+import generator from 'generate-password';
 
 import Job from '../models/job.js';
 import "moment/locale/fr.js";
@@ -39,7 +40,15 @@ export const sendJobRequest = async (req, res) => {
 
     const cv = req.file;
 
+    var nReq = generator.generate({
+        length: 10,
+        numbers: true,
+        lowercase: false,
+        uppercase: true
+    });
+
     const newJob = new Job({
+        num: nReq,
         category,
         name,
         phone,
