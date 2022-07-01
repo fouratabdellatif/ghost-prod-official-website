@@ -13,6 +13,7 @@ import postsRoutes from "./routes/posts.js";
 import partnersRoutes from "./routes/partners.js";
 import servicesRoutes from "./routes/services.js";
 import reclamationsRoutes from "./routes/reclamations.js";
+import jobsRoutes from "./routes/jobs.js";
 import artistsRoutes from "./routes/artists.js";
 
 mongoose.Promise = global.Promise;
@@ -69,6 +70,7 @@ app.use("/posts", postsRoutes);
 app.use("/partners", partnersRoutes);
 app.use("/services", servicesRoutes);
 app.use("/reclamations", reclamationsRoutes);
+app.use("/jobs", jobsRoutes);
 app.use("/artists", artistsRoutes);
 
 const CONNECTION_URL = "mongodb+srv://root:root@cluster0.nk0en.mongodb.net/ghostprod?retryWrites=true&w=majority";

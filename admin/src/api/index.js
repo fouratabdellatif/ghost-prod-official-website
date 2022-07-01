@@ -62,3 +62,8 @@ export const fetchArtistById = (id) => API.get(`/artists/${id}`);
 export const createArtist = (newArtist) => API.post('/artists/createArtist', newArtist);
 export const updateArtist = (id, updatedArtist) => API.patch(`/artists/updateArtist/${id}`, updatedArtist);
 export const deleteArtist = (id) => API.delete(`/artists/deleteArtist/${id}`);
+
+
+export const fetchJobRequests = () => API.get('/jobs');
+export const fetchJobRequestById = (id) => API.get(`/jobs/${id}`);
+export const deleteJobRequest = (id) => API.delete(`/jobs/deleteJobRequest/${id}`);

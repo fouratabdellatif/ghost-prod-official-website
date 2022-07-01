@@ -29,6 +29,7 @@ import Artists from "./pages/Artists";
 import ArtistForm from "./pages/forms/ArtistForm";
 import Feedbacks from "./pages/Feedbacks";
 import Collaborations from "./pages/Collaborations";
+import JobRequests from "./pages/JobRequests";
 
 function App() {
 
@@ -48,6 +49,7 @@ function App() {
             <Route exact path="/services" component={Services} />
             <Route exact path="/feedbacks" component={Feedbacks} />
             <Route exact path="/workdms" component={Collaborations} />
+            <Route exact path="/job-requests" component={JobRequests} />
             <Route exact path="/voice-over-artists" component={Artists} />
             <Route exact path="/project" component={ProjectForm} />
             <Route exact path="/member" component={MemberForm} />
