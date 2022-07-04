@@ -4,7 +4,7 @@ const artistSchema = mongoose.Schema({
     firstname: { type: String },
     lastname: { type: String },
     imageFile: { type: String },
-    audioFile: [{ type: Object }],
+    musicSrc: [{ type: Object }],
     city: { type: String },
     phone: { type: String },
     email: { type: String },
@@ -17,7 +17,7 @@ const artistSchema = mongoose.Schema({
             name: String,
             singer: String,
             coverImage: String,
-            audioFile: String
+            musicSrc: String
         }
     ],
     createdAt: {

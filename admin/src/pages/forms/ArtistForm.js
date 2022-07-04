@@ -28,7 +28,7 @@ const ArtistForm = () => {
     instagram: '',
     linkedin: '',
     imageFile: '',
-    audioFile: '',
+    musicSrc: '',
   }
 
   const [formData, setFormData] = useState(initState);
@@ -112,10 +112,10 @@ const ArtistForm = () => {
                     accept='audio/*'
                     multiple
                     // ref={inputRef}
-                    filename="audioFile"
+                    filename="musicSrc"
                     onChange={(e) => {
                       console.log(e.target.files)
-                      setFormData({ ...formData, audioFile: e.target.files })
+                      setFormData({ ...formData, musicSrc: e.target.files })
                     }}
                   />
                 </Col>

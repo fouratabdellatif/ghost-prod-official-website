@@ -131,7 +131,7 @@ function Artists() {
                       <Title level={5}>{audio?.name}</Title>
                       {/* <AudioPlayer
                               // autoPlay
-                              src={`/uploads/${audio?.audioFile}`}
+                              src={`/uploads/${audio?.musicSrc}`}
                               style={{ marginBottom: '20px' }}
                           /> */}
                     </>

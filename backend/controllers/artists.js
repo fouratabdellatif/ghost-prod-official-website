@@ -41,22 +41,22 @@ export const createArtist = async (req, res) => {
         facebook,
         instagram,
         linkedin,
-        audioFile
+        musicSrc
     } = req.body;
 
     const imageFile = req.files['imageFile'];
     // console.log(imageFile[0])
-    console.log(audioFile)
+    console.log(musicSrc)
 
     let audioLists = [];
-    const len = Object.keys(audioFile).length;
+    const len = Object.keys(musicSrc).length;
 
     for (let i = 0; i < len - 1; i++) {
-        audioLists[i] = audioFile[i];
+        audioLists[i] = musicSrc[i];
         audioLists[i].singer = `${firstname} ${lastname}`;
         audioLists[i].coverImage = imageFile[0].filename;
-        audioLists[i].audioFile = audioFile[i].name;
-        // console.log(audioFile[i]);
+        audioLists[i].musicSrc = `/uploads/${musicSrc[i].name}`;
+        // console.log(musicSrc[i]);
         // console.log('aaalooooo');
     }
 
@@ -75,7 +75,7 @@ export const createArtist = async (req, res) => {
         linkedin,
         audioLists: audioLists,
         imageFile: imageFile[0].filename,
-        audioFile: audioFile,
+        musicSrc: musicSrc,
     })
 
     try {
@@ -87,9 +87,9 @@ export const createArtist = async (req, res) => {
             console.log(`${imageFile[0].filename} was copied`);
         });
 
-        // fs.copyFile(`C:/Github/ghost-prod-official-website/frontend/public/uploads/${audioFile.filename}`, `C:/Github/ghost-prod-official-website/admin/public/uploads/${audioFile.filename}`, (err) => {
+        // fs.copyFile(`C:/Github/ghost-prod-official-website/frontend/public/uploads/${musicSrc.filename}`, `C:/Github/ghost-prod-official-website/admin/public/uploads/${musicSrc.filename}`, (err) => {
         //     if (err) throw err;
-        //     console.log(`${audioFile.filename} was copied`);
+        //     console.log(`${musicSrc.filename} was copied`);
         // });
 
         res.status(201).json(newArtist);
