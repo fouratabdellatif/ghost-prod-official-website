@@ -1,6 +1,8 @@
 /* eslint-disable jsx-a11y/heading-has-content */
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
+import { useDispatch, useSelector } from 'react-redux';
 import Slider from 'react-slick';
+import { getSliders } from '../actions/slider';
 import '../assets/css/HomeSlider.css';
 import '../assets/css/HomeStart.css';
 import { SliderData } from '../data/SliderData';
@@ -58,17 +60,29 @@ const HomeSlider = () => {
         setIsMuted(!isMuted)
     }
 
+    const sliderData = useSelector((state) => state.sliders);
+
+    let data = [];
+
+    if (!sliderData)
+        data = SliderData;
+
+    const dispatch = useDispatch();
+    useEffect(() => {
+        dispatch(getSliders());
+    }, [dispatch]);
+
     return (
         <SliderHomeWrapper>
             <Slider
                 {...settings}
             >
-                {SliderData?.map((item, index) => (
+                {data?.map((item, index) => (
                     <div className="home-video-container" key={index} onClick={item.video && handleVideoMute}>
                         {item.video ? (
                             <video className='home-video' src={item.video} data-aos="fade-right" autoPlay loop muted={isMuted} />
                         ) : (
-                            <img className='home-video' src={item.image} alt='' />
+                            <img className='home-video' src={item.image} alt={item.image} />
                         )}
                         <div className='homeslider-content' style={{
                             opacity: isMuted ? 1 : 0,

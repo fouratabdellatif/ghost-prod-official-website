@@ -7,7 +7,7 @@ const Member = ({ item }) => {
         <section className='one-member-section'>
             <div className='one-member-container'>
                 <div className='one-member-column-left'>
-                    <img src={`/uploads/${item.profileImage}`} alt={`${item.firstname} ${item.lastname}`} />
+                    <img src={`http://localhost:5000/uploads/${item.profileImage}`} alt={`${item.firstname} ${item.lastname}`} />
                 </div>
                 <div className='one-member-column-right'>
                     <div className='one-member-top'>

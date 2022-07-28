@@ -6,7 +6,7 @@ const dateNow = Date.now();
 
 const storage = multer.diskStorage({
     destination: function (req, file, cb) {
-        cb(null, "C:/Github/ghost-prod-official-website/frontend/public/uploads")
+        cb(null, "C:/Github/ghost-prod-official-website/backend/public/uploads")
     },
 
     filename: (req, file, callback) => {

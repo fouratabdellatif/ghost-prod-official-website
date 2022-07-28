@@ -46,6 +46,8 @@ export const createMember = async (req, res) => {
 
     const profileImage = req.file;
 
+    console.log(profileImage);
+
     const newMember = new Member({
         firstname,
         lastname,
@@ -65,10 +67,10 @@ export const createMember = async (req, res) => {
 
         await newMember.save();
 
-        fs.copyFile(`C:/Github/ghost-prod-official-website/frontend/public/uploads/${profileImage.filename}`, `C:/Github/ghost-prod-official-website/admin/public/uploads/${profileImage.filename}`, (err) => {
-            if (err) throw err;
-            console.log(`${profileImage.filename} was copied`);
-        });
+        // fs.copyFile(`C:/Github/ghost-prod-official-website/frontend/public/uploads/${profileImage.filename}`, `C:/Github/ghost-prod-official-website/admin/public/uploads/${profileImage.filename}`, (err) => {
+        //     if (err) throw err;
+        //     console.log(`${profileImage.filename} was copied`);
+        // });
 
         res.status(201).json(newMember);
     } catch (error) {
