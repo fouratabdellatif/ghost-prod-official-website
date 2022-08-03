@@ -22,30 +22,42 @@ export const createSlider = async (req, res) => {
         title
     } = req.body;
 
-    const imageFile = req.files['image'];
-    const videoFile = req.files['video'];
+    // console.log("reqqqqq" , req.files['image']);
 
-    const newSlider = new Slider({
-        title,
-        image: imageFile[0].filename,
-        video: videoFile[0].filename,
-    })
+    const image = req.files['image'];
+    const video = req.files['video'];
+
+    // console.log(image);
+
+    let newSlider = new Slider();
+
+    if (image)
+        newSlider = new Slider({
+            title,
+            image: image[0].filename
+        });
+
+    if (video)
+        newSlider = new Slider({
+            title,
+            video: video[0].filename,
+        });
 
     try {
 
         await newSlider.save();
 
-        if (imageFile)
-            fs.copyFile(`C:/Github/ghost-prod-official-website/frontend/public/uploads/${imageFile[0].filename}`, `C:/Github/ghost-prod-official-website/admin/public/uploads/${imageFile[0].filename}`, (err) => {
-                if (err) throw err;
-                console.log(`${imageFile[0].filename} was copied`);
-            });
+        // if (image)
+        //     fs.copyFile(`C:/Github/ghost-prod-official-website/frontend/public/uploads/${image.filename}`, `C:/Github/ghost-prod-official-website/admin/public/uploads/${image.filename}`, (err) => {
+        //         if (err) throw err;
+        //         console.log(`${image.filename} was copied`);
+        //     });
 
-        if (videoFile)
-            fs.copyFile(`C:/Github/ghost-prod-official-website/frontend/public/uploads/${videoFile[0].filename}`, `C:/Github/ghost-prod-official-website/admin/public/uploads/${videoFile[0].filename}`, (err) => {
-                if (err) throw err;
-                console.log(`${videoFile[0].filename} was copied`);
-            });
+        // if (video)
+        //     fs.copyFile(`C:/Github/ghost-prod-official-website/frontend/public/uploads/${video.filename}`, `C:/Github/ghost-prod-official-website/admin/public/uploads/${video.filename}`, (err) => {
+        //         if (err) throw err;
+        //         console.log(`${video.filename} was copied`);
+        //     });
 
         res.status(201).json(newSlider);
     } catch (error) {
@@ -59,30 +71,30 @@ export const updateSlider = async (req, res) => {
         title
     } = req.body;
 
-    const imageFile = req.files['image'];
-    const videoFile = req.files['video'];
+    const image = req.files['image'];
+    const video = req.files['video'];
 
     if (!mongoose.Types.ObjectId.isValid(id)) return res.status(404).send(`No slider with id: ${id}`);
 
     const updatedSlider = {
         title,
-        image: imageFile[0].filename,
-        video: videoFile[0].filename,
+        image: image.filename,
+        video: video.filename,
         _id: id
     };
 
     await Slider.findByIdAndUpdate(id, updatedSlider, { new: true });
 
-    if (imageFile)
-        fs.copyFile(`C:/Github/ghost-prod-official-website/frontend/public/uploads/${imageFile[0].filename}`, `C:/Github/ghost-prod-official-website/admin/public/uploads/${imageFile[0].filename}`, (err) => {
+    if (image)
+        fs.copyFile(`C:/Github/ghost-prod-official-website/frontend/public/uploads/${image[0].filename}`, `C:/Github/ghost-prod-official-website/admin/public/uploads/${image[0].filename}`, (err) => {
             if (err) throw err;
-            console.log(`${imageFile[0].filename} was copied`);
+            console.log(`${image[0].filename} was copied`);
         });
 
-    if (videoFile)
-        fs.copyFile(`C:/Github/ghost-prod-official-website/frontend/public/uploads/${videoFile[0].filename}`, `C:/Github/ghost-prod-official-website/admin/public/uploads/${videoFile[0].filename}`, (err) => {
+    if (video)
+        fs.copyFile(`C:/Github/ghost-prod-official-website/frontend/public/uploads/${video[0].filename}`, `C:/Github/ghost-prod-official-website/admin/public/uploads/${video[0].filename}`, (err) => {
             if (err) throw err;
-            console.log(`${videoFile[0].filename} was copied`);
+            console.log(`${video[0].filename} was copied`);
         });
 
     res.json(updatedSlider);

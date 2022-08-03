@@ -8,6 +8,7 @@ import { SiGithubsponsors } from 'react-icons/si';
 import { FcServices, FcRating } from 'react-icons/fc';
 import { AiOutlineDeploymentUnit } from 'react-icons/ai';
 import { FaFileContract } from 'react-icons/fa';
+import { BsImageFill } from 'react-icons/bs';
 
 function Sidenav({ color }) {
   const { pathname } = useLocation();
@@ -248,6 +249,19 @@ function Sidenav({ color }) {
               <FaFileContract size="20px" />
             </span>
             <span className="label">Candidatures</span>
+          </NavLink>
+        </Menu.Item>
+        <Menu.Item>
+          <NavLink to="/sliders">
+            <span
+              className="icon"
+              style={{
+                background: page === "sliders" ? color : "",
+              }}
+            >
+              <BsImageFill size="20px" />
+            </span>
+            <span className="label">Home Slider</span>
           </NavLink>
         </Menu.Item>
       </Menu>

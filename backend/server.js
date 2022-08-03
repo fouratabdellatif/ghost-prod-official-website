@@ -73,7 +73,7 @@ app.use("/services", servicesRoutes);
 app.use("/reclamations", reclamationsRoutes);
 app.use("/jobs", jobsRoutes);
 app.use("/artists", artistsRoutes);
-app.use("/slider", sliderRoutes);
+app.use("/sliders", sliderRoutes);
 
 const CONNECTION_URL = "mongodb+srv://root:root@cluster0.nk0en.mongodb.net/ghostprod?retryWrites=true&w=majority";
 

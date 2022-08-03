@@ -30,6 +30,8 @@ import ArtistForm from "./pages/forms/ArtistForm";
 import Feedbacks from "./pages/Feedbacks";
 import Collaborations from "./pages/Collaborations";
 import JobRequests from "./pages/JobRequests";
+import SliderForm from "./pages/forms/SliderForm";
+import Sliders from "./pages/Sliders";
 
 function App() {
 
@@ -51,6 +53,7 @@ function App() {
             <Route exact path="/workdms" component={Collaborations} />
             <Route exact path="/job-requests" component={JobRequests} />
             <Route exact path="/voice-over-artists" component={Artists} />
+            <Route exact path="/sliders" component={Sliders} />
             <Route exact path="/project" component={ProjectForm} />
             <Route exact path="/member" component={MemberForm} />
             <Route exact path="/member/:id" component={MemberForm} />
@@ -62,6 +65,8 @@ function App() {
             <Route exact path="/service/:id" component={ServiceForm} />
             <Route exact path="/voice-over-artist" component={ArtistForm} />
             <Route exact path="/voice-over-artist/:id" component={ArtistForm} />
+            <Route exact path="/slider" component={SliderForm} />
+            <Route exact path="/slider/:id" component={SliderForm} />
 
 
             

@@ -9,7 +9,7 @@ import services from "./services";
 import artists from "./artists";
 import reclamations from "./reclamations";
 import jobs from "./jobs";
-import slider from "./slider";
+import sliders from "./slider";
 
 export const reducers = combineReducers({
     auth,
@@ -21,5 +21,5 @@ export const reducers = combineReducers({
     reclamations,
     artists,
     jobs,
-    slider
+    sliders
 });
