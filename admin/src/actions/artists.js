@@ -59,15 +59,15 @@ export const createArtist = (artist) => async (dispatch) => {
         formData.append('instagram', artist.instagram);
         formData.append('linkedin', artist.linkedin);
         formData.append('imageFile', artist.imageFile);
-        formData.append('audioFile', artist.audioFile);
-        for (var i = 0; i < artist.audioFile.length; i++) {
-            formData.append(`audioFile[${i}][name]`, artist.audioFile[i].name);
-            formData.append(`audioFile[${i}][lastModified]`, artist.audioFile[i].lastModified);
-            formData.append(`audioFile[${i}][lastModifiedDate]`, artist.audioFile[i].lastModifiedDate);
-            formData.append(`audioFile[${i}][size]`, artist.audioFile[i].size);
-            formData.append(`audioFile[${i}][type]`, artist.audioFile[i].type);
-            formData.append(`audioFile[${i}][webkitRelativePath]`, artist.audioFile[i].webkitRelativePath);
-            console.log("element", artist.audioFile[i]);
+        formData.append('musicSrc', artist.musicSrc);
+        for (var i = 0; i < artist.musicSrc.length; i++) {
+            formData.append(`musicSrc[${i}][name]`, artist.musicSrc[i].name);
+            formData.append(`musicSrc[${i}][lastModified]`, artist.musicSrc[i].lastModified);
+            formData.append(`musicSrc[${i}][lastModifiedDate]`, artist.musicSrc[i].lastModifiedDate);
+            formData.append(`musicSrc[${i}][size]`, artist.musicSrc[i].size);
+            formData.append(`musicSrc[${i}][type]`, artist.musicSrc[i].type);
+            formData.append(`musicSrc[${i}][webkitRelativePath]`, artist.musicSrc[i].webkitRelativePath);
+            console.log("element", artist.musicSrc[i]);
         }
 
         console.log('formdata from actions allllll: ', formData);
@@ -96,7 +96,7 @@ export const updateArtist = (id, artist) => async (dispatch) => {
         formData.append('instagram', artist.instagram);
         formData.append('linkedin', artist.linkedin);
         formData.append('imageFile', artist.imageFile);
-        formData.append('audioFile', artist.audioFile);
+        formData.append('musicSrc', artist.musicSrc);
 
         const { data } = await api.updateArtist(id, formData);
 

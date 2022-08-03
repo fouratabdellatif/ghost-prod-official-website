@@ -67,3 +67,9 @@ export const deleteArtist = (id) => API.delete(`/artists/deleteArtist/${id}`);
 export const fetchJobRequests = () => API.get('/jobs');
 export const fetchJobRequestById = (id) => API.get(`/jobs/${id}`);
 export const deleteJobRequest = (id) => API.delete(`/jobs/deleteJobRequest/${id}`);
+
+
+export const fetchSliders = () => API.get('/sliders');
+export const createSlider = (newSlider) => API.post('/sliders/createSlider', newSlider);
+export const updateSlider = (id, updatedSlider) => API.patch(`/sliders/updateSlider/${id}`, updatedSlider);
+export const deleteSlider = (id) => API.delete(`/sliders/deleteSlider/${id}`);

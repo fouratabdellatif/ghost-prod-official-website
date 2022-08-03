@@ -61,7 +61,7 @@ const VoiceOverArtist = ({ item }) => {
                             <p>{audio?.name}</p>
                             <AudioPlayer
                                 // autoPlay
-                                src={`/uploads/${audio?.audioFile}`}
+                                src={audio?.musicSrc}
                                 style={{ marginBottom: '20px' }}
                             />
                         </>

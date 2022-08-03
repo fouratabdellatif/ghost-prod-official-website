@@ -1,6 +1,6 @@
 import express from 'express';
 import multer from 'multer';
-import { createArtist, deleteArtist, getArtistById, getArtists, updateArtist } from '../controllers/artists.js';
+import { createSlider, deleteSlider, getSliders, updateSlider } from '../controllers/slider.js';
 
 const dateNow = Date.now();
 
@@ -10,7 +10,6 @@ const storage = multer.diskStorage({
     },
 
     filename: (req, file, callback) => {
-        console.log("req", req);
         callback(null, dateNow + file.originalname);
     }
 })
@@ -19,20 +18,19 @@ const uploads = multer({ storage: storage })
 
 const router = express.Router();
 
-router.get('/', getArtists);
-router.get('/:id', getArtistById);
-router.post('/createArtist',
+router.get('/', getSliders);
+router.post('/createSlider',
     uploads.fields([{
-        name: 'imageFile', maxCount: 1
+        name: 'image', maxCount: 1
     }, {
-        name: 'musicSrc', maxCount: 10
-    }]), createArtist);
-router.patch('/updateArtist/:id',
+        name: 'video', maxCount: 1
+    }]), createSlider);
+router.patch('/updateSlider/:id',
     uploads.fields([{
-        name: 'imageFile', maxCount: 1
+        name: 'image', maxCount: 1
     }, {
-        name: 'musicSrc', maxCount: 10
-    }]), updateArtist);
-router.delete('/deleteArtist/:id', deleteArtist);
+        name: 'video', maxCount: 1
+    }]), updateSlider);
+router.delete('/deleteSlider/:id', deleteSlider);
 
 export default router;
