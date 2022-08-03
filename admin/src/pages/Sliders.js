@@ -90,7 +90,7 @@ function Sliders() {
             }
           >
 
-            <section className='blog-section'>
+            <section className='slider-section'>
               <SliderHomeWrapper>
                 <Slider
                   {...settings}

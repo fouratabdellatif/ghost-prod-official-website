@@ -1,3 +1,11 @@
+.slider-section {
+  width: 90%;
+  height: 100%;
+  margin: 10px auto;
+  position: relative;
+  z-index: 99;
+}
+
 .home-video-container::before {
   content: "";
   position: absolute;
