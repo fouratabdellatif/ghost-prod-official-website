@@ -17,6 +17,7 @@ import jobsRoutes from "./routes/jobs.js";
 import artistsRoutes from "./routes/artists.js";
 import sliderRoutes from "./routes/slider.js";
 import reelRoutes from "./routes/reel.js";
+import pagesRoutes from "./routes/pages.js";
 
 mongoose.Promise = global.Promise;
 
@@ -76,6 +77,7 @@ app.use("/jobs", jobsRoutes);
 app.use("/artists", artistsRoutes);
 app.use("/sliders", sliderRoutes);
 app.use("/reels", reelRoutes);
+app.use("/pages", pagesRoutes);
 
 const CONNECTION_URL = "mongodb+srv://root:root@cluster0.nk0en.mongodb.net/ghostprod?retryWrites=true&w=majority";
 

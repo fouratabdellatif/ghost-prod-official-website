@@ -9,6 +9,7 @@ import { FcServices, FcRating } from 'react-icons/fc';
 import { AiOutlineDeploymentUnit } from 'react-icons/ai';
 import { FaFileContract } from 'react-icons/fa';
 import { BsImageFill } from 'react-icons/bs';
+import { ImPagebreak } from 'react-icons/im';
 
 function Sidenav({ color }) {
   const { pathname } = useLocation();
@@ -128,7 +129,7 @@ function Sidenav({ color }) {
             <span className="label">Billing</span>
           </NavLink>
         </Menu.Item> */}
-{/* 
+        {/* 
         <Menu.Item className="menu-item-header" key="5">
           Pages
         </Menu.Item> */}
@@ -262,6 +263,19 @@ function Sidenav({ color }) {
               <BsImageFill size="20px" />
             </span>
             <span className="label">Home Slider & Reel</span>
+          </NavLink>
+        </Menu.Item>
+        <Menu.Item>
+          <NavLink to="/pages">
+            <span
+              className="icon"
+              style={{
+                background: page === "pages" ? color : "",
+              }}
+            >
+              <ImPagebreak size="20px" />
+            </span>
+            <span className="label">Pages</span>
           </NavLink>
         </Menu.Item>
       </Menu>

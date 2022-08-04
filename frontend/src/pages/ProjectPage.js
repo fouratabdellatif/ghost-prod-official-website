@@ -31,13 +31,18 @@ const ProjectPage = () => {
 
     return (
         <>
-            <CasualPage pageTitle={project?.name} bg={project?.imageFile} text={project?.category} title={project?.name} pageContent={
-                <>
-                    <Project
-                        item={project}
-                    />
-                </>
-            } />
+            <CasualPage
+                pageTitle={project?.name}
+                bg={project?.imageFile}
+                text={project?.category}
+                title={project?.name}
+                pageContent={
+                    <>
+                        <Project
+                            item={project}
+                        />
+                    </>
+                } />
         </>
     )
 }
