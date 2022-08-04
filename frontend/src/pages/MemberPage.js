@@ -15,6 +15,7 @@ const MemberPage = () => {
     console.log(id)
 
     const membersData = useSelector((state) => state.members);
+    const pages = useSelector((state) => state.pages);
 
     const dispatch = useDispatch();
     useEffect(async () => {
@@ -28,15 +29,30 @@ const MemberPage = () => {
     const member = members[0];
     console.log('artist', member);
 
+    let data = pages.filter((item) => item.name == "team").map((item, index) => {
+        return item;
+    });
+
+    const page = data[0];
+
+    const title = page?.title;
+    const text = page?.text;
+    const image = page?.image;
+
     return (
         <>
-            <CasualPage pageTitle={`${member.firstname} ${member.lastname} | Voice-Over`} bg={bgImage} text="our warriors, our heros" title="Our Team" pageContent={
-                <>
-                    <Member
-                        item={member}
-                    />
-                </>
-            } />
+            <CasualPage
+                pageTitle={`${member.firstname} ${member.lastname} | Voice-Over`}
+                bg={page ? `/uploads/${image}` : bgImage}
+                text={page ? text : "our warriors, our heros"}
+                title={page ? title : "Our Team"}
+                pageContent={
+                    <>
+                        <Member
+                            item={member}
+                        />
+                    </>
+                } />
         </>
     )
 }

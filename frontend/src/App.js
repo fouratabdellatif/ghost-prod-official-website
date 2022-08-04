@@ -22,6 +22,11 @@ import ProjectPage from "./pages/ProjectPage";
 import MemberPage from "./pages/MemberPage";
 import PostPage from "./pages/PostPage";
 import ServicesPage from "./pages/ServicesPage";
+import { useDispatch } from "react-redux";
+import { getServices } from "./actions/services";
+import { getPages } from "./actions/pages";
+import { getArtists } from "./actions/artists";
+import { getPosts } from "./actions/posts";
 
 function App() {
 
@@ -41,6 +46,14 @@ function App() {
   useEffect(() => {
     Aos.init({ duration: 1000 });
   }, [])
+
+  const dispatch = useDispatch();
+  useEffect(async () => {
+      await dispatch(getServices());
+      await dispatch(getPages());
+      await dispatch(getArtists());
+      await dispatch(getPosts());
+  }, [dispatch]);
 
   return isLoading ? (
     // <LoadingScreen

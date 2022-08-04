@@ -32,6 +32,7 @@ import Collaborations from "./pages/Collaborations";
 import JobRequests from "./pages/JobRequests";
 import SliderForm from "./pages/forms/SliderForm";
 import Sliders from "./pages/Sliders";
+import Pages from "./pages/Pages";
 
 function App() {
 
@@ -54,6 +55,7 @@ function App() {
             <Route exact path="/job-requests" component={JobRequests} />
             <Route exact path="/voice-over-artists" component={Artists} />
             <Route exact path="/sliders" component={Sliders} />
+            <Route exact path="/pages" component={Pages} />
             <Route exact path="/project" component={ProjectForm} />
             <Route exact path="/member" component={MemberForm} />
             <Route exact path="/member/:id" component={MemberForm} />

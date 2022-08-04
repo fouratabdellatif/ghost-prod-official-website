@@ -26,20 +26,38 @@ const PostPage = () => {
 
     const post = posts[0];
 
+    const pages = useSelector((state) => state.pages);
+
+    let data = pages.filter((item) => item.name == "blog").map((item, index) => {
+        return item;
+    });
+
+    const page = data[0];
+
+    const pageTitle = page?.pageTitle;
+    const title = page?.title;
+    const text = page?.text;
+    const image = page?.image;
+
     return (
         <>
-            <CasualPage pageTitle="Blog" bg={bgImage} text="Où vous trouvez toutes nos nouveautés..." title="Blog" pageContent={
-                <>
-                    <div style={{
-                        display: 'flex'
-                    }}>
-                        <Post
-                            item={post}
-                        />
-                        <Sidebar id={post?._id} />
-                    </div>
-                </>
-            } />
+            <CasualPage
+                pageTitle={page ? pageTitle : "Blog"}
+                bg={page ? `/uploads/${image}` : bgImage}
+                text={page ? text : "Où vous trouvez toutes nos nouveautés..."}
+                title={page ? title : "Blog"}
+                pageContent={
+                    <>
+                        <div style={{
+                            display: 'flex'
+                        }}>
+                            <Post
+                                item={post}
+                            />
+                            <Sidebar id={post?._id} />
+                        </div>
+                    </>
+                } />
         </>
     )
 }

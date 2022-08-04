@@ -79,3 +79,9 @@ export const fetchReels = () => API.get('/reels');
 export const createReel = (newReel) => API.post('/reels/createReel', newReel);
 export const updateReel = (id, updatedReel) => API.patch(`/reels/updateReel/${id}`, updatedReel);
 export const deleteReel = (id) => API.delete(`/reels/deleteReel/${id}`);
+
+
+export const fetchPages = () => API.get('/pages');
+export const createPage = (newPage) => API.post('/pages/createPage', newPage);
+export const updatePage = (id, updatedPage) => API.patch(`/pages/updatePage/${id}`, updatedPage);
+export const deletePage = (id) => API.delete(`/pages/deletePage/${id}`);
