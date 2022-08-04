@@ -10,6 +10,7 @@ import {
 import { createReel, updateReel } from "../../actions/reel";
 import { useDispatch } from "react-redux";
 import "../../assets/css/ReelForm.css";
+import preview from "../../assets/images/preview.jpg"
 
 
 const { Title } = Typography;
@@ -74,7 +75,7 @@ const ReelForm = ({ item }) => {
             </Title>
             <div className='info-container'>
               <div className='info-column-left'>
-                <img src={`/uploads/${image}`} alt="home" data-aos="fade-right" />
+                <img src={item ? `/uploads/${image}`: preview} alt="home" data-aos="fade-right" />
               </div>
               <div className='info-column-right'>
                 <form
