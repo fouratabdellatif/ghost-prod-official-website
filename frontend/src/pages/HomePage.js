@@ -7,7 +7,6 @@ import PartnershipsSection from '../components/Sections/PartnershipsSection'
 import ProjectsSection from '../components/Sections/ProjectsSection'
 import TeamSection from '../components/Sections/TeamSection'
 import TestimonialsSection from '../components/Sections/TestimonialsSection'
-import { InfoData } from '../data/InfoData'
 import { Helmet } from 'react-helmet';
 // import { SliderData } from '../data/SliderData'
 
@@ -19,7 +18,7 @@ const HomePage = () => {
             </Helmet>
             {/* <HomeStart slides={SliderData} /> */}
             <HomeSlider />
-            <InfoSection {...InfoData} />
+            <InfoSection />
             <ProjectsSection />
             <TeamSection />
             <TestimonialsSection />

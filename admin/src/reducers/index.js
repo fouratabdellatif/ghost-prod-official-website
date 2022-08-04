@@ -10,6 +10,7 @@ import artists from "./artists";
 import reclamations from "./reclamations";
 import jobs from "./jobs";
 import sliders from "./slider";
+import reels from "./reel";
 
 export const reducers = combineReducers({
     auth,
@@ -21,5 +22,6 @@ export const reducers = combineReducers({
     reclamations,
     artists,
     jobs,
-    sliders
+    sliders,
+    reels
 });

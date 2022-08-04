@@ -73,3 +73,9 @@ export const fetchSliders = () => API.get('/sliders');
 export const createSlider = (newSlider) => API.post('/sliders/createSlider', newSlider);
 export const updateSlider = (id, updatedSlider) => API.patch(`/sliders/updateSlider/${id}`, updatedSlider);
 export const deleteSlider = (id) => API.delete(`/sliders/deleteSlider/${id}`);
+
+
+export const fetchReels = () => API.get('/reels');
+export const createReel = (newReel) => API.post('/reels/createReel', newReel);
+export const updateReel = (id, updatedReel) => API.patch(`/reels/updateReel/${id}`, updatedReel);
+export const deleteReel = (id) => API.delete(`/reels/deleteReel/${id}`);

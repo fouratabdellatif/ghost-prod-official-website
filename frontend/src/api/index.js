@@ -30,3 +30,4 @@ export const fetchJobRequests = () => API.get('/jobs');
 export const sendJobRequest = (newJobRequest) => API.post('/jobs/sendJobRequest', newJobRequest);
 export const fetchJobRequestById = (id) => API.get(`/jobs/${id}`);
 export const fetchSliders = () => API.get('/sliders');
+export const fetchReels = () => API.get('/reels');

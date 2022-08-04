@@ -128,10 +128,10 @@ function Sidenav({ color }) {
             <span className="label">Billing</span>
           </NavLink>
         </Menu.Item> */}
-
+{/* 
         <Menu.Item className="menu-item-header" key="5">
           Pages
-        </Menu.Item>
+        </Menu.Item> */}
 
 
         <Menu.Item>
@@ -261,7 +261,7 @@ function Sidenav({ color }) {
             >
               <BsImageFill size="20px" />
             </span>
-            <span className="label">Home Slider</span>
+            <span className="label">Home Slider & Reel</span>
           </NavLink>
         </Menu.Item>
       </Menu>
