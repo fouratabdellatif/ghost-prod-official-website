@@ -261,7 +261,7 @@ function Sidenav({ color }) {
             >
               <BsImageFill size="20px" />
             </span>
-            <span className="label">Home Slider</span>
+            <span className="label">Home Slider & Reel</span>
           </NavLink>
         </Menu.Item>
       </Menu>

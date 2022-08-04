@@ -14,6 +14,8 @@ import { getSliders } from "../actions/slider.js";
 import { SliderHomeWrapper } from "../components/_SlickSliderStyle";
 import Slider from 'react-slick';
 import { SliderData } from "../data/SliderData";
+import ReelForm from "./forms/ReelForm";
+import { getReels } from "../actions/reel";
 
 function Sliders() {
 
@@ -62,6 +64,10 @@ function Sliders() {
   };
 
   const sliders = useSelector((state) => state.sliders);
+  const reels = useSelector((state) => state.reels);
+
+  const reelItem = reels[0];
+  console.log("reeeeeeel", reelItem);
 
   let data = [];
 
@@ -73,6 +79,7 @@ function Sliders() {
   const dispatch = useDispatch();
   useEffect(async () => {
     await dispatch(getSliders());
+    await dispatch(getReels());
   }, []);
 
   return (
@@ -125,6 +132,17 @@ function Sliders() {
           </Card>
 
 
+        </Col>
+      </Row>
+      <Row gutter={[24, 0]}>
+        <Col xs="24" xl={24}>
+          <Card
+            bordered={false}
+            className="criclebox tablespace mb-24"
+            title="Reel"
+          >
+            <ReelForm item={reelItem} />
+          </Card>
         </Col>
       </Row>
     </div>
