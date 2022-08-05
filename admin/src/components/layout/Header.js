@@ -5,12 +5,13 @@ import {
   Row,
   Col,
   Breadcrumb,
-  Input,
+  Space,
+  // Input,
 } from "antd";
 
-import {
-  SearchOutlined,
-} from "@ant-design/icons";
+// import {
+//   SearchOutlined,
+// } from "@ant-design/icons";
 
 import { NavLink, Link } from "react-router-dom";
 // import styled from "styled-components";
@@ -88,17 +89,27 @@ function Header({
           </div>
         </Col>
         <Col span={24} md={18} className="header-control">
-          {profile}
+          <Space>
 
-          <Link to="/sign-in" className="btn-sign-in">
-            <span>Sign out  </span>
-          </Link>
+            <Link to="/add-account" className="btn-sign-in">
+              <span>Add an account</span>
+            </Link>
 
-          <Input
+            {profile}
+
+            <Link to="/sign-in" className="btn-sign-in">
+              <span>Sign out</span>
+            </Link>
+
+          </Space>
+          {/* <Input
             className="header-search"
             placeholder="Type here..."
             prefix={<SearchOutlined />}
-          />
+          /> */}
+
+
+
         </Col>
       </Row>
     </>
