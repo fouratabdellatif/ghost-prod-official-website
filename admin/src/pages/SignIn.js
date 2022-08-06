@@ -10,11 +10,21 @@ import {
   // Switch,
 } from "antd";
 import signinbg from "../assets/images/img-signin.png";
+import { useDispatch } from "react-redux";
+import { signIn } from "../actions/auth";
 
 const { Title } = Typography;
 const { Content } = Layout;
 
 export default function SignIn() {
+
+  const [form] = Form.useForm();
+  const dispatch = useDispatch();
+
+  const onFinish = (values) => {
+    console.log('Received values of form: ', values);
+    dispatch(signIn(values));
+  }
 
   return (
     <>
@@ -34,19 +44,23 @@ export default function SignIn() {
               <Form
                 layout="vertical"
                 className="row-col"
+                form={form}
+                name="login"
+                onFinish={onFinish}
+                scrollToFirstError
               >
                 <Form.Item
                   className="username"
-                  label="Email"
-                  name="email"
+                  label="Username"
+                  name="username"
                   rules={[
                     {
                       required: true,
-                      message: "Please input your email!",
+                      message: "Please input your username!",
                     },
                   ]}
                 >
-                  <Input placeholder="Email" />
+                  <Input placeholder="Username" />
                 </Form.Item>
 
                 <Form.Item

@@ -11,13 +11,41 @@ import {
 import { useHistory } from "react-router-dom";
 import Footer from "../components/layout/Footer";
 import { ArrowLeftOutlined } from "@ant-design/icons";
+import { useDispatch } from "react-redux";
+import { addUser } from "../actions/auth";
 
 const { Title } = Typography;
 const { Header, Content } = Layout;
 
 export default function AddAccount() {
 
+  const formItemLayout = {
+    labelCol: {
+      xs: {
+        span: 24,
+      },
+      sm: {
+        span: 8,
+      },
+    },
+    wrapperCol: {
+      xs: {
+        span: 24,
+      },
+      sm: {
+        span: 16,
+      },
+    },
+  };
+
   const history = useHistory();
+  const [form] = Form.useForm();
+  const dispatch = useDispatch();
+
+  const onFinish = (values) => {
+    console.log('Received values of form: ', values);
+    dispatch(addUser(values));
+  };
 
   return (
     <>
@@ -48,6 +76,102 @@ export default function AddAccount() {
             bordered="false"
           >
             <Form
+              {...formItemLayout}
+              form={form}
+              name="register"
+              onFinish={onFinish}
+              scrollToFirstError
+            >
+              <Form.Item
+                name="firstname"
+                label="First Name"
+                rules={[
+                  {
+                    required: true,
+                    message: 'Please input firstname!',
+                  },
+                ]}
+              >
+                <Input />
+              </Form.Item>
+              <Form.Item
+                name="lastname"
+                label="Last Name"
+                rules={[
+                  {
+                    required: true,
+                    message: 'Please input lastname!',
+                  },
+                ]}
+              >
+                <Input />
+              </Form.Item>
+              <Form.Item
+                name="username"
+                label="Username"
+                rules={[
+                  // {
+                  //   type: 'email',
+                  //   message: 'The input is not valid E-mail!',
+                  // },
+                  {
+                    required: true,
+                    message: 'Please input username!',
+                  },
+                ]}
+              >
+                <Input />
+              </Form.Item>
+
+              <Form.Item
+                name="password"
+                label="Password"
+                rules={[
+                  {
+                    required: true,
+                    message: 'Please input password!',
+                  },
+                ]}
+                hasFeedback
+              >
+                <Input.Password />
+              </Form.Item>
+
+              <Form.Item
+                name="confirmPassword"
+                label="Confirm Password"
+                dependencies={['password']}
+                hasFeedback
+                rules={[
+                  {
+                    required: true,
+                    message: 'Please confirm your password!',
+                  },
+                  ({ getFieldValue }) => ({
+                    validator(_, value) {
+                      if (!value || getFieldValue('password') === value) {
+                        return Promise.resolve();
+                      }
+
+                      return Promise.reject(new Error('The two passwords that you entered do not match!'));
+                    },
+                  }),
+                ]}
+              >
+                <Input.Password />
+              </Form.Item>
+
+              <Form.Item>
+                <Button
+                  style={{ width: "100%", backgroundColor: '#e1a33b', borderColor: "#e1a33b" }}
+                  type="primary"
+                  htmlType="submit"
+                >
+                  ADD ACCOUNT
+                </Button>
+              </Form.Item>
+            </Form>
+            {/* <Form
               name="basic"
               initialValues={{ remember: true }}
               className="row-col"
@@ -86,7 +210,7 @@ export default function AddAccount() {
                   ADD ACCOUNT
                 </Button>
               </Form.Item>
-            </Form>
+            </Form> */}
           </Card>
         </Content>
 

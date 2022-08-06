@@ -1,7 +1,22 @@
-import { AUTH, AUTHERROR } from "../constants/actionTypes";
+import { AUTH, AUTHERROR, CREATE } from "../constants/actionTypes";
 import * as api from '../api/index.js';
+import { useHistory } from "react-router-dom";
 
-export const signin = (formData) => async (dispatch) => {
+export const addUser = (user) => async (dispatch) => {
+
+    try {
+
+        const { data } = await api.addUser(user);
+
+        dispatch({ type: CREATE, payload: data });
+
+        useHistory().goBack();
+    } catch (error) {
+        console.log(error);
+    }
+};
+
+export const signIn = (formData) => async (dispatch) => {
     try {
 
         const { data } = await api.signIn(formData);

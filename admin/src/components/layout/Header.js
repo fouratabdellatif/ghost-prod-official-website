@@ -1,5 +1,7 @@
+/* eslint-disable no-unused-vars */
+/* eslint-disable jsx-a11y/anchor-is-valid */
 /* eslint-disable jsx-a11y/alt-text */
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 import {
   Row,
@@ -13,9 +15,11 @@ import {
 //   SearchOutlined,
 // } from "@ant-design/icons";
 
-import { NavLink, Link } from "react-router-dom";
+import { NavLink, Link, useHistory } from "react-router-dom";
 // import styled from "styled-components";
 import imageProfile from '../../assets/images/git.jpg';
+import { useDispatch } from "react-redux";
+import { decoded } from "../../api";
 
 // const ButtonContainer = styled.div`
 //   .ant-btn-primary {
@@ -52,7 +56,6 @@ const profile = [
 
 
 function Header({
-
   name,
   subName,
 }) {
@@ -65,6 +68,16 @@ function Header({
 
   // const showDrawer = () => setVisible(true);
   // const hideDrawer = () => setVisible(false);
+
+  const [user, setUser] = useState(JSON.parse(localStorage.getItem("profile")));
+
+  const dispatch = useDispatch();
+  const history = useHistory();
+  const logout = () => {
+    dispatch({ type: "LOGOUT" });
+    history.push("/sign-in");
+    setUser(null);
+  };
 
   return (
     <>
@@ -91,15 +104,17 @@ function Header({
         <Col span={24} md={18} className="header-control">
           <Space>
 
-            <Link to="/add-account" className="btn-sign-in">
-              <span>Add an account</span>
-            </Link>
+            {decoded?.role[0] === "superAdmin" &&
+              <Link to="/add-account" className="btn-sign-in">
+                <span>Add an account</span>
+              </Link>
+            }
 
             {profile}
 
-            <Link to="/sign-in" className="btn-sign-in">
+            <a onClick={logout} className="btn-sign-in">
               <span>Sign out</span>
-            </Link>
+            </a>
 
           </Space>
           {/* <Input
