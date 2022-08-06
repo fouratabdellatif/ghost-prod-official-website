@@ -17,7 +17,7 @@ import {
 
 import { NavLink, Link, useHistory } from "react-router-dom";
 // import styled from "styled-components";
-import imageProfile from '../../assets/images/git.jpg';
+import imageProfile from '../../assets/images/profileImage.png';
 import { useDispatch } from "react-redux";
 import { decoded } from "../../api";
 
@@ -42,19 +42,6 @@ import { decoded } from "../../api";
 //   }
 // `;
 
-
-const profile = [
-  <img
-    width="40"
-    height="40"
-    style={{ borderRadius: '19px', overflow: 'hidden', objectFit: 'cover' }}
-    src={imageProfile}
-  >
-
-  </img>,
-];
-
-
 function Header({
   name,
   subName,
@@ -70,6 +57,17 @@ function Header({
   // const hideDrawer = () => setVisible(false);
 
   const [user, setUser] = useState(JSON.parse(localStorage.getItem("profile")));
+
+  const profile = [
+    <img
+      width="45"
+      height="45"
+      style={{ borderRadius: '4px', overflow: 'hidden', objectFit: 'cover' }}
+      src={decoded.profilePicture ? decoded.profilePicture : imageProfile}
+    >
+    </img>,
+  ];
+  
 
   const dispatch = useDispatch();
   const history = useHistory();
