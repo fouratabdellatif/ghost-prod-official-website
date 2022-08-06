@@ -3,6 +3,7 @@ import bodyParser from "body-parser";
 import mongoose from "mongoose";
 import User from "./models/user.js"
 import cors from "cors";
+import bcrypt from "bcryptjs";
 import { createRequire } from "module";
 const require = createRequire(import.meta.url);
 import profileRoute from "./routes/profile.js";
@@ -18,6 +19,7 @@ import artistsRoutes from "./routes/artists.js";
 import sliderRoutes from "./routes/slider.js";
 import reelRoutes from "./routes/reel.js";
 import pagesRoutes from "./routes/pages.js";
+import { ROLES } from "./models/role.js";
 
 mongoose.Promise = global.Promise;
 
@@ -30,7 +32,7 @@ app.use(cors());
 const PORT = process.env.PORT || 5000;
 const server = app.listen(PORT, () => {
   console.log(`Server Running on Port: http://localhost:${PORT}`);
-  // initialCreateAdmin();
+  initialCreateAdmin();
 });
 
 export const io = require("socket.io")(server);
@@ -88,30 +90,31 @@ mongoose.connect(CONNECTION_URL, {
 
 mongoose.set("useFindAndModify", false);
 
-// const initialCreateAdmin = async () => {
-//   try {
-//     await User.estimatedDocumentCount(async (err, count) => {
-//       try {
-//         if (!err && count === 0) {
-//           await new User({
-//             firstname: "Chiheb",
-//             lastname: "Trabelsi",
-//             email: "contact@ghostprod.net",
-//             password: await bcrypt.hash("ghostprod2022", 12),
-//             role: ROLES[0],
-//           }).save((err) => {
-//             if (err) {
-//               console.log("error", err);
-//             }
+const initialCreateAdmin = async () => {
+  try {
+    await User.estimatedDocumentCount(async (err, count) => {
+      try {
+        if (!err && count === 0) {
+          await new User({
+            firstname: "Chiheb",
+            lastname: "Trabelsi",
+            name: "Chiheb Trabelsi",
+            username: "ghostprodAdmin",
+            password: await bcrypt.hash("ghostprod2022", 12),
+            role: ROLES[0],
+          }).save((err) => {
+            if (err) {
+              console.log("error", err);
+            }
 
-//             console.log("Admin is created");
-//           });
-//         }
-//       } catch (err) {
-//         console.log(err);
-//       }
-//     });
-//   } catch (err) {
-//     console.log(err);
-//   }
-// };
+            console.log("Super Admin is created");
+          });
+        }
+      } catch (err) {
+        console.log(err);
+      }
+    });
+  } catch (err) {
+    console.log(err);
+  }
+};

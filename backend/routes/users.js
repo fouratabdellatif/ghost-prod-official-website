@@ -1,8 +1,9 @@
 import express from "express";
-import { signIn } from "../controllers/authJwt.js";
+import { addUser, signIn } from "../controllers/authJwt.js";
 
 const router = express.Router();
 
-router.post("/signin", signIn);
+router.post("/addUser", addUser);
+router.post("/signIn", signIn);
 
 export default router;

@@ -21,15 +21,15 @@ export const updateUserProfilePicture = async (req, res) => {
 
 export const updateUserProfileData = async (req, res) => {
     const id = req.userId;
-    const { firstName, lastName } = req.body;
+    const { firstname, lastname } = req.body;
 
     if (!mongoose.Types.ObjectId.isValid(id))
         return res.status(404).send(`No User with id: ${id}`);
 
     const updatedUserProfileData = {
-        firstName,
-        lastName,
-        name: `${firstName} ${lastName}`,
+        firstname,
+        lastname,
+        name: `${firstname} ${lastname}`,
         email,
         _id: id,
     };
