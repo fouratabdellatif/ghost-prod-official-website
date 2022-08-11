@@ -6,7 +6,7 @@ const dateNow = Date.now();
 
 const storage = multer.diskStorage({
     destination: function (req, file, cb) {
-        cb(null, "./uploads")
+        cb(null, path.join(__dirname, '/static/uploads/'))
     },
 
     filename: (req, file, callback) => {

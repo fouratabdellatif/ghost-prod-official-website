@@ -6,7 +6,7 @@ const dateNow = Date.now();
 
 const storageA = multer.diskStorage({
     destination: function (req, file, cb) {
-        cb(null, "./uploads")
+        cb(null, path.join(__dirname, '/static/uploads/'))
     },
 
     filename: (req, file, callback) => {
@@ -16,7 +16,7 @@ const storageA = multer.diskStorage({
 
 const storageB = multer.diskStorage({
     destination: function (req, file, cb) {
-        cb(null, "./uploads")
+        cb(null, path.join(__dirname, '/static/uploads/'))
     },
 
     filename: (req, file, callback) => {
@@ -29,7 +29,7 @@ const uploadsB = multer({ storage: storageB })
 
 const storage = multer.diskStorage({
     destination: function (req, file, cb) {
-        cb(null, "./uploads")
+        cb(null, path.join(__dirname, '/static/uploads/'))
     },
 
     filename: (req, file, callback) => {
