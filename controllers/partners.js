@@ -47,10 +47,10 @@ export const createPartner = async (req, res) => {
 
         await newPartner.save();
 
-        fs.copyFile(`C:/Github/ghost-prod-official-website/frontend/public/uploads/${imageFile.filename}`, `C:/Github/ghost-prod-official-website/admin/public/uploads/${imageFile.filename}`, (err) => {
-            if (err) throw err;
-            console.log(`${imageFile.filename} was copied`);
-        });
+        // fs.copyFile(`C:/Github/ghost-prod-official-website/frontend/public/uploads/${imageFile.filename}`, `C:/Github/ghost-prod-official-website/admin/public/uploads/${imageFile.filename}`, (err) => {
+        //     if (err) throw err;
+        //     console.log(`${imageFile.filename} was copied`);
+        // });
 
         res.status(201).json(newPartner);
     } catch (error) {
@@ -78,10 +78,10 @@ export const updatePartner = async (req, res) => {
 
     await Partner.findByIdAndUpdate(id, updatedPartner, { new: true });
 
-    fs.copyFile(`C:/Github/ghost-prod-official-website/frontend/public/uploads/${imageFile.filename}`, `C:/Github/ghost-prod-official-website/admin/public/uploads/${imageFile.filename}`, (err) => {
-        if (err) throw err;
-        console.log(`${imageFile.filename} was copied`);
-    });
+    // fs.copyFile(`C:/Github/ghost-prod-official-website/frontend/public/uploads/${imageFile.filename}`, `C:/Github/ghost-prod-official-website/admin/public/uploads/${imageFile.filename}`, (err) => {
+    //     if (err) throw err;
+    //     console.log(`${imageFile.filename} was copied`);
+    // });
 
     res.json(updatedPartner);
 }

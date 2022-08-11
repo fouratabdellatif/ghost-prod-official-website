@@ -72,15 +72,15 @@ export const createProject = async (req, res) => {
 
         await newProject.save();
 
-        fs.copyFile(`C:/Github/ghost-prod-official-website/frontend/public/uploads/${imageFile.filename}`, `C:/Github/ghost-prod-official-website/admin/public/uploads/${imageFile.filename}`, (err) => {
-            if (err) throw err;
-            console.log(`${imageFile.filename} was copied`);
-        });
+        // fs.copyFile(`C:/Github/ghost-prod-official-website/frontend/public/uploads/${imageFile.filename}`, `C:/Github/ghost-prod-official-website/admin/public/uploads/${imageFile.filename}`, (err) => {
+        //     if (err) throw err;
+        //     console.log(`${imageFile.filename} was copied`);
+        // });
 
-        fs.copyFile(`C:/Github/ghost-prod-official-website/frontend/public/uploads/${videoFile.filename}`, `C:/Github/ghost-prod-official-website/admin/public/uploads/${videoFile.filename}`, (err) => {
-            if (err) throw err;
-            console.log(`${videoFile.filename} was copied`);
-        });
+        // fs.copyFile(`C:/Github/ghost-prod-official-website/frontend/public/uploads/${videoFile.filename}`, `C:/Github/ghost-prod-official-website/admin/public/uploads/${videoFile.filename}`, (err) => {
+        //     if (err) throw err;
+        //     console.log(`${videoFile.filename} was copied`);
+        // });
 
         res.status(201).json(newProject);
     } catch (error) {

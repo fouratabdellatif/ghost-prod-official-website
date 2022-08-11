@@ -37,11 +37,11 @@ export const createReel = async (req, res) => {
 
         await newReel.save();
 
-        if (image)
-            fs.copyFile(`C:/Github/ghost-prod-official-website/frontend/public/uploads/${image.filename}`, `C:/Github/ghost-prod-official-website/admin/public/uploads/${image.filename}`, (err) => {
-                if (err) throw err;
-                console.log(`${image.filename} was copied`);
-            });
+        // if (image)
+        //     fs.copyFile(`C:/Github/ghost-prod-official-website/frontend/public/uploads/${image.filename}`, `C:/Github/ghost-prod-official-website/admin/public/uploads/${image.filename}`, (err) => {
+        //         if (err) throw err;
+        //         console.log(`${image.filename} was copied`);
+        //     });
 
         res.status(201).json(newReel);
     } catch (error) {
@@ -71,11 +71,11 @@ export const updateReel = async (req, res) => {
 
     await Reel.findByIdAndUpdate(id, updatedReel, { new: true });
 
-    if (image)
-        fs.copyFile(`C:/Github/ghost-prod-official-website/frontend/public/uploads/${image.filename}`, `C:/Github/ghost-prod-official-website/admin/public/uploads/${image.filename}`, (err) => {
-            if (err) throw err;
-            console.log(`${image.filename} was copied`);
-        });
+    // if (image)
+    //     fs.copyFile(`C:/Github/ghost-prod-official-website/frontend/public/uploads/${image.filename}`, `C:/Github/ghost-prod-official-website/admin/public/uploads/${image.filename}`, (err) => {
+    //         if (err) throw err;
+    //         console.log(`${image.filename} was copied`);
+    //     });
 
     res.json(updatedReel);
 }

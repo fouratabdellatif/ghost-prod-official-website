@@ -60,10 +60,10 @@ export const createPost = async (req, res) => {
 
         await newPost.save();
 
-        fs.copyFile(`C:/Github/ghost-prod-official-website/frontend/public/uploads/${imageFile.filename}`, `C:/Github/ghost-prod-official-website/admin/public/uploads/${imageFile.filename}`, (err) => {
-            if (err) throw err;
-            console.log(`${imageFile.filename} was copied`);
-        });
+        // fs.copyFile(`C:/Github/ghost-prod-official-website/frontend/public/uploads/${imageFile.filename}`, `C:/Github/ghost-prod-official-website/admin/public/uploads/${imageFile.filename}`, (err) => {
+        //     if (err) throw err;
+        //     console.log(`${imageFile.filename} was copied`);
+        // });
 
         res.status(201).json(newPost);
     } catch (error) {
@@ -93,10 +93,10 @@ export const updatePost = async (req, res) => {
 
     await Post.findByIdAndUpdate(id, updatedPost, { new: true });
 
-    fs.copyFile(`C:/Github/ghost-prod-official-website/frontend/public/uploads/${imageFile.filename}`, `C:/Github/ghost-prod-official-website/admin/public/uploads/${imageFile.filename}`, (err) => {
-        if (err) throw err;
-        console.log(`${imageFile.filename} was copied`);
-    });
+    // fs.copyFile(`C:/Github/ghost-prod-official-website/frontend/public/uploads/${imageFile.filename}`, `C:/Github/ghost-prod-official-website/admin/public/uploads/${imageFile.filename}`, (err) => {
+    //     if (err) throw err;
+    //     console.log(`${imageFile.filename} was copied`);
+    // });
 
     res.json(updatedPost);
 }
