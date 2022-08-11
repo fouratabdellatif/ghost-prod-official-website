@@ -85,17 +85,17 @@ export const updateSlider = async (req, res) => {
 
     await Slider.findByIdAndUpdate(id, updatedSlider, { new: true });
 
-    if (image)
-        fs.copyFile(`C:/Github/ghost-prod-official-website/frontend/public/uploads/${image[0].filename}`, `C:/Github/ghost-prod-official-website/admin/public/uploads/${image[0].filename}`, (err) => {
-            if (err) throw err;
-            console.log(`${image[0].filename} was copied`);
-        });
+    // if (image)
+    //     fs.copyFile(`C:/Github/ghost-prod-official-website/frontend/public/uploads/${image[0].filename}`, `C:/Github/ghost-prod-official-website/admin/public/uploads/${image[0].filename}`, (err) => {
+    //         if (err) throw err;
+    //         console.log(`${image[0].filename} was copied`);
+    //     });
 
-    if (video)
-        fs.copyFile(`C:/Github/ghost-prod-official-website/frontend/public/uploads/${video[0].filename}`, `C:/Github/ghost-prod-official-website/admin/public/uploads/${video[0].filename}`, (err) => {
-            if (err) throw err;
-            console.log(`${video[0].filename} was copied`);
-        });
+    // if (video)
+    //     fs.copyFile(`C:/Github/ghost-prod-official-website/frontend/public/uploads/${video[0].filename}`, `C:/Github/ghost-prod-official-website/admin/public/uploads/${video[0].filename}`, (err) => {
+    //         if (err) throw err;
+    //         console.log(`${video[0].filename} was copied`);
+    //     });
 
     res.json(updatedSlider);
 }

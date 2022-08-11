@@ -82,10 +82,10 @@ export const createArtist = async (req, res) => {
 
         await newArtist.save();
 
-        fs.copyFile(`C:/Github/ghost-prod-official-website/frontend/public/uploads/${imageFile[0].filename}`, `C:/Github/ghost-prod-official-website/admin/public/uploads/${imageFile[0].filename}`, (err) => {
-            if (err) throw err;
-            console.log(`${imageFile[0].filename} was copied`);
-        });
+        // fs.copyFile(`C:/Github/ghost-prod-official-website/frontend/public/uploads/${imageFile[0].filename}`, `C:/Github/ghost-prod-official-website/admin/public/uploads/${imageFile[0].filename}`, (err) => {
+        //     if (err) throw err;
+        //     console.log(`${imageFile[0].filename} was copied`);
+        // });
 
         // fs.copyFile(`C:/Github/ghost-prod-official-website/frontend/public/uploads/${musicSrc.filename}`, `C:/Github/ghost-prod-official-website/admin/public/uploads/${musicSrc.filename}`, (err) => {
         //     if (err) throw err;

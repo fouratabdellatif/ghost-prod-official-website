@@ -116,10 +116,10 @@ export const updateMember = async (req, res) => {
 
     await Member.findByIdAndUpdate(id, updatedMember, { new: true });
 
-    fs.copyFile(`C:/Github/ghost-prod-official-website/frontend/public/uploads/${profileImage.filename}`, `C:/Github/ghost-prod-official-website/admin/public/uploads/${profileImage.filename}`, (err) => {
-        if (err) throw err;
-        console.log(`${profileImage.filename} was copied`);
-    });
+    // fs.copyFile(`C:/Github/ghost-prod-official-website/frontend/public/uploads/${profileImage.filename}`, `C:/Github/ghost-prod-official-website/admin/public/uploads/${profileImage.filename}`, (err) => {
+    //     if (err) throw err;
+    //     console.log(`${profileImage.filename} was copied`);
+    // });
 
     res.json(updatedMember);
 }
