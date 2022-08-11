@@ -27,43 +27,43 @@ const Member = ({ item }) => {
                                 </li>
                             )}
                             {item.instagram && (
-                            <li>
-                                <a
-                                    className='one-member-social-link instagram'
-                                    href={item.instagram}
-                                    target='_blank'
-                                    aria-label='Youtube'
-                                    rel="noreferrer"
-                                >
-                                    <i class='fab fa-instagram' />
-                                </a>
-                            </li>
+                                <li>
+                                    <a
+                                        className='one-member-social-link instagram'
+                                        href={item.instagram}
+                                        target='_blank'
+                                        aria-label='Youtube'
+                                        rel="noreferrer"
+                                    >
+                                        <i class='fab fa-instagram' />
+                                    </a>
+                                </li>
                             )}
                             {item.linkedin && (
-                            <li>
-                                <a
-                                    className='one-member-social-link linkedin'
-                                    href={item.linkedin}
-                                    target='_blank'
-                                    aria-label='LinkedIn'
-                                    rel="noreferrer"
-                                >
-                                    <i class='fab fa-behance' />
-                                </a>
-                            </li>
+                                <li>
+                                    <a
+                                        className='one-member-social-link linkedin'
+                                        href={item.linkedin}
+                                        target='_blank'
+                                        aria-label='LinkedIn'
+                                        rel="noreferrer"
+                                    >
+                                        <i class='fab fa-behance' />
+                                    </a>
+                                </li>
                             )}
                             {item.behance && (
-                            <li>
-                                <a
-                                    className='one-member-social-link behance'
-                                    href={item.behance}
-                                    target='_blank'
-                                    aria-label='Behance'
-                                    rel="noreferrer"
-                                >
-                                    <i class='fab fa-linkedin' />
-                                </a>
-                            </li>
+                                <li>
+                                    <a
+                                        className='one-member-social-link behance'
+                                        href={item.behance}
+                                        target='_blank'
+                                        aria-label='Behance'
+                                        rel="noreferrer"
+                                    >
+                                        <i class='fab fa-linkedin' />
+                                    </a>
+                                </li>
                             )}
                         </ul>
                     </div>
