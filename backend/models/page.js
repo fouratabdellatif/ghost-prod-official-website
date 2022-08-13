@@ -9,6 +9,9 @@ const pageSchema = mongoose.Schema({
     createdAt: {
         type: Date,
         default: new Date(),
+    },
+    cloudinary_id: {
+        type: String,
     }
 })
 

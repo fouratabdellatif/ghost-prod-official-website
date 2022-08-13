@@ -9,7 +9,7 @@ export default function Post({ item }) {
             <div className="singlePostWrapper">
                 <img
                     className="singlePostImg"
-                    src={`/uploads/${item?.imageFile}`}
+                    src={item?.imageFile}
                     alt=""
                 />
                 <div className="singlePostInfo">

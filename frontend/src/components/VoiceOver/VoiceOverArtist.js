@@ -8,7 +8,7 @@ const VoiceOverArtist = ({ item }) => {
         <section className='voice-over-artist-section'>
             <div className='voice-over-artist-container'>
                 <div className='voice-over-artist-column-left'>
-                    <img src={`/uploads/${item?.imageFile}`} alt={`${item?.firstname} ${item?.lastname}`} />
+                    <img src={item?.imageFile} alt={`${item?.firstname} ${item?.lastname}`} />
                 </div>
                 <div className='voice-over-artist-column-right'>
                     <div className='artist-top'>

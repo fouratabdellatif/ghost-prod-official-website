@@ -43,7 +43,7 @@ const MemberPage = () => {
         <>
             <CasualPage
                 pageTitle={`${member.firstname} ${member.lastname} | Voice-Over`}
-                bg={page ? `/uploads/${image}` : bgImage}
+                bg={page ? image : bgImage}
                 text={page ? text : "our warriors, our heros"}
                 title={page ? title : "Our Team"}
                 pageContent={

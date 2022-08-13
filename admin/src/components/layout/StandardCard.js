@@ -18,7 +18,7 @@ function StandardCard({ type, item }) {
                 </div>
             </div>
             <div className="post-image-container">
-                <img src={`/uploads/${item?.imageFile}`} alt={item?.imageFile} />
+                <img src={item?.imageFile} alt={item?.imageFile} />
             </div>
         </Link>
     )

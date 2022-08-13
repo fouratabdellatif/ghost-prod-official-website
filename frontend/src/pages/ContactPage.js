@@ -24,7 +24,7 @@ const ContactPage = () => {
         <>
             <CasualPage
                 pageTitle={page ? pageTitle : "Contact Us"}
-                bg={page ? `/uploads/${image}` : bgImage}
+                bg={page ? image : bgImage}
                 text={page ? text : "Vous avez une question??"}
                 title={page ? title : "Contact Us"}
                 pageContent={

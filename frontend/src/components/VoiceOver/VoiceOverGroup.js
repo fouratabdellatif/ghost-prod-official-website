@@ -178,7 +178,7 @@ function VoiceOverCard({ item, index }) {
             <div className="voice-over-card">
                 <div className="voice-over-card-image">
                     <Link className='artist-link' to={`/voice-over/${item?._id}`}>
-                        <img src={`/uploads/${item?.imageFile}`} alt='voice-over_artist' />
+                        <img src={item?.imageFile} alt='voice-over_artist' />
                     </Link>
                     <div className='artist-play-section'>
                         <BsFillPlayCircleFill className='artist-play-icon'

@@ -20,7 +20,7 @@ function PostCard({ item }) {
                 </div>
             </div>
             <div className="post-image-container">
-                <img src={`/uploads/${item.imageFile}`} alt='' />
+                <img src={item.imageFile} alt='' />
             </div>
         </Link>
     )

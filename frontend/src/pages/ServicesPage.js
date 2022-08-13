@@ -25,7 +25,7 @@ const ServicesPage = () => {
         <>
             <CasualPage
                 pageTitle={page ? pageTitle : "Nos Services"}
-                bg={page ? `/uploads/${image}` : bgImage}
+                bg={page ? image : bgImage}
                 text={page ? text : "what we are experts in..."}
                 title={page ? title : "Nos Services"}
                 pageContent={

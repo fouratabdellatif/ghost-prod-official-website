@@ -104,7 +104,7 @@ function Members() {
                 className="shape-avatar"
                 shape="square"
                 size={40}
-                src={`/uploads/${item.profileImage}`}
+                src={item.profileImage}
               ></Avatar>
               <div className="avatar-info">
                 <Title level={5}>{item.firstname} {item.lastname}</Title>

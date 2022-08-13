@@ -75,7 +75,7 @@ const ReelForm = ({ item }) => {
             </Title>
             <div className='info-container'>
               <div className='info-column-left'>
-                <img src={item ? `/uploads/${image}`: preview} alt="home" data-aos="fade-right" />
+                <img src={item ? image : preview} alt="home" data-aos="fade-right" />
               </div>
               <div className='info-column-right'>
                 <form

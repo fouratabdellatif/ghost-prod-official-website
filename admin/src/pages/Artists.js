@@ -110,7 +110,7 @@ function Artists() {
                 className="shape-avatar"
                 shape="square"
                 size={40}
-                src={`/uploads/${item?.imageFile}`}
+                src={item?.imageFile}
               ></Avatar>
               <div className="avatar-info">
                 <Title level={5}>{item?.firstname} {item?.lastname}</Title>
@@ -131,7 +131,7 @@ function Artists() {
                       <Title level={5}>{audio?.name}</Title>
                       {/* <AudioPlayer
                               // autoPlay
-                              src={`/uploads/${audio?.musicSrc}`}
+                              src={audio?.musicSrc}
                               style={{ marginBottom: '20px' }}
                           /> */}
                     </>

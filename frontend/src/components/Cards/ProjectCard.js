@@ -27,11 +27,11 @@ function ProjectCard({ item }) {
                 {/* <img src={item?.imageFile} alt='' /> */}
                 <HoverVideoPlayer
                     className='project-hover-video'
-                    videoSrc={`/uploads/${item?.videoFile}`}
+                    videoSrc={item?.videoFile}
                     videoStyle={{
                         height: '360px',
                     }}
-                    pausedOverlay={<img src={`/uploads/${item?.imageFile}`} alt='video' />}
+                    pausedOverlay={<img src={item?.imageFile} alt='video' />}
                 // loadingOverlay={<LoadingOverlay />}
                 />
             </div>

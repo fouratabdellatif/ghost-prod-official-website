@@ -36,7 +36,7 @@ const VoiceOverArtistPage = () => {
         <>
             <CasualPage
                 pageTitle={`${artist.firstname} ${artist.lastname} | Voice-Over`}
-                bg={page ? `/uploads/${image}` : bgImage}
+                bg={page ? image : bgImage}
                 text={page ? text : "where you can find the best voice-over artists"}
                 title={page ? title : "Voice-Over"}
                 pageContent={

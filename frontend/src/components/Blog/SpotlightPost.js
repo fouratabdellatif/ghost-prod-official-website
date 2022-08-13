@@ -15,9 +15,9 @@ const SpotlightPost = ({ item }) => {
                                 }}>
                                     <a href="https://www.ghostprod.net/" className="tns-item">
                                         <picture>
-                                            <source media="(min-width: 768px)" srcset={`/uploads/${item?.imageFile}`} />
-                                            <source media="(min-width: 0px)" srcset={`/uploads/${item?.imageFile}`} />
-                                            <img className="rocket-lazyload lazyloaded" alt="Les origines de ghostprod-Récit, origine, création, fondation, idée, fondateur" src={`/uploads/${item?.imageFile}`} />
+                                            <source media="(min-width: 768px)" srcset={item?.imageFile} />
+                                            <source media="(min-width: 0px)" srcset={item?.imageFile} />
+                                            <img className="rocket-lazyload lazyloaded" alt="Les origines de ghostprod-Récit, origine, création, fondation, idée, fondateur" src={item?.imageFile} />
                                         </picture>
                                     </a>
                                 </div>

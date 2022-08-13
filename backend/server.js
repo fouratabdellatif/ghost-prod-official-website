@@ -81,9 +81,7 @@ app.use("/sliders", sliderRoutes);
 app.use("/reels", reelRoutes);
 app.use("/pages", pagesRoutes);
 
-const CONNECTION_URL = "mongodb+srv://root:root@cluster0.nk0en.mongodb.net/ghostprod?retryWrites=true&w=majority";
-
-mongoose.connect(CONNECTION_URL, {
+mongoose.connect(process.env.MONGO_URI, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 });

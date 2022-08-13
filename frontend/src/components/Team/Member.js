@@ -7,17 +7,17 @@ const Member = ({ item }) => {
         <section className='one-member-section'>
             <div className='one-member-container'>
                 <div className='one-member-column-left'>
-                    <img src={`http://localhost:5000/uploads/${item.profileImage}`} alt={`${item.firstname} ${item.lastname}`} />
+                    <img src={item?.profileImage} alt={`${item?.firstname} ${item?.lastname}`} />
                 </div>
                 <div className='one-member-column-right'>
                     <div className='one-member-top'>
-                        <h1>{item.firstname} {item.lastname}</h1>
+                        <h1>{item?.firstname} {item?.lastname}</h1>
                         <ul className="one-member-socials">
-                            {item.facebook && (
+                            {item?.facebook && (
                                 <li>
                                     <a
                                         className='one-member-social-link facebook'
-                                        href={item.facebook}
+                                        href={item?.facebook}
                                         target='_blank'
                                         aria-label='Facebook'
                                         rel="noreferrer"
@@ -26,11 +26,11 @@ const Member = ({ item }) => {
                                     </a>
                                 </li>
                             )}
-                            {item.instagram && (
+                            {item?.instagram && (
                             <li>
                                 <a
                                     className='one-member-social-link instagram'
-                                    href={item.instagram}
+                                    href={item?.instagram}
                                     target='_blank'
                                     aria-label='Youtube'
                                     rel="noreferrer"
@@ -39,11 +39,11 @@ const Member = ({ item }) => {
                                 </a>
                             </li>
                             )}
-                            {item.linkedin && (
+                            {item?.linkedin && (
                             <li>
                                 <a
                                     className='one-member-social-link linkedin'
-                                    href={item.linkedin}
+                                    href={item?.linkedin}
                                     target='_blank'
                                     aria-label='LinkedIn'
                                     rel="noreferrer"
@@ -52,11 +52,11 @@ const Member = ({ item }) => {
                                 </a>
                             </li>
                             )}
-                            {item.behance && (
+                            {item?.behance && (
                             <li>
                                 <a
                                     className='one-member-social-link behance'
-                                    href={item.behance}
+                                    href={item?.behance}
                                     target='_blank'
                                     aria-label='Behance'
                                     rel="noreferrer"
@@ -67,12 +67,12 @@ const Member = ({ item }) => {
                             )}
                         </ul>
                     </div>
-                    <h3>{item.spec}</h3>
+                    <h3>{item?.spec}</h3>
                     <CustomDivider fullWidth />
-                    <p><span>City: </span>{item.city}</p>
-                    <p><span>Phone: </span><a className='contact-link' href={`tel:${item.phone}`}>+216 {item.phone}</a></p>
-                    <p><span>Email: </span><a className='contact-link' href={`mailto:${item.email}`}>{item.email}</a></p>
-                    <p><span>About: </span><br />{item.bio}</p>
+                    <p><span>City: </span>{item?.city}</p>
+                    <p><span>Phone: </span><a className='contact-link' href={`tel:${item?.phone}`}>+216 {item?.phone}</a></p>
+                    <p><span>Email: </span><a className='contact-link' href={`mailto:${item?.email}`}>{item?.email}</a></p>
+                    <p><span>About: </span><br />{item?.bio}</p>
                 </div>
             </div>
         </section>

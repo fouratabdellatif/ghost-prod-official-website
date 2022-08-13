@@ -43,7 +43,7 @@ const PostPage = () => {
         <>
             <CasualPage
                 pageTitle={page ? pageTitle : "Blog"}
-                bg={page ? `/uploads/${image}` : bgImage}
+                bg={page ? image : bgImage}
                 text={page ? text : "Où vous trouvez toutes nos nouveautés..."}
                 title={page ? title : "Blog"}
                 pageContent={

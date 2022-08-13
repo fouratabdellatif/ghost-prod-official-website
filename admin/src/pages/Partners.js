@@ -84,7 +84,7 @@ function Partners() {
                 className="shape-avatar"
                 shape="square"
                 size={40}
-                src={`/uploads/${item?.imageFile}`}
+                src={item?.imageFile}
               ></Avatar>
               <div className="avatar-info">
                 <Title level={5}>

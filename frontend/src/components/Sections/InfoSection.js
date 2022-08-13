@@ -37,7 +37,7 @@ const InfoSection = () => {
             <section className='info-section' data-aos="fade">
                 <div className='info-container'>
                     <div className='info-column-left' onClick={() => setOpen(true)}>
-                        <img src={(!reelData || reelData.length === 0) ? `${data?.image}` : `/uploads/${data?.image}`} alt="home" data-aos="fade-right" />
+                        <img src={(!reelData || reelData.length === 0) ? `${data?.image}` : data?.image} alt="home" data-aos="fade-right" />
                         <BsFillPlayCircleFill className='play-icon' />
                     </div>
                     <div className='info-column-right'>

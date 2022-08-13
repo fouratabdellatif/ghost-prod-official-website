@@ -55,7 +55,7 @@ export const createArtist = async (req, res) => {
         audioLists[i] = musicSrc[i];
         audioLists[i].singer = `${firstname} ${lastname}`;
         audioLists[i].coverImage = imageFile[0].filename;
-        audioLists[i].musicSrc = `/uploads/${musicSrc[i].name}`;
+        audioLists[i].musicSrc = musicSrc[i].name;
         // console.log(musicSrc[i]);
         // console.log('aaalooooo');
     }

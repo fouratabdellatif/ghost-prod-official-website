@@ -82,7 +82,7 @@ const PageForm = ({ data, name, pageName }) => {
             </Title>
             <div className='info-container'>
               <div className='info-column-left'>
-                <img src={page ? `/uploads/${image}` : preview} alt="home" data-aos="fade-right" />
+                <img src={page ? image : preview} alt="home" data-aos="fade-right" />
               </div>
               <div className='info-column-right'>
                 <form

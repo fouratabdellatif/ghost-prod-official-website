@@ -1,6 +1,6 @@
 import express from 'express';
 import mongoose from 'mongoose';
-import fs from 'fs';
+import cloudinary from '../utils/cloudinary.js';
 
 import Page from '../models/page.js';
 import "moment/locale/fr.js";
@@ -27,23 +27,21 @@ export const createPage = async (req, res) => {
 
     const image = req.file;
 
+    // Upload image to cloudinary
+    const result = await cloudinary.uploader.upload(image.path);
+
     const newPage = new Page({
         title,
         pageTitle,
         text,
         name,
-        image: image.filename
+        image: result.secure_url,
+        cloudinary_id: result.public_id,
     });
 
     try {
 
         await newPage.save();
-
-        if (image)
-            fs.copyFile(`C:/Github/ghost-prod-official-website/frontend/public/uploads/${image.filename}`, `C:/Github/ghost-prod-official-website/admin/public/uploads/${image.filename}`, (err) => {
-                if (err) throw err;
-                console.log(`${image.filename} was copied`);
-            });
 
         res.status(201).json(newPage);
     } catch (error) {
@@ -61,31 +59,42 @@ export const updatePage = async (req, res) => {
     } = req.body;
 
     const image = req.file;
+    try {
+        let page = await Page.findById(id);
+        // Delete image from cloudinary
+        await cloudinary.uploader.destroy(page.cloudinary_id);
+        // Upload image to cloudinary
+        let result;
+        if (image) {
+            result = await cloudinary.uploader.upload(image.path);
+        }
 
-    if (!mongoose.Types.ObjectId.isValid(id)) return res.status(404).send(`No page with id: ${id}`);
+        if (!mongoose.Types.ObjectId.isValid(id)) return res.status(404).send(`No page with id: ${id}`);
 
-    const updatedPage = {
-        title,
-        pageTitle,
-        text,
-        name,
-        image: image.filename,
-        _id: id
-    };
+        const updatedPage = {
+            title: title || page.title,
+            pageTitle: pageTitle || page.pageTitle,
+            text: text || page.text,
+            name: name || page.name,
+            image: result?.secure_url || page.image,
+            cloudinary_id: result?.public_id || page.cloudinary_id,
+            _id: id
+        };
 
-    await Page.findByIdAndUpdate(id, updatedPage, { new: true });
+        await Page.findByIdAndUpdate(id, updatedPage, { new: true });
 
-    if (image)
-        fs.copyFile(`C:/Github/ghost-prod-official-website/frontend/public/uploads/${image.filename}`, `C:/Github/ghost-prod-official-website/admin/public/uploads/${image.filename}`, (err) => {
-            if (err) throw err;
-            console.log(`${image.filename} was copied`);
-        });
-
-    res.json(updatedPage);
+        res.json(updatedPage);
+    } catch (err) {
+        console.log(err);
+    }
 }
 
 export const deletePage = async (req, res) => {
     const { id } = req.params;
+
+    let page = await Page.findById(id);
+    // Delete image from cloudinary
+    await cloudinary.uploader.destroy(page.cloudinary_id);
 
     if (!mongoose.Types.ObjectId.isValid(id)) return res.status(404).send(`No page with id: ${id}`);
 

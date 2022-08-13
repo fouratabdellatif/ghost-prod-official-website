@@ -25,7 +25,7 @@ const TeamPage = () => {
         <>
             <CasualPage
                 pageTitle={page ? pageTitle : "Equipe"}
-                bg={page ? `/uploads/${image}` : bgImage}
+                bg={page ? image : bgImage}
                 text={page ? text : "our warriors, our heros"}
                 title={page ? title : "Our Team"}
                 pageContent={
