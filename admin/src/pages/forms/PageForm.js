@@ -12,7 +12,7 @@ import { createPage, deletePage, updatePage } from "../../actions/pages";
 import { useDispatch } from "react-redux";
 import "../../assets/css/PageForm.css";
 import preview from "../../assets/images/preview.jpg"
-import { MdDelete } from "react-icons/md";
+// import { MdDelete } from "react-icons/md";
 
 
 const { Title } = Typography;
