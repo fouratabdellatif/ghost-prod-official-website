@@ -45,14 +45,15 @@ export const createArtist = async (req, res) => {
     } = req.body;
 
     const imageFile = req.files['imageFile'];
+    req.files['musicSrc'] = musicSrc;
     // console.log(imageFile[0])
-    console.log(musicSrc)
+    console.log("musicSrccccccccccccccc", req.files['musicSrc'])
 
     let audioLists = [];
     const len = Object.keys(musicSrc).length;
 
     for (let i = 0; i < len - 1; i++) {
-        audioLists[i] = musicSrc[i];
+        audioLists.push(musicSrc[i]);
         audioLists[i].singer = `${firstname} ${lastname}`;
         audioLists[i].coverImage = imageFile[0].filename;
         audioLists[i].musicSrc = musicSrc[i].name;
@@ -60,7 +61,7 @@ export const createArtist = async (req, res) => {
         // console.log('aaalooooo');
     }
 
-    // console.log("audioLists", audioLists);
+    console.log("audioLists", musicSrc);
 
     const newArtist = new Artist({
         firstname,

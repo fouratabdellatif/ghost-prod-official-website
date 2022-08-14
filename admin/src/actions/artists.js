@@ -61,6 +61,7 @@ export const createArtist = (artist) => async (dispatch) => {
         formData.append('imageFile', artist.imageFile);
         formData.append('musicSrc', artist.musicSrc);
         for (var i = 0; i < artist.musicSrc.length; i++) {
+            formData.append("musicSrc", artist.musicSrc[i]);
             formData.append(`musicSrc[${i}][name]`, artist.musicSrc[i].name);
             formData.append(`musicSrc[${i}][lastModified]`, artist.musicSrc[i].lastModified);
             formData.append(`musicSrc[${i}][lastModifiedDate]`, artist.musicSrc[i].lastModifiedDate);

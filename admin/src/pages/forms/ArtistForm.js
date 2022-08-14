@@ -101,7 +101,7 @@ const ArtistForm = () => {
                     type='file'
                     accept='image/*'
                     // ref={inputRef}
-                    filename="imageFile"
+                    name="imageFile"
                     onChange={(e) => {
                       console.log(e.target.files[0])
                       setFormData({ ...formData, imageFile: e.target.files[0] })
@@ -112,7 +112,7 @@ const ArtistForm = () => {
                     accept='audio/*'
                     multiple
                     // ref={inputRef}
-                    filename="musicSrc"
+                    name="musicSrc"
                     onChange={(e) => {
                       console.log(e.target.files)
                       setFormData({ ...formData, musicSrc: e.target.files })
