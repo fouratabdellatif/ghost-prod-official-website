@@ -8,10 +8,11 @@ import {
   Typography,
   Space
 } from "antd";
-import { createPage, updatePage } from "../../actions/pages";
+import { createPage, deletePage, updatePage } from "../../actions/pages";
 import { useDispatch } from "react-redux";
 import "../../assets/css/PageForm.css";
 import preview from "../../assets/images/preview.jpg"
+import { MdDelete } from "react-icons/md";
 
 
 const { Title } = Typography;
@@ -67,6 +68,11 @@ const PageForm = ({ data, name, pageName }) => {
     }
   }
 
+  const handleDelete = async (e) => {
+    e.preventDefault();
+    if (page)
+      await dispatch(deletePage(page._id));
+  }
 
   return (
     <Layout className="Form-layout layout-default">
@@ -143,9 +149,23 @@ const PageForm = ({ data, name, pageName }) => {
                       <Button
                         type="primary"
                         htmlType="submit"
-                        style={{ width: "100%" }}
+                        style={{ width: "200px", marginRight: '10px' }}
                       >
                         AJOUTER
+                      </Button>
+                      <Button
+                        type="primary"
+                        htmlType="submit"
+                        style={{ width: "200px", marginTop: '10px' }}
+                        onClick={handleDelete}
+                      >
+                        SUPPRIMER
+                        {/* <MdDelete style={{
+                          margin: 'auto',
+                          display: 'block',
+                          width: '20px',
+                          height: '20px'
+                        }} /> */}
                       </Button>
                     </Col>
                   </Space>
