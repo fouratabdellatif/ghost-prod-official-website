@@ -52,7 +52,7 @@ const ArtistForm = () => {
     e.preventDefault();
     await console.log("FORMDATA", formData);
     await dispatch(createArtist(formData));
-    // await history.push('/voice-over-artists');
+    await history.push('/voice-over-artists');
   }
 
 
