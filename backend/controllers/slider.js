@@ -22,35 +22,45 @@ export const createSlider = async (req, res) => {
         title
     } = req.body;
 
-    // console.log("reqqqqq" , req.files['image']);
+    // const image = req.files['image'];
+    // const video = req.files['video'];
 
-    const image = req.files['image'];
-    const video = req.files['video'];
-
-    // console.log(image);
+    const file = req.file;
 
     let newSlider = new Slider();
-    let result;
 
-    if (image) {
-        result = await cloudinary.v2.uploader.upload(image[0].path, { resource_type: "auto" });
+    if (file) {
+        const result = await cloudinary.v2.uploader.upload(file.path, { resource_type: "auto" });
         newSlider = new Slider({
             title,
-            image: result.secure_url,
+            file: result.secure_url,
             cloudinary_id: result.public_id,
+            resource_type: result.resource_type,
             createdAt: new Date(),
-        });
+        })
     }
 
-    if (video) {
-        result = await cloudinary.v2.uploader.upload(video[0].path, { resource_type: "auto" });
-        newSlider = new Slider({
-            title,
-            video: result.secure_url,
-            cloudinary_id: result.public_id,
-            createdAt: new Date(),
-        });
-    }
+    // if (image) {
+    //     result = await cloudinary.v2.uploader.upload(image[0].path, { resource_type: "auto" });
+    //     newSlider = new Slider({
+    //         title,
+    //         image: result.secure_url,
+    //         cloudinary_id: result.public_id,
+    //         resource_type: result.resource_type,
+    //         createdAt: new Date(),
+    //     });
+    // }
+
+    // if (video) {
+    //     result = await cloudinary.v2.uploader.upload(video[0].path, { resource_type: "auto" });
+    //     newSlider = new Slider({
+    //         title,
+    //         video: result.secure_url,
+    //         cloudinary_id: result.public_id,
+    //         resource_type: result.resource_type,
+    //         createdAt: new Date(),
+    //     });
+    // }
 
     try {
 
@@ -68,8 +78,9 @@ export const updateSlider = async (req, res) => {
         title
     } = req.body;
 
-    const image = req.files['image'];
-    const video = req.files['video'];
+    // const image = req.files['image'];
+    // const video = req.files['video'];
+
     try {
         let slider = await Slider.findById(id);
 
@@ -81,25 +92,36 @@ export const updateSlider = async (req, res) => {
 
         let updatedSlider = {};
 
-        if (image) {
-            result = await cloudinary.v2.uploader.upload(image[0].path, { resource_type: "auto" });
+        if (file) {
+            result = await cloudinary.v2.uploader.upload(file.path, { resource_type: "auto" });
             updatedSlider = {
                 title: title || slider.title,
-                image: result?.secure_url || slider.image,
+                file: result?.secure_url || slider.file,
                 cloudinary_id: result?.public_id || slider.cloudinary_id,
+                resource_type: result?.resource_type || slider.resource_type,
                 _id: id
             };
         }
 
-        if (video) {
-            result = await cloudinary.v2.uploader.upload(video[0].path, { resource_type: "auto" });
-            updatedSlider = {
-                title: title || slider.title,
-                video: result?.secure_url || slider.video,
-                cloudinary_id: result?.public_id || slider.cloudinary_id,
-                _id: id
-            };
-        }
+        // if (image) {
+        //     result = await cloudinary.v2.uploader.upload(image[0].path, { resource_type: "auto" });
+        //     updatedSlider = {
+        //         title: title || slider.title,
+        //         image: result?.secure_url || slider.image,
+        //         cloudinary_id: result?.public_id || slider.cloudinary_id,
+        //         _id: id
+        //     };
+        // }
+
+        // if (video) {
+        //     result = await cloudinary.v2.uploader.upload(video[0].path, { resource_type: "auto" });
+        //     updatedSlider = {
+        //         title: title || slider.title,
+        //         video: result?.secure_url || slider.video,
+        //         cloudinary_id: result?.public_id || slider.cloudinary_id,
+        //         _id: id
+        //     };
+        // }
 
         await Slider.findByIdAndUpdate(id, updatedSlider, { new: true });
 

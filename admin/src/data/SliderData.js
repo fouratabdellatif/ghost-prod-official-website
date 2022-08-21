@@ -8,25 +8,37 @@ export const SliderData = [
     {
         title: 'POUR CONCEVOIR ET PRODUIRE VOS FILMS ET CONTENUS VIDEOS',
         path: '/homes',
+        // image: imageOne,
         video: videoOne,
+        file: videoOne,
+        resource_type: "video",
         alt: 'video'
     },
     {
         title: "POUR ENGAGER VOS AUDIENCES À PASSER À L'ACTION",
         path: '/homes',
         image: imageTwo,
-        alt: 'video'
+        file: imageTwo,
+        resource_type: "image",
+        // video: videoTwo,
+        alt: 'image'
     },
     {
         title: 'POUR FACILITER VOTRE BUSINESS',
         path: '/homes',
         image: imageThree,
-        alt: 'video'
+        file: imageThree,
+        resource_type: "image",
+        // video: videoThree,
+        alt: 'image'
     },
     {
         title: 'POUR VOUS RENDRE INOUBLIABLE',
         path: '/homes',
         image: imageFour,
-        alt: 'video'
+        file: imageFour,
+        resource_type: "image",
+        // video: videoFour,
+        alt: 'image'
     },
 ]

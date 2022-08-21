@@ -19,8 +19,9 @@ const SliderForm = () => {
 
   const initState = {
     title: '',
-    image: '',
-    video: '',
+    file: '',
+    // image: '',
+    // video: '',
   }
 
   const [formData, setFormData] = useState(initState);
@@ -90,6 +91,15 @@ const SliderForm = () => {
                 >
                   <input
                     type='file'
+                    // ref={inputRef}
+                    filename="file"
+                    onChange={(e) => {
+                      console.log(e.target.files[0])
+                      setFormData({ ...formData, file: e.target.files[0] })
+                    }}
+                  />
+                  {/* <input
+                    type='file'
                     accept='image/*'
                     // ref={inputRef}
                     filename="image"
@@ -97,8 +107,8 @@ const SliderForm = () => {
                       console.log(e.target.files[0])
                       setFormData({ ...formData, image: e.target.files[0] })
                     }}
-                  />
-                  <input
+                  /> */}
+                  {/* <input
                     type='file'
                     accept='video/*'
                     // ref={inputRef}
@@ -107,7 +117,7 @@ const SliderForm = () => {
                       console.log(e.target.files[0])
                       setFormData({ ...formData, video: e.target.files[0] })
                     }}
-                  />
+                  /> */}
                 </Col>
                 <Col
                   xs={{ span: 24, offset: 0 }}

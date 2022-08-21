@@ -5,18 +5,8 @@ import { createSlider, deleteAllSliders, deleteSlider, getSliders, updateSlider 
 const router = express.Router();
 
 router.get('/', getSliders);
-router.post('/createSlider',
-    uploads.fields([{
-        name: 'image', maxCount: 1
-    }, {
-        name: 'video', maxCount: 1
-    }]), createSlider);
-router.patch('/updateSlider/:id',
-    uploads.fields([{
-        name: 'image', maxCount: 1
-    }, {
-        name: 'video', maxCount: 1
-    }]), updateSlider);
+router.post('/createSlider', uploads.single('file'), createSlider);
+router.patch('/updateSlider/:id', uploads.single('file'), updateSlider);
 router.delete('/deleteSlider/:id', deleteSlider);
 router.delete('/deleteAllSliders', deleteAllSliders);
 

@@ -36,10 +36,10 @@ export const createSlider = (slider) => async (dispatch) => {
     try {
         const formData = new FormData();
         formData.append('title', slider.title);
-        formData.append('image', slider.image);
-        formData.append('video', slider.video);
+        formData.append('file', slider.file);
+        // formData.append('image', slider.image);
+        // formData.append('video', slider.video);
 
-        console.log('formdata from actions allllll: ', formData);
         const { data } = await api.createSlider(formData);
 
         dispatch({ type: CREATE, payload: data });
@@ -56,8 +56,9 @@ export const updateSlider = (id, slider) => async (dispatch) => {
     try {
         const formData = new FormData();
         formData.append('title', slider.title);
-        formData.append('image', slider.image);
-        formData.append('video', slider.video);
+        formData.append('file', slider.file);
+        // formData.append('image', slider.image);
+        // formData.append('video', slider.video);
 
         const { data } = await api.updateSlider(id, formData);
 

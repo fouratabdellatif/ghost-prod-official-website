@@ -103,10 +103,10 @@ function Sliders() {
                 >
                   {data?.map((item, index) => (
                     <div className="home-video-container" key={index}>
-                      {item.video ? (
-                        <video className='home-video' src={(!sliders || sliders.length === 0) ? `${item.video}` : item.video} data-aos="fade-right" autoPlay loop muted />
+                    {item.resource_type === "video" ? (
+                        <video className='home-video' src={(!sliders || sliders.length === 0) ? `${item.file}` : item.file} data-aos="fade-right" autoPlay loop muted />
                       ) : (
-                        <img className='home-video' src={(!sliders || sliders.length === 0) ? `${item.image}` : item.image} alt={item.image} />
+                        <img className='home-video' src={(!sliders || sliders.length === 0) ? `${item.file}` : item.file} alt={item.file} />
                       )}
                       <div className='homeslider-content'>
                         <h3 data-aos="fade-down">Votre boîte de production audiovisuelle</h3>

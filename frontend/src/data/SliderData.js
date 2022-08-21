@@ -14,27 +14,35 @@ export const SliderData = [
         path: '/homes',
         // image: imageOne,
         video: videoOne,
+        file: videoOne,
+        resource_type: "video",
         alt: 'video'
     },
     {
         title: "POUR ENGAGER VOS AUDIENCES À PASSER À L'ACTION",
         path: '/homes',
         image: imageTwo,
+        file: imageTwo,
+        resource_type: "image",
         // video: videoTwo,
-        alt: 'video'
+        alt: 'image'
     },
     {
         title: 'POUR FACILITER VOTRE BUSINESS',
         path: '/homes',
         image: imageThree,
+        file: imageThree,
+        resource_type: "image",
         // video: videoThree,
-        alt: 'video'
+        alt: 'image'
     },
     {
         title: 'POUR VOUS RENDRE INOUBLIABLE',
         path: '/homes',
         image: imageFour,
+        file: imageFour,
+        resource_type: "image",
         // video: videoFour,
-        alt: 'video'
+        alt: 'image'
     },
 ]
