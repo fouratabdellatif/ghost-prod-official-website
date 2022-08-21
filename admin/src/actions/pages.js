@@ -41,7 +41,7 @@ export const createPage = (page) => async (dispatch) => {
         formData.append('text', page.text);
         formData.append('name', page.name);
 
-        console.log('formdata from actions allllll: ', formData);
+        // console.log('formdata from actions allllll: ', formData);
         const { data } = await api.createPage(formData);
 
         dispatch({ type: CREATE, payload: data });

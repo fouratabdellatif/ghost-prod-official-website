@@ -49,8 +49,8 @@ const PageForm = ({ data, name, pageName }) => {
       ...formData,
       [name]: value
     });
-    console.log('formData', formData);
-    console.log('value', value);
+    // console.log('formData', formData);
+    // console.log('value', value);
   }
 
   const dispatch = useDispatch();
@@ -60,7 +60,7 @@ const PageForm = ({ data, name, pageName }) => {
     await setFormData({
       ...formData
     })
-    await console.log("FORMDATA", formData);
+    // await console.log("FORMDATA", formData);
     if (page)
       await dispatch(updatePage(page._id, formData));
     else {
@@ -135,7 +135,7 @@ const PageForm = ({ data, name, pageName }) => {
                           // ref={inputRef}
                           filename="image"
                           onChange={(e) => {
-                            console.log(e.target.files[0])
+                            // console.log(e.target.files[0])
                             setFormData({ ...formData, image: e.target.files[0] })
                           }}
                         />

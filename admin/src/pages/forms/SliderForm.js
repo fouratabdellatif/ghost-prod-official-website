@@ -34,8 +34,8 @@ const SliderForm = () => {
       ...formData,
       [name]: value
     });
-    console.log('formData', formData);
-    console.log('value', value);
+    // console.log('formData', formData);
+    // console.log('value', value);
   }
 
   const dispatch = useDispatch();
@@ -46,7 +46,7 @@ const SliderForm = () => {
     await setFormData({
       ...formData
     })
-    await console.log("FORMDATA", formData);
+    // await console.log("FORMDATA", formData);
     await dispatch(createSlider(formData));
     await history.push('/sliders');
   }
@@ -94,7 +94,7 @@ const SliderForm = () => {
                     // ref={inputRef}
                     filename="file"
                     onChange={(e) => {
-                      console.log(e.target.files[0])
+                      // console.log(e.target.files[0])
                       setFormData({ ...formData, file: e.target.files[0] })
                     }}
                   />

@@ -12,7 +12,7 @@ import { getMembers } from '../actions/members'
 const MemberPage = () => {
 
     const { id } = useParams();
-    console.log(id)
+    // console.log(id)
 
     const membersData = useSelector((state) => state.members);
     const pages = useSelector((state) => state.pages);
@@ -27,7 +27,7 @@ const MemberPage = () => {
     });
 
     const member = members[0];
-    console.log('artist', member);
+    // console.log('artist', member);
 
     let data = pages.filter((item) => item.name == "team").map((item, index) => {
         return item;

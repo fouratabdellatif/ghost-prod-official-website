@@ -41,8 +41,8 @@ const ArtistForm = () => {
       ...formData,
       [name]: value
     });
-    console.log('formData', formData);
-    console.log('value', value);
+    // console.log('formData', formData);
+    // console.log('value', value);
   }
 
   const dispatch = useDispatch();
@@ -50,7 +50,7 @@ const ArtistForm = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    await console.log("FORMDATA", formData);
+    // await console.log("FORMDATA", formData);
     await dispatch(createArtist(formData));
     await history.push('/voice-over-artists');
   }
@@ -103,7 +103,7 @@ const ArtistForm = () => {
                     name="imageFile"
                     accept='image/*'
                     onChange={(e) => {
-                      console.log(e.target.files[0])
+                      // console.log(e.target.files[0])
                       setFormData({ ...formData, imageFile: e.target.files[0] })
                     }}
                   />
@@ -113,7 +113,7 @@ const ArtistForm = () => {
                     // ref={inputRef}
                     name="musicSrc"
                     onChange={(e) => {
-                      console.log(e.target.files[0])
+                      // console.log(e.target.files[0])
                       setFormData({ ...formData, musicSrc: e.target.files[0] })
                     }}
                   />

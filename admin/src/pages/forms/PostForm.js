@@ -74,7 +74,7 @@ const PostForm = () => {
       content: content
     })
 
-    console.log("content", formData);
+    // console.log("content", formData);
   };
 
   const handleChange = (e) => {
@@ -85,8 +85,8 @@ const PostForm = () => {
       ...formData,
       [name]: value
     });
-    console.log('formData', formData);
-    console.log('value', value);
+    // console.log('formData', formData);
+    // console.log('value', value);
   }
 
   const dispatch = useDispatch();
@@ -144,7 +144,7 @@ const PostForm = () => {
                       // ref={inputRef}
                       filename="imageFile"
                       onChange={(e) => {
-                        console.log(e.target.files[0])
+                        // console.log(e.target.files[0])
                         setFormData({ ...formData, imageFile: e.target.files[0] })
                       }}
                     />

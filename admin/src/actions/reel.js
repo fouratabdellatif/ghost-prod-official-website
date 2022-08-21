@@ -40,7 +40,7 @@ export const createReel = (reel) => async (dispatch) => {
         formData.append('image', reel.image);
         formData.append('videoId', reel.videoId);
 
-        console.log('formdata from actions allllll: ', formData);
+        // console.log('formdata from actions allllll: ', formData);
         const { data } = await api.createReel(formData);
 
         dispatch({ type: CREATE, payload: data });

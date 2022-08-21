@@ -35,7 +35,7 @@ const MemberForm = () => {
   });
 
   const member = members[0];
-  console.log(member);
+  // console.log(member);
 
   const initState = id ? ({
     firstname: member?.firstname,
@@ -75,13 +75,13 @@ const MemberForm = () => {
       ...formData,
       [name]: value
     });
-    console.log(formData);
+    // console.log(formData);
   }
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (id) {
-      console.log(formData);
+      // console.log(formData);
       await dispatch(updateMember(id, formData));
     }
     else {
@@ -173,7 +173,7 @@ const MemberForm = () => {
                     // ref={inputRef}
                     filename="profileImage"
                     onChange={(e) => {
-                      console.log(e.target.files[0])
+                      // console.log(e.target.files[0])
                       setFormData({ ...formData, profileImage: e.target.files[0] })
                     }}
                   />

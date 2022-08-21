@@ -11,7 +11,7 @@ function TeamCardSlider({ settings }) {
 
     const members = useSelector((state) => state.members);
 
-    console.log("memberrrrrs", members)
+    // console.log("memberrrrrs", members)
 
     const dispatch = useDispatch();
     useEffect(() => {

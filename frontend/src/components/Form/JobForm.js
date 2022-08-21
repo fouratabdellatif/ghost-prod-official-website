@@ -34,8 +34,8 @@ const JobForm = () => {
             ...formData,
             [name]: value
         })
-        console.log(e.target);
-        console.log(formData);
+        // console.log(e.target);
+        // console.log(formData);
     }
 
     const dispatch = useDispatch();
@@ -87,7 +87,7 @@ const JobForm = () => {
                                 // ref={inputRef}
                                 filename="cv"
                                 onChange={(e) => {
-                                    console.log(e.target.files[0])
+                                    // console.log(e.target.files[0])
                                     setFormData({ ...formData, cv: e.target.files[0] })
                                 }} />
                         </div>

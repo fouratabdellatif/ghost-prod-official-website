@@ -48,8 +48,8 @@ const PartnerForm = () => {
       ...formData,
       [name]: value
     });
-    console.log('formData', formData);
-    console.log('value', value);
+    // console.log('formData', formData);
+    // console.log('value', value);
   }
 
   const dispatch = useDispatch();
@@ -122,7 +122,7 @@ const PartnerForm = () => {
                     // ref={inputRef}
                     filename="imageFile"
                     onChange={(e) => {
-                      console.log(e.target.files[0])
+                      // console.log(e.target.files[0])
                       setFormData({ ...formData, imageFile: e.target.files[0] })
                     }}
                   />

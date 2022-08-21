@@ -32,7 +32,7 @@ export const getPostById = async (req, res) => {
 export const getLastPost = async (req, res) => {
     try {
         const post = await Post.find({}).limit(1).sort({ $natural: -1 })
-        console.log(post);
+        // console.log(post);
 
         res.status(200).json(post);
     } catch (error) {

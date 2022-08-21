@@ -23,7 +23,7 @@ export default function Sidebar({ id }) {
         return item;
     });
 
-    console.log(otherPosts);
+    // console.log(otherPosts);
 
     return (
         <div className="sidebar">

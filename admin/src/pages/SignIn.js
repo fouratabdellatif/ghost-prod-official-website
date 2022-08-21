@@ -22,7 +22,7 @@ export default function SignIn() {
   const dispatch = useDispatch();
 
   const onFinish = (values) => {
-    console.log('Received values of form: ', values);
+    // console.log('Received values of form: ', values);
     dispatch(signIn(values));
   }
 

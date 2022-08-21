@@ -51,7 +51,7 @@ export const createPost = (post) => async (dispatch) => {
         formData.append('text', post.text);
         for (var i = 0; i < post.content.length; i++) {
             formData.append(`content[${i}]`, post.content[i]);
-            console.log("element", post.content[i]);
+            // console.log("element", post.content[i]);
         }
         formData.append('imageFile', post.imageFile);
 

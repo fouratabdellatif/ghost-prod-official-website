@@ -47,7 +47,7 @@ export const getArtistById = (id) => async (dispatch) => {
 export const createArtist = (artist) => async (dispatch) => {
     try {
 
-        console.log("artiiiiissssst", artist);
+        // console.log("artiiiiissssst", artist);
         const formData = new FormData();
         formData.append('firstname', artist.firstname);
         formData.append('lastname', artist.lastname);
@@ -71,7 +71,7 @@ export const createArtist = (artist) => async (dispatch) => {
         //     console.log("element", artist.musicSrc[i]);
         // }
 
-        console.log('formdata from actions allllll: ', formData);
+        // console.log('formdata from actions allllll: ', formData);
         const { data } = await api.createArtist(formData);
 
         dispatch({ type: CREATE, payload: data });

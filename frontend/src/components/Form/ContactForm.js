@@ -33,8 +33,8 @@ const ContactForm = () => {
             ...formData,
             [name]: value
         })
-        console.log(e.target);
-        console.log(formData);
+        // console.log(e.target);
+        // console.log(formData);
     }
 
     const dispatch = useDispatch();

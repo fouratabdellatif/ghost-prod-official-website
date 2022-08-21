@@ -11,7 +11,7 @@ import { getProjects } from '../actions/projects'
 const ProjectPage = () => {
 
     const { id } = useParams();
-    console.log(id)
+    // console.log(id)
 
     const projectsData = useSelector((state) => state.projects);
 
@@ -27,7 +27,7 @@ const ProjectPage = () => {
 
     const project = projects[0];
 
-    console.log('project', id, project);
+    // console.log('project', id, project);
 
     return (
         <>

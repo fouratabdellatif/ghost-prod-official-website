@@ -38,7 +38,7 @@ const HomeStart = ({ slides }) => {
 
         setCurrent(current === length - 1 ? 0 : current + 1)
 
-        console.log(current)
+        // console.log(current)
     }
 
     const prevSlide = () => {
@@ -48,7 +48,7 @@ const HomeStart = ({ slides }) => {
 
         setCurrent(current === 0 ? length - 1 : current - 1)
 
-        console.log(current)
+        // console.log(current)
     }
 
     if (!Array.isArray(slides) || slides.length <= 0) {
@@ -61,7 +61,7 @@ const HomeStart = ({ slides }) => {
 
 
     var typicalSlides = slides.map(i => [i.title, 4000]).flat();
-    console.log(typicalSlides);
+    // console.log(typicalSlides);
 
     return (
         <section className='homestart-section'>

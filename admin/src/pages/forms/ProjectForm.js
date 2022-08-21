@@ -114,8 +114,8 @@ const ProjectForm = () => {
       ...formData,
       [name]: value
     });
-    console.log('formData', formData);
-    console.log('value', value);
+    // console.log('formData', formData);
+    // console.log('value', value);
   }
 
   const dispatch = useDispatch();
@@ -128,7 +128,7 @@ const ProjectForm = () => {
       partners: partners,
       videos: videos
     })
-    await console.log("FORMDATA", formData);
+    // await console.log("FORMDATA", formData);
     await dispatch(createProject(formData));
     await history.push('/projects');
   }
@@ -181,7 +181,7 @@ const ProjectForm = () => {
                     // ref={inputRef}
                     filename="imageFile"
                     onChange={(e) => {
-                      console.log(e.target.files[0])
+                      // console.log(e.target.files[0])
                       setFormData({ ...formData, imageFile: e.target.files[0] })
                     }}
                   />
@@ -191,7 +191,7 @@ const ProjectForm = () => {
                     // ref={inputRef}
                     filename="videoFile"
                     onChange={(e) => {
-                      console.log(e.target.files[0])
+                      // console.log(e.target.files[0])
                       setFormData({ ...formData, videoFile: e.target.files[0] })
                     }}
                   />

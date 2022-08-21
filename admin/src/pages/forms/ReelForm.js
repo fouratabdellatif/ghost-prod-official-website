@@ -40,8 +40,8 @@ const ReelForm = ({ item }) => {
       ...formData,
       [name]: value
     });
-    console.log('formData', formData);
-    console.log('value', value);
+    // console.log('formData', formData);
+    // console.log('value', value);
   }
 
   const dispatch = useDispatch();
@@ -51,7 +51,7 @@ const ReelForm = ({ item }) => {
     await setFormData({
       ...formData
     })
-    await console.log("FORMDATA", formData);
+    // await console.log("FORMDATA", formData);
     if (item)
       await dispatch(updateReel(item._id, formData));
     else {
@@ -129,7 +129,7 @@ const ReelForm = ({ item }) => {
                           // ref={inputRef}
                           filename="image"
                           onChange={(e) => {
-                            console.log(e.target.files[0])
+                            // console.log(e.target.files[0])
                             setFormData({ ...formData, image: e.target.files[0] })
                           }}
                         />

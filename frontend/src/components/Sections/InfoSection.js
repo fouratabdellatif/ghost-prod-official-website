@@ -18,7 +18,7 @@ const InfoSection = () => {
     const [isOpen, setOpen] = useState(false)
 
     const reelData = useSelector((state) => state.reels);
-    console.log("reeldataaaaaaa", reelData);
+    // console.log("reeldataaaaaaa", reelData);
 
     let data = [];
 
