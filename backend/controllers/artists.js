@@ -40,45 +40,39 @@ export const createArtist = async (req, res) => {
         bio,
         facebook,
         instagram,
-        linkedin,
-        musicSrc
+        linkedin
     } = req.body;
 
     const imageFile = req.files['imageFile'];
-    req.files['musicSrc'] = musicSrc;
-
-    const musicFiles = req.files['musicSrc'];
-    // console.log(imageFile[0])
-    // console.log("musicSrccccccccccccccc", musicSrc[0].path)
-
+    const musicSrc = req.files['musicSrc'];
 
     try {
         // Upload image to cloudinary
         const resultImage = await cloudinary.v2.uploader.upload(imageFile[0].path, { resource_type: "auto" });
-
-
-        // for (let j = 0; j < len; j++)
-        // const resultAudio = await cloudinary.v2.uploader.upload(req.files['musicSrc'][0].path, { resource_type: "auto" });
+        const resultAudio = await cloudinary.v2.uploader.upload(musicSrc[0].path, { resource_type: "auto" });
 
         let audioLists = [];
-        const len = Object.keys(musicSrc).length;
+        audioLists.push(musicSrc[0])
+        audioLists[0].name = musicSrc[0].originalname;
+        audioLists[0].singer = `${firstname} ${lastname}`;
+        audioLists[0].cover = resultImage.secure_url;
+        audioLists[0].musicSrc = resultAudio.secure_url;
+        // console.log(audioLists);
+        // const len = Object.keys(musicSrc).length;
 
-        for (let i = 0; i < len - 1; i++) {
-            audioLists.push(musicSrc[i]);
-            audioLists[i].singer = `${firstname} ${lastname}`;
-            audioLists[i].coverImage = resultImage.secure_url;
-            audioLists[i].musicSrc = musicSrc[i].name;
-            audioLists[i].path = musicSrc[i].path;
-            req.files['musicSrc'][i].path = imageFile[0].path.substring(0, imageFile[0].path.length - 32);
-            console.log(req.files['musicSrc'][i].path);
-            const resultAudio = await cloudinary.v2.uploader.upload(req.files['musicSrc'][i].path, { resource_type: "auto" });
-            audioLists[i].musicSrc = resultAudio.secure_url;
-            // console.log(musicSrc[i]);
-            // console.log('aaalooooo');
-        }
-
-
-        // console.log("audioLists", musicSrc);
+        // for (let i = 0; i < len - 1; i++) {
+        //     audioLists.push(musicSrc[i]);
+        //     audioLists[i].singer = `${firstname} ${lastname}`;
+        //     audioLists[i].cover = resultImage.secure_url;
+        //     audioLists[i].musicSrc = musicSrc[i].name;
+        //     audioLists[i].path = musicSrc[i].path;
+        //     req.files['musicSrc'][i].path = imageFile[0].path.substring(0, imageFile[0].path.length - 32);
+        //     console.log(req.files['musicSrc'][i].path);
+        //     const resultAudio = await cloudinary.v2.uploader.upload(req.files['musicSrc'][i].path, { resource_type: "auto" });
+        //     audioLists[i].musicSrc = resultAudio.secure_url;
+        //     console.log(musicSrc[i]);
+        //     console.log('aaalooooo');
+        // }
 
         const newArtist = new Artist({
             firstname,
@@ -93,8 +87,9 @@ export const createArtist = async (req, res) => {
             linkedin,
             audioLists: audioLists,
             imageFile: resultImage.secure_url,
-            musicSrc: musicSrc,
-            cloudinary_id: resultImage.public_id,
+            musicSrc: resultAudio.secure_url,
+            cloudinary_img_id: resultImage.public_id,
+            cloudinary_aud_id: resultAudio.public_id,
             createdAt: new Date(),
         })
 

@@ -10,13 +10,13 @@ router.post('/createArtist',
     uploads.fields([{
         name: 'imageFile', maxCount: 1
     }, {
-        name: 'musicSrc', maxCount: 10
+        name: 'musicSrc', maxCount: 1
     }]), createArtist);
 router.patch('/updateArtist/:id',
     uploads.fields([{
         name: 'imageFile', maxCount: 1
     }, {
-        name: 'musicSrc', maxCount: 10
+        name: 'musicSrc', maxCount: 1
     }]), updateArtist);
 router.delete('/deleteArtist/:id', deleteArtist);
 

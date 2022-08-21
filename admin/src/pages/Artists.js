@@ -23,7 +23,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { deleteArtist, getArtists } from "../actions/artists";
 import { useState } from "react";
 import Tracker from "./Tracker";
-// import AudioPlayer from 'react-h5-audio-player';
+import AudioPlayer from 'react-h5-audio-player';
 import '../assets/css/AudioPlayer.css';
 
 const { Title } = Typography;
@@ -129,11 +129,11 @@ function Artists() {
                   <li>
                     <>
                       <Title level={5}>{audio?.name}</Title>
-                      {/* <AudioPlayer
-                              // autoPlay
-                              src={audio?.musicSrc}
-                              style={{ marginBottom: '20px' }}
-                          /> */}
+                      <AudioPlayer
+                        // autoPlay
+                        src={audio?.musicSrc}
+                        style={{ marginBottom: '20px' }}
+                      />
                     </>
                   </li>
                 ))}

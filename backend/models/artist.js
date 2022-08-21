@@ -4,7 +4,7 @@ const artistSchema = mongoose.Schema({
     firstname: { type: String },
     lastname: { type: String },
     imageFile: { type: String },
-    musicSrc: [{ type: Object }],
+    musicSrc: { type: String },
     city: { type: String },
     phone: { type: String },
     email: { type: String },
@@ -16,13 +16,15 @@ const artistSchema = mongoose.Schema({
         {
             name: String,
             singer: String,
-            coverImage: String,
-            musicSrc: String,
-            path: String
+            cover: String,
+            musicSrc: String
         }
     ],
     createdAt: { type: Date },
-    cloudinary_id: {
+    cloudinary_img_id: {
+        type: String,
+    },
+    cloudinary_aud_id: {
         type: String,
     }
 })

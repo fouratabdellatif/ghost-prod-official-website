@@ -27,7 +27,7 @@ export const VoiceOverData = [
             {
                 name: 'VoiceOver 1',
                 singer: 'FirstName LastName',
-                coverImage: imageOne,
+                cover: imageOne,
                 musicSrc: audioOne
             }
         ]
@@ -49,7 +49,7 @@ export const VoiceOverData = [
             {
                 name: 'VoiceOver 2',
                 singer: 'FirstName LastName',
-                coverImage: imageTwo,
+                cover: imageTwo,
                 musicSrc: audioTwo
             }
         ]
@@ -71,13 +71,13 @@ export const VoiceOverData = [
             {
                 name: 'VoiceOver 3',
                 singer: 'FirstName LastName',
-                coverImage: imageThree,
+                cover: imageThree,
                 musicSrc: audioThree
             },
             {
                 name: 'VoiceOver 2',
                 singer: 'FirstName LastName',
-                coverImage: imageTwo,
+                cover: imageTwo,
                 musicSrc: audioTwo
             }
         ]
@@ -99,7 +99,7 @@ export const VoiceOverData = [
             {
                 name: 'VoiceOver 4',
                 singer: 'FirstName LastName',
-                coverImage: imageFour,
+                cover: imageFour,
                 musicSrc: audioFour
             }
         ]
@@ -119,7 +119,7 @@ export const VoiceOverData2 = [
         linkedin: 'https://www.facebook.com/Ghostprod.net',
         name: 'VoiceOver 1',
         singer: 'FirstName LastName',
-        coverImage: imageOne,
+        cover: imageOne,
         musicSrc: audioOne
     },
 ]

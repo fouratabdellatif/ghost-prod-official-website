@@ -110,12 +110,11 @@ const ArtistForm = () => {
                   <input
                     type='file'
                     accept='audio/*'
-                    multiple
                     // ref={inputRef}
                     name="musicSrc"
                     onChange={(e) => {
-                      console.log(e.target.files)
-                      setFormData({ ...formData, musicSrc: e.target.files })
+                      console.log(e.target.files[0])
+                      setFormData({ ...formData, musicSrc: e.target.files[0] })
                     }}
                   />
                 </Col>
