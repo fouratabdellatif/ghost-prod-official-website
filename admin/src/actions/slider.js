@@ -1,5 +1,5 @@
 import * as api from '../api/index.js';
-import { CREATE, DELETE, FETCH_ALL_SLIDERS, UPDATE } from '../constants/actionTypes.js';
+import { CREATE, DELETE, DELETE_ALL, FETCH_ALL_SLIDERS, UPDATE } from '../constants/actionTypes.js';
 import { toast } from 'react-toastify';
 
 const notifySuccess = (msg) => toast.success(msg, {
@@ -72,9 +72,23 @@ export const updateSlider = (id, slider) => async (dispatch) => {
 
 export const deleteSlider = (id) => async (dispatch) => {
     try {
-        await await api.deleteSlider(id);
+        await api.deleteSlider(id);
 
         dispatch({ type: DELETE, payload: id });
+
+        // notifySuccess('Réunion supprimée');
+        // window.location.reload();
+    } catch (error) {
+        console.log(error);
+        // notifyError(error.message);
+    }
+};
+
+export const deleteAllSliders = (id) => async (dispatch) => {
+    try {
+        await api.deleteAllSliders(id);
+
+        dispatch({ type: DELETE_ALL, payload: id });
 
         // notifySuccess('Réunion supprimée');
         // window.location.reload();

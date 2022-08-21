@@ -1,20 +1,6 @@
 import express from 'express';
-import multer from 'multer';
-import { createSlider, deleteSlider, getSliders, updateSlider } from '../controllers/slider.js';
-
-const dateNow = Date.now();
-
-const storage = multer.diskStorage({
-    destination: function (req, file, cb) {
-        cb(null, "C:/Github/ghost-prod-official-website/frontend/public/uploads")
-    },
-
-    filename: (req, file, callback) => {
-        callback(null, dateNow + file.originalname);
-    }
-})
-
-const uploads = multer({ storage: storage })
+import uploads from "../utils/multer.js";
+import { createSlider, deleteAllSliders, deleteSlider, getSliders, updateSlider } from '../controllers/slider.js';
 
 const router = express.Router();
 
@@ -32,5 +18,6 @@ router.patch('/updateSlider/:id',
         name: 'video', maxCount: 1
     }]), updateSlider);
 router.delete('/deleteSlider/:id', deleteSlider);
+router.delete('/deleteAllSliders', deleteAllSliders);
 
 export default router;

@@ -5,10 +5,10 @@ const postSchema = mongoose.Schema({
     text: { type: String },
     content: [{ type: String }],
     imageFile: { type: String },
-    createdAt: {
-        type: Date,
-        default: new Date(),
-    },
+    createdAt: { type: Date },
+    cloudinary_id: {
+        type: String,
+    }
 })
 
 var post = mongoose.model('post', postSchema);

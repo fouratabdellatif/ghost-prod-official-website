@@ -1,20 +1,6 @@
 import express from 'express';
-import multer from 'multer';
+import uploads from "../utils/multer.js";
 import { sendJobRequest, deleteJobRequest, getJobRequestById, getJobRequests } from '../controllers/jobs.js';
-
-const dateNow = Date.now();
-
-const storage = multer.diskStorage({
-    destination: function (req, file, cb) {
-        cb(null, "C:/Github/ghost-prod-official-website/admin/public/uploads")
-    },
-
-    filename: (req, file, callback) => {
-        callback(null, dateNow + file.originalname);
-    }
-})
-
-const uploads = multer({ storage: storage })
 
 const router = express.Router();
 

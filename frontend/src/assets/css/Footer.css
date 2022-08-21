@@ -188,6 +188,10 @@ a:hover i::before {
   background-image: linear-gradient(135deg, #e1a33b 40%, #000000 50%);
 }
 
+.fa-behance-square::before {
+  background-image: linear-gradient(135deg, #e1a33b 40%, #000000 50%);
+}
+
 .social-media {
   margin-top: 40px;
   border-top: 1px solid #bbb;

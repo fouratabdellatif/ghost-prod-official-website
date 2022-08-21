@@ -1,4 +1,4 @@
-import { DELETE, CREATE, UPDATE, FETCH_ALL_SLIDERS } from "../constants/actionTypes";
+import { DELETE, CREATE, UPDATE, FETCH_ALL_SLIDERS, DELETE_ALL } from "../constants/actionTypes";
 
 export const SliderReducer = (sliders = [], action) => {
     switch (action.type) {
@@ -10,6 +10,8 @@ export const SliderReducer = (sliders = [], action) => {
             return sliders?.map((slider) => (slider._id === action.payload._id ? action.payload : slider));
         case DELETE:
             return sliders.filter((slider) => slider._id !== action.payload);
+        case DELETE_ALL:
+            return [...sliders, action.payload];
         default:
             return sliders;
     }

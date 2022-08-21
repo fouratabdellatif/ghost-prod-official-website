@@ -13,10 +13,10 @@ const memberSchema = mongoose.Schema({
     instagram: { type: String },
     linkedin: { type: String },
     behance: { type: String },
-    createdAt: {
-        type: Date,
-        default: new Date(),
-    },
+    createdAt: { type: Date },
+    cloudinary_id: {
+        type: String,
+    }
 })
 
 var member = mongoose.model('member', memberSchema);

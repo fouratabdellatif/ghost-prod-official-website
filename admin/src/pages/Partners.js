@@ -113,12 +113,12 @@ function Partners() {
         ),
         actions: (
           <div className="ant-employed">
-            <a href={`/partner/${item._id}`}>
+            <a href={`/partner/${item?._id}`}>
               <Button type="link" className="darkbtn">
                 <EditOutlined />
               </Button></a>
             <a onClick={() => {
-              dispatch(deletePartner(item._id))
+              dispatch(deletePartner(item?._id))
             }}>
             <Button type="link" danger>
               <DeleteOutlined />

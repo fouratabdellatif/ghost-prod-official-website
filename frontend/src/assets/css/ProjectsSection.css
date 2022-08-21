@@ -9,7 +9,7 @@
 
 .projects-container {
   display: flex;
-  margin: 0 auto 0 auto;
+  margin: 0 auto;
   min-height: 70vh;
 }
 

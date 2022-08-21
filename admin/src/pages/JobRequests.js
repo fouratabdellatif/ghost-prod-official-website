@@ -141,7 +141,7 @@ function JobRequests() {
           <>
             <div className="author-info">
               <Title level={5}>
-                <a href={item?.cv} download>
+                <a href={item?.cv} download target='_blank' rel="noreferrer">
                   <FaFileDownload />
                 </a>
               </Title>

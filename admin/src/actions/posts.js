@@ -49,7 +49,10 @@ export const createPost = (post) => async (dispatch) => {
         const formData = new FormData();
         formData.append('category', post.category);
         formData.append('text', post.text);
-        formData.append('content', post.content);
+        for (var i = 0; i < post.content.length; i++) {
+            formData.append(`content[${i}]`, post.content[i]);
+            console.log("element", post.content[i]);
+        }
         formData.append('imageFile', post.imageFile);
 
         const { data } = await api.createPost(formData);

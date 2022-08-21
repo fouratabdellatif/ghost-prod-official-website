@@ -9,10 +9,7 @@ const reclamationSchema = mongoose.Schema({
     spec: { type: String },
     text: { type: String },
     visible: { type: Boolean, default: false },
-    createdAt: {
-        type: Date,
-        default: new Date(),
-    },
+    createdAt: { type: Date },
 })
 
 var reclamation = mongoose.model('reclamation', reclamationSchema);

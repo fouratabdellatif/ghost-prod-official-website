@@ -37,14 +37,16 @@ const BlogPage = () => {
                 title={page ? title : "Blog"}
                 pageContent=
                 {
-                    (!posts || posts.length === 0) ?
-                        null
-                        : (
+                    (posts.length === 1) ? (
+                        <SpotlightPost item={lastPost} />
+                    ) : (
+                        posts.length > 1 ? (
                             <>
                                 <SpotlightPost item={lastPost} />
                                 <PaginatedItems itemsPerPage={6} items={restOfPosts} />
                             </>
-                        )
+                        ) : null
+                    )
                 }
             />
         </>

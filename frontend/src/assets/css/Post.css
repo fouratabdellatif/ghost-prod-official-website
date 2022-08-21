@@ -1,15 +1,17 @@
 .singlePost {
-  flex: 9;
+  flex: auto;
 }
 
 .singlePostWrapper {
-  padding: 20px;
-  padding-right: 0;
+  margin: 0 40px;
+  padding: 0;
+  width: 1000px;
 }
 
 .singlePostImg {
+  margin: auto;
   width: 100%;
-  height: 400px;
+  height: 500px;
   border-radius: 5px;
   object-fit: cover;
 }

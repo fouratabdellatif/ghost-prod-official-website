@@ -5,10 +5,7 @@ const serviceSchema = mongoose.Schema({
     quote: { type: String },
     text: { type: String },
     steps: [{ type: String }],
-    createdAt: {
-        type: Date,
-        default: new Date(),
-    },
+    createdAt: { type: Date },
 })
 
 var service = mongoose.model('service', serviceSchema);

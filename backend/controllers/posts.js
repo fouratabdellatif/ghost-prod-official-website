@@ -1,6 +1,6 @@
 import express from 'express';
 import mongoose from 'mongoose';
-import fs from 'fs';
+import cloudinary from '../utils/cloudinary.js';
 
 import Post from '../models/post.js';
 import "moment/locale/fr.js";
@@ -48,22 +48,20 @@ export const createPost = async (req, res) => {
     } = req.body;
 
     const imageFile = req.file;
+    const result = await cloudinary.v2.uploader.upload(imageFile.path, { resource_type: "auto" });
 
     const newPost = new Post({
         category,
         text,
         content,
-        imageFile: imageFile.filename
+        imageFile: result.secure_url,
+        cloudinary_id: result.public_id,
+        createdAt: new Date(),
     })
 
     try {
 
         await newPost.save();
-
-        fs.copyFile(`C:/Github/ghost-prod-official-website/frontend/public/uploads/${imageFile.filename}`, `C:/Github/ghost-prod-official-website/admin/public/uploads/${imageFile.filename}`, (err) => {
-            if (err) throw err;
-            console.log(`${imageFile.filename} was copied`);
-        });
 
         res.status(201).json(newPost);
     } catch (error) {
@@ -80,29 +78,41 @@ export const updatePost = async (req, res) => {
     } = req.body;
 
     const imageFile = req.file;
+    try {
+        let post = await Post.findById(id);
+        // Delete image from cloudinary
+        await cloudinary.uploader.destroy(post.cloudinary_id);
+        // Upload image to cloudinary
+        let result;
+        if (imageFile) {
+            result = await cloudinary.uploader.upload(imageFile.path);
+        }
 
-    if (!mongoose.Types.ObjectId.isValid(id)) return res.status(404).send(`No post with id: ${id}`);
+        if (!mongoose.Types.ObjectId.isValid(id)) return res.status(404).send(`No post with id: ${id}`);
 
-    const updatedPost = {
-        category,
-        text,
-        content,
-        imageFile: imageFile.filename,
-        _id: id
-    };
+        const updatedPost = {
+            category: category || post.category,
+            text: text || post.text,
+            content: content || post.content,
+            imageFile: result?.secure_url || post.imageFile,
+            cloudinary_id: result?.public_id || post.cloudinary_id,
+            _id: id
+        };
 
-    await Post.findByIdAndUpdate(id, updatedPost, { new: true });
+        await Post.findByIdAndUpdate(id, updatedPost, { new: true });
 
-    fs.copyFile(`C:/Github/ghost-prod-official-website/frontend/public/uploads/${imageFile.filename}`, `C:/Github/ghost-prod-official-website/admin/public/uploads/${imageFile.filename}`, (err) => {
-        if (err) throw err;
-        console.log(`${imageFile.filename} was copied`);
-    });
-
-    res.json(updatedPost);
+        res.json(updatedPost);
+    } catch (err) {
+        console.log(err);
+    }
 }
 
 export const deletePost = async (req, res) => {
     const { id } = req.params;
+    
+    let post = await Post.findById(id);
+    // Delete image from cloudinary
+    await cloudinary.uploader.destroy(post.cloudinary_id);
 
     if (!mongoose.Types.ObjectId.isValid(id)) return res.status(404).send(`No post with id: ${id}`);
 

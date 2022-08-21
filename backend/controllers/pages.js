@@ -37,6 +37,7 @@ export const createPage = async (req, res) => {
         name,
         image: result.secure_url,
         cloudinary_id: result.public_id,
+        createdAt: new Date(),
     });
 
     try {

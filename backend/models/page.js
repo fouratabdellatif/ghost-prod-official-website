@@ -6,10 +6,7 @@ const pageSchema = mongoose.Schema({
     image: { type: String },
     text: { type: String },
     name: { type: String },
-    createdAt: {
-        type: Date,
-        default: new Date(),
-    },
+    createdAt: { type: Date },
     cloudinary_id: {
         type: String,
     }

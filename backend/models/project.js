@@ -20,10 +20,13 @@ const projectSchema = mongoose.Schema({
             videoId: String,
         },
     ],
-    createdAt: {
-        type: Date,
-        default: new Date(),
+    createdAt: { type: Date },
+    cloudinary_img_id: {
+        type: String,
     },
+    cloudinary_vid_id: {
+        type: String,
+    }
 })
 
 var project = mongoose.model('project', projectSchema);

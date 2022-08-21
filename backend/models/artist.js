@@ -17,12 +17,13 @@ const artistSchema = mongoose.Schema({
             name: String,
             singer: String,
             coverImage: String,
-            musicSrc: String
+            musicSrc: String,
+            path: String
         }
     ],
-    createdAt: {
-        type: Date,
-        default: new Date(),
+    createdAt: { type: Date },
+    cloudinary_id: {
+        type: String,
     }
 })
 

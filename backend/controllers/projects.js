@@ -1,6 +1,6 @@
 import express from 'express';
 import mongoose from 'mongoose';
-import fs from 'fs';
+import cloudinary from '../utils/cloudinary.js';
 
 import Project from '../models/project.js';
 import "moment/locale/fr.js";
@@ -51,6 +51,9 @@ export const createProject = async (req, res) => {
     const imageFile = req.files.imageFile[0];
     const videoFile = req.files.videoFile[0];
 
+    const resultImg = await cloudinary.v2.uploader.upload(imageFile.path, { resource_type: "auto" });
+    const resultVid = await cloudinary.v2.uploader.upload(videoFile.path, { resource_type: "auto" });
+
     // console.log("req.body", req.body)
 
     // console.log(imageFile, videoFile)
@@ -59,28 +62,21 @@ export const createProject = async (req, res) => {
         name,
         category,
         description,
-        imageFile: imageFile.filename,
-        videoFile: videoFile.filename,
+        imageFile: resultImg.secure_url,
+        cloudinary_img_id: resultImg.public_id,
+        videoFile: resultVid.secure_url,
+        cloudinary_vid_id: resultVid.public_id,
         videoId,
         client,
         clientLink,
         partners: partners,
-        videos: videos
+        videos: videos,
+        createdAt: new Date(),
     })
 
     try {
 
         await newProject.save();
-
-        fs.copyFile(`C:/Github/ghost-prod-official-website/frontend/public/uploads/${imageFile.filename}`, `C:/Github/ghost-prod-official-website/admin/public/uploads/${imageFile.filename}`, (err) => {
-            if (err) throw err;
-            console.log(`${imageFile.filename} was copied`);
-        });
-
-        fs.copyFile(`C:/Github/ghost-prod-official-website/frontend/public/uploads/${videoFile.filename}`, `C:/Github/ghost-prod-official-website/admin/public/uploads/${videoFile.filename}`, (err) => {
-            if (err) throw err;
-            console.log(`${videoFile.filename} was copied`);
-        });
 
         res.status(201).json(newProject);
     } catch (error) {
@@ -94,8 +90,6 @@ export const updateProject = async (req, res) => {
         name,
         category,
         description,
-        image,
-        video,
         videoId,
         client,
         clientLink,
@@ -103,29 +97,59 @@ export const updateProject = async (req, res) => {
         videos
     } = req.body;
 
-    if (!mongoose.Types.ObjectId.isValid(id)) return res.status(404).send(`No project with id: ${id}`);
+    const imageFile = req.files.imageFile[0];
+    const videoFile = req.files.videoFile[0];
 
-    const updatedProject = {
-        name,
-        category,
-        description,
-        image,
-        video,
-        videoId,
-        client,
-        clientLink,
-        partners,
-        videos,
-        _id: id
-    };
+    try {
+        let project = await Project.findById(id);
+        // Delete image from cloudinary
+        await cloudinary.uploader.destroy(project.cloudinary_img_id);
+        // Delete video from cloudinary
+        await cloudinary.uploader.destroy(project.cloudinary_vid_id);
+        // Upload image to cloudinary
+        let resultImg;
+        if (imageFile) {
+            resultImg = await cloudinary.v2.uploader.upload(imageFile.path, { resource_type: "auto" });
+        }
+        // Upload video to cloudinary
+        let resultVid;
+        if (videoFile) {
+            resultVid = await cloudinary.v2.uploader.upload(videoFile.path, { resource_type: "auto" });
+        }
 
-    await Project.findByIdAndUpdate(id, updatedProject, { new: true });
+        if (!mongoose.Types.ObjectId.isValid(id)) return res.status(404).send(`No project with id: ${id}`);
 
-    res.json(updatedProject);
+        const updatedProject = {
+            name: name || project.name,
+            category: category || project.category,
+            description: description || project.description,
+            imageFile: resultImg.secure_url,
+            cloudinary_img_id: resultImg.public_id,
+            videoFile: resultVid.secure_url,
+            cloudinary_vid_id: resultVid.public_id,
+            videoId: videoId || project.videoId,
+            client: client || project.client,
+            clientLink: clientLink || project.clientLink,
+            partners: partners || project.partners,
+            videos: videos || project.videos,
+            _id: id
+        };
+
+        await Project.findByIdAndUpdate(id, updatedProject, { new: true });
+
+        res.json(updatedProject);
+    } catch (err) {
+        console.log(err);
+    }
 }
 
 export const deleteProject = async (req, res) => {
     const { id } = req.params;
+    
+    let project = await Project.findById(id);
+    // Delete image from cloudinary
+    await cloudinary.uploader.destroy(project.cloudinary_img_id);
+    await cloudinary.uploader.destroy(project.cloudinary_vid_id);
 
     if (!mongoose.Types.ObjectId.isValid(id)) return res.status(404).send(`No project with id: ${id}`);
 

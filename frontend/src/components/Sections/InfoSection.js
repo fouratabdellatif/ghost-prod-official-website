@@ -9,6 +9,7 @@ import ModalVideo from 'react-modal-video';
 import { useDispatch, useSelector } from 'react-redux';
 import { InfoData } from '../../data/InfoData';
 import { getReels } from '../../actions/reel';
+import { Link } from "react-router-dom";
 
 
 const InfoSection = () => {
@@ -46,7 +47,11 @@ const InfoSection = () => {
                         <p data-aos="fade-left">{data?.paragraphOne}</p>
                         {/* <p data-aos="fade-left">{paragraphTwo}</p> */}
                         {/* <Button to="/homes" primary='true' data-aos={animations[random]}>{buttonLabel}</Button> */}
-                        <p className='show-more' data-aos="fade-right">{'Show more >>'}</p>
+                        <Link to="/about-us" style={{
+                            textDecoration: 'none'
+                        }}>
+                            <p className='show-more' data-aos="fade-right">{'Show more >>'}</p>
+                        </Link>
                     </div>
                 </div>
             </section>

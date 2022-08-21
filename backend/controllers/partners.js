@@ -1,6 +1,6 @@
 import express from 'express';
 import mongoose from 'mongoose';
-import fs from 'fs';
+import cloudinary from '../utils/cloudinary.js';
 
 import Partner from '../models/partner.js';
 import "moment/locale/fr.js";
@@ -36,21 +36,19 @@ export const createPartner = async (req, res) => {
     } = req.body;
 
     const imageFile = req.file;
+    const result = await cloudinary.v2.uploader.upload(imageFile.path, { resource_type: "auto" });
 
     const newPartner = new Partner({
         name,
         link,
-        imageFile: imageFile.filename
+        imageFile: result.secure_url,
+        cloudinary_id: result.public_id,
+        createdAt: new Date(),
     })
 
     try {
 
         await newPartner.save();
-
-        fs.copyFile(`C:/Github/ghost-prod-official-website/frontend/public/uploads/${imageFile.filename}`, `C:/Github/ghost-prod-official-website/admin/public/uploads/${imageFile.filename}`, (err) => {
-            if (err) throw err;
-            console.log(`${imageFile.filename} was copied`);
-        });
 
         res.status(201).json(newPartner);
     } catch (error) {
@@ -66,28 +64,40 @@ export const updatePartner = async (req, res) => {
     } = req.body;
 
     const imageFile = req.file;
+    try {
+        let partner = await Partner.findById(id);
+        // Delete image from cloudinary
+        await cloudinary.uploader.destroy(partner.cloudinary_id);
+        // Upload image to cloudinary
+        let result;
+        if (imageFile) {
+            result = await cloudinary.uploader.upload(imageFile.path);
+        }
 
-    if (!mongoose.Types.ObjectId.isValid(id)) return res.status(404).send(`No partner with id: ${id}`);
+        if (!mongoose.Types.ObjectId.isValid(id)) return res.status(404).send(`No partner with id: ${id}`);
 
-    const updatedPartner = {
-        name,
-        link,
-        imageFile: imageFile.filename,
-        _id: id
-    };
+        const updatedPartner = {
+            name: name || partner.name,
+            link: link || partner.link,
+            imageFile: result?.secure_url || partner.imageFile,
+            cloudinary_id: result?.public_id || partner.cloudinary_id,
+            _id: id
+        };
 
-    await Partner.findByIdAndUpdate(id, updatedPartner, { new: true });
+        await Partner.findByIdAndUpdate(id, updatedPartner, { new: true });
 
-    fs.copyFile(`C:/Github/ghost-prod-official-website/frontend/public/uploads/${imageFile.filename}`, `C:/Github/ghost-prod-official-website/admin/public/uploads/${imageFile.filename}`, (err) => {
-        if (err) throw err;
-        console.log(`${imageFile.filename} was copied`);
-    });
-
-    res.json(updatedPartner);
+        res.json(updatedPartner);
+    } catch (err) {
+        console.log(err);
+    }
 }
 
 export const deletePartner = async (req, res) => {
     const { id } = req.params;
+    
+    let partner = await Partner.findById(id);
+    // Delete image from cloudinary
+    await cloudinary.uploader.destroy(partner.cloudinary_id);
 
     if (!mongoose.Types.ObjectId.isValid(id)) return res.status(404).send(`No partner with id: ${id}`);
 

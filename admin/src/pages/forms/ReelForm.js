@@ -7,7 +7,7 @@ import {
   Typography,
   Space
 } from "antd";
-import { createReel, updateReel } from "../../actions/reel";
+import { createReel, deleteReel, updateReel } from "../../actions/reel";
 import { useDispatch } from "react-redux";
 import "../../assets/css/ReelForm.css";
 import preview from "../../assets/images/preview.jpg"
@@ -59,6 +59,13 @@ const ReelForm = ({ item }) => {
     }
   }
 
+  const handleDelete = async (e) => {
+    e.preventDefault();
+    if (item) {
+      await dispatch(deleteReel(item._id));
+      window.location.reload();
+    }
+  }
 
   return (
     <Layout className="Form-layout layout-default">
@@ -136,9 +143,23 @@ const ReelForm = ({ item }) => {
                       <Button
                         type="primary"
                         htmlType="submit"
-                        style={{ width: "100%" }}
+                        style={{ width: "200px", marginRight: '10px' }}
                       >
                         AJOUTER
+                      </Button>
+                      <Button
+                        type="danger"
+                        htmlType="submit"
+                        style={{ width: "200px", marginTop: '10px' }}
+                        onClick={handleDelete}
+                      >
+                        SUPPRIMER
+                        {/* <MdDelete style={{
+                          margin: 'auto',
+                          display: 'block',
+                          width: '20px',
+                          height: '20px'
+                        }} /> */}
                       </Button>
                     </Col>
                   </Space>

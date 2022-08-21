@@ -4,9 +4,9 @@ const sliderSchema = mongoose.Schema({
     title: { type: String },
     image: { type: String },
     video: { type: String },
-    createdAt: {
-        type: Date,
-        default: new Date(),
+    createdAt: { type: Date },
+    cloudinary_id: {
+        type: String,
     }
 })
 

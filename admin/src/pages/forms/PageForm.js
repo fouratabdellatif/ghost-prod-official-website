@@ -154,7 +154,7 @@ const PageForm = ({ data, name, pageName }) => {
                         AJOUTER
                       </Button>
                       <Button
-                        type="primary"
+                        type="danger"
                         htmlType="submit"
                         style={{ width: "200px", marginTop: '10px' }}
                         onClick={handleDelete}

@@ -3,7 +3,8 @@ import {
   Row,
   Col,
   Card,
-  Radio
+  Radio,
+  Button
 } from "antd";
 import StandardCard from '../components/layout/StandardCard.js'
 import '../assets/css/BlogSection.css'
@@ -11,7 +12,8 @@ import { useState } from "react";
 import Tracker from "./Tracker.js";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
-import { getProjects } from "../actions/projects.js";
+import { deleteProject, getProjects } from "../actions/projects.js";
+import { MdDelete } from "react-icons/md";
 
 function Projects() {
 
@@ -60,29 +62,41 @@ function Projects() {
                 </Radio.Group>
             }
           >
-
             <section className='blog-section'>
-
               <Tracker
                 searchQuery={searchQuery}
                 setSearchQuery={setSearchQuery}
                 label="Rechercher un projet"
                 placeholder="Introduire le nom du projet"
               />
-
               <div className='blog-container'>
                 {filteredData?.map((item, index) => (
+                  <div style={{
+                    display: 'inline-block'
+                  }}>
                   <StandardCard
                     type="project"
                     key={index}
                     item={item}
                   />
+                  <Button
+                    type="danger"
+                    htmlType="submit"
+                    style={{ width: "55px", marginTop: '10px', display: "block", margin: "10px auto" }}
+                    onClick={() => dispatch(deleteProject(item._id))}
+                  >
+                    <MdDelete style={{
+                      margin: 'auto',
+                      display: 'block',
+                      width: '100%',
+                      height: '100%',
+                    }} />
+                  </Button>
+                  </div>
                 ))}
               </div>
             </section>
           </Card>
-
-
         </Col>
       </Row>
     </div>

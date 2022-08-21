@@ -13,7 +13,7 @@ const SpotlightPost = ({ item }) => {
                                     transitionDuration: '0s',
                                     transform: 'translate3d(0%, 0px, 0px)',
                                 }}>
-                                    <a href="https://www.ghostprod.net/" className="tns-item">
+                                    <a href={`/blog/${item._id}`} className="tns-item">
                                         <picture>
                                             <source media="(min-width: 768px)" srcset={item?.imageFile} />
                                             <source media="(min-width: 0px)" srcset={item?.imageFile} />
@@ -32,7 +32,7 @@ const SpotlightPost = ({ item }) => {
                                 <div className="slider-texte-une" style={{ transitionDuration: '0s', transform: 'translate3d(0%, 0px, 0px)' }}>
                                     <div className="text tns-item tns-slide-active">
                                         <span className="alaune">À la une</span>
-                                        <a href="https://www.ghostprod.net/">
+                                        <a href={`/blog/${item._id}`}>
                                             <h2>{item?.category}</h2>
                                             {/* <span className="categorie">Comment ça marche?</span> */}
                                             <div className="resume">

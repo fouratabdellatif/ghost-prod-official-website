@@ -52,7 +52,7 @@ const ArtistForm = () => {
     e.preventDefault();
     await console.log("FORMDATA", formData);
     await dispatch(createArtist(formData));
-    await history.push('/voice-over-artists');
+    // await history.push('/voice-over-artists');
   }
 
 
@@ -65,9 +65,9 @@ const ArtistForm = () => {
             lg={{ span: 7, offset: 2 }}
             md={{ span: 12 }}
           >
-            <Title className="mb-15">Ajouter un projet</Title>
+            <Title className="mb-15">Ajouter un artiste</Title>
             <Title className="font-regular text-muted" level={5}>
-              veuillez remplir ces champs pour ajouter un projet!
+              veuillez remplir ces champs pour ajouter un artiste!
             </Title>
             <form
               className="row-col"
@@ -99,9 +99,9 @@ const ArtistForm = () => {
                 >
                   <input
                     type='file'
-                    accept='image/*'
                     // ref={inputRef}
                     name="imageFile"
+                    accept='image/*'
                     onChange={(e) => {
                       console.log(e.target.files[0])
                       setFormData({ ...formData, imageFile: e.target.files[0] })

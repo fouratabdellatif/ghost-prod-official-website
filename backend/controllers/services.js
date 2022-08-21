@@ -1,6 +1,5 @@
 import express from 'express';
 import mongoose from 'mongoose';
-import fs from 'fs';
 
 import Service from '../models/service.js';
 import "moment/locale/fr.js";
@@ -41,7 +40,8 @@ export const createService = async (req, res) => {
         title,
         quote,
         text,
-        steps
+        steps,
+        createdAt: new Date(),
     })
 
     try {

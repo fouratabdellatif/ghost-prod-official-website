@@ -4,13 +4,14 @@ import {
   Row,
   Col,
   Card,
-  Radio
+  Radio,
+  Button
 } from "antd";
 // import StandardCard from '../components/layout/StandardCard.js'
 import '../assets/css/Sliders.css'
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
-import { getSliders } from "../actions/slider.js";
+import { deleteAllSliders, getSliders } from "../actions/slider.js";
 import { SliderHomeWrapper } from "../components/_SlickSliderStyle";
 import Slider from 'react-slick';
 import { SliderData } from "../data/SliderData";
@@ -67,7 +68,6 @@ function Sliders() {
   const reels = useSelector((state) => state.reels);
 
   const reelItem = reels[0];
-  console.log("reeeeeeel", reelItem);
 
   let data = [];
 
@@ -96,7 +96,6 @@ function Sliders() {
               </Radio.Group>
             }
           >
-
             <section className='slider-section'>
               <SliderHomeWrapper>
                 <Slider
@@ -119,19 +118,18 @@ function Sliders() {
                   )}
                 </Slider>
               </SliderHomeWrapper>
-              {/* <div className='blog-container'>
-                {filteredData?.map((item, index) => (
-                  <StandardCard
-                    type="slider"
-                    key={index}
-                    item={item}
-                  />
-                ))}
-              </div> */}
+              {data === sliders && (
+                <Button
+                  type="danger"
+                  htmlType="submit"
+                  style={{ width: "200px", marginTop: '10px' }}
+                  onClick={() => dispatch(deleteAllSliders())}
+                >
+                  SUPPRIMER
+                </Button>
+              )}
             </section>
           </Card>
-
-
         </Col>
       </Row>
       <Row gutter={[24, 0]}>

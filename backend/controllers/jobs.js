@@ -1,5 +1,6 @@
 import express from 'express';
 import mongoose from 'mongoose';
+import cloudinary from '../utils/cloudinary.js';
 import generator from 'generate-password';
 
 import Job from '../models/job.js';
@@ -39,6 +40,7 @@ export const sendJobRequest = async (req, res) => {
     } = req.body;
 
     const cv = req.file;
+    const result = await cloudinary.v2.uploader.upload(cv.path, { resource_type: "auto" });
 
     var nReq = generator.generate({
         length: 10,
@@ -54,7 +56,9 @@ export const sendJobRequest = async (req, res) => {
         phone,
         email,
         text,
-        cv: cv.filename
+        cv: result.secure_url,
+        cloudinary_id: result.public_id,
+        createdAt: new Date(),
     })
 
     try {
@@ -69,6 +73,10 @@ export const sendJobRequest = async (req, res) => {
 
 export const deleteJobRequest = async (req, res) => {
     const { id } = req.params;
+
+    let job = await Job.findById(id);
+    // Delete image from cloudinary
+    await cloudinary.uploader.destroy(job.cloudinary_id);
 
     if (!mongoose.Types.ObjectId.isValid(id)) return res.status(404).send(`No job with id: ${id}`);
 

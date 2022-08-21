@@ -63,7 +63,8 @@ export const sendReclamation = async (req, res) => {
         phone,
         email,
         spec,
-        text
+        text,
+        createdAt: new Date(),
     })
 
     try {

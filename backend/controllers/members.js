@@ -1,6 +1,6 @@
 import express from 'express';
 import mongoose from 'mongoose';
-import fs from 'fs';
+import cloudinary from '../utils/cloudinary.js';
 
 import Member from '../models/member.js';
 import "moment/locale/fr.js";
@@ -45,8 +45,9 @@ export const createMember = async (req, res) => {
     } = req.body;
 
     const profileImage = req.file;
+    const result = await cloudinary.v2.uploader.upload(profileImage.path, { resource_type: "auto" });
 
-    console.log(profileImage);
+    // console.log(profileImage);
 
     const newMember = new Member({
         firstname,
@@ -60,17 +61,14 @@ export const createMember = async (req, res) => {
         instagram,
         linkedin,
         behance,
-        profileImage: profileImage.filename
+        profileImage: result.secure_url,
+        cloudinary_id: result.public_id,
+        createdAt: new Date(),
     })
 
     try {
 
         await newMember.save();
-
-        // fs.copyFile(`C:/Github/ghost-prod-official-website/frontend/public/uploads/${profileImage.filename}`, `C:/Github/ghost-prod-official-website/admin/public/uploads/${profileImage.filename}`, (err) => {
-        //     if (err) throw err;
-        //     console.log(`${profileImage.filename} was copied`);
-        // });
 
         res.status(201).json(newMember);
     } catch (error) {
@@ -95,37 +93,49 @@ export const updateMember = async (req, res) => {
     } = req.body;
 
     const profileImage = req.file;
+    try {
+        let member = await Member.findById(id);
+        // Delete image from cloudinary
+        await cloudinary.uploader.destroy(member.cloudinary_id);
+        // Upload image to cloudinary
+        let result;
+        if (profileImage) {
+            result = await cloudinary.uploader.upload(profileImage.path);
+        }
 
-    if (!mongoose.Types.ObjectId.isValid(id)) return res.status(404).send(`No member with id: ${id}`);
+        if (!mongoose.Types.ObjectId.isValid(id)) return res.status(404).send(`No member with id: ${id}`);
 
-    const updatedMember = {
-        firstname,
-        lastname,
-        spec,
-        city,
-        phone,
-        email,
-        bio,
-        facebook,
-        instagram,
-        linkedin,
-        behance,
-        profileImage: profileImage.filename,
-        _id: id
-    };
+        const updatedMember = {
+            firstname: firstname || member.firstname,
+            lastname: lastname || member.lastname,
+            spec: spec || member.spec,
+            city: city || member.city,
+            phone: phone || member.phone,
+            email: email || member.email,
+            bio: bio || member.bio,
+            facebook: facebook || member.facebook,
+            instagram: instagram || member.instagram,
+            linkedin: linkedin || member.linkedin,
+            behance: behance || member.behance,
+            profileImage: result?.secure_url || member.profileImage,
+            cloudinary_id: result?.public_id || member.cloudinary_id,
+            _id: id
+        };
 
-    await Member.findByIdAndUpdate(id, updatedMember, { new: true });
+        await Member.findByIdAndUpdate(id, updatedMember, { new: true });
 
-    fs.copyFile(`C:/Github/ghost-prod-official-website/frontend/public/uploads/${profileImage.filename}`, `C:/Github/ghost-prod-official-website/admin/public/uploads/${profileImage.filename}`, (err) => {
-        if (err) throw err;
-        console.log(`${profileImage.filename} was copied`);
-    });
-
-    res.json(updatedMember);
+        res.json(updatedMember);
+    } catch (err) {
+        console.log(err);
+    }
 }
 
 export const deleteMember = async (req, res) => {
     const { id } = req.params;
+    
+    let member = await Member.findById(id);
+    // Delete image from cloudinary
+    await cloudinary.uploader.destroy(member.cloudinary_id);
 
     if (!mongoose.Types.ObjectId.isValid(id)) return res.status(404).send(`No member with id: ${id}`);
 

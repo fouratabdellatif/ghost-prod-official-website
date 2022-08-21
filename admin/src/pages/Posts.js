@@ -3,7 +3,8 @@ import {
   Row,
   Col,
   Card,
-  Radio
+  Radio,
+  Button
 } from "antd";
 import StandardCard from '../components/layout/StandardCard.js'
 import '../assets/css/BlogSection.css'
@@ -11,7 +12,8 @@ import { useState } from "react";
 import Tracker from "./Tracker.js";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
-import { getPosts } from "../actions/posts.js";
+import { deletePost, getPosts } from "../actions/posts.js";
+import { MdDelete } from "react-icons/md";
 
 function Posts() {
 
@@ -55,9 +57,9 @@ function Posts() {
             className="criclebox tablespace mb-24"
             title="Posts"
             extra={
-                <Radio.Group defaultValue="a">
-                  <Radio.Button value="a"><a id="add-mem" href="/post">Ajouter un post</a></Radio.Button>
-                </Radio.Group>
+              <Radio.Group defaultValue="a">
+                <Radio.Button value="a"><a id="add-mem" href="/post">Ajouter un post</a></Radio.Button>
+              </Radio.Group>
             }
           >
 
@@ -72,11 +74,28 @@ function Posts() {
 
               <div className='blog-container'>
                 {filteredData?.map((item, index) => (
-                  <StandardCard
-                    type="post"
-                    key={index}
-                    item={item}
-                  />
+                  <div style={{
+                    display: 'inline-block'
+                  }}>
+                    <StandardCard
+                      type="post"
+                      key={index}
+                      item={item}
+                    />
+                    <Button
+                      type="danger"
+                      htmlType="submit"
+                      style={{ width: "55px", marginTop: '10px', display: "block", margin: "10px auto" }}
+                      onClick={() => dispatch(deletePost(item._id))}
+                    >
+                      <MdDelete style={{
+                        margin: 'auto',
+                        display: 'block',
+                        width: '100%',
+                        height: '100%',
+                      }} />
+                    </Button>
+                  </div>
                 ))}
               </div>
             </section>

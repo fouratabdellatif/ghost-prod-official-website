@@ -8,10 +8,10 @@ const jobSchema = mongoose.Schema({
     email: { type: String },
     cv: { type: String },
     text: { type: String },
-    createdAt: {
-        type: Date,
-        default: new Date(),
-    },
+    createdAt: { type: Date },
+    cloudinary_id: {
+        type: String,
+    }
 })
 
 var job = mongoose.model('job', jobSchema);

@@ -76,6 +76,7 @@ export const fetchSliders = () => API.get('/sliders');
 export const createSlider = (newSlider) => API.post('/sliders/createSlider', newSlider);
 export const updateSlider = (id, updatedSlider) => API.patch(`/sliders/updateSlider/${id}`, updatedSlider);
 export const deleteSlider = (id) => API.delete(`/sliders/deleteSlider/${id}`);
+export const deleteAllSliders = (id) => API.delete(`/sliders/deleteAllSliders`);
 
 
 export const fetchReels = () => API.get('/reels');

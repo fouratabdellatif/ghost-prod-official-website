@@ -1,6 +1,6 @@
 import express from 'express';
 import mongoose from 'mongoose';
-import fs from 'fs';
+import cloudinary from '../utils/cloudinary.js';
 
 import Artist from '../models/artist.js';
 import "moment/locale/fr.js";
@@ -46,52 +46,59 @@ export const createArtist = async (req, res) => {
 
     const imageFile = req.files['imageFile'];
     req.files['musicSrc'] = musicSrc;
+
+    const musicFiles = req.files['musicSrc'];
     // console.log(imageFile[0])
-    console.log("musicSrccccccccccccccc", req.files['musicSrc'])
+    // console.log("musicSrccccccccccccccc", musicSrc[0].path)
 
-    let audioLists = [];
-    const len = Object.keys(musicSrc).length;
-
-    for (let i = 0; i < len - 1; i++) {
-        audioLists.push(musicSrc[i]);
-        audioLists[i].singer = `${firstname} ${lastname}`;
-        audioLists[i].coverImage = imageFile[0].filename;
-        audioLists[i].musicSrc = musicSrc[i].name;
-        // console.log(musicSrc[i]);
-        // console.log('aaalooooo');
-    }
-
-    console.log("audioLists", musicSrc);
-
-    const newArtist = new Artist({
-        firstname,
-        lastname,
-        spec,
-        city,
-        phone,
-        email,
-        bio,
-        facebook,
-        instagram,
-        linkedin,
-        audioLists: audioLists,
-        imageFile: imageFile[0].filename,
-        musicSrc: musicSrc,
-    })
 
     try {
+        // Upload image to cloudinary
+        const resultImage = await cloudinary.v2.uploader.upload(imageFile[0].path, { resource_type: "auto" });
+
+
+        // for (let j = 0; j < len; j++)
+        // const resultAudio = await cloudinary.v2.uploader.upload(req.files['musicSrc'][0].path, { resource_type: "auto" });
+
+        let audioLists = [];
+        const len = Object.keys(musicSrc).length;
+
+        for (let i = 0; i < len - 1; i++) {
+            audioLists.push(musicSrc[i]);
+            audioLists[i].singer = `${firstname} ${lastname}`;
+            audioLists[i].coverImage = resultImage.secure_url;
+            audioLists[i].musicSrc = musicSrc[i].name;
+            audioLists[i].path = musicSrc[i].path;
+            req.files['musicSrc'][i].path = imageFile[0].path.substring(0, imageFile[0].path.length - 32);
+            console.log(req.files['musicSrc'][i].path);
+            const resultAudio = await cloudinary.v2.uploader.upload(req.files['musicSrc'][i].path, { resource_type: "auto" });
+            audioLists[i].musicSrc = resultAudio.secure_url;
+            // console.log(musicSrc[i]);
+            // console.log('aaalooooo');
+        }
+
+
+        // console.log("audioLists", musicSrc);
+
+        const newArtist = new Artist({
+            firstname,
+            lastname,
+            spec,
+            city,
+            phone,
+            email,
+            bio,
+            facebook,
+            instagram,
+            linkedin,
+            audioLists: audioLists,
+            imageFile: resultImage.secure_url,
+            musicSrc: musicSrc,
+            cloudinary_id: resultImage.public_id,
+            createdAt: new Date(),
+        })
 
         await newArtist.save();
-
-        fs.copyFile(`C:/Github/ghost-prod-official-website/frontend/public/uploads/${imageFile[0].filename}`, `C:/Github/ghost-prod-official-website/admin/public/uploads/${imageFile[0].filename}`, (err) => {
-            if (err) throw err;
-            console.log(`${imageFile[0].filename} was copied`);
-        });
-
-        // fs.copyFile(`C:/Github/ghost-prod-official-website/frontend/public/uploads/${musicSrc.filename}`, `C:/Github/ghost-prod-official-website/admin/public/uploads/${musicSrc.filename}`, (err) => {
-        //     if (err) throw err;
-        //     console.log(`${musicSrc.filename} was copied`);
-        // });
 
         res.status(201).json(newArtist);
     } catch (error) {
