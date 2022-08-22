@@ -3,6 +3,8 @@ import { Link } from 'react-router-dom';
 import '../../assets/css/TeamCard.css';
 
 function TeamCard({ item }) {
+    console.log(item)
+    console.log("img: ", item.profileImage)
     return (
         <div className="team-card-wrapper">
             <div className="team-card">
