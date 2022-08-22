@@ -43,17 +43,19 @@ export const createArtist = async (req, res) => {
         linkedin
     } = req.body;
 
-    const imageFile = req.files.imageFile[0];
-    const musicSrc = req.files.musicSrc[0];
+    const imageFile = req.files.imageFile;
+    const musicSrc = req.files.musicSrc;
+
+    console.log(req.files);
 
     try {
         // Upload image to cloudinary
-        const resultImage = await cloudinary.v2.uploader.upload(imageFile.path, { resource_type: "auto" });
-        const resultAudio = await cloudinary.v2.uploader.upload(musicSrc.path, { resource_type: "auto" });
+        const resultImage = await cloudinary.v2.uploader.upload(imageFile[0].path, { resource_type: "auto" });
+        const resultAudio = await cloudinary.v2.uploader.upload(musicSrc[0].path, { resource_type: "auto" });
 
         let audioLists = [];
-        audioLists.push(musicSrc)
-        audioLists[0].name = musicSrc.originalname;
+        audioLists.push(musicSrc[0])
+        audioLists[0].name = musicSrc[0].originalname;
         audioLists[0].singer = `${firstname} ${lastname}`;
         audioLists[0].cover = resultImage.secure_url;
         audioLists[0].musicSrc = resultAudio.secure_url;
@@ -116,8 +118,8 @@ export const updateArtist = async (req, res) => {
         linkedin
     } = req.body;
 
-    const imageFile = req.files.imageFile[0];
-    const musicSrc = req.files.musicSrc[0];
+    const imageFile = req.files.imageFile;
+    const musicSrc = req.files.musicSrc;
 
     try {
         let artist = await Artist.findById(id);
@@ -128,12 +130,12 @@ export const updateArtist = async (req, res) => {
         // Upload image to cloudinary
         let resultImg;
         if (imageFile) {
-            resultImg = await cloudinary.v2.uploader.upload(imageFile.path, { resource_type: "auto" });
+            resultImg = await cloudinary.v2.uploader.upload(imageFile[0].path, { resource_type: "auto" });
         }
         // Upload video to cloudinary
         let resultAud;
         if (musicSrc) {
-            resultAud = await cloudinary.v2.uploader.upload(musicSrc.path, { resource_type: "auto" });
+            resultAud = await cloudinary.v2.uploader.upload(musicSrc[0].path, { resource_type: "auto" });
         }
 
         if (!mongoose.Types.ObjectId.isValid(id)) return res.status(404).send(`No artist with id: ${id}`);
