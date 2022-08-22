@@ -54,7 +54,9 @@ const PostPage = () => {
                             <Post
                                 item={post}
                             />
-                            <Sidebar id={post?._id} />
+                            {posts.length > 1 && (
+                                <Sidebar id={post?._id} />
+                            )}
                         </div>
                     </>
                 } />
