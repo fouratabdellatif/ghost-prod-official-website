@@ -24,18 +24,10 @@ import { useDispatch, useSelector } from "react-redux";
 import { deleteMember, getMembers } from "../actions/members";
 import { useState } from "react";
 import Tracker from "./Tracker";
-import { AdvancedImage } from '@cloudinary/react';
-import { Cloudinary } from "@cloudinary/url-gen";
 
 const { Title } = Typography;
 
 function Members() {
-
-  const cld = new Cloudinary({
-    cloud: {
-      cloudName: 'dvxc8xizr'
-    }
-  });
 
   const members = useSelector((state) => state.members);
 
@@ -112,10 +104,8 @@ function Members() {
                 className="shape-avatar"
                 shape="square"
                 size={40}
-              // src={item?.profileImage}
-              >
-                <AdvancedImage cldImg={cld.image(item?.cloudinary_id)} />
-              </Avatar>
+                src={item?.profileImage}
+              ></Avatar>
               <div className="avatar-info">
                 <Title level={5}>{item?.firstname} {item?.lastname}</Title>
 
