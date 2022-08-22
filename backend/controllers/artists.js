@@ -43,17 +43,17 @@ export const createArtist = async (req, res) => {
         linkedin
     } = req.body;
 
-    const imageFile = req.files['imageFile'];
-    const musicSrc = req.files['musicSrc'];
+    const imageFile = req.files.imageFile[0];
+    const musicSrc = req.files.musicSrc[0];
 
     try {
         // Upload image to cloudinary
-        const resultImage = await cloudinary.v2.uploader.upload(imageFile[0].path, { resource_type: "auto" });
-        const resultAudio = await cloudinary.v2.uploader.upload(musicSrc[0].path, { resource_type: "auto" });
+        const resultImage = await cloudinary.v2.uploader.upload(imageFile.path, { resource_type: "auto" });
+        const resultAudio = await cloudinary.v2.uploader.upload(musicSrc.path, { resource_type: "auto" });
 
         let audioLists = [];
-        audioLists.push(musicSrc[0])
-        audioLists[0].name = musicSrc[0].originalname;
+        audioLists.push(musicSrc)
+        audioLists[0].name = musicSrc.originalname;
         audioLists[0].singer = `${firstname} ${lastname}`;
         audioLists[0].cover = resultImage.secure_url;
         audioLists[0].musicSrc = resultAudio.secure_url;
