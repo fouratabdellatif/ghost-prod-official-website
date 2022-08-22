@@ -96,7 +96,7 @@ function Members() {
   const dataSource = filteredData?.map((item, index) => {
     return (
       {
-        key: `${item._id}`,
+        key: `${item?._id}`,
         member: (
           <>
             <Avatar.Group>
@@ -104,10 +104,10 @@ function Members() {
                 className="shape-avatar"
                 shape="square"
                 size={40}
-                src={item.profileImage}
+                src={item?.profileImage}
               ></Avatar>
               <div className="avatar-info">
-                <Title level={5}>{item.firstname} {item.lastname}</Title>
+                <Title level={5}>{item?.firstname} {item?.lastname}</Title>
 
               </div>
             </Avatar.Group>{" "}
@@ -116,36 +116,36 @@ function Members() {
         spec: (
           <>
             <div className="author-info">
-              <Title level={5}>{item.spec}</Title>
+              <Title level={5}>{item?.spec}</Title>
               <p>GhostProd</p>
             </div>
           </>
         ),
-        city: `${item.city}`,
-        phone: `${item.phone}`,
+        city: `${item?.city}`,
+        phone: `${item?.phone}`,
         social: (
           <>
             <div className="ant-employed">
               <span>
                 <Descriptions >
                   <Descriptions.Item span={3}>
-                    {item.linkedin && (
-                      <a href={`${item.linkedin}`} target='_blank' className="mx-5 px-5" rel="noreferrer">
+                    {item?.linkedin && (
+                      <a href={`${item?.linkedin}`} target='_blank' className="mx-5 px-5" rel="noreferrer">
                         {<LinkedinOutlined />}
                       </a>
                     )}
-                    {item.facebook && (
-                      <a href={`${item.facebook}`} target='_blank' className="mx-5 px-5" rel="noreferrer">
+                    {item?.facebook && (
+                      <a href={`${item?.facebook}`} target='_blank' className="mx-5 px-5" rel="noreferrer">
                         {<FacebookOutlined style={{ color: "#344e86" }} />}
                       </a>
                     )}
-                    {item.instagram && (
-                      <a href={`${item.instagram}`} target='_blank' className="mx-5 px-5" rel="noreferrer">
+                    {item?.instagram && (
+                      <a href={`${item?.instagram}`} target='_blank' className="mx-5 px-5" rel="noreferrer">
                         {<InstagramOutlined style={{ color: "#e1306c" }} />}
                       </a>
                     )}
-                    {item.behance && (
-                      <a href={`${item.behance}`} target='_blank' className="mx-5 px-5" rel="noreferrer">
+                    {item?.behance && (
+                      <a href={`${item?.behance}`} target='_blank' className="mx-5 px-5" rel="noreferrer">
                         {<BehanceOutlined style={{ color: "#e1306c" }} />}
                       </a>
                     )}
@@ -157,12 +157,12 @@ function Members() {
         ),
         actions: (
           <div className="ant-employed">
-            <a href={`/member/${item._id}`}>
+            <a href={`/member/${item?._id}`}>
               <Button type="link" className="darkbtn">
                 <EditOutlined />
               </Button></a>
             <a onClick={() => {
-              dispatch(deleteMember(item._id))
+              dispatch(deleteMember(item?._id))
             }}>
               <Button type="link" danger>
                 <DeleteOutlined />
