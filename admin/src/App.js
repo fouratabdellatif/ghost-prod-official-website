@@ -35,6 +35,19 @@ import Pages from "./pages/Pages";
 import SignIn from "./pages/SignIn";
 import AddAccount from "./pages/AddAccount";
 import { useState } from "react";
+import { useEffect } from "react";
+import { useDispatch } from "react-redux";
+import { getArtists } from "./actions/artists";
+import { getProjects } from "./actions/projects";
+import { getMembers } from "./actions/members";
+import { getPosts } from "./actions/posts";
+import { getFeedbacks, getWorkDMs } from "./actions/reclamations";
+import { getPages } from "./actions/pages";
+import { getPartners } from "./actions/partners";
+import { getServices } from "./actions/services";
+import { getJobRequests } from "./actions/jobs";
+import { getReels } from "./actions/reel";
+import { getSliders } from "./actions/slider";
 // import NotFound from "./pages/NotFound";
 
 const MyRoute = ({ path, redirect, component }) => {
@@ -68,7 +81,24 @@ const HomeRoute = ({ path, component }) => {
 }
 
 const DefaultContainer = () => {
+
+  const dispatch = useDispatch();
   const [user] = useState(JSON.parse(localStorage.getItem("profile")));
+
+  useEffect(async () => {
+    await dispatch(getArtists());
+    await dispatch(getProjects());
+    await dispatch(getMembers());
+    await dispatch(getPosts());
+    await dispatch(getFeedbacks());
+    await dispatch(getPages());
+    await dispatch(getPartners());
+    await dispatch(getServices());
+    await dispatch(getWorkDMs());
+    await dispatch(getJobRequests());
+    await dispatch(getReels());
+    await dispatch(getSliders());
+  }, []);
 
   return (
 

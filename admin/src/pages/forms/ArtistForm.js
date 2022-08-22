@@ -1,3 +1,5 @@
+/* eslint-disable eqeqeq */
+/* eslint-disable react-hooks/exhaustive-deps */
 import React, { useState } from "react";
 import {
   Layout,
@@ -8,8 +10,9 @@ import {
   Space
 } from "antd";
 import { createArtist } from "../../actions/artists";
-import { useDispatch } from "react-redux";
-import { useHistory } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { useHistory, useParams } from "react-router-dom";
+import { useEffect } from "react";
 
 
 const { Title } = Typography;
@@ -17,7 +20,29 @@ const { Content } = Layout;
 
 const ArtistForm = () => {
 
-  const initState = {
+  const { id } = useParams();
+
+  const artistsData = useSelector((state) => state.artists);
+
+  let artists = artistsData.filter((item) => item?._id == id).map((item, index) => {
+    return item;
+  });
+
+  const artist = artists[0];
+
+  const initState = id ? {
+    firstname: artist?.firstname,
+    lastname: artist?.lastname,
+    city: artist?.city,
+    phone: artist?.phone,
+    email: artist?.email,
+    bio: artist?.bio,
+    facebook: artist?.facebook,
+    instagram: artist?.instagram,
+    linkedin: artist?.linkedin,
+    imageFile: artist?.imageFile,
+    musicSrc: artist?.musicSrc,
+  } : {
     firstname: '',
     lastname: '',
     city: '',
@@ -31,7 +56,15 @@ const ArtistForm = () => {
     musicSrc: '',
   }
 
-  const [formData, setFormData] = useState(initState);
+  console.log(initState);
+
+  const [formData, setFormData] = useState();
+
+  useEffect(async() => {
+    await setFormData(initState);
+  }, [])
+
+  console.log("formdata:", formData);
 
   const handleChange = (e) => {
     e.preventDefault();

@@ -116,29 +116,61 @@ export const updateArtist = async (req, res) => {
         linkedin
     } = req.body;
 
-    if (!mongoose.Types.ObjectId.isValid(id)) return res.status(404).send(`No artist with id: ${id}`);
+    const imageFile = req.files.imageFile[0];
+    const musicSrc = req.files.musicSrc[0];
 
-    const updatedArtist = {
-        firstname,
-        lastname,
-        spec,
-        city,
-        phone,
-        email,
-        bio,
-        facebook,
-        instagram,
-        linkedin,
-        _id: id
-    };
+    try {
+        let artist = await Artist.findById(id);
+        // Delete image from cloudinary
+        await cloudinary.uploader.destroy(artist.cloudinary_img_id);
+        // Delete video from cloudinary
+        await cloudinary.uploader.destroy(artist.cloudinary_vid_id);
+        // Upload image to cloudinary
+        let resultImg;
+        if (imageFile) {
+            resultImg = await cloudinary.v2.uploader.upload(imageFile.path, { resource_type: "auto" });
+        }
+        // Upload video to cloudinary
+        let resultAud;
+        if (musicSrc) {
+            resultAud = await cloudinary.v2.uploader.upload(musicSrc.path, { resource_type: "auto" });
+        }
 
-    await Artist.findByIdAndUpdate(id, updatedArtist, { new: true });
+        if (!mongoose.Types.ObjectId.isValid(id)) return res.status(404).send(`No artist with id: ${id}`);
 
-    res.json(updatedArtist);
+        const updatedArtist = {
+            firstname: firstname || artist.firstname,
+            lastname: lastname || artist.lastname,
+            spec: spec || artist.spec,
+            city: city || artist.city,
+            phone: phone || artist.phone,
+            email: email || artist.email,
+            bio: bio || artist.bio,
+            facebook: facebook || artist.facebook,
+            instagram: instagram || artist.instagram,
+            linkedin: linkedin || artist.linkedin,
+            imageFile: resultImg.secure_url,
+            cloudinary_img_id: resultImg.public_id,
+            musicSrc: resultAud.secure_url,
+            cloudinary_aud_id: resultAud.public_id,
+            _id: id
+        };
+
+        await Artist.findByIdAndUpdate(id, updatedArtist, { new: true });
+
+        res.json(updatedArtist);
+    } catch (err) {
+        console.log(err);
+    }
 }
 
 export const deleteArtist = async (req, res) => {
     const { id } = req.params;
+
+    let artist = await Artist.findById(id);
+    // Delete image from cloudinary
+    await cloudinary.uploader.destroy(artist.cloudinary_img_id);
+    await cloudinary.uploader.destroy(artist.cloudinary_aud_id);
 
     if (!mongoose.Types.ObjectId.isValid(id)) return res.status(404).send(`No artist with id: ${id}`);
 

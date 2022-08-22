@@ -173,7 +173,7 @@ function Artists() {
         ),
         actions: (
           <div className="ant-employed">
-            <a href={`/artist/${item?._id}`}>
+            <a href={`/voice-over-artist/${item?._id}`}>
               <Button type="link" className="darkbtn">
                 <EditOutlined />
               </Button></a>
