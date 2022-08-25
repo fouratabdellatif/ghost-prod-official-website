@@ -35,20 +35,18 @@ function Footer() {
                         </div>
                     </div>
                     <div className='footer-link-items'>
-                        <h2>More on the Blog</h2>
+                        <h2>News & Info</h2>
                         <hr className="solid" />
-                        <Link to='/contact'><span1><i className="fas fa-chevron-right"></i>&nbsp;&nbsp;Contact us</span1></Link>
-                        <Link to='/'><span1><i className="fas fa-chevron-right"></i>&nbsp;&nbsp;Contributors And Writers</span1></Link>
-                        <Link to='/'><span1><i className="fas fa-chevron-right"></i>&nbsp;&nbsp;Write for us</span1></Link>
-                        <Link to='/about-us'><span1><i className="fas fa-chevron-right"></i>&nbsp;&nbsp;A propos de GhostProd</span1></Link>
-                        <Link to='/privacy'><span1><i className="fas fa-chevron-right"></i>&nbsp;&nbsp;Privacy Policy</span1></Link>
+                        <Link to='/contact'><span1><i className="fas fa-chevron-right"></i>&nbsp;&nbsp;Contact Us</span1></Link>
+                        <Link to='/blog'><span1><i className="fas fa-chevron-right"></i>&nbsp;&nbsp;Blog</span1></Link>
+                        <Link to='/about-us'><span1><i className="fas fa-chevron-right"></i>&nbsp;&nbsp;À propos de GhostProd</span1></Link>
                     </div>
                     <div className='footer-link-items'>
                         <h2>More on GhostProd</h2>
                         <hr className="solid" />
                         <Link to='/team'><span1><i className="fas fa-chevron-right"></i>&nbsp;&nbsp;The Team</span1></Link>
-                        <Link to='/jobs'><span1><i className="fas fa-chevron-right"></i>&nbsp;&nbsp;Jobs</span1></Link>
-                        <Link to='/press'><span1><i className="fas fa-chevron-right"></i>&nbsp;&nbsp;Press</span1></Link>
+                        <Link to='/services'><span1><i className="fas fa-chevron-right"></i>&nbsp;&nbsp;Our Services</span1></Link>
+                        <Link to='/voice-over'><span1><i className="fas fa-chevron-right"></i>&nbsp;&nbsp;Voice-Over</span1></Link>
                     </div>
                 </div>
             </div>

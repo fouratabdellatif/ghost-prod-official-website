@@ -7,6 +7,7 @@ import Select from "../Input/Select";
 import { useState } from "react";
 import { sendReclamation } from "../../actions/reclamations";
 import { useDispatch } from "react-redux";
+import CustomLoader from "../CustomLoader";
 
 const ContactForm = () => {
 
@@ -25,6 +26,7 @@ const ContactForm = () => {
     }
 
     const [formData, setFormData] = useState(initState);
+    const [loader, setLoader] = useState(false);
 
     const handleChange = (e) => {
         const name = e.target.name;
@@ -41,7 +43,9 @@ const ContactForm = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+        await setLoader(true);
         await dispatch(sendReclamation(formData));
+        await setLoader(false);
     }
 
     return (
@@ -96,9 +100,13 @@ const ContactForm = () => {
                 </div>
                 <div className="contact-form-first">
                     <div className="btn-wrapper">
-                        <SubmitButton className="send-button" type="submit">
-                            Send
-                        </SubmitButton>
+                        {loader ? (
+                            <CustomLoader />
+                        ) : (
+                            <SubmitButton className="send-button" type="submit">
+                                Send
+                            </SubmitButton>
+                        )}
                     </div>
                 </div>
             </form>

@@ -6,12 +6,14 @@ import {
   Row,
   Col,
   Typography,
-  Space
+  Space,
+  Spin
 } from "antd";
 import { createPartner, getPartnerById, updatePartner } from "../../actions/partners";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory, useParams } from "react-router-dom";
 import { useEffect } from "react";
+import { LoadingOutlined } from "@ant-design/icons";
 
 
 const { Title } = Typography;
@@ -39,6 +41,7 @@ const PartnerForm = () => {
   })
 
   const [formData, setFormData] = useState(initState);
+  const [loader, setLoader] = useState(false);
 
   const handleChange = (e) => {
     e.preventDefault();
@@ -57,10 +60,15 @@ const PartnerForm = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    if (id)
+    if (id) {
+      await setLoader(true);
       await dispatch(updatePartner(id, formData));
+      await setLoader(false);
+    }
     else {
+      await setLoader(true);
       await dispatch(createPartner(formData));
+      await setLoader(false);
     }
     await history.push('/partners');
   }
@@ -132,13 +140,23 @@ const PartnerForm = () => {
                   lg={{ span: 7, offset: 2 }}
                   md={{ span: 12 }}
                 >
-                  <Button
-                    type="primary"
-                    htmlType="submit"
-                    style={{ width: "100%" }}
-                  >
-                    AJOUTER
-                  </Button>
+                  {loader ? (
+                    <Spin indicator={
+                      <LoadingOutlined
+                        style={{
+                          fontSize: 32,
+                        }}
+                        spin
+                      />} />
+                  ) : (
+                    <Button
+                      type="primary"
+                      htmlType="submit"
+                      style={{ width: "100%" }}
+                    >
+                      ENREGISTRER
+                    </Button>
+                  )}
                 </Col>
               </Space>
             </form>

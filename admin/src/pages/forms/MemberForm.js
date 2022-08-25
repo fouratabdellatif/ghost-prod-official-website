@@ -7,12 +7,16 @@ import {
   Row,
   Col,
   Typography,
-  Space
+  Space,
+  Spin
 } from "antd";
 import { createMember, getMembers, updateMember } from "../../actions/members";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory, useParams } from "react-router-dom";
 import { useEffect } from "react";
+import {
+  LoadingOutlined
+} from '@ant-design/icons';
 
 
 const { Title } = Typography;
@@ -66,6 +70,7 @@ const MemberForm = () => {
   })
 
   const [formData, setFormData] = useState(initState);
+  const [loader, setLoader] = useState(false);
 
   const handleChange = (e) => {
     e.preventDefault();
@@ -82,10 +87,14 @@ const MemberForm = () => {
     e.preventDefault();
     if (id) {
       // console.log(formData);
+      await setLoader(true);
       await dispatch(updateMember(id, formData));
+      await setLoader(false);
     }
     else {
+      await setLoader(true);
       await dispatch(createMember(formData));
+      await setLoader(false);
     }
     await history.push('/members');
   }
@@ -234,13 +243,24 @@ const MemberForm = () => {
                   lg={{ span: 7, offset: 2 }}
                   md={{ span: 12 }}
                 >
-                  <Button
-                    type="primary"
-                    htmlType="submit"
-                    style={{ width: "100%" }}
-                  >
-                    AJOUTER
-                  </Button>
+                  {loader ? (
+                    <Spin indicator={
+                      <LoadingOutlined
+                        style={{
+                          fontSize: 32,
+                        }}
+                        fill="#bf0000"
+                        spin
+                      />} />
+                  ) : (
+                    <Button
+                      type="primary"
+                      htmlType="submit"
+                      style={{ width: "100%" }}
+                    >
+                      ENREGISTRER
+                    </Button>
+                  )}
                 </Col>
               </Space>
             </form>

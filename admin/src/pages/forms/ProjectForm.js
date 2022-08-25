@@ -5,9 +5,10 @@ import {
   Row,
   Col,
   Typography,
-  Space
+  Space,
+  Spin
 } from "antd";
-import { MinusOutlined, PlusOutlined } from "@ant-design/icons";
+import { LoadingOutlined, MinusOutlined, PlusOutlined } from "@ant-design/icons";
 import { createProject } from "../../actions/projects";
 import { useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
@@ -45,6 +46,7 @@ const ProjectForm = () => {
   }
 
   const [formData, setFormData] = useState(initState);
+  const [loader, setLoader] = useState(false);
 
   let addPartnerFields = () => {
     setPartners([...partners, { name: "", partnerLink: "" }])
@@ -123,6 +125,7 @@ const ProjectForm = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    await setLoader(true);
     await setFormData({
       ...formData,
       partners: partners,
@@ -130,6 +133,7 @@ const ProjectForm = () => {
     })
     // await console.log("FORMDATA", formData);
     await dispatch(createProject(formData));
+    await setLoader(false);
     await history.push('/projects');
   }
 
@@ -249,14 +253,14 @@ const ProjectForm = () => {
                           }}
                           defaultValue=""
                         />
-                      {
-                        index ?
-                        <button type="button" className="button remove" onClick={() => removePartnerFields(index)}>
-                            <MinusOutlined />
-                          </button>
-                          : null
+                        {
+                          index ?
+                            <button type="button" className="button remove" onClick={() => removePartnerFields(index)}>
+                              <MinusOutlined />
+                            </button>
+                            : null
                         }
-                        </Space>
+                      </Space>
                     </div>
                   ))}
                   <div className="button-section">
@@ -314,13 +318,23 @@ const ProjectForm = () => {
                   lg={{ span: 7, offset: 2 }}
                   md={{ span: 12 }}
                 >
-                  <Button
-                    type="primary"
-                    htmlType="submit"
-                    style={{ width: "100%" }}
-                  >
-                    AJOUTER
-                  </Button>
+                  {loader ? (
+                    <Spin indicator={
+                      <LoadingOutlined
+                        style={{
+                          fontSize: 32,
+                        }}
+                        spin
+                      />} />
+                  ) : (
+                    <Button
+                      type="primary"
+                      htmlType="submit"
+                      style={{ width: "100%" }}
+                    >
+                      ENREGISTRER
+                    </Button>
+                  )}
                 </Col>
               </Space>
             </form>

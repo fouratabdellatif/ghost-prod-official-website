@@ -6,12 +6,14 @@ import {
   Row,
   Col,
   Typography,
-  Space
+  Space,
+  Spin
 } from "antd";
 import { createPage, deletePage, updatePage } from "../../actions/pages";
 import { useDispatch } from "react-redux";
 import "../../assets/css/PageForm.css";
 import preview from "../../assets/images/preview.jpg"
+import { LoadingOutlined } from "@ant-design/icons";
 // import { MdDelete } from "react-icons/md";
 
 
@@ -40,6 +42,7 @@ const PageForm = ({ data, name, pageName }) => {
   }
 
   const [formData, setFormData] = useState(initState);
+  const [loader, setLoader] = useState(false);
 
   const handleChange = (e) => {
     e.preventDefault();
@@ -61,10 +64,15 @@ const PageForm = ({ data, name, pageName }) => {
       ...formData
     })
     // await console.log("FORMDATA", formData);
-    if (page)
+    if (page) {
+      await setLoader(true);
       await dispatch(updatePage(page._id, formData));
+      await setLoader(false);
+    }
     else {
+      await setLoader(true);
       await dispatch(createPage(formData));
+      await setLoader(false);
     }
   }
 
@@ -146,13 +154,23 @@ const PageForm = ({ data, name, pageName }) => {
                     // lg={{ span: 7, offset: 2 }}
                     // md={{ span: 12 }}
                     >
-                      <Button
-                        type="primary"
-                        htmlType="submit"
-                        style={{ width: "200px", marginRight: '10px' }}
-                      >
-                        AJOUTER
-                      </Button>
+                      {loader ? (
+                        <Spin indicator={
+                          <LoadingOutlined
+                            style={{
+                              fontSize: 32,
+                            }}
+                            spin
+                          />} />
+                      ) : (
+                        <Button
+                          type="primary"
+                          htmlType="submit"
+                          style={{ width: "200px", marginRight: '10px' }}
+                        >
+                          ENREGISTRER
+                        </Button>
+                      )}
                       <Button
                         type="danger"
                         htmlType="submit"

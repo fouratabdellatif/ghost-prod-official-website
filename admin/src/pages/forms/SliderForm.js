@@ -5,11 +5,13 @@ import {
   Row,
   Col,
   Typography,
-  Space
+  Space,
+  Spin
 } from "antd";
 import { createSlider } from "../../actions/slider";
 import { useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
+import { LoadingOutlined } from "@ant-design/icons";
 
 
 const { Title } = Typography;
@@ -25,6 +27,7 @@ const SliderForm = () => {
   }
 
   const [formData, setFormData] = useState(initState);
+  const [loader, setLoader] = useState(false);
 
   const handleChange = (e) => {
     e.preventDefault();
@@ -43,11 +46,13 @@ const SliderForm = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    await setLoader(true);
     await setFormData({
       ...formData
     })
     // await console.log("FORMDATA", formData);
     await dispatch(createSlider(formData));
+    await setLoader(false);
     await history.push('/sliders');
   }
 
@@ -124,13 +129,23 @@ const SliderForm = () => {
                   lg={{ span: 7, offset: 2 }}
                   md={{ span: 12 }}
                 >
-                  <Button
-                    type="primary"
-                    htmlType="submit"
-                    style={{ width: "100%" }}
-                  >
-                    AJOUTER
-                  </Button>
+                  {loader ? (
+                    <Spin indicator={
+                      <LoadingOutlined
+                        style={{
+                          fontSize: 32,
+                        }}
+                        spin
+                      />} />
+                  ) : (
+                    <Button
+                      type="primary"
+                      htmlType="submit"
+                      style={{ width: "100%" }}
+                    >
+                      ENREGISTRER
+                    </Button>
+                  )}
                 </Col>
               </Space>
             </form>

@@ -6,9 +6,10 @@ import {
   Row,
   Col,
   Typography,
-  Space
+  Space,
+  Spin
 } from "antd";
-import { MinusOutlined, PlusOutlined } from "@ant-design/icons";
+import { LoadingOutlined, MinusOutlined, PlusOutlined } from "@ant-design/icons";
 import { createPost, getPostById, updatePost } from "../../actions/posts";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory, useParams } from "react-router-dom";
@@ -44,6 +45,7 @@ const PostForm = () => {
   })
 
   const [formData, setFormData] = useState(initState);
+  const [loader, setLoader] = useState(false);
 
   let addContentFields = () => {
     setContent([...content, ""])
@@ -94,14 +96,19 @@ const PostForm = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    if (id)
+    if (id) {
+      await setLoader(true);
       await dispatch(updatePost(id, formData));
+      await setLoader(false);
+    }
     else {
+      await setLoader(true);
       await setFormData({
         ...formData,
         content: content,
       })
       await dispatch(createPost(formData));
+      await setLoader(false);
     }
     await history.push('/posts');
   }
@@ -221,13 +228,23 @@ const PostForm = () => {
                   lg={{ span: 7, offset: 2 }}
                   md={{ span: 12 }}
                 >
-                  <Button
-                    type="primary"
-                    htmlType="submit"
-                    style={{ width: "100%" }}
-                  >
-                    AJOUTER
-                  </Button>
+                  {loader ? (
+                    <Spin indicator={
+                      <LoadingOutlined
+                        style={{
+                          fontSize: 32,
+                        }}
+                        spin
+                      />} />
+                  ) : (
+                    <Button
+                      type="primary"
+                      htmlType="submit"
+                      style={{ width: "100%" }}
+                    >
+                      ENREGISTRER
+                    </Button>
+                  )}
                 </Col>
               </Space>
             </form>

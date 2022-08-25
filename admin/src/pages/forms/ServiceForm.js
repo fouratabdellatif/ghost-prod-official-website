@@ -6,9 +6,10 @@ import {
   Row,
   Col,
   Typography,
-  Space
+  Space,
+  Spin
 } from "antd";
-import { MinusOutlined, PlusOutlined } from "@ant-design/icons";
+import { LoadingOutlined, MinusOutlined, PlusOutlined } from "@ant-design/icons";
 import { createService, getServiceById, updateService } from "../../actions/services";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory, useParams } from "react-router-dom";
@@ -44,6 +45,7 @@ const ServiceForm = () => {
   })
 
   const [formData, setFormData] = useState(initState);
+  const [loader, setLoader] = useState(false);
 
   let addContentFields = () => {
     setSteps([...steps, ""])
@@ -89,14 +91,19 @@ const ServiceForm = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    if (id)
+    if (id) {
+      await setLoader(true);
       await dispatch(updateService(id, formData));
+      await setLoader(false);
+    }
     else {
+      await setLoader(true);
       await setFormData({
         ...formData,
         steps: steps,
       })
       await dispatch(createService(formData));
+      await setLoader(false);
     }
     await history.push('/services');
   }
@@ -140,12 +147,12 @@ const ServiceForm = () => {
                   lg={{ span: 7, offset: 2 }}
                   md={{ span: 12 }}
                 >
-                <textarea placeholder="Quote"
-                  name="quote"
-                  onChange={handleChange}
-                  rows={4}
-                  defaultValue={service?.quote}
-                />
+                  <textarea placeholder="Quote"
+                    name="quote"
+                    onChange={handleChange}
+                    rows={4}
+                    defaultValue={service?.quote}
+                  />
                   <textarea placeholder="Texte"
                     name="text"
                     onChange={handleChange}
@@ -212,13 +219,23 @@ const ServiceForm = () => {
                   lg={{ span: 7, offset: 2 }}
                   md={{ span: 12 }}
                 >
-                  <Button
-                    type="primary"
-                    htmlType="submit"
-                    style={{ width: "100%" }}
-                  >
-                    AJOUTER
-                  </Button>
+                  {loader ? (
+                    <Spin indicator={
+                      <LoadingOutlined
+                        style={{
+                          fontSize: 32,
+                        }}
+                        spin
+                      />} />
+                  ) : (
+                    <Button
+                      type="primary"
+                      htmlType="submit"
+                      style={{ width: "100%" }}
+                    >
+                      ENREGISTRER
+                    </Button>
+                  )}
                 </Col>
               </Space>
             </form>

@@ -124,6 +124,7 @@ const DefaultContainer = () => {
         <HomeRoute path="/sliders" component={<Sliders />} />
         <HomeRoute path="/pages" component={<Pages />} />
         <HomeRoute path="/project" component={<ProjectForm />} />
+        <HomeRoute path="/project/:id" component={<ProjectForm />} />
         <HomeRoute path="/member" component={<MemberForm />} />
         <HomeRoute path="/member/:id" component={<MemberForm />} />
         <HomeRoute path="/post" component={<PostForm />} />

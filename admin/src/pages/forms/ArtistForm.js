@@ -7,12 +7,14 @@ import {
   Row,
   Col,
   Typography,
-  Space
+  Space,
+  Spin
 } from "antd";
 import { createArtist } from "../../actions/artists";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory, useParams } from "react-router-dom";
 import { useEffect } from "react";
+import { LoadingOutlined } from "@ant-design/icons";
 
 
 const { Title } = Typography;
@@ -59,8 +61,9 @@ const ArtistForm = () => {
   console.log(initState);
 
   const [formData, setFormData] = useState();
+  const [loader, setLoader] = useState(false);
 
-  useEffect(async() => {
+  useEffect(async () => {
     await setFormData(initState);
   }, [])
 
@@ -84,7 +87,9 @@ const ArtistForm = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     // await console.log("FORMDATA", formData);
+    await setLoader(true);
     await dispatch(createArtist(formData));
+    await setLoader(false);
     await history.push('/voice-over-artists');
   }
 
@@ -215,13 +220,23 @@ const ArtistForm = () => {
                   lg={{ span: 7, offset: 2 }}
                   md={{ span: 12 }}
                 >
-                  <Button
-                    type="primary"
-                    htmlType="submit"
-                    style={{ width: "100%" }}
-                  >
-                    AJOUTER
-                  </Button>
+                  {loader ? (
+                    <Spin indicator={
+                      <LoadingOutlined
+                        style={{
+                          fontSize: 32,
+                        }}
+                        spin
+                      />} />
+                  ) : (
+                    <Button
+                      type="primary"
+                      htmlType="submit"
+                      style={{ width: "100%" }}
+                    >
+                      ENREGISTRER
+                    </Button>
+                  )}
                 </Col>
               </Space>
             </form>

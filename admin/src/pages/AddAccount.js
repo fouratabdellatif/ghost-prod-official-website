@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   Layout,
   Button,
@@ -6,11 +6,12 @@ import {
   Card,
   Form,
   Input,
+  Spin,
 } from "antd";
 
 import { useHistory } from "react-router-dom";
 import Footer from "../components/layout/Footer";
-import { ArrowLeftOutlined } from "@ant-design/icons";
+import { ArrowLeftOutlined, LoadingOutlined } from "@ant-design/icons";
 import { useDispatch } from "react-redux";
 import { addUser } from "../actions/auth";
 
@@ -41,10 +42,14 @@ export default function AddAccount() {
   const history = useHistory();
   const [form] = Form.useForm();
   const dispatch = useDispatch();
+  const [loader, setLoader] = useState(false);
 
-  const onFinish = (values) => {
+  const onFinish = async (values) => {
     // console.log('Received values of form: ', values);
-    dispatch(addUser(values));
+    await setLoader(true);
+    await dispatch(addUser(values));
+    await setLoader(false);
+    await history.goBack()
   };
 
   return (
@@ -162,13 +167,23 @@ export default function AddAccount() {
               </Form.Item>
 
               <Form.Item>
-                <Button
-                  style={{ width: "100%", backgroundColor: '#e1a33b', borderColor: "#e1a33b" }}
-                  type="primary"
-                  htmlType="submit"
-                >
-                  ADD ACCOUNT
-                </Button>
+                {loader ? (
+                  <Spin indicator={
+                    <LoadingOutlined
+                      style={{
+                        fontSize: 32,
+                      }}
+                      spin
+                    />} />
+                ) : (
+                  <Button
+                    style={{ width: "100%", backgroundColor: '#e1a33b', borderColor: "#e1a33b" }}
+                    type="primary"
+                    htmlType="submit"
+                  >
+                    ADD ACCOUNT
+                  </Button>
+                )}
               </Form.Item>
             </Form>
             {/* <Form

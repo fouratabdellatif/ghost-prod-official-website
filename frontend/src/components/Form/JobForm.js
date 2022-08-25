@@ -7,6 +7,7 @@ import CustomDivider from "../CustomDivider";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { sendJobRequest } from "../../actions/jobs";
+import CustomLoader from "../CustomLoader";
 
 const JobForm = () => {
 
@@ -26,6 +27,7 @@ const JobForm = () => {
     }
 
     const [formData, setFormData] = useState(initState);
+    const [loader, setLoader] = useState(false);
 
     const handleChange = (e) => {
         const name = e.target.name;
@@ -42,7 +44,9 @@ const JobForm = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+        await setLoader(true);
         await dispatch(sendJobRequest(formData));
+        await setLoader(false);
     }
 
     return (
@@ -103,9 +107,13 @@ const JobForm = () => {
                 </div>
                 <div className="job-form-first">
                     <div className="btn-wrapper">
-                        <SubmitButton className="send-button" type="submit">
-                            Send
-                        </SubmitButton>
+                        {loader ? (
+                            <CustomLoader />
+                        ) : (
+                            <SubmitButton className="send-button" type="submit">
+                                Send
+                            </SubmitButton>
+                        )}
                     </div>
                 </div>
             </form>

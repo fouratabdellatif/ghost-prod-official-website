@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   Layout,
   Button,
@@ -7,11 +7,13 @@ import {
   Typography,
   Form,
   Input,
+  Spin,
   // Switch,
 } from "antd";
 import signinbg from "../assets/images/img-signin.png";
 import { useDispatch } from "react-redux";
 import { signIn } from "../actions/auth";
+import { LoadingOutlined } from "@ant-design/icons";
 
 const { Title } = Typography;
 const { Content } = Layout;
@@ -20,10 +22,13 @@ export default function SignIn() {
 
   const [form] = Form.useForm();
   const dispatch = useDispatch();
+  const [loader, setLoader] = useState(false);
 
-  const onFinish = (values) => {
+  const onFinish = async (values) => {
     // console.log('Received values of form: ', values);
-    dispatch(signIn(values));
+    await setLoader(true);
+    await dispatch(signIn(values));
+    await setLoader(false);
   }
 
   return (
@@ -90,8 +95,20 @@ export default function SignIn() {
                   <Button
                     type="primary"
                     htmlType="submit"
-                    style={{ width: "100%", backgroundColor: '#e1a33b', borderColor: "#e1a33b" }}
+                    style={{ width: "100%", backgroundColor: '#e1a33b', borderColor: "#e1a33b", color: "#ffffff" }}
+                    disabled={loader}
                   >
+                    {loader && (
+                      <Spin indicator={
+                        <LoadingOutlined
+                          style={{
+                            fontSize: 22,
+                            color: "#ffffff",
+                            marginRight: '20px'
+                          }}
+                          spin
+                        />} />
+                    )}
                     SIGN IN
                   </Button>
                 </Form.Item>

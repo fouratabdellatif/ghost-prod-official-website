@@ -93,8 +93,7 @@ const Card = ({ item }) => {
             /> */}
             <p className="testimonial-text">{item?.text}</p>
             <p className="testimonial-client">
-                <span className="testimonial-client-name">{item?.name}</span> ,
-                {item?.spec}
+                <span className="testimonial-client-name">{item?.name},</span>&nbsp;{item?.spec}
             </p>
         </div>
     );

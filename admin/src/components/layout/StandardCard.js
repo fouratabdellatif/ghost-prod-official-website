@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 
 function StandardCard({ type, item }) {
     return (
-        <Link to={`/post/${item?._id}`} className='post-card-container' data-aos="slide-up"
+        <Link to={type === "project" ? `/project/${item?._id}` : `/post/${item?._id}`} className='post-card-container' data-aos="slide-up"
         >
             <div className="post-card-content">
                 <div className="post-card-category">

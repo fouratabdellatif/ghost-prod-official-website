@@ -30,6 +30,7 @@ const { Title } = Typography;
 function Members() {
 
   const members = useSelector((state) => state.members);
+  members.sort((a, b) => a.firstname.localeCompare(b.firstname))
 
   const dispatch = useDispatch();
   useEffect(async () => {

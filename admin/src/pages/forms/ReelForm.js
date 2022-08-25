@@ -5,12 +5,14 @@ import {
   Row,
   Col,
   Typography,
-  Space
+  Space,
+  Spin
 } from "antd";
 import { createReel, deleteReel, updateReel } from "../../actions/reel";
 import { useDispatch } from "react-redux";
 import "../../assets/css/ReelForm.css";
 import preview from "../../assets/images/preview.jpg"
+import { LoadingOutlined } from "@ant-design/icons";
 
 
 const { Title } = Typography;
@@ -31,6 +33,7 @@ const ReelForm = ({ item }) => {
   }
 
   const [formData, setFormData] = useState(initState);
+  const [loader, setLoader] = useState(false);
 
   const handleChange = (e) => {
     e.preventDefault();
@@ -52,10 +55,15 @@ const ReelForm = ({ item }) => {
       ...formData
     })
     // await console.log("FORMDATA", formData);
-    if (item)
+    if (item) {
+      await setLoader(true);
       await dispatch(updateReel(item._id, formData));
+      await setLoader(false);
+    }
     else {
+      await setLoader(true);
       await dispatch(createReel(formData));
+      await setLoader(false);
     }
   }
 
@@ -140,13 +148,23 @@ const ReelForm = ({ item }) => {
                       lg={{ span: 7, offset: 2 }}
                       md={{ span: 12 }}
                     >
-                      <Button
-                        type="primary"
-                        htmlType="submit"
-                        style={{ width: "200px", marginRight: '10px' }}
-                      >
-                        AJOUTER
-                      </Button>
+                      {loader ? (
+                        <Spin indicator={
+                          <LoadingOutlined
+                            style={{
+                              fontSize: 32,
+                            }}
+                            spin
+                          />} />
+                      ) : (
+                        <Button
+                          type="primary"
+                          htmlType="submit"
+                          style={{ width: "200px", marginRight: '10px' }}
+                        >
+                          ENREGISTRER
+                        </Button>
+                      )}
                       <Button
                         type="danger"
                         htmlType="submit"
