@@ -25,8 +25,8 @@ const ProjectsPage = () => {
             <CasualPage
                 pageTitle={page ? pageTitle : "Réalisations"}
                 bg={page ? image : bgImage}
-                text={page ? text : "our references"}
-                title={page ? title : "Our Projects"}
+                text={page ? text : "NOS RÉFÉRENCES"}
+                title={page ? title : "Nos Réalisations"}
                 pageContent={
                     <>
                         <ProjectsGroup />

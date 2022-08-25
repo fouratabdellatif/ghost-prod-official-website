@@ -28,7 +28,7 @@ const VoiceOverForm = () => {
                         </div>
                         <div className="voice-over-form-third">
                             <Input
-                                placeholder="Phone"
+                                placeholder="N° Tél"
                             />
                             <Input
                                 placeholder="Address"
@@ -45,7 +45,7 @@ const VoiceOverForm = () => {
                 <div className="voice-over-form-first">
                     <div className="btn-wrapper">
                         <Button className="send-button" type="submit">
-                            Send
+                            Envoyer
                         </Button>
                     </div>
                 </div>

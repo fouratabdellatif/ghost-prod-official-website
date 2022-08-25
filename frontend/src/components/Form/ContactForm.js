@@ -50,13 +50,13 @@ const ContactForm = () => {
 
     return (
         <div className="contact-form-container">
-            <h1 className="contact-title">Tell Us Something</h1>
+            <h1 className="contact-title">Dites-nous quelque chose</h1>
             <CustomDivider />
             <form className="contact-form" onSubmit={handleSubmit}>
                 <div className="testimonial-form-first">
                     <Input
                         name="spec"
-                        placeholder="Organization or Speciality"
+                        placeholder="Organisme ou spécialité"
                         onChange={handleChange}
                     />
                 </div>
@@ -65,7 +65,7 @@ const ContactForm = () => {
                         <div className="contact-form-third">
                             <Input
                                 name="name"
-                                placeholder="Name"
+                                placeholder="Nom & Prénom"
                                 onChange={handleChange}
                             />
                             <Input
@@ -77,14 +77,14 @@ const ContactForm = () => {
                         <div className="contact-form-third">
                             <Input
                                 name="phone"
-                                placeholder="Phone"
+                                placeholder="N° Tél"
                                 onChange={handleChange}
                             />
                             <Select
                                 name="category"
-                                placeholder="How Can we help you?"
+                                placeholder="..."
                                 options={options}
-                                title="How Can we help you?"
+                                title="..."
                                 onChange={handleChange}
                             />
                         </div>
@@ -104,7 +104,7 @@ const ContactForm = () => {
                             <CustomLoader />
                         ) : (
                             <SubmitButton className="send-button" type="submit">
-                                Send
+                                Envoyer
                             </SubmitButton>
                         )}
                     </div>

@@ -152,13 +152,13 @@ const MemberForm = () => {
                 >
                   <Space direction="horizontal" size="middle" style={{ display: 'flex' }}>
                     <input
-                      placeholder="City"
+                      placeholder="Ville"
                       name="city"
                       onChange={handleChange}
                       defaultValue={member?.city}
                     />
                     <input
-                      placeholder="Phone"
+                      placeholder="N° Tél"
                       name="phone"
                       onChange={handleChange}
                       defaultValue={member?.phone}

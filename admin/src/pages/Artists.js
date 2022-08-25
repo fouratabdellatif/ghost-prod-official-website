@@ -73,12 +73,12 @@ function Artists() {
       key: 'audioLists',
     },
     {
-      title: 'City',
+      title: 'Ville',
       dataIndex: 'city',
       key: 'city',
     },
     {
-      title: 'Phone',
+      title: 'N° Tél',
       dataIndex: 'phone',
       key: 'phone',
     },

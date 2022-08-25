@@ -66,7 +66,7 @@ function JobRequests() {
       key: 'name',
     },
     {
-      title: 'Phone',
+      title: 'N° Tél',
       dataIndex: 'phone',
       key: 'phone',
     },

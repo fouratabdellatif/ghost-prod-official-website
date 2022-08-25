@@ -166,7 +166,7 @@ const ArtistForm = () => {
                       name="city"
                       onChange={handleChange}
                     />
-                    <input placeholder="Phone"
+                    <input placeholder="N° Tél"
                       name="phone"
                       onChange={handleChange}
                     />

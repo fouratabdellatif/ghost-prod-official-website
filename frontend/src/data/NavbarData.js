@@ -3,5 +3,5 @@ export const navbarData = [
     { title: 'à propos', link: '/about-us' },
     { title: 'Services', link: '/services' },
     { title: 'Blog', link: '/blog' },
-    { title: 'contact us', link: '/contact' },
+    { title: 'contact', link: '/contact' },
 ]

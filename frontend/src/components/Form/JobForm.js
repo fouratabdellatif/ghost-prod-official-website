@@ -51,7 +51,7 @@ const JobForm = () => {
 
     return (
         <div className="job-form-container">
-            <h1 className="job-title">Join Us Now</h1>
+            <h1 className="job-title">Rejoignez nous maintenant</h1>
             <CustomDivider />
             <form
                 className="job-form"
@@ -72,7 +72,7 @@ const JobForm = () => {
                         <div className="job-form-third">
                             <Input
                                 name="name"
-                                placeholder="Name"
+                                placeholder="Nom & Prénom"
                                 onChange={handleChange}
                             />
                             <Input
@@ -84,7 +84,7 @@ const JobForm = () => {
                         <div className="job-form-third">
                             <Input
                                 name="phone"
-                                placeholder="Phone"
+                                placeholder="N° Tél"
                                 onChange={handleChange}
                             />
                             <Input type='file' placeholder="CV"
@@ -111,7 +111,7 @@ const JobForm = () => {
                             <CustomLoader />
                         ) : (
                             <SubmitButton className="send-button" type="submit">
-                                Send
+                                Envoyer
                             </SubmitButton>
                         )}
                     </div>

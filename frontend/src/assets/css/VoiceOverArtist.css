@@ -11,6 +11,7 @@
 .voice-over-artist-container {
   display: flex;
   min-height: 80vh;
+  width: 100%;
   /* max-height: auto; */
 }
 
@@ -37,6 +38,7 @@
   padding: 1rem 4rem;
   order: 2;
   margin-top: 30px;
+  width: 100%;
 }
 
 .voice-over-artist-column-right h1 {

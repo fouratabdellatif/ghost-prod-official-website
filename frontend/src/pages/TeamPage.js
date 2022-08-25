@@ -24,10 +24,10 @@ const TeamPage = () => {
     return (
         <>
             <CasualPage
-                pageTitle={page ? pageTitle : "Equipe"}
+                pageTitle={page ? pageTitle : "Équipe"}
                 bg={page ? image : bgImage}
-                text={page ? text : "our warriors, our heros"}
-                title={page ? title : "Our Team"}
+                text={page ? text : "nos guerriers, nos héros"}
+                title={page ? title : "Notre Équipe"}
                 pageContent={
                     <>
                         <TeamGroup />

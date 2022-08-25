@@ -30,7 +30,7 @@ function Pages() {
           >
             <PageForm
               name="about-us"
-              pageName="About Us"
+              pageName="À Propos"
               data={pages}
             />
             <PageForm
@@ -45,7 +45,7 @@ function Pages() {
             />
             <PageForm
               name="contact-us"
-              pageName="Contact Us"
+              pageName="Contact"
               data={pages}
             />
             <PageForm

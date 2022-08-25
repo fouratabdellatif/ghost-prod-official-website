@@ -48,7 +48,7 @@ const Member = ({ item }) => {
                                     aria-label='LinkedIn'
                                     rel="noreferrer"
                                 >
-                                    <i class='fab fa-behance' />
+                                    <i class='fab fa-linkedin' />
                                 </a>
                             </li>
                             )}
@@ -61,7 +61,7 @@ const Member = ({ item }) => {
                                     aria-label='Behance'
                                     rel="noreferrer"
                                 >
-                                    <i class='fab fa-linkedin' />
+                                    <i class='fab fa-behance' />
                                 </a>
                             </li>
                             )}
@@ -69,10 +69,10 @@ const Member = ({ item }) => {
                     </div>
                     <h3>{item?.spec}</h3>
                     <CustomDivider fullWidth />
-                    <p><span>City: </span>{item?.city}</p>
-                    <p><span>Phone: </span><a className='contact-link' href={`tel:${item?.phone}`}>+216 {item?.phone}</a></p>
+                    <p><span>Ville: </span>{item?.city}</p>
+                    <p><span>N° Tél: </span><a className='contact-link' href={`tel:${item?.phone}`}>+216 {item?.phone}</a></p>
                     <p><span>Email: </span><a className='contact-link' href={`mailto:${item?.email}`}>{item?.email}</a></p>
-                    <p><span>About: </span><br />{item?.bio}</p>
+                    <p><span>À Propos: </span><br />{item?.bio}</p>
                 </div>
             </div>
         </section>

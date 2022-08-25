@@ -37,7 +37,7 @@ export default function Sidebar({ id }) {
                 </div>
             ))}
             <div className="sidebarItem">
-                <a className="show-more-blog" href="/blog">{"Show more >>"}</a>
+                <a className="show-more-blog" href="/blog">{"Afficher plus >>"}</a>
             </div>
         </div>
     );

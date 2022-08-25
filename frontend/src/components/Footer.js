@@ -18,7 +18,7 @@ function Footer() {
                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
                     </div>
                     <div className='footer-link-items'>
-                        <h2>Contact Info</h2>
+                        <h2>Informations de contact</h2>
                         <hr className="solid" />
                         <div className="material-icons">
                             <i className="fas fa-map-marker-alt"></i>
@@ -37,15 +37,15 @@ function Footer() {
                     <div className='footer-link-items'>
                         <h2>News & Info</h2>
                         <hr className="solid" />
-                        <Link to='/contact'><span1><i className="fas fa-chevron-right"></i>&nbsp;&nbsp;Contact Us</span1></Link>
+                        <Link to='/contact'><span1><i className="fas fa-chevron-right"></i>&nbsp;&nbsp;Contact</span1></Link>
                         <Link to='/blog'><span1><i className="fas fa-chevron-right"></i>&nbsp;&nbsp;Blog</span1></Link>
                         <Link to='/about-us'><span1><i className="fas fa-chevron-right"></i>&nbsp;&nbsp;À propos de GhostProd</span1></Link>
                     </div>
                     <div className='footer-link-items'>
                         <h2>More on GhostProd</h2>
                         <hr className="solid" />
-                        <Link to='/team'><span1><i className="fas fa-chevron-right"></i>&nbsp;&nbsp;The Team</span1></Link>
-                        <Link to='/services'><span1><i className="fas fa-chevron-right"></i>&nbsp;&nbsp;Our Services</span1></Link>
+                        <Link to='/team'><span1><i className="fas fa-chevron-right"></i>&nbsp;&nbsp;Notre Équipe</span1></Link>
+                        <Link to='/services'><span1><i className="fas fa-chevron-right"></i>&nbsp;&nbsp;Nos Services</span1></Link>
                         <Link to='/voice-over'><span1><i className="fas fa-chevron-right"></i>&nbsp;&nbsp;Voice-Over</span1></Link>
                     </div>
                 </div>
@@ -84,8 +84,8 @@ function Footer() {
                             <i className='fab fa-youtube' />
                         </a>
                         <a
-                            className='social-icon-link twitter'
-                            href='https://www.instagram.com/ghostprod_officiel/?hl=fr'
+                            className='social-icon-link linkedin'
+                            href='https://www.linkedin.com/company/ghostprod/'
                             target='_blank'
                             aria-label='LinkedIn'
                             rel="noreferrer"

@@ -50,10 +50,10 @@ const VoiceOverArtist = ({ item }) => {
                         </ul>
                     </div>
                     <CustomDivider fullWidth />
-                    <p><span>City: </span>{item?.city}</p>
-                    <p><span>Phone: </span><a className='contact-link' href={`tel:${item?.phone}`}>+216 {item?.phone}</a></p>
+                    <p><span>Ville: </span>{item?.city}</p>
+                    <p><span>N° Tél: </span><a className='contact-link' href={`tel:${item?.phone}`}>+216 {item?.phone}</a></p>
                     <p><span>Email: </span><a className='contact-link' href={`mailto:${item?.email}`}>{item?.email}</a></p>
-                    <p><span>About: </span><br />{item.bio}</p>
+                    <p><span>À Propos: </span><br />{item.bio}</p>
                     <p><span>Voice-over: </span>
                     </p>
                     {item?.audioLists?.map((audio) => (

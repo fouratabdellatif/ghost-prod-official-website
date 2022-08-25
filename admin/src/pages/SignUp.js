@@ -242,7 +242,7 @@ export default class SignUp extends Component {
           <Footer>
             <Menu mode="horizontal">
               <Menu.Item>Company</Menu.Item>
-              <Menu.Item>About Us</Menu.Item>
+              <Menu.Item>À Propos</Menu.Item>
               <Menu.Item>Teams</Menu.Item>
               <Menu.Item>Products</Menu.Item>
               <Menu.Item>Blogs</Menu.Item>

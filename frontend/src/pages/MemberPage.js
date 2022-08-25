@@ -42,10 +42,10 @@ const MemberPage = () => {
     return (
         <>
             <CasualPage
-                pageTitle={`${member.firstname} ${member.lastname} | Voice-Over`}
+                pageTitle={`${member.firstname} ${member.lastname} | Notre équipe`}
                 bg={page ? image : bgImage}
-                text={page ? text : "our warriors, our heros"}
-                title={page ? title : "Our Team"}
+                text={page ? text : "nos guerriers, nos héros"}
+                title={page ? title : "Notre équipe"}
                 pageContent={
                     <>
                         <Member

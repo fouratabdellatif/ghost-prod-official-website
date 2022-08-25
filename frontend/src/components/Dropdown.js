@@ -230,7 +230,7 @@ const Dropdown = ({ isOpen, toggle }) => {
                     </Link>
                     {/* <BtnWrap>
                         <PrimaryButton primary="true" round="true" big="true" to="/contact">
-                            Contact Us
+                            Contact
                         </PrimaryButton>
                     </BtnWrap> */}
                     <Icon onClick={toggle}>

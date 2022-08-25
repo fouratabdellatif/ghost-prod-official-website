@@ -26,7 +26,7 @@ const ServicesPage = () => {
             <CasualPage
                 pageTitle={page ? pageTitle : "Nos Services"}
                 bg={page ? image : bgImage}
-                text={page ? text : "what we are experts in..."}
+                text={page ? text : "ce dont nous sommes experts..."}
                 title={page ? title : "Nos Services"}
                 pageContent={
                     <>

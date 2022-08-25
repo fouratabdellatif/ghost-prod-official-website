@@ -23,10 +23,10 @@ const ContactPage = () => {
     return (
         <>
             <CasualPage
-                pageTitle={page ? pageTitle : "Contact Us"}
+                pageTitle={page ? pageTitle : "Contact"}
                 bg={page ? image : bgImage}
                 text={page ? text : "Vous avez une question??"}
-                title={page ? title : "Contact Us"}
+                title={page ? title : "Contact"}
                 pageContent={
                     <>
                         <ContactForm />

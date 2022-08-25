@@ -11,6 +11,7 @@
 .one-member-container {
   display: flex;
   min-height: 80vh;
+  width: 100%;
   /* max-height: auto; */
 }
 
@@ -37,6 +38,7 @@
   padding: 1rem 4rem;
   order: 2;
   margin-top: 30px;
+  width: 100%;
 }
 
 .one-member-column-right h1 {
@@ -46,8 +48,8 @@
 .one-member-column-right h3 {
   margin-bottom: 1rem;
   text-transform: uppercase;
-  /* border-left: #d08c16 60px solid; */
-  /* padding-left: 10px; */
+  /* border-left: #d08c16 14px groove;
+  padding-left: 20px; */
 }
 
 .one-member-column-right p {
