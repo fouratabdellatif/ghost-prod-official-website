@@ -12,7 +12,7 @@ function Footer() {
             © 2022, Made by
             {/* with
             {<HeartFilled />} */}
-            <a href="https://inceptum.tn/" target="_blank" rel="noreferrer">INCEPTUM Junior Entreprise</a>
+            <a href="https://inceptumje.tn/" target="_blank" rel="noreferrer">INCEPTUM Junior Entreprise</a>
           </div>
         </Col>
       </Row>

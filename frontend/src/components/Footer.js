@@ -39,7 +39,7 @@ function Footer() {
                         <hr className="solid" />
                         <Link to='/contact'><span1><i className="fas fa-chevron-right"></i>&nbsp;&nbsp;Contact</span1></Link>
                         <Link to='/blog'><span1><i className="fas fa-chevron-right"></i>&nbsp;&nbsp;Blog</span1></Link>
-                        <Link to='/about-us'><span1><i className="fas fa-chevron-right"></i>&nbsp;&nbsp;À propos de GhostProd</span1></Link>
+                        <Link to='/about-us'><span1><i className="fas fa-chevron-right"></i>&nbsp;&nbsp;À propos de nous</span1></Link>
                     </div>
                     <div className='footer-link-items'>
                         <h2>More on GhostProd</h2>
@@ -53,7 +53,7 @@ function Footer() {
             <section className='social-media'>
                 <div className='social-media-wrap'>
                     <small className='website-rights'>© 2022, Made
-                        by <a href="https://inceptum.tn/" target="_blank" rel="noreferrer">INCEPTUM Junior Entreprise</a>
+                        by <a href="https://inceptumje.tn/" target="_blank" rel="noreferrer">INCEPTUM Junior Entreprise</a>
                     </small>
                     <div className='social-icons'>
                         <a

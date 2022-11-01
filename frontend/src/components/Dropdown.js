@@ -98,7 +98,7 @@ text-transform: uppercase;
     margin: auto;
 }
 &:nth-child(5) {
-    font-weight: 700;
+    /* font-weight: 700; */
     margin: auto;
 }
 &:nth-child(3) {
