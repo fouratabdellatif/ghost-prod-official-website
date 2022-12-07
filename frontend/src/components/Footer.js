@@ -35,14 +35,14 @@ function Footer() {
                         </div>
                     </div>
                     <div className='footer-link-items'>
-                        <h2>News & Info</h2>
+                        <h2>Actualités et informations</h2>
                         <hr className="solid" />
                         <Link to='/contact'><span1><i className="fas fa-chevron-right"></i>&nbsp;&nbsp;Contact</span1></Link>
                         <Link to='/blog'><span1><i className="fas fa-chevron-right"></i>&nbsp;&nbsp;Blog</span1></Link>
-                        <Link to='/about-us'><span1><i className="fas fa-chevron-right"></i>&nbsp;&nbsp;À propos de nous</span1></Link>
+                        <Link to='/about-us'><span1><i className="fas fa-chevron-right"></i>&nbsp;&nbsp;À propos</span1></Link>
                     </div>
                     <div className='footer-link-items'>
-                        <h2>More on GhostProd</h2>
+                        <h2>Plus sur GhostProd</h2>
                         <hr className="solid" />
                         <Link to='/team'><span1><i className="fas fa-chevron-right"></i>&nbsp;&nbsp;Notre Équipe</span1></Link>
                         <Link to='/services'><span1><i className="fas fa-chevron-right"></i>&nbsp;&nbsp;Nos Services</span1></Link>

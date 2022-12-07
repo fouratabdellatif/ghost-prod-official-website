@@ -8,7 +8,7 @@
 }
 
 .footer-logo {
-  margin: -20px auto 10px auto;
+  margin: -20px auto 10px 0;
 }
 
 .footer-gp-logo {
@@ -216,7 +216,7 @@ a:hover i::before {
 .social-logo {
   color: #000000;
   justify-self: start;
-  margin-left: 20px;
+  /* margin-left: 20px; */
   cursor: pointer;
   text-decoration: none;
   font-size: 2rem;
