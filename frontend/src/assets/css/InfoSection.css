@@ -119,8 +119,8 @@
 
   .info-column-right h3 {
     font-size: 14px;
-    border-left: #e1a33b solid 40px;
-    border-left-style: groove;
+    /* border-left: #e1a33b solid 40px;
+    border-left-style: groove; */
   }
 }
 
