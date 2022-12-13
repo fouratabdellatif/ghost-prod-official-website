@@ -33,6 +33,7 @@ outline: none;
 
 const CloseIcon = styled(FaTimes)`
 color: #231f20;
+margin-top: 10px;
 `;
 
 const DropdownWrapper = styled.div`
@@ -210,8 +211,15 @@ const LogoImage = styled.img`
 height: 45px;
 transition: 0.3s ease-in;
 /* background-color: #000000ce; */
-/* margin-top: -30px; */
+margin-top: -60px;
 padding: 10px;
+
+@media screen and (max-width: 768px) {
+    margin-top: 80px;
+}
+@media screen and (max-width: 1200px) {
+    margin-top: 80px;
+}
 `;
 
 const Dropdown = ({ isOpen, toggle }) => {
