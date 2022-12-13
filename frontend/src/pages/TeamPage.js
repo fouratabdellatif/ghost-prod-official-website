@@ -3,7 +3,7 @@ import React from 'react'
 import CasualPage from './CasualPage'
 import bgImage from '../assets/images/bg07.jpg'
 import TeamGroup from '../components/Team/TeamGroup'
-import JobForm from '../components/Form/JobForm'
+// import JobForm from '../components/Form/JobForm'
 import { useSelector } from 'react-redux'
 
 const TeamPage = () => {
@@ -31,7 +31,7 @@ const TeamPage = () => {
                 pageContent={
                     <>
                         <TeamGroup />
-                        <JobForm />
+                        {/* <JobForm /> */}
                     </>
                 } />
         </>
