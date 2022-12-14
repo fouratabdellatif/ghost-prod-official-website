@@ -1,9 +1,20 @@
 .partner-image {
   position: relative;
-  width: 140px;
-  height: 140px;
+  width: 120px;
+  height: 120px;
   margin: auto;
   /* -webkit-filter: grayscale(100%); */
   /* filter: grayscale(100%); */
   object-fit: contain;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  padding: 10px;
 }
+
+.partner-image:hover {
+  transform: scale(1.05);
+}
+
+/* .partner-tooltip {
+  background-color: red;
+} */
