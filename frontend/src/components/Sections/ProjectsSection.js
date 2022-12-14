@@ -36,7 +36,7 @@ const ProjectsSection = () => {
             <div data-aos="slide-left" className='projects-btn'>
                 <CasualButton
                     text="Tous nos projets"
-                    link="/realisations"
+                    link="/projets"
                     icon={
                         <MdOutlineArrowForwardIos className="icon-btn" />
                     }

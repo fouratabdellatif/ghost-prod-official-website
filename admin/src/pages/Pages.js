@@ -55,7 +55,7 @@ function Pages() {
             />
             <PageForm
               name="projects"
-              pageName="Réalisations"
+              pageName="Projets"
               data={pages}
             />
             <PageForm

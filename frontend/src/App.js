@@ -80,12 +80,12 @@ function App() {
         <Route exact path='/' component={HomePage} />
         <Route exact path='/blog' component={BlogPage} />
         <Route exact path='/blog/:id' component={PostPage} />
-        <Route path='/about-us' component={AboutUsPage} />
+        <Route path='/a-propos' component={AboutUsPage} />
         <Route path='/contact' component={ContactPage} />
-        <Route exact path='/team' component={TeamPage} />
-        <Route exact path='/team/:id' component={MemberPage} />
-        <Route exact path='/realisations' component={ProjectsPage} />
-        <Route exact path='/realisations/:id' component={ProjectPage} />
+        <Route exact path='/equipe' component={TeamPage} />
+        <Route exact path='/equipe/:id' component={MemberPage} />
+        <Route exact path='/projets' component={ProjectsPage} />
+        <Route exact path='/projets/:id' component={ProjectPage} />
         <Route exact path='/voice-over' component={VoiceOverPage} />
         <Route exact path='/voice-over/:id' component={VoiceOverArtistPage} />
         <Route exact path='/services' component={ServicesPage} />

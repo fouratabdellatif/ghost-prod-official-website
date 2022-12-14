@@ -23,10 +23,10 @@ const ProjectsPage = () => {
     return (
         <>
             <CasualPage
-                pageTitle={page ? pageTitle : "Réalisations"}
+                pageTitle={page ? pageTitle : "Projets"}
                 bg={page ? image : bgImage}
                 text={page ? text : "NOS RÉFÉRENCES"}
-                title={page ? title : "Nos Réalisations"}
+                title={page ? title : "Nos Projets"}
                 pageContent={
                     <>
                         <ProjectsGroup />

@@ -1,8 +1,8 @@
 export const menuData = [
-    { title: 'à propos', link: '/about-us' },
-    { title: 'équipe', link: '/team' },
+    { title: 'à propos', link: '/a-propos' },
+    { title: 'équipe', link: '/equipe' },
     { title: 'Services', link: '/services' },
-    { title: 'Réalisations', link: '/realisations' },
+    { title: 'Projets', link: '/projets' },
     { title: 'Voice-Over', link: '/voice-over' },
     { title: 'Blog', link: '/blog' },
     { title: 'Contact', link: '/contact' },

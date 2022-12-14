@@ -26,7 +26,7 @@ const AboutUsPage = () => {
             <CasualPage
                 pageTitle={page ? pageTitle : "A Propos"}
                 bg={page ? image : bgImage}
-                text={page ? text : "nos réalisations, notre persévérance, notre histoire..."}
+                text={page ? text : "nos projets, notre persévérance, notre histoire..."}
                 title={page ? title : "à propos"}
                 pageContent={
                     <>

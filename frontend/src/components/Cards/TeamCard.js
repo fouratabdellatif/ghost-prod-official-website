@@ -8,7 +8,7 @@ function TeamCard({ item }) {
     return (
         <div className="team-card-wrapper">
             <div className="team-card">
-                <Link className='member-link' to={`/team/${item?._id}`}>
+                <Link className='member-link' to={`/equipe/${item?._id}`}>
                     <div className="team-card-image">
                         <img src={item?.profileImage} alt='team_member' />
                     </div>

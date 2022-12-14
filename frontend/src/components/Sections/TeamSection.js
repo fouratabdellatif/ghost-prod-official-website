@@ -71,7 +71,7 @@ const TeamSection = () => {
             <div data-aos="slide-left" className='team-btn'>
                 <CasualButton
                     text="Plus de détails"
-                    link="/team"
+                    link="/equipe"
                     icon={
                         <MdOutlineArrowForwardIos className="icon-btn" />
                     }

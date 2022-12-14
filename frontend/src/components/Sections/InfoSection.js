@@ -47,7 +47,7 @@ const InfoSection = () => {
                         <p data-aos="fade-left">{data?.paragraphOne}</p>
                         {/* <p data-aos="fade-left">{paragraphTwo}</p> */}
                         {/* <Button to="/homes" primary='true' data-aos={animations[random]}>{buttonLabel}</Button> */}
-                        <Link to="/about-us" style={{
+                        <Link to="/a-propos" style={{
                             textDecoration: 'none'
                         }}>
                             <p className='show-more' data-aos="fade-right">{'Afficher plus >>'}</p>
