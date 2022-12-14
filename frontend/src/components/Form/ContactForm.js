@@ -118,13 +118,8 @@ const ContactForm = () => {
             <h1 className="contact-title">Dites-nous quelque chose</h1>
             <CustomDivider />
             <form className="contact-form" onSubmit={handleSubmit}>
-                <div className="testimonial-form-first">
-                    <Input
-                        name="spec"
-                        placeholder="Organisme ou spécialité"
-                        onChange={handleChange}
-                    />
-                </div>
+                {/* <div className="contact-form-first">
+                </div> */}
                 <div className="contact-form-first second">
                     <div className="contact-form-second">
                         <div className="contact-form-third">
@@ -148,18 +143,11 @@ const ContactForm = () => {
                                 onChange={handleChange}
                                 required
                             />
-                            {options.map((option) => (
-                                <Item>
-                                    <RadioButton
-                                        type="radio"
-                                        name="category"
-                                        value={option.value}
-                                        onChange={handleChange}
-                                    />
-                                    <RadioButtonLabel />
-                                    <div className="cat-label">{option.label}</div>
-                                </Item>
-                            ))}
+                            <Input
+                                name="spec"
+                                placeholder="Organisme ou spécialité"
+                                onChange={handleChange}
+                            />
                             {/* <Select
                                 name="category"
                                 placeholder="..."
@@ -171,6 +159,22 @@ const ContactForm = () => {
                         </div>
                     </div>
                     <div className="contact-form-second.second">
+                        {options.map((option) => (
+                            <Item>
+                                <RadioButton
+                                    type="radio"
+                                    name="category"
+                                    value={option.value}
+                                    onChange={handleChange}
+                                    required
+                                />
+                                <RadioButtonLabel />
+                                <div className="cat-label">{option.label}</div>
+                            </Item>
+                        ))}
+                    </div>
+                </div>
+                <div className="contact-form-first">
                         <Input
                             name="text"
                             placeholder="Message"
@@ -178,9 +182,6 @@ const ContactForm = () => {
                             onChange={handleChange}
                             required
                         />
-                    </div>
-                </div>
-                <div className="contact-form-first">
                     <div className="btn-wrapper">
                         {loader ? (
                             <CustomLoader />
