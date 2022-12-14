@@ -1,6 +1,7 @@
 import mongoose from 'mongoose';
 
 const artistSchema = mongoose.Schema({
+    numRef: { type: String },
     firstname: { type: String },
     lastname: { type: String },
     imageFile: { type: String },
@@ -12,6 +13,9 @@ const artistSchema = mongoose.Schema({
     facebook: { type: String },
     instagram: { type: String },
     linkedin: { type: String },
+    langs: [
+        { type: String }
+    ],
     audioLists: [
         {
             name: String,

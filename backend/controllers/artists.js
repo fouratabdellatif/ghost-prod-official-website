@@ -1,6 +1,7 @@
 import express from 'express';
 import mongoose from 'mongoose';
 import cloudinary from '../utils/cloudinary.js';
+import generator from 'generate-password';
 
 import Artist from '../models/artist.js';
 import "moment/locale/fr.js";
@@ -40,7 +41,8 @@ export const createArtist = async (req, res) => {
         bio,
         facebook,
         instagram,
-        linkedin
+        linkedin,
+        langs
     } = req.body;
 
     const imageFile = req.files.imageFile;
@@ -76,7 +78,15 @@ export const createArtist = async (req, res) => {
         //     console.log('aaalooooo');
         // }
 
+        var ref = generator.generate({
+            length: 8,
+            numbers: true,
+            lowercase: false,
+            uppercase: true
+        });
+
         const newArtist = new Artist({
+            numRef: ref,
             firstname,
             lastname,
             spec,
@@ -87,6 +97,7 @@ export const createArtist = async (req, res) => {
             facebook,
             instagram,
             linkedin,
+            langs,
             audioLists: audioLists,
             imageFile: resultImage.secure_url,
             musicSrc: resultAudio.secure_url,
@@ -115,7 +126,8 @@ export const updateArtist = async (req, res) => {
         bio,
         facebook,
         instagram,
-        linkedin
+        linkedin,
+        langs
     } = req.body;
 
     const imageFile = req.files.imageFile;
@@ -151,6 +163,7 @@ export const updateArtist = async (req, res) => {
             facebook: facebook || artist.facebook,
             instagram: instagram || artist.instagram,
             linkedin: linkedin || artist.linkedin,
+            langs: langs || artist.langs,
             imageFile: resultImg.secure_url,
             cloudinary_img_id: resultImg.public_id,
             musicSrc: resultAud.secure_url,

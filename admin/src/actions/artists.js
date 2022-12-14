@@ -60,6 +60,9 @@ export const createArtist = (artist) => async (dispatch) => {
         formData.append('linkedin', artist.linkedin);
         formData.append('imageFile', artist.imageFile);
         formData.append('musicSrc', artist.musicSrc);
+        for (var i = 0; i < artist.langs.length; i++) {
+            formData.append(`langs[${i}]`, artist.langs[i]);
+        }
         // for (var i = 0; i < artist.musicSrc.length; i++) {
         //     formData.append("musicSrc", artist.musicSrc[i]);
         //     formData.append(`musicSrc[${i}][name]`, artist.musicSrc[i].name);
@@ -98,6 +101,9 @@ export const updateArtist = (id, artist) => async (dispatch) => {
         formData.append('linkedin', artist.linkedin);
         formData.append('imageFile', artist.imageFile);
         formData.append('musicSrc', artist.musicSrc);
+        for (var i = 0; i < artist.langs.length; i++) {
+            formData.append(`langs[${i}]`, artist.langs[i]);
+        }
 
         const { data } = await api.updateArtist(id, formData);
 

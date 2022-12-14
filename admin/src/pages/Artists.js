@@ -68,6 +68,16 @@ function Artists() {
       key: 'artist',
     },
     {
+      title: 'Nom & Prénom',
+      dataIndex: 'name',
+      key: 'name',
+    },
+    {
+      title: 'Langues',
+      dataIndex: 'langs',
+      key: 'langs',
+    },
+    {
       title: 'Audios',
       dataIndex: 'audioLists',
       key: 'audioLists',
@@ -113,10 +123,24 @@ function Artists() {
                 src={item?.imageFile}
               ></Avatar>
               <div className="avatar-info">
-                <Title level={5}>{item?.firstname} {item?.lastname}</Title>
+                <Title level={5}>{item?.numRef}</Title>
 
               </div>
             </Avatar.Group>{" "}
+          </>
+        ),
+        name: `${item?.firstname} ${item?.lastname}`,
+        langs: (
+          <>
+            <div className="author-info">
+              <ul>
+                {item?.langs?.map((lang, index) => (
+                  <li>
+                    <Title level={5}>{lang}</Title>
+                  </li>
+                ))}
+              </ul>
+            </div>
           </>
         ),
         audioLists: (

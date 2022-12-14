@@ -8,12 +8,14 @@ const VoiceOverArtist = ({ item }) => {
         <section className='voice-over-artist-section'>
             <div className='voice-over-artist-container'>
                 <div className='voice-over-artist-column-left'>
-                    <img src={item?.imageFile} alt={`${item?.firstname} ${item?.lastname}`} />
+                    {/* <img src={item?.imageFile} alt={`${item?.firstname} ${item?.lastname}`} /> */}
+                    <img src={item?.imageFile} alt={item?.numRef} />
                 </div>
                 <div className='voice-over-artist-column-right'>
                     <div className='artist-top'>
-                        <h1>{item?.firstname} {item?.lastname}</h1>
-                        <ul className="artist-socials">
+                        {/* <h1>{item?.firstname} {item?.lastname}</h1> */}
+                        <h1>{item?.numRef}</h1>
+                        {/* <ul className="artist-socials">
                             <li>
                                 <a
                                     className='artist-social-link facebook'
@@ -47,13 +49,17 @@ const VoiceOverArtist = ({ item }) => {
                                     <i class='fab fa-linkedin' />
                                 </a>
                             </li>
-                        </ul>
+                        </ul> */}
                     </div>
                     <CustomDivider fullWidth />
-                    <p><span>Ville: </span>{item?.city}</p>
+                    {/* <p><span>Ville: </span>{item?.city}</p>
                     <p><span>N° Tél: </span><a className='contact-link' href={`tel:${item?.phone}`}>+216 {item?.phone}</a></p>
-                    <p><span>Email: </span><a className='contact-link' href={`mailto:${item?.email}`}>{item?.email}</a></p>
-                    <p><span>À Propos: </span><br />{item.bio}</p>
+                    <p><span>Email: </span><a className='contact-link' href={`mailto:${item?.email}`}>{item?.email}</a></p> */}
+                    <p><span>Langues: </span></p>
+                    {item?.langs?.map((lang) => (
+                        <p>{lang}</p>
+                    ))}
+                    <p><span>À Propos: </span><br />{item?.bio}</p>
                     <p><span>Voice-over: </span>
                     </p>
                     {item?.audioLists?.map((audio) => (

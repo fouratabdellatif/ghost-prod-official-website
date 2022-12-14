@@ -14,7 +14,7 @@ import { createArtist } from "../../actions/artists";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory, useParams } from "react-router-dom";
 import { useEffect } from "react";
-import { LoadingOutlined } from "@ant-design/icons";
+import { LoadingOutlined, MinusOutlined, PlusOutlined } from "@ant-design/icons";
 
 
 const { Title } = Typography;
@@ -32,6 +32,8 @@ const ArtistForm = () => {
 
   const artist = artists[0];
 
+  const [langs, setLangs] = useState([]);
+
   const initState = id ? {
     firstname: artist?.firstname,
     lastname: artist?.lastname,
@@ -44,6 +46,7 @@ const ArtistForm = () => {
     linkedin: artist?.linkedin,
     imageFile: artist?.imageFile,
     musicSrc: artist?.musicSrc,
+    langs: artist?.langs
   } : {
     firstname: '',
     lastname: '',
@@ -56,6 +59,7 @@ const ArtistForm = () => {
     linkedin: '',
     imageFile: '',
     musicSrc: '',
+    langs: langs
   }
 
   console.log(initState);
@@ -69,13 +73,42 @@ const ArtistForm = () => {
 
   console.log("formdata:", formData);
 
+  let addContentFields = () => {
+    setLangs([...langs, ""])
+    setFormData({
+      ...formData,
+      langs: langs
+    })
+  }
+
+  let removeContentFields = (i) => {
+    let newFormValues = [...langs];
+    newFormValues.splice(i, 1);
+    setLangs(newFormValues)
+    setFormData({
+      ...formData,
+      langs: langs
+    })
+  }
+
+  const handleInputContentsChange = (index, event) => {
+    const values = [...langs];
+    values[index] = event.target.value;
+
+    setLangs(values);
+    setFormData({
+      ...formData,
+      langs: langs
+    })
+  };
+
   const handleChange = (e) => {
     e.preventDefault();
     const name = e.target.name;
     const value = e.target.value;
     setFormData({
       ...formData,
-      [name]: value
+      [name]: value,
     });
     // console.log('formData', formData);
     // console.log('value', value);
@@ -88,6 +121,10 @@ const ArtistForm = () => {
     e.preventDefault();
     // await console.log("FORMDATA", formData);
     await setLoader(true);
+    await setFormData({
+      ...formData,
+      langs: langs,
+    })
     await dispatch(createArtist(formData));
     await setLoader(false);
     await history.push('/voice-over-artists');
@@ -214,6 +251,60 @@ const ArtistForm = () => {
                     onChange={handleChange}
                     rows={4}
                   />
+                </Col>
+                <Col
+                  xs={{ span: 24, offset: 0 }}
+                  lg={{ span: 7, offset: 2 }}
+                  md={{ span: 12 }}
+                >
+                  <label style={{
+                    fontWeight: 700,
+                  }}>Langues</label>
+                  {id ? artist?.langs?.map((field, index) => (
+                    <div className="form-inline" key={index}>
+                      <Space direction="horizontal" size="middle" style={{ display: 'flex' }}>
+                        <input
+                          name="langs"
+                          placeholder={`Step N°${index + 1}`}
+                          onChange={(event) => {
+                            handleInputContentsChange(index, event)
+                          }}
+                          defaultValue={field}
+                        />
+                        {
+                          index ?
+                            <button type="button" className="button remove" onClick={() => removeContentFields(index)}>
+                              <MinusOutlined />
+                            </button>
+                            : null
+                        }
+                      </Space>
+                    </div>
+                  )) : langs?.map((field, index) => (
+                    <div className="form-inline" key={index}>
+                      <Space direction="horizontal" size="middle" style={{ display: 'flex' }}>
+                        <input
+                          name="langs"
+                          placeholder={`Langue N°${index + 1}`}
+                          onChange={(event) => {
+                            handleInputContentsChange(index, event)
+                          }}
+                          defaultValue=""
+                        />
+                        {
+                          index ?
+                            <button type="button" className="button remove" onClick={() => removeContentFields(index)}>
+                              <MinusOutlined />
+                            </button>
+                            : null
+                        }
+                      </Space>
+                    </div>))}
+                  <div className="button-section">
+                    <button className="button add" type="button" onClick={() => addContentFields()}>
+                      <PlusOutlined />
+                    </button>
+                  </div>
                 </Col>
                 <Col
                   xs={{ span: 24, offset: 0 }}
