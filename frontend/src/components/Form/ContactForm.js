@@ -90,6 +90,7 @@ const ContactForm = () => {
         spec: ''
     }
 
+    const [msg, setMsg] = useState(false);
     const [formData, setFormData] = useState(initState);
     const [loader, setLoader] = useState(false);
 
@@ -111,44 +112,51 @@ const ContactForm = () => {
         await setLoader(true);
         await dispatch(sendReclamation(formData));
         await setLoader(false);
+        await setMsg(true);
     }
 
     return (
         <div className="contact-form-container">
             <h1 className="contact-title">Dites-nous quelque chose</h1>
             <CustomDivider />
-            <form className="contact-form" onSubmit={handleSubmit}>
-                {/* <div className="contact-form-first">
+            {msg ? (
+                <div className="alert">
+                    <span onClick={() => setMsg(false)} className="closebtn"> &times;</span>
+                    Votre message a été envoyé avec succès. Merci de nous avoir contacter.
+                </div>
+            ) : (
+                <form className="contact-form" onSubmit={handleSubmit}>
+                    {/* <div className="contact-form-first">
                 </div> */}
-                <div className="contact-form-first second">
-                    <div className="contact-form-second">
-                        <div className="contact-form-third">
-                            <Input
-                                name="name"
-                                placeholder="Nom & Prénom"
-                                onChange={handleChange}
-                                required
-                            />
-                            <Input
-                                name="email"
-                                placeholder="Email"
-                                onChange={handleChange}
-                                required
-                            />
-                        </div>
-                        <div className="contact-form-third">
-                            <Input
-                                name="phone"
-                                placeholder="N° Tél"
-                                onChange={handleChange}
-                                required
-                            />
-                            <Input
-                                name="spec"
-                                placeholder="Organisme ou spécialité"
-                                onChange={handleChange}
-                            />
-                            {/* <Select
+                    <div className="contact-form-first second">
+                        <div className="contact-form-second">
+                            <div className="contact-form-third">
+                                <Input
+                                    name="name"
+                                    placeholder="Nom & Prénom"
+                                    onChange={handleChange}
+                                    required
+                                />
+                                <Input
+                                    name="email"
+                                    placeholder="Email"
+                                    onChange={handleChange}
+                                    required
+                                />
+                            </div>
+                            <div className="contact-form-third">
+                                <Input
+                                    name="phone"
+                                    placeholder="N° Tél"
+                                    onChange={handleChange}
+                                    required
+                                />
+                                <Input
+                                    name="spec"
+                                    placeholder="Organisme ou spécialité"
+                                    onChange={handleChange}
+                                />
+                                {/* <Select
                                 name="category"
                                 placeholder="..."
                                 options={options}
@@ -156,25 +164,25 @@ const ContactForm = () => {
                                 onChange={handleChange}
                                 required
                             /> */}
+                            </div>
+                        </div>
+                        <div className="contact-form-second.second">
+                            {options.map((option) => (
+                                <Item>
+                                    <RadioButton
+                                        type="radio"
+                                        name="category"
+                                        value={option.value}
+                                        onChange={handleChange}
+                                        required
+                                    />
+                                    <RadioButtonLabel />
+                                    <div className="cat-label">{option.label}</div>
+                                </Item>
+                            ))}
                         </div>
                     </div>
-                    <div className="contact-form-second.second">
-                        {options.map((option) => (
-                            <Item>
-                                <RadioButton
-                                    type="radio"
-                                    name="category"
-                                    value={option.value}
-                                    onChange={handleChange}
-                                    required
-                                />
-                                <RadioButtonLabel />
-                                <div className="cat-label">{option.label}</div>
-                            </Item>
-                        ))}
-                    </div>
-                </div>
-                <div className="contact-form-first">
+                    <div className="contact-form-first">
                         <Input
                             name="text"
                             placeholder="Message"
@@ -182,18 +190,20 @@ const ContactForm = () => {
                             onChange={handleChange}
                             required
                         />
-                    <div className="btn-wrapper">
-                        {loader ? (
-                            <CustomLoader />
-                        ) : (
-                            <SubmitButton className="send-button" type="submit">
-                                Envoyer
-                            </SubmitButton>
-                        )}
+                        <div className="btn-wrapper">
+                            {loader ? (
+                                <CustomLoader />
+                            ) : (
+                                <SubmitButton className="send-button" type="submit">
+                                    Envoyer
+                                </SubmitButton>
+                            )}
+                        </div>
                     </div>
-                </div>
-            </form>
-        </div>
+                </form>
+            )
+            }
+        </div >
     );
 };
 
