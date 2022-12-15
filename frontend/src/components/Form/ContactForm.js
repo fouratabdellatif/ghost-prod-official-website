@@ -87,16 +87,19 @@ const ContactForm = () => {
         email: '',
         category: '',
         text: '',
-        spec: ''
+        spec: '',
+        // cv: ''
     }
 
     const [msg, setMsg] = useState(false);
     const [formData, setFormData] = useState(initState);
     const [loader, setLoader] = useState(false);
+    // const [selected, setSelected] = useState("");
 
     const handleChange = (e) => {
         const name = e.target.name;
         const value = e.target.value;
+        // setSelected(value);
         setFormData({
             ...formData,
             [name]: value
@@ -173,6 +176,7 @@ const ContactForm = () => {
                                         type="radio"
                                         name="category"
                                         value={option.value}
+                                        // checked={selected === option.value}
                                         onChange={handleChange}
                                         required
                                     />
@@ -183,6 +187,24 @@ const ContactForm = () => {
                         </div>
                     </div>
                     <div className="contact-form-first">
+                        {/* <div className="contact-form-third">
+                            {selected === "work" ? (
+                                <Input
+                                    type="file"
+                                    name="cv"
+                                    placeholder="CV"
+                                    onChange={handleChange}
+                                    required={selected === "work"}
+                                />
+                            ) : null}
+                            <Input
+                                name="text"
+                                placeholder="Message"
+                                textarea
+                                onChange={handleChange}
+                                required
+                            />
+                        </div> */}
                         <Input
                             name="text"
                             placeholder="Message"
