@@ -82,7 +82,7 @@ const HomeSlider = () => {
                 {data?.map((item, index) => (
                     <div className="home-video-container" key={index} onClick={item.file && handleVideoMute}>
                         {item.resource_type === "video" ? (
-                            <video className='home-video' src={(!sliderData || sliderData.length === 0) ? `${item.file}` : item.file} data-aos="fade-right" autoPlay loop muted />
+                            <video className='home-video' src={(!sliderData || sliderData.length === 0) ? `${item.file}` : item.file} data-aos="fade-right" autoPlay loop muted={isMuted} />
                         ) : (
                             <img className='home-video' src={(!sliderData || sliderData.length === 0) ? `${item.file}` : item.file} alt={item.file} />
                         )}
