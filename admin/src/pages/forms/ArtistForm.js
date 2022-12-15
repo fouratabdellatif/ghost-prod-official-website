@@ -127,7 +127,7 @@ const ArtistForm = () => {
     })
     await dispatch(createArtist(formData));
     await setLoader(false);
-    await history.push('/voice-over-artists');
+    await history.push('/voice-over');
   }
 
 

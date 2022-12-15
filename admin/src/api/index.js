@@ -54,6 +54,7 @@ export const deleteService = (id) => API.delete(`/services/deleteService/${id}`)
 
 
 export const fetchWorkDMs = () => API.get('/reclamations/work');
+export const fetchDevis = () => API.get('/reclamations/devis');
 export const fetchFeedbacks = () => API.get('/reclamations/feedback');
 export const fetchReclamationById = (id) => API.get(`/reclamations/${id}`);
 export const manageFeedback = (id) => API.patch(`/reclamations/manageFeedback/${id}`);

@@ -113,7 +113,7 @@ function Partners() {
         ),
         actions: (
           <div className="ant-employed">
-            <a href={`/partner/${item?._id}`}>
+            <a href={`/partenaire/${item?._id}`}>
               <Button type="link" className="darkbtn">
                 <EditOutlined />
               </Button></a>
@@ -147,7 +147,7 @@ function Partners() {
                 <>
                   <Radio.Group defaultValue="a">
 
-                    <Radio.Button value="a"><a id="add-mem" href="/partner">Ajouter un partenaire</a></Radio.Button>
+                    <Radio.Button value="a"><a id="add-mem" href="/partenaire">Ajouter un partenaire</a></Radio.Button>
 
                   </Radio.Group>
                 </>

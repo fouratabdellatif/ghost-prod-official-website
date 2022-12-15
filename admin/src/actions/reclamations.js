@@ -1,11 +1,21 @@
 import * as api from '../api/index.js';
-import { FETCH_WORKDMS, FETCH_FEEDBACKS, FETCH_RECLAMATION, UPDATE, DELETE } from '../constants/actionTypes.js';
+import { FETCH_WORKDMS, FETCH_FEEDBACKS, FETCH_RECLAMATION, UPDATE, DELETE, FETCH_DEVIS } from '../constants/actionTypes.js';
 
 export const getWorkDMs = () => async (dispatch) => {
     try {
         const { data } = await api.fetchWorkDMs();
 
         dispatch({ type: FETCH_WORKDMS, payload: data });
+    } catch (error) {
+        console.log(error);
+    }
+};
+
+export const getDevis = () => async (dispatch) => {
+    try {
+        const { data } = await api.fetchDevis();
+
+        dispatch({ type: FETCH_DEVIS, payload: data });
     } catch (error) {
         console.log(error);
     }

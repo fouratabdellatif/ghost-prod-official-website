@@ -4,7 +4,6 @@ import {
   Row,
   Col,
   Card,
-  Radio,
   Table,
   Typography,
   Button
@@ -14,20 +13,20 @@ import {
 } from "@ant-design/icons";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { deleteJobRequest, getJobRequests } from "../actions/jobs";
 import { useState } from "react";
 import Tracker from "./Tracker";
 import { FaFileDownload } from 'react-icons/fa'
+import { deleteReclamation, getWorkDMs } from "../actions/reclamations";
 
 const { Title } = Typography;
 
 function JobRequests() {
 
-  const jobs = useSelector((state) => state.jobs);
+  const reclamations = useSelector((state) => state.reclamations);
 
   const dispatch = useDispatch();
   useEffect(async () => {
-    await dispatch(getJobRequests());
+    await dispatch(getWorkDMs());
   }, []);
 
   function replaceAcc(str) {
@@ -52,7 +51,7 @@ function JobRequests() {
   const query = new URLSearchParams(search).get('s');
   const [searchQuery, setSearchQuery] = useState(query || '');
 
-  const filteredData = filterData(jobs, searchQuery);
+  const filteredData = filterData(reclamations, searchQuery);
 
   const columns = [
     {
@@ -80,11 +79,11 @@ function JobRequests() {
       dataIndex: 'cv',
       key: 'cv',
     },
-    {
-      title: 'Type du contrat',
-      dataIndex: 'category',
-      key: 'category',
-    },
+    // {
+    //   title: 'Type du contrat',
+    //   dataIndex: 'category',
+    //   key: 'category',
+    // },
     {
       title: 'Message',
       dataIndex: 'message',
@@ -141,20 +140,24 @@ function JobRequests() {
           <>
             <div className="author-info">
               <Title level={5}>
+              {item?.cv ? (
                 <a href={item?.cv} download target='_blank' rel="noreferrer">
                   <FaFileDownload />
                 </a>
+              ):(
+                "pas de CV"
+              )}
               </Title>
             </div>
           </>
         ),
-        category: (
-          <>
-            <div className="author-info">
-              <h6>{item?.category}</h6>
-            </div>
-          </>
-        ),
+        // category: (
+        //   <>
+        //     <div className="author-info">
+        //       <h6>{item?.category}</h6>
+        //     </div>
+        //   </>
+        // ),
         message: (
           <>
             <div className="author-info">
@@ -165,8 +168,8 @@ function JobRequests() {
         actions: (
           <div className="ant-employed">
             <a onClick={async () => {
-              await dispatch(deleteJobRequest(item?._id))
-              await dispatch(getJobRequests());
+              await dispatch(deleteReclamation(item?._id))
+              await dispatch(getWorkDMs());
             }}>
               <Button type="link" danger>
                 <DeleteOutlined />
@@ -191,15 +194,6 @@ function JobRequests() {
               bordered={false}
               className="criclebox tablespace mb-24"
               title="Candidatures"
-              extra={
-                <>
-                  <Radio.Group defaultValue="a">
-
-                    <Radio.Button value="a"><a id="add-mem" href="/job">Ajouter un job</a></Radio.Button>
-
-                  </Radio.Group>
-                </>
-              }
             >
               <div className="table-responsive">
                 <Table

@@ -1,6 +1,7 @@
 import express from 'express';
 import mongoose from 'mongoose';
 import generator from 'generate-password';
+import cloudinary from '../utils/cloudinary.js';
 
 import Reclamation from '../models/reclamation.js';
 import "moment/locale/fr.js";
@@ -20,6 +21,16 @@ export const getWorkDMs = async (req, res) => {
 export const getFeedbacks = async (req, res) => {
     try {
         const reclamations = await Reclamation.find({ category: 'feedback' }).sort({ createdAt: -1 });
+
+        res.status(200).json(reclamations);
+    } catch (error) {
+        res.status(404).json({ reclamation: error.reclamation });
+    }
+}
+
+export const getDevis = async (req, res) => {
+    try {
+        const reclamations = await Reclamation.find({ category: 'devis' }).sort({ createdAt: -1 });
 
         res.status(200).json(reclamations);
     } catch (error) {
@@ -49,6 +60,11 @@ export const sendReclamation = async (req, res) => {
         text
     } = req.body;
 
+    const cv = req.file;
+    var result;
+    if (cv)
+        result = await cloudinary.v2.uploader.upload(cv.path, { resource_type: "auto" });
+
     var nRec = generator.generate({
         length: 10,
         numbers: true,
@@ -64,6 +80,8 @@ export const sendReclamation = async (req, res) => {
         email,
         spec,
         text,
+        cv: cv && result.secure_url,
+        cloudinary_id: cv && result.public_id,
         createdAt: new Date(),
     })
 

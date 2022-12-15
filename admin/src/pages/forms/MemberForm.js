@@ -96,7 +96,7 @@ const MemberForm = () => {
       await dispatch(createMember(formData));
       await setLoader(false);
     }
-    await history.push('/members');
+    await history.push('/equipe');
   }
 
 

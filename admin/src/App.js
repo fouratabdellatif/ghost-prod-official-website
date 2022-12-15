@@ -41,11 +41,11 @@ import { getArtists } from "./actions/artists";
 import { getProjects } from "./actions/projects";
 import { getMembers } from "./actions/members";
 import { getPosts } from "./actions/posts";
-import { getFeedbacks, getWorkDMs } from "./actions/reclamations";
+import { getFeedbacks, getWorkDMs, getDevis } from "./actions/reclamations";
 import { getPages } from "./actions/pages";
 import { getPartners } from "./actions/partners";
 import { getServices } from "./actions/services";
-import { getJobRequests } from "./actions/jobs";
+// import { getJobRequests } from "./actions/jobs";
 import { getReels } from "./actions/reel";
 import { getSliders } from "./actions/slider";
 // import NotFound from "./pages/NotFound";
@@ -95,7 +95,8 @@ const DefaultContainer = () => {
     await dispatch(getPartners());
     await dispatch(getServices());
     await dispatch(getWorkDMs());
-    await dispatch(getJobRequests());
+    await dispatch(getDevis());
+    // await dispatch(getJobRequests());
     await dispatch(getReels());
     await dispatch(getSliders());
   }, []);
@@ -108,29 +109,29 @@ const DefaultContainer = () => {
       <Route
         exact
         path="/"
-        render={() => (user ? <Redirect to="/members" /> : <Redirect to="/sign-in" />)}
+        render={() => (user ? <Redirect to="/sliders" /> : <Redirect to="/sign-in" />)}
       />;
 
       <Main>
-        <HomeRoute path="/projects" component={<Projects />} />
-        <HomeRoute path="/members" component={<Members />} />
+        <HomeRoute path="/projets" component={<Projects />} />
+        <HomeRoute path="/equipe" component={<Members />} />
         <HomeRoute path="/posts" component={<Posts />} />
-        <HomeRoute path="/partners" component={<Partners />} />
+        <HomeRoute path="/partenaires" component={<Partners />} />
         <HomeRoute path="/services" component={<Services />} />
         <HomeRoute path="/feedbacks" component={<Feedbacks />} />
-        <HomeRoute path="/workdms" component={<Collaborations />} />
-        <HomeRoute path="/job-requests" component={<JobRequests />} />
-        <HomeRoute path="/voice-over-artists" component={<Artists />} />
+        <HomeRoute path="/devis" component={<Collaborations />} />
+        <HomeRoute path="/candidatures" component={<JobRequests />} />
+        <HomeRoute path="/voice-over" component={<Artists />} />
         <HomeRoute path="/sliders" component={<Sliders />} />
         <HomeRoute path="/pages" component={<Pages />} />
-        <HomeRoute path="/project" component={<ProjectForm />} />
-        <HomeRoute path="/project/:id" component={<ProjectForm />} />
-        <HomeRoute path="/member" component={<MemberForm />} />
-        <HomeRoute path="/member/:id" component={<MemberForm />} />
+        <HomeRoute path="/projet" component={<ProjectForm />} />
+        <HomeRoute path="/projet/:id" component={<ProjectForm />} />
+        <HomeRoute path="/membre" component={<MemberForm />} />
+        <HomeRoute path="/membre/:id" component={<MemberForm />} />
         <HomeRoute path="/post" component={<PostForm />} />
         <HomeRoute path="/post/:id" component={<PostForm />} />
-        <HomeRoute path="/partner" component={<PartnerForm />} />
-        <HomeRoute path="/partner/:id" component={<PartnerForm />} />
+        <HomeRoute path="/partenaire" component={<PartnerForm />} />
+        <HomeRoute path="/partenaire/:id" component={<PartnerForm />} />
         <HomeRoute path="/service" component={<ServiceForm />} />
         <HomeRoute path="/service/:id" component={<ServiceForm />} />
         <HomeRoute path="/voice-over-artist" component={<ArtistForm />} />

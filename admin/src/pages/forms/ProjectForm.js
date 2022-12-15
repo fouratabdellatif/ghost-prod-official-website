@@ -134,7 +134,7 @@ const ProjectForm = () => {
     // await console.log("FORMDATA", formData);
     await dispatch(createProject(formData));
     await setLoader(false);
-    await history.push('/projects');
+    await history.push('/projets');
   }
 
 

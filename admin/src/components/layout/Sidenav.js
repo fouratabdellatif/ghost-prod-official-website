@@ -134,124 +134,6 @@ function Sidenav({ color }) {
           Pages
         </Menu.Item> */}
 
-
-        <Menu.Item>
-          <NavLink to="/members">
-            <span
-              className="icon"
-              style={{
-                background: page === "members" ? color : "",
-              }}
-            >
-              <FaUserCircle size="20px" />
-            </span>
-            <span className="label">Members</span>
-          </NavLink>
-        </Menu.Item>
-        <Menu.Item>
-          <NavLink to="/posts">
-            <span
-              className="icon"
-              style={{
-                background: page === "posts" ? color : "",
-              }}
-            >
-              <BiNews size="20px" />
-            </span>
-            <span className="label">Blog</span>
-          </NavLink>
-        </Menu.Item>
-        <Menu.Item>
-          <NavLink to="/projects">
-            <span
-              className="icon"
-              style={{
-                background: page === "projects" ? color : "",
-              }}
-            >
-              <GiFilmProjector size="20px" />
-            </span>
-            <span className="label">Projets</span>
-          </NavLink>
-        </Menu.Item>
-        <Menu.Item>
-          <NavLink to="/partners">
-            <span
-              className="icon"
-              style={{
-                background: page === "partners" ? color : "",
-              }}
-            >
-              <SiGithubsponsors size="20px" />
-            </span>
-            <span className="label">Partners</span>
-          </NavLink>
-        </Menu.Item>
-        <Menu.Item>
-          <NavLink to="/services">
-            <span
-              className="icon"
-              style={{
-                background: page === "services" ? color : "",
-              }}
-            >
-              <FcServices size="20px" />
-            </span>
-            <span className="label">Services</span>
-          </NavLink>
-        </Menu.Item>
-        <Menu.Item>
-          <NavLink to="/feedbacks">
-            <span
-              className="icon"
-              style={{
-                background: page === "feedbacks" ? color : "",
-              }}
-            >
-              <FcRating size="20px" />
-            </span>
-            <span className="label">Feedbacks</span>
-          </NavLink>
-        </Menu.Item>
-        <Menu.Item>
-          <NavLink to="/workdms">
-            <span
-              className="icon"
-              style={{
-                background: page === "workdms" ? color : "",
-              }}
-            >
-              <AiOutlineDeploymentUnit size="20px" />
-            </span>
-            <span className="label">DMs</span>
-          </NavLink>
-        </Menu.Item>
-        <Menu.Item>
-          <NavLink to="/voice-over-artists">
-            <span
-              className="icon"
-              style={{
-                background: page === "voice-over-artists" ? color : "",
-              }}
-            >
-              <BiUserVoice size="20px" />
-            </span>
-            <span className="label">Voice-Over</span>
-          </NavLink>
-        </Menu.Item>
-        <Menu.Item>
-          <NavLink to="/job-requests">
-            <span
-              className="icon"
-              style={{
-                background: page === "job-requests" ? color : "",
-              }}
-            >
-              <FaFileContract size="20px" />
-            </span>
-            <span className="label">Candidatures</span>
-          </NavLink>
-        </Menu.Item>
         <Menu.Item>
           <NavLink to="/sliders">
             <span
@@ -265,6 +147,7 @@ function Sidenav({ color }) {
             <span className="label">Home Slider & Reel</span>
           </NavLink>
         </Menu.Item>
+
         <Menu.Item>
           <NavLink to="/pages">
             <span
@@ -276,6 +159,132 @@ function Sidenav({ color }) {
               <ImPagebreak size="20px" />
             </span>
             <span className="label">Pages</span>
+          </NavLink>
+        </Menu.Item>
+
+        <Menu.Item>
+          <NavLink to="/equipe">
+            <span
+              className="icon"
+              style={{
+                background: page === "equipe" ? color : "",
+              }}
+            >
+              <FaUserCircle size="20px" />
+            </span>
+            <span className="label">Équipe</span>
+          </NavLink>
+        </Menu.Item>
+
+        <Menu.Item>
+          <NavLink to="/services">
+            <span
+              className="icon"
+              style={{
+                background: page === "services" ? color : "",
+              }}
+            >
+              <FcServices size="20px" />
+            </span>
+            <span className="label">Services</span>
+          </NavLink>
+        </Menu.Item>
+        
+        <Menu.Item>
+          <NavLink to="/projets">
+            <span
+              className="icon"
+              style={{
+                background: page === "projets" ? color : "",
+              }}
+            >
+              <GiFilmProjector size="20px" />
+            </span>
+            <span className="label">Projets</span>
+          </NavLink>
+        </Menu.Item>
+
+        <Menu.Item>
+          <NavLink to="/posts">
+            <span
+              className="icon"
+              style={{
+                background: page === "posts" ? color : "",
+              }}
+            >
+              <BiNews size="20px" />
+            </span>
+            <span className="label">Blog</span>
+          </NavLink>
+        </Menu.Item>
+        
+        <Menu.Item>
+          <NavLink to="/voice-over">
+            <span
+              className="icon"
+              style={{
+                background: page === "voice-over" ? color : "",
+              }}
+            >
+              <BiUserVoice size="20px" />
+            </span>
+            <span className="label">Voice-Over</span>
+          </NavLink>
+        </Menu.Item>
+
+        <Menu.Item>
+          <NavLink to="/partenaires">
+            <span
+              className="icon"
+              style={{
+                background: page === "partenaires" ? color : "",
+              }}
+            >
+              <SiGithubsponsors size="20px" />
+            </span>
+            <span className="label">Partenaires</span>
+          </NavLink>
+        </Menu.Item>
+
+        <Menu.Item>
+          <NavLink to="/devis">
+            <span
+              className="icon"
+              style={{
+                background: page === "devis" ? color : "",
+              }}
+            >
+              <AiOutlineDeploymentUnit size="20px" />
+            </span>
+            <span className="label">Demande de Devis</span>
+          </NavLink>
+        </Menu.Item>
+
+        <Menu.Item>
+          <NavLink to="/candidatures">
+            <span
+              className="icon"
+              style={{
+                background: page === "candidatures" ? color : "",
+              }}
+            >
+              <FaFileContract size="20px" />
+            </span>
+            <span className="label">Candidatures</span>
+          </NavLink>
+        </Menu.Item>
+        
+        <Menu.Item>
+          <NavLink to="/feedbacks">
+            <span
+              className="icon"
+              style={{
+                background: page === "feedbacks" ? color : "",
+              }}
+            >
+              <FcRating size="20px" />
+            </span>
+            <span className="label">Feedbacks</span>
           </NavLink>
         </Menu.Item>
       </Menu>

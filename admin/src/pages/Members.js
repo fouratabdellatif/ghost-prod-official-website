@@ -158,7 +158,7 @@ function Members() {
         ),
         actions: (
           <div className="ant-employed">
-            <a href={`/member/${item?._id}`}>
+            <a href={`/membre/${item?._id}`}>
               <Button type="link" className="darkbtn">
                 <EditOutlined />
               </Button></a>
@@ -192,7 +192,7 @@ function Members() {
                 <>
                   <Radio.Group defaultValue="a">
 
-                    <Radio.Button value="a"><a id="add-mem" href="/member">Ajouter un membre</a></Radio.Button>
+                    <Radio.Button value="a"><a id="add-mem" href="/membre">Ajouter un membre</a></Radio.Button>
 
                   </Radio.Group>
                 </>

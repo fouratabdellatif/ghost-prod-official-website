@@ -4,7 +4,6 @@ import {
   Row,
   Col,
   Card,
-  Radio,
   Table,
   Typography,
   Button
@@ -204,16 +203,7 @@ function Feedbacks() {
             <Card
               bordered={false}
               className="criclebox tablespace mb-24"
-              title="Nos feedbacks"
-              extra={
-                <>
-                  <Radio.Group defaultValue="a">
-
-                    <Radio.Button value="a"><a id="add-mem" href="/feedback">Ajouter un feedback</a></Radio.Button>
-
-                  </Radio.Group>
-                </>
-              }
+              title="Feedbacks"
             >
               <div className="table-responsive">
                 <Table

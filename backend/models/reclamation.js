@@ -10,6 +10,10 @@ const reclamationSchema = mongoose.Schema({
     text: { type: String },
     visible: { type: Boolean, default: false },
     createdAt: { type: Date },
+    cv: { type: String },
+    cloudinary_id: {
+        type: String,
+    }
 })
 
 var reclamation = mongoose.model('reclamation', reclamationSchema);

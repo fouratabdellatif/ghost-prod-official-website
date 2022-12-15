@@ -70,7 +70,7 @@ const PartnerForm = () => {
       await dispatch(createPartner(formData));
       await setLoader(false);
     }
-    await history.push('/partners');
+    await history.push('/partenaires');
   }
 
 

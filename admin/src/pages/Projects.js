@@ -58,7 +58,7 @@ function Projects() {
             title="Projets"
             extra={
                 <Radio.Group defaultValue="a">
-                  <Radio.Button value="a"><a id="add-mem" href="/project">Ajouter un projet</a></Radio.Button>
+                  <Radio.Button value="a"><a id="add-mem" href="/projet">Ajouter un projet</a></Radio.Button>
                 </Radio.Group>
             }
           >

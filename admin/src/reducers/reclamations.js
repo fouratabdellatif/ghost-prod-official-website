@@ -1,8 +1,10 @@
-import { FETCH_RECLAMATION, FETCH_WORKDMS, FETCH_FEEDBACKS, DELETE, UPDATE } from "../constants/actionTypes";
+import { FETCH_RECLAMATION, FETCH_WORKDMS, FETCH_FEEDBACKS, DELETE, UPDATE, FETCH_DEVIS } from "../constants/actionTypes";
 
 export const ReclamationReducer = (reclamations = [], action) => {
     switch (action.type) {
         case FETCH_WORKDMS:
+            return action.payload;
+        case FETCH_DEVIS:
             return action.payload;
         case FETCH_FEEDBACKS:
             return action.payload;

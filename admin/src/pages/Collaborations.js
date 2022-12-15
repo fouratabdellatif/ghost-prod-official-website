@@ -4,7 +4,6 @@ import {
   Row,
   Col,
   Card,
-  Radio,
   Table,
   Typography,
   Button
@@ -14,9 +13,9 @@ import {
 } from "@ant-design/icons";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { deleteReclamation, getWorkDMs } from "../actions/reclamations";
 import { useState } from "react";
 import Tracker from "./Tracker";
+import { deleteReclamation, getDevis } from "../actions/reclamations";
 
 const { Title } = Typography;
 
@@ -26,7 +25,7 @@ function Collaborations() {
 
   const dispatch = useDispatch();
   useEffect(async () => {
-    await dispatch(getWorkDMs());
+    await dispatch(getDevis());
   }, []);
 
   function replaceAcc(str) {
@@ -55,7 +54,7 @@ function Collaborations() {
 
   const columns = [
     {
-      title: 'Collaboration DM',
+      title: 'DM Devis',
       dataIndex: 'feedback',
       key: 'feedback',
     },
@@ -149,7 +148,7 @@ function Collaborations() {
           <div className="ant-employed">
             <a onClick={async () => {
               await dispatch(deleteReclamation(item?._id))
-              await dispatch(getWorkDMs());
+              await dispatch(getDevis());
             }}>
               <Button type="link" danger>
                 <DeleteOutlined />
@@ -164,8 +163,8 @@ function Collaborations() {
       <Tracker
         searchQuery={searchQuery}
         setSearchQuery={setSearchQuery}
-        label="Rechercher un feedback"
-        placeholder="Introduire le nom du feedback"
+        label="Rechercher devis"
+        placeholder="Introduire Num"
       />
       <div className="tabled">
         <Row gutter={[24, 0]}>
@@ -173,16 +172,7 @@ function Collaborations() {
             <Card
               bordered={false}
               className="criclebox tablespace mb-24"
-              title="Nos feedbacks"
-              extra={
-                <>
-                  <Radio.Group defaultValue="a">
-
-                    <Radio.Button value="a"><a id="add-mem" href="/feedback">Ajouter un feedback</a></Radio.Button>
-
-                  </Radio.Group>
-                </>
-              }
+              title="Demandes de Devis"
             >
               <div className="table-responsive">
                 <Table
