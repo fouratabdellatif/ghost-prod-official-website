@@ -3,7 +3,7 @@ import '../../assets/css/TestimonialsSection.css';
 import SectionTitle from './SectionTitle';
 import Testimonial from '../Testimonial';
 import { useDispatch, useSelector } from 'react-redux';
-import { getFeedbacks } from '../../actions/reclamations';
+import { getVisibleFeedbacks } from '../../actions/reclamations';
 
 const TestimonialsSection = () => {
 
@@ -11,7 +11,7 @@ const TestimonialsSection = () => {
 
     const dispatch = useDispatch();
     useEffect(() => {
-        dispatch(getFeedbacks());
+        dispatch(getVisibleFeedbacks());
     }, [dispatch]);
 
     return (!reclamations || reclamations.length === 0) ? (

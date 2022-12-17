@@ -28,6 +28,16 @@ export const getFeedbacks = async (req, res) => {
     }
 }
 
+export const getVisibleFeedbacks = async (req, res) => {
+    try {
+        const reclamations = await Reclamation.find({ category: 'feedback', visible: true }).sort({ createdAt: -1 });
+
+        res.status(200).json(reclamations);
+    } catch (error) {
+        res.status(404).json({ reclamation: error.reclamation });
+    }
+}
+
 export const getDevis = async (req, res) => {
     try {
         const reclamations = await Reclamation.find({ category: 'devis' }).sort({ createdAt: -1 });

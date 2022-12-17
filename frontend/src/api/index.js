@@ -22,6 +22,7 @@ export const fetchServices = () => API.get('/services');
 export const fetchServiceById = (id) => API.get(`/services/${id}`);
 export const fetchWorkDMs = () => API.get('/reclamations/work');
 export const fetchFeedbacks = () => API.get('/reclamations/feedback');
+export const fetchVisibleFeedbacks = () => API.get('/reclamations/visibleFeedback');
 export const sendReclamation = (newReclamation) => API.post('/reclamations/sendReclamation', newReclamation);
 export const fetchReclamationById = (id) => API.get(`/reclamations/${id}`);
 export const fetchArtists = () => API.get('/artists');

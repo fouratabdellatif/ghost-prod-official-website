@@ -1,5 +1,5 @@
 import * as api from '../api/index.js';
-import { CREATE, FETCH_FEEDBACKS, FETCH_RECLAMATION } from '../constants/actionTypes.js';
+import { CREATE, FETCH_FEEDBACKS, FETCH_RECLAMATION, FETCH_VISIBLE_FEEDBACKS } from '../constants/actionTypes.js';
 // import { toast } from 'react-toastify';
 
 // const notifySuccess = (msg) => toast.success(msg, {
@@ -27,6 +27,16 @@ export const getFeedbacks = () => async (dispatch) => {
         const { data } = await api.fetchFeedbacks();
 
         dispatch({ type: FETCH_FEEDBACKS, payload: data });
+    } catch (error) {
+        console.log(error);
+    }
+};
+
+export const getVisibleFeedbacks = () => async (dispatch) => {
+    try {
+        const { data } = await api.fetchVisibleFeedbacks();
+
+        dispatch({ type: FETCH_VISIBLE_FEEDBACKS, payload: data });
     } catch (error) {
         console.log(error);
     }
