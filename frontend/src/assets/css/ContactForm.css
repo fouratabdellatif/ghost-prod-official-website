@@ -15,7 +15,7 @@
 .contact-form {
   display: grid;
   grid-template-columns: repeat(1, 1fr);
-  grid-template-rows: 180px 280px 40px;
+  grid-template-rows: 180px 220px 0;
   grid-gap: 10px;
   background: #ffffff;
   padding: 20px;
@@ -81,6 +81,10 @@
   line-height: 20px;
   cursor: pointer;
   transition: 0.3s;
+}
+
+.btn-wrapper {
+  margin-top: 80px;
 }
 
 @media screen and (max-width: 1200px) {

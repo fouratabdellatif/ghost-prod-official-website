@@ -1,13 +1,19 @@
 import styled from "styled-components";
 
 export const Wrapper = styled.div`
-  height: 100px;
+  height: 60px;
   label {
       text-transform: capitalize;
     font-weight: bold;
     margin-bottom: 5px;
     display: block;
   }
+  
+@media screen and (max-width: 1200px) {
+}
+@media screen and (max-width: 768px) {
+    margin-bottom: 0px;
+}
 `;
 
 export const Input = styled.input`

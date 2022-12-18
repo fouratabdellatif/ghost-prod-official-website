@@ -19,6 +19,10 @@ right: ${({ isOpen }) => (isOpen ? '0' : '-100%')};
 transition: 0.3s ease-in-out;
 opacity: ${({ isOpen }) => (isOpen ? '1' : '0')};
 /* top: ${({ isOpen }) => (isOpen ? '0' : '-100%')}; */
+
+/* &::-webkit-scrollbar {
+  display: none;
+} */
 `;
 
 const Icon = styled.div`
