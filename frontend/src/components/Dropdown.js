@@ -50,7 +50,7 @@ width: 80%;
 @media screen and (max-width: 768px) {
     grid-template-columns: repeat(1, 1fr);
     grid-template-rows: repeat(1, 40px);
-    margin: -80px auto 120px auto;
+    margin: 0 auto 100px auto;
     width: 60%;
 }
 `;
@@ -208,17 +208,20 @@ const SocialMediaItem = styled.a`
 `;
 
 const LogoImage = styled.img`
-height: 45px;
+height: 25px;
 transition: 0.3s ease-in;
 /* background-color: #000000ce; */
-margin-top: -60px;
-padding: 10px;
+/* margin-top: auto; */
+left: 0;
+top: 0;
+display: block;
+/* padding: 10px; */
 
-@media screen and (max-width: 768px) {
-    margin-top: 80px;
-}
 @media screen and (max-width: 1200px) {
-    margin-top: 80px;
+    /* margin-top: auto; */
+}
+@media screen and (max-width: 768px) {
+    /* margin-top: auto; */
 }
 `;
 
@@ -230,8 +233,7 @@ const Dropdown = ({ isOpen, toggle }) => {
                     display: 'grid',
                     gridTemplateColumns: '1fr 1fr 1fr',
                     gridTemplateRows: 'repeat(1, 80px)',
-                    marginBottom: '140px',
-                    marginTop: '-40px'
+                    marginBottom: '160px',
                 }}>
                     <Link className="logo" to="/">
                         <LogoImage src={gpLogo} alt="Logo" />
