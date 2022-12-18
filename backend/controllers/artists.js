@@ -48,7 +48,7 @@ export const createArtist = async (req, res) => {
     const imageFile = req.files.imageFile;
     const musicSrc = req.files.musicSrc;
 
-    console.log(req.files);
+    // console.log(req.files);
 
     try {
         // Upload image to cloudinary
@@ -138,7 +138,7 @@ export const updateArtist = async (req, res) => {
         // Delete image from cloudinary
         await cloudinary.uploader.destroy(artist.cloudinary_img_id);
         // Delete video from cloudinary
-        await cloudinary.uploader.destroy(artist.cloudinary_vid_id);
+        await cloudinary.uploader.destroy(artist.cloudinary_aud_id);
         // Upload image to cloudinary
         let resultImg;
         if (imageFile) {

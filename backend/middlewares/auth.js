@@ -3,7 +3,7 @@ import dotenv from "dotenv";
 
 dotenv.config();
 
-export const secret = "test";
+export const secret = "ghostprod2022";
 
 export const verifyToken = (req, res, next) => {
   try {
