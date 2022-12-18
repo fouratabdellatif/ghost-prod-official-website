@@ -5,6 +5,9 @@ import gpLogoDark from '../assets/images/logoDark.png';
 
 
 function Footer() {
+
+    let d = new Date().getFullYear();
+
     return (
         <div className='footer-container'>
             <div className='footer-links'>
@@ -52,7 +55,7 @@ function Footer() {
             </div>
             <section className='social-media'>
                 <div className='social-media-wrap'>
-                    <small className='website-rights'>© 2022, Made
+                    <small className='website-rights'>© {d}, Made
                         by <a href="https://inceptumje.tn/" target="_blank" rel="noreferrer">INCEPTUM Junior Entreprise</a>
                     </small>
                     <div className='social-icons'>
