@@ -33,7 +33,7 @@ function Footer() {
                         </div>
                         <div className="material-icons">
                             <i className="fas fa-envelope"></i>
-                            <a href="mailto:contact@ghostprod.net"> contact@ghostprod.net</a>
+                            <a href="mailto:contact.ghostprod@gmail.com"> contact.ghostprod@gmail.com</a>
                         </div>
                     </div>
                     <div className='footer-link-items'>
