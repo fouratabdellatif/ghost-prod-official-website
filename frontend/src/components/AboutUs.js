@@ -4,6 +4,7 @@ import { TextData } from '../data/TextData'
 // import teamImage from '../assets/images/bg08.jpg'
 // import Dailymotion from 'react-dailymotion';
 import YouTube from 'react-youtube';
+import { Link } from 'react-router-dom';
 
 function AboutUs() {
     return (
@@ -29,6 +30,9 @@ function AboutUs() {
                                 {item.text}
                             </p>
                         ))}
+                        <p className='aboutus__hero-paragraph'>
+                            Si vous souhaitez en savoir plus sur les services proposés par Ghostprod ou si vous souhaitez discuter de votre projet de production audiovisuelle, n'hésitez pas à <Link className='contact-link' to='/contact'>contacter</Link> l'entreprise pour obtenir plus d'informations. Ghostprod se fera un plaisir de vous accompagner dans la réalisation de votre projet.
+                        </p>
                     </div>
                 </div>
             </div>

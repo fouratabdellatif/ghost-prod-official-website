@@ -51,6 +51,11 @@
   margin-right: auto;
 }
 
+.contact-link {
+  text-decoration: none;
+  color: aqua;
+}
+
 /* .aboutus__hero-text-wrapper div {
   width: 100%;
 } */

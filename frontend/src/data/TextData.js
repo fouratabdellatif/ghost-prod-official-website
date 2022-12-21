@@ -16,7 +16,4 @@ export const TextData = [
     {
         text: "Grâce à sa collaboration avec les meilleurs talents de la région, Ghostprod est en mesure de proposer des contenus de qualité supérieure, qui sauront toucher le cœur des spectateurs et des téléspectateurs.",
     },
-    {
-        text: "Si vous souhaitez en savoir plus sur les services proposés par Ghostprod ou si vous souhaitez discuter de votre projet de production audiovisuelle, n'hésitez pas à contacter l'entreprise pour obtenir plus d'informations. Ghostprod se fera un plaisir de vous accompagner dans la réalisation de votre projet.",
-    },
 ]
