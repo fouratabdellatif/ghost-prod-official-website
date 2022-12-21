@@ -50,7 +50,7 @@ const InfoSection = () => {
                         <Link to="/a-propos" style={{
                             textDecoration: 'none'
                         }}>
-                            <p className='show-more' data-aos="fade-right">{'Afficher plus >>'}</p>
+                            <p className='show-more' data-aos="fade-right">{'Lire la suite >>'}</p>
                         </Link>
                     </div>
                 </div>

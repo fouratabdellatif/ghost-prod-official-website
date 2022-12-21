@@ -2,10 +2,10 @@ import imageOne from '../assets/images/camera1.jpg';
 // import imageTwo from '../assets/images/house8.jpg';
 
 export const InfoData = {
-    heading: 'Pourqoui GHOSTPROD?',
-    paragraphOne: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ornare arcu dui vivamus arcu felis. Facilisi cras fermentum odio eu. In nisl nisi scelerisque eu ultrices vitae auctor. Interdum consectetur libero id faucibus nisl. Praesent elementum facilisis leo vel fringilla est ullamcorper eget nulla. In nisl nisi scelerisque eu ultrices vitae auctor. Interdum consectetur libero id faucibus nisl. Elementum nibh tellus molestie nunc.',
+    heading: 'Pourquoi GHOSTPROD?',
+    paragraphOne: "Ghostprod est une entreprise de production audiovisuelle spécialisée dans la réalisation de films d'entreprises, de documentaires, la couverture évènementielle et la production des émissions digitales. Fondée en 2019, Ghostprod s'est rapidement imposée comme l'une des sociétés de production les plus innovantes et créatives de la région.",
     paragraphTwo: '',
-    buttonLabel: 'Afficher plus',
+    buttonLabel: 'Lire la suite',
     videoId: "-6O1V5-zhT8",
     image: imageOne,
     reverse: false,

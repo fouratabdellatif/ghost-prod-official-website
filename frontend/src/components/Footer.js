@@ -18,15 +18,14 @@ function Footer() {
                                 <img src={gpLogoDark} className='footer-gp-logo' alt='logo-ghostprod' />
                             </Link>
                         </div>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                        <p>Ghostprod est une entreprise de production audiovisuelle spécialisée dans la réalisation de films d'entreprises, de documentaires, la couverture évènementielle et la production des émissions digitales.</p>
                     </div>
                     <div className='footer-link-items'>
                         <h2>Informations de contact</h2>
                         <hr className="solid" />
                         <div className="material-icons">
                             <i className="fas fa-map-marker-alt"></i>
-                            <span> Immeuble Malek, Bloc B, étage 4, Appt 3</span>
-                            <span> Boulevard de la terre, Centre Urbain Nord</span>
+                            <span> 07 rue du Marthyr Mefteh Triki Manar 1</span>
                         </div>
                         <div className="material-icons">
                             <i className="fas fa-phone-alt"></i>
