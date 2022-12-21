@@ -26,7 +26,7 @@
 .footer-link-wrapper {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  grid-template-rows: repeat(1, 160px);
+  grid-template-rows: repeat(1, auto);
   gap: 60px;
   text-align: center;
   flex-flow: row;
@@ -240,7 +240,7 @@ a:hover i::before {
   font-weight: 600;
 }
 
-@media screen and (max-width: 1200px) {
+@media screen and (max-width: 1350px) {
   .footer-link-wrapper {
     grid-template-columns: repeat(2, 1fr);
     gap: 20px;
@@ -258,7 +258,7 @@ a:hover i::before {
 
   .social-media {
     margin-top: 40px;
-    width: 80%;
+    width: 100%;
   }
 
   .social-media-wrap {
@@ -269,7 +269,7 @@ a:hover i::before {
 
 @media screen and (max-width: 768px) {
   .footer-links {
-    padding-top: 4rem;
+    padding-top: 0rem;
   }
 
   .footer-input {
@@ -287,7 +287,7 @@ a:hover i::before {
   }
 
   .social-media {
-    margin-top: 80px;
+    margin-top: 40px;
   }
 
   .social-media-wrap {
@@ -300,8 +300,8 @@ a:hover i::before {
   }
 
   .footer-logo {
-    margin-top: -60px;
-    margin-bottom: -60px;
+    margin-top: 0;
+    margin-bottom: 0;
   }
 
   .social-logo {
