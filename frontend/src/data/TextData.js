@@ -16,4 +16,16 @@ export const TextData = [
     {
         text: "Grâce à sa collaboration avec les meilleurs talents de la région, Ghostprod est en mesure de proposer des contenus de qualité supérieure, qui sauront toucher le cœur des spectateurs et des téléspectateurs.",
     },
+    {
+        subtitle: "L'espace de Ghostprod:",
+        text: "Ghostprod est une agence de production audiovisuelle créée en mars 2019, située à El Manar 1 dans un building de 500 m². Nous disposons de deux espaces conçus pour l’installation de deux plateaux de tournage :",
+        steps: [
+            "Un plateau pour des émissions digitales. corporatif, Packshot produit, Shooting etc.",
+            "Un plateau pour des émissions de Cooking Show, Packshot publicitaire culinaire etc.",
+            "3 Suites de Post-production.",
+            "1 Salle de régie vidéo, Live streaming.",
+            "1 Salle d’enregistrement son et voix off.",
+            "Tout le building est doté d’une connexion câblée en Fibre Optique et d’une solution de Backup.Un jardin et un espace de détente pour le confort plateau."
+        ]
+    },
 ]
