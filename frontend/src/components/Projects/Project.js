@@ -22,7 +22,7 @@ const Project = ({ item }) => {
                     </p>
                     {item?.partners.map((partner) => (
                         <>
-                            <p><a className='contact-link' href={partner?.partnerLink}>{partner?.name}</a></p>
+                            <p><a className='contact-link' href={partner?.partnerLink} target='_blank' rel="noreferrer">{partner?.name}</a></p>
                         </>
                     ))}
                 </div>
