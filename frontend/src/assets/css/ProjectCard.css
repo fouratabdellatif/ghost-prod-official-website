@@ -19,8 +19,9 @@
 .project-image-container img {
   overflow: hidden;
   height: 360px;
-  width: auto;
+  width: 100%;
   transition: 0.3s;
+  object-fit: cover;
 }
 
 .project-image-container img:hover {
