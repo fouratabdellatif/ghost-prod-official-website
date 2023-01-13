@@ -65,7 +65,12 @@ export default function SignIn() {
                     },
                   ]}
                 >
-                  <Input placeholder="Username" />
+                  <Input
+                    style={{ 
+                      borderRadius: '10px',
+                      height: '50px'
+                  }}
+                    placeholder="Username" />
                 </Form.Item>
 
                 <Form.Item
@@ -76,10 +81,16 @@ export default function SignIn() {
                     {
                       required: true,
                       message: "Please input your password!",
+
                     },
                   ]}
                 >
-                  <Input placeholder="Password" />
+                  <Input.Password
+                    style={{ 
+                      borderRadius: '10px',
+                      height: '50px'
+                  }}
+                    placeholder="Password" />
                 </Form.Item>
 
                 {/* <Form.Item
