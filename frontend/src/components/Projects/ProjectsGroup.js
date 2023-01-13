@@ -5,6 +5,7 @@ import { useEffect } from 'react';
 import { getProjects } from '../../actions/projects';
 import FilterButtons from './FilterButtons';
 import ProjectsPageSection from './ProjectsPageSection';
+import { motion } from 'framer-motion';
 
 const ProjectsGroup = () => {
 
@@ -39,10 +40,16 @@ const ProjectsGroup = () => {
                 data={projects}
             />
             <section className='project-section'>
-                <div className='project-group-container'>
+                <motion.div
+                    animate={{ opacity: 1 }}
+                    initial={{ opacity: 0 }}
+                    exit={{ opacity: 0 }}
+                    layout
+                    className='project-group-container'
+                >
                     <ProjectsPageSection data={data} />
                     {/* {filter ? <ProjectsPageSection data={data} /> : <ProjectsPageSection data={projects} />} */}
-                </div>
+                </motion.div>
             </section>
         </>
     )
