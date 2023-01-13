@@ -1,0 +1,35 @@
+.filter-container {
+  margin-bottom: 40px;
+}
+
+.filter-container button {
+  text-transform: uppercase;
+  margin-right: 2rem;
+  min-width: 5rem;
+  padding: 0.5rem 1rem;
+  border: none;
+  background: #ffffff;
+  color: #e1a33b;
+  border-radius: 1rem;
+  border: 2px solid #e1a33b;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.filter-container button:hover {
+  margin-right: 2rem;
+  min-width: 5rem;
+  padding: 0.5rem 1rem;
+  border: none;
+  background: #ffffff;
+  color: #e1a33b;
+  border-radius: 1rem;
+  border: 2px solid #e1a33b;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.filter-container button.active {
+  background-color: #e1a33b;
+  color: #ffffff;
+}
