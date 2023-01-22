@@ -56,10 +56,26 @@ export const getReclamationById = (id) => async (dispatch) => {
 
 export const sendReclamation = (reclamation) => async (dispatch) => {
     try {
+        // if (reclamation.cv) {
+        const formData = new FormData();
+        formData.append('name', reclamation.name);
+        formData.append('phone', reclamation.phone);
+        formData.append('email', reclamation.email);
+        formData.append('category', reclamation.category);
+        formData.append('text', reclamation.text);
+        formData.append('spec', reclamation.spec);
+        formData.append('cv', reclamation.cv);
 
-        const { data } = await api.sendReclamation(reclamation);
+        console.log(reclamation);
+
+        const { data } = await api.sendReclamation(formData);
 
         dispatch({ type: CREATE, payload: data });
+        // }
+
+        // const { data } = await api.sendReclamation(reclamation);
+
+        // dispatch({ type: CREATE, payload: data });
 
         // notifySuccess('Projet créé');
         // window.location.reload();

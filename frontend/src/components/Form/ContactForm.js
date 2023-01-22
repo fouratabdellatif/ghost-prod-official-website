@@ -88,23 +88,24 @@ const ContactForm = () => {
         category: '',
         text: '',
         spec: '',
-        // cv: ''
+        cv: ''
     }
 
     const [msg, setMsg] = useState(false);
     const [formData, setFormData] = useState(initState);
     const [loader, setLoader] = useState(false);
-    // const [selected, setSelected] = useState("");
+    const [selected, setSelected] = useState("");
 
     const handleChange = (e) => {
         const name = e.target.name;
         const value = e.target.value;
-        // setSelected(value);
+        if (name === "category")
+            setSelected(value);
         setFormData({
             ...formData,
             [name]: value
         })
-        // console.log(e.target);
+        console.log(e.target);
         // console.log(formData);
     }
 
@@ -118,13 +119,18 @@ const ContactForm = () => {
         await setMsg(true);
     }
 
+    const initForm = () => {
+        setMsg(false);
+        setSelected("");
+    }
+
     return (
         <div className="contact-form-container">
             <h1 className="contact-title">Dites-nous quelque chose</h1>
             <CustomDivider />
             {msg ? (
                 <div className="alert">
-                    <span onClick={() => setMsg(false)} className="closebtn"> &times;</span>
+                    <span onClick={initForm} className="closebtn"> &times;</span>
                     Votre message a été envoyé avec succès. Merci de nous avoir contacter.
                 </div>
             ) : (
@@ -173,6 +179,7 @@ const ContactForm = () => {
                             {options.map((option) => (
                                 <Item>
                                     <RadioButton
+                                        id={option.value}
                                         type="radio"
                                         name="category"
                                         value={option.value}
@@ -181,22 +188,27 @@ const ContactForm = () => {
                                         required
                                     />
                                     <RadioButtonLabel />
-                                    <div className="cat-label">{option.label}</div>
+                                    <label for={option.value} className="cat-label">{option.label}</label>
                                 </Item>
                             ))}
                         </div>
                     </div>
                     <div className="contact-form-first">
-                        {/* <div className="contact-form-third">
-                            {selected === "work" ? (
+                        <div className="contact-form-third">
+                            {selected === "work" && (
                                 <Input
+                                    accept="application/pdf"
                                     type="file"
+                                    file="cv"
                                     name="cv"
                                     placeholder="CV"
-                                    onChange={handleChange}
+                                    onChange={(e) => {
+                                      // console.log(e.target.files[0])
+                                      setFormData({ ...formData, cv: e.target.files[0] })
+                                    }}
                                     required={selected === "work"}
                                 />
-                            ) : null}
+                            )}
                             <Input
                                 name="text"
                                 placeholder="Message"
@@ -204,14 +216,14 @@ const ContactForm = () => {
                                 onChange={handleChange}
                                 required
                             />
-                        </div> */}
-                        <Input
+                        </div>
+                        {/* <Input
                             name="text"
                             placeholder="Message"
                             textarea
                             onChange={handleChange}
                             required
-                        />
+                        /> */}
                         <div className="btn-wrapper">
                             {loader ? (
                                 <CustomLoader />

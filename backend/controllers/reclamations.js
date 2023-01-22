@@ -71,6 +71,7 @@ export const sendReclamation = async (req, res) => {
     } = req.body;
 
     const cv = req.file;
+    console.log(req.file);
     var result;
     if (cv)
         result = await cloudinary.v2.uploader.upload(cv.path, { resource_type: "auto" });
