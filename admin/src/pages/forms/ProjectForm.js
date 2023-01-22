@@ -117,7 +117,7 @@ const ProjectForm = () => {
       ...formData,
       [name]: value
     });
-    console.log('formData', formData);
+    // console.log('formData', formData);
     // console.log('value', value);
   }
 

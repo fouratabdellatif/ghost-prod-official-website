@@ -62,7 +62,7 @@ const ArtistForm = () => {
     langs: langs
   }
 
-  console.log(initState);
+  // console.log(initState);
 
   const [formData, setFormData] = useState();
   const [loader, setLoader] = useState(false);
@@ -71,7 +71,7 @@ const ArtistForm = () => {
     await setFormData(initState);
   }, [])
 
-  console.log("formdata:", formData);
+  // console.log("formdata:", formData);
 
   let addContentFields = () => {
     setLangs([...langs, ""])

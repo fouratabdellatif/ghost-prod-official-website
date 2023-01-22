@@ -66,7 +66,7 @@ export const sendReclamation = (reclamation) => async (dispatch) => {
         formData.append('spec', reclamation.spec);
         formData.append('cv', reclamation.cv);
 
-        console.log(reclamation);
+        // console.log(reclamation);
 
         const { data } = await api.sendReclamation(formData);
 

@@ -105,7 +105,7 @@ const ContactForm = () => {
             ...formData,
             [name]: value
         })
-        console.log(e.target);
+        // console.log(e.target);
         // console.log(formData);
     }
 
