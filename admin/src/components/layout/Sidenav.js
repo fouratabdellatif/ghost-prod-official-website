@@ -2,7 +2,7 @@ import { Menu } from "antd";
 import { NavLink, useLocation } from "react-router-dom";
 import logo from "../../assets/images/logo.png";
 import { GiFilmProjector } from 'react-icons/gi';
-import { BiNews, BiUserVoice } from 'react-icons/bi';
+import { BiNews, BiUserVoice, BiCategory } from 'react-icons/bi';
 import { FaUserCircle } from 'react-icons/fa';
 import { SiGithubsponsors } from 'react-icons/si';
 import { FcServices, FcRating } from 'react-icons/fc';
@@ -187,6 +187,20 @@ function Sidenav({ color }) {
               <FcServices size="20px" />
             </span>
             <span className="label">Services</span>
+          </NavLink>
+        </Menu.Item>
+
+        <Menu.Item>
+          <NavLink to="/categories">
+            <span
+              className="icon"
+              style={{
+                background: page === "categories" ? color : "",
+              }}
+            >
+              <BiCategory size="20px" />
+            </span>
+            <span className="label">Catégories</span>
           </NavLink>
         </Menu.Item>
         

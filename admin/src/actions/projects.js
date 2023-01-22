@@ -54,11 +54,11 @@ export const createProject = (project) => async (dispatch) => {
         formData.append('client', project.client);
         formData.append('clientLink', project.clientLink);
 
-        for (var i = 0; i < project.partners.length; i++) {
-            formData.append(`partners[${i}][name]`, project.partners[i].name);
-            formData.append(`partners[${i}][partnerLink]`, project.partners[i].partnerLink);
-            // console.log("element", project.partners[i]);
-        }
+        // for (var i = 0; i < project.partners.length; i++) {
+        //     formData.append(`partners[${i}][name]`, project.partners[i].name);
+        //     formData.append(`partners[${i}][partnerLink]`, project.partners[i].partnerLink);
+        //     // console.log("element", project.partners[i]);
+        // }
 
         for (var j = 0; j < project.videos.length; j++) {
             formData.append(`videos[${j}][videoId]`, project.videos[j].videoId);

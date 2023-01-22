@@ -48,6 +48,9 @@ import { getServices } from "./actions/services";
 // import { getJobRequests } from "./actions/jobs";
 import { getReels } from "./actions/reel";
 import { getSliders } from "./actions/slider";
+import { getCategories } from "./actions/categories";
+import CategoryForm from "./pages/forms/CategoryForm";
+import Categories from "./pages/Categories";
 // import NotFound from "./pages/NotFound";
 
 const MyRoute = ({ path, redirect, component }) => {
@@ -94,6 +97,7 @@ const DefaultContainer = () => {
     await dispatch(getPages());
     await dispatch(getPartners());
     await dispatch(getServices());
+    await dispatch(getCategories());
     await dispatch(getWorkDMs());
     await dispatch(getDevis());
     // await dispatch(getJobRequests());
@@ -118,6 +122,7 @@ const DefaultContainer = () => {
         <HomeRoute path="/posts" component={<Posts />} />
         <HomeRoute path="/partenaires" component={<Partners />} />
         <HomeRoute path="/services" component={<Services />} />
+        <HomeRoute path="/categories" component={<Categories />} />
         <HomeRoute path="/feedbacks" component={<Feedbacks />} />
         <HomeRoute path="/devis" component={<Collaborations />} />
         <HomeRoute path="/candidatures" component={<JobRequests />} />
@@ -134,6 +139,8 @@ const DefaultContainer = () => {
         <HomeRoute path="/partenaire/:id" component={<PartnerForm />} />
         <HomeRoute path="/service" component={<ServiceForm />} />
         <HomeRoute path="/service/:id" component={<ServiceForm />} />
+        <HomeRoute path="/categorie" component={<CategoryForm />} />
+        <HomeRoute path="/categorie/:id" component={<CategoryForm />} />
         <HomeRoute path="/voice-over-artist" component={<ArtistForm />} />
         <HomeRoute path="/voice-over-artist/:id" component={<ArtistForm />} />
         <HomeRoute path="/slider" component={<SliderForm />} />

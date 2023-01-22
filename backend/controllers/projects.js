@@ -28,6 +28,9 @@ export const getProjectById = async (req, res) => {
             .populate('videos',
                 { _id: 1, videoId: 1 }
             )
+            .populate('category',
+                { _id: 1, name: 1, description: 1 }
+            )
             .exec();
 
         res.status(200).json(project);
@@ -145,7 +148,7 @@ export const updateProject = async (req, res) => {
 
 export const deleteProject = async (req, res) => {
     const { id } = req.params;
-    
+
     let project = await Project.findById(id);
     // Delete image from cloudinary
     await cloudinary.uploader.destroy(project.cloudinary_img_id);

@@ -1,7 +1,8 @@
 import axios from "axios";
 import jwt from "jsonwebtoken";
 
-const API = axios.create({ baseURL: "https://ghostprod-server.cyclic.app" });
+const API = axios.create({ baseURL: "http://localhost:5000" });
+// const API = axios.create({ baseURL: "https://ghostprod-server.cyclic.app" });
 API.interceptors.request.use((req) => {
     if (localStorage.getItem("profile")) {
         req.headers.Authorization = `Bearer ${JSON.parse(localStorage.getItem("profile")).token}`;
@@ -51,6 +52,13 @@ export const fetchServiceById = (id) => API.get(`/services/${id}`);
 export const createService = (newService) => API.post('/services/createService', newService);
 export const updateService = (id, updatedService) => API.patch(`/services/updateService/${id}`, updatedService);
 export const deleteService = (id) => API.delete(`/services/deleteService/${id}`);
+
+
+export const fetchCategories = () => API.get('/categories');
+export const fetchCategoryById = (id) => API.get(`/categories/${id}`);
+export const createCategory = (newCategory) => API.post('/categories/createCategory', newCategory);
+export const updateCategory = (id, updatedCategory) => API.patch(`/categories/updateCategory/${id}`, updatedCategory);
+export const deleteCategory = (id) => API.delete(`/categories/deleteCategory/${id}`);
 
 
 export const fetchWorkDMs = () => API.get('/reclamations/work');

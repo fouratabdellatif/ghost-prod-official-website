@@ -10,8 +10,10 @@ import {
 } from "antd";
 import { LoadingOutlined, MinusOutlined, PlusOutlined } from "@ant-design/icons";
 import { createProject } from "../../actions/projects";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
+import { useEffect } from "react";
+import { getCategories } from "../../actions/categories";
 
 
 const { Title } = Typography;
@@ -19,17 +21,16 @@ const { Content } = Layout;
 
 const ProjectForm = () => {
 
-  const [partners, setPartners] = useState([
-    {
-      name: "",
-      partnerLink: ""
-    },
-  ]);
+  const categories = useSelector((state) => state.categories);
+
+  // const [partners, setPartners] = useState([
+  //   {
+  //     name: "",
+  //     partnerLink: ""
+  //   },
+  // ]);
 
   const [videos, setVideos] = useState([
-    {
-      videoId: ""
-    }
   ]);
 
   const initState = {
@@ -41,30 +42,30 @@ const ProjectForm = () => {
     videoId: '',
     client: '',
     clientLink: '',
-    partners: partners,
+    // partners: partners,
     videos: videos
   }
 
   const [formData, setFormData] = useState(initState);
   const [loader, setLoader] = useState(false);
 
-  let addPartnerFields = () => {
-    setPartners([...partners, { name: "", partnerLink: "" }])
-    setFormData({
-      ...formData,
-      partners: partners
-    })
-  }
+  // let addPartnerFields = () => {
+  //   setPartners([...partners, { name: "", partnerLink: "" }])
+  //   setFormData({
+  //     ...formData,
+  //     partners: partners
+  //   })
+  // }
 
-  let removePartnerFields = (i) => {
-    let newFormValues = [...partners];
-    newFormValues.splice(i, 1);
-    setPartners(newFormValues)
-    setFormData({
-      ...formData,
-      partners: partners
-    })
-  }
+  // let removePartnerFields = (i) => {
+  //   let newFormValues = [...partners];
+  //   newFormValues.splice(i, 1);
+  //   setPartners(newFormValues)
+  //   setFormData({
+  //     ...formData,
+  //     partners: partners
+  //   })
+  // }
 
   let addVideoFields = () => {
     setVideos([...videos, { videoId: "" }])
@@ -84,17 +85,17 @@ const ProjectForm = () => {
     })
   }
 
-  const handleInputPartnersChange = (index, event) => {
-    const values = [...partners];
-    const updatedValue = event.target.name;
-    values[index][updatedValue] = event.target.value;
+  // const handleInputPartnersChange = (index, event) => {
+  //   const values = [...partners];
+  //   const updatedValue = event.target.name;
+  //   values[index][updatedValue] = event.target.value;
 
-    setPartners(values);
-    setFormData({
-      ...formData,
-      partners: partners
-    })
-  };
+  //   setPartners(values);
+  //   setFormData({
+  //     ...formData,
+  //     partners: partners
+  //   })
+  // };
 
   const handleInputVideosChange = (index, event) => {
     const values = [...videos];
@@ -116,7 +117,7 @@ const ProjectForm = () => {
       ...formData,
       [name]: value
     });
-    // console.log('formData', formData);
+    console.log('formData', formData);
     // console.log('value', value);
   }
 
@@ -128,8 +129,8 @@ const ProjectForm = () => {
     await setLoader(true);
     await setFormData({
       ...formData,
-      partners: partners,
-      videos: videos
+      // partners: partners,
+      videos: videos,
     })
     // await console.log("FORMDATA", formData);
     await dispatch(createProject(formData));
@@ -137,6 +138,9 @@ const ProjectForm = () => {
     await history.push('/projets');
   }
 
+  useEffect(() => {
+    dispatch(getCategories());
+  }, [dispatch]);
 
   return (
     <Layout className="Form-layout layout-default">
@@ -166,12 +170,19 @@ const ProjectForm = () => {
                     <input placeholder="Nom"
                       name="name"
                       onChange={handleChange}
+                      required
                     />
-                    <input
+                    <select
                       placeholder="Catégorie"
                       name="category"
                       onChange={handleChange}
-                    />
+                      required
+                    >
+                      <option value="">Catégorie...</option>
+                      {categories.map((item, index) => (
+                        <option key={index} value={item.name}>{item.name}</option>
+                      ))}
+                    </select>
                   </Space>
                 </Col>
                 <Col
@@ -188,6 +199,7 @@ const ProjectForm = () => {
                       // console.log(e.target.files[0])
                       setFormData({ ...formData, imageFile: e.target.files[0] })
                     }}
+                    required
                   />
                   <input
                     type='file'
@@ -198,6 +210,7 @@ const ProjectForm = () => {
                       // console.log(e.target.files[0])
                       setFormData({ ...formData, videoFile: e.target.files[0] })
                     }}
+                    required
                   />
                 </Col>
                 <Col
@@ -208,6 +221,7 @@ const ProjectForm = () => {
                   <input placeholder="ID VIDEO"
                     name="videoId"
                     onChange={handleChange}
+                    required
                   />
                 </Col>
                 <Col
@@ -219,14 +233,16 @@ const ProjectForm = () => {
                     <input placeholder="Nom du client"
                       name="client"
                       onChange={handleChange}
+                      required
                     />
                     <input placeholder="Lien client"
                       name="clientLink"
                       onChange={handleChange}
+                      required
                     />
                   </Space>
                 </Col>
-                <Col
+                {/* <Col
                   xs={{ span: 24, offset: 0 }}
                   lg={{ span: 7, offset: 2 }}
                   md={{ span: 12 }}
@@ -268,7 +284,7 @@ const ProjectForm = () => {
                       <PlusOutlined />
                     </button>
                   </div>
-                </Col>
+                </Col> */}
                 <Col
                   xs={{ span: 24, offset: 0 }}
                   lg={{ span: 7, offset: 2 }}

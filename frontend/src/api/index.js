@@ -1,6 +1,7 @@
 import axios from "axios";
 
-const API = axios.create({ baseURL: "https://ghostprod-server.cyclic.app" });
+const API = axios.create({ baseURL: "http://localhost:5000" });
+// const API = axios.create({ baseURL: "https://ghostprod-server.cyclic.app" });
 // API.interceptors.request.use((req) => {
 //     if (localStorage.getItem("profile")) {
 //         req.headers.Authorization = `Bearer ${JSON.parse(localStorage.getItem("profile")).token}`;
@@ -20,6 +21,8 @@ export const fetchPartners = () => API.get('/partners');
 export const fetchPartnerById = (id) => API.get(`/partners/${id}`);
 export const fetchServices = () => API.get('/services');
 export const fetchServiceById = (id) => API.get(`/services/${id}`);
+export const fetchCategories = () => API.get('/categories');
+export const fetchCategoryById = (id) => API.get(`/categories/${id}`);
 export const fetchWorkDMs = () => API.get('/reclamations/work');
 export const fetchFeedbacks = () => API.get('/reclamations/feedback');
 export const fetchVisibleFeedbacks = () => API.get('/reclamations/visibleFeedback');

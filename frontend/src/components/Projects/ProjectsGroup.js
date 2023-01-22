@@ -16,9 +16,8 @@ const ProjectsGroup = () => {
     const dispatch = useDispatch();
     useEffect(() => {
         dispatch(getProjects());
-        setData(projects);
-    }, [dispatch, projects]);
-    // const [filter, setFilter] = useState(false);
+    }, [dispatch]);
+    const [filter, setFilter] = useState(false);
 
     const menuItems = [...new Set(projects.map((item) => item.category))];
 
@@ -27,7 +26,7 @@ const ProjectsGroup = () => {
         const newData = projects.filter((item) => {
             return item.category === curcat;
         });
-        // setFilter(true);
+        setFilter(true);
         setData(newData);
     };
 
@@ -47,8 +46,8 @@ const ProjectsGroup = () => {
                     layout
                     className='project-group-container'
                 >
-                    <ProjectsPageSection data={data} />
-                    {/* {filter ? <ProjectsPageSection data={data} /> : <ProjectsPageSection data={projects} />} */}
+                    {/* <ProjectsPageSection data={data} /> */}
+                    {filter ? <ProjectsPageSection data={data} /> : <ProjectsPageSection data={projects} />}
                 </motion.div>
             </section>
         </>
