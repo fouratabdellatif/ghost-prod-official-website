@@ -15,9 +15,7 @@ const userSchema = mongoose.Schema({
       enum: ROLES,
     },
   ],
-  cloudinary_id: {
-      type: String,
-  }
+  cloudinary_id: { type: String }
   // socketId: { type: String },
   // notification: [
   //   {

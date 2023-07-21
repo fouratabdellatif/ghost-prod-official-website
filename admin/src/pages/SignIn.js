@@ -125,7 +125,7 @@ export default function SignIn() {
                 </Form.Item>
                 {/* <p className="font-semibold text-muted">
                     Don't have an account?{" "}
-                    <Link to="/add-account" className="text-dark font-bold">
+                    <Link to="/ajouter-compte" className="text-dark font-bold">
                       Sign Up
                     </Link>
                   </p> */}

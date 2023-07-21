@@ -68,16 +68,16 @@ export default function AddAccount() {
         <Content className="p-0">
           <div className="sign-up-header">
             <div className="content">
-              <Title>Add Account</Title>
+              <Title>Ajouter Compte</Title>
               <p className="text-lg">
-                Add another admin account...
+                Ajouter un autre compte...
               </p>
             </div>
           </div>
 
           <Card
             className="card-signup header-solid h-full ant-card pt-0"
-            title={<h5>Type account details</h5>}
+            title={<h5>Saisir les détails de votre compte</h5>}
             bordered="false"
           >
             <Form
@@ -181,7 +181,7 @@ export default function AddAccount() {
                     type="primary"
                     htmlType="submit"
                   >
-                    ADD ACCOUNT
+                    Ajouter Compte
                   </Button>
                 )}
               </Form.Item>

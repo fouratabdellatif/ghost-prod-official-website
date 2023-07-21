@@ -1,8 +1,8 @@
 import axios from "axios";
 import jwt from "jsonwebtoken";
 
-// const API = axios.create({ baseURL: "http://localhost:5000" });
-const API = axios.create({ baseURL: "https://ghostprod-server.cyclic.app" });
+const API = axios.create({ baseURL: "http://localhost:5000" });
+// const API = axios.create({ baseURL: "https://ghostprod-server.cyclic.app" });
 API.interceptors.request.use((req) => {
     if (localStorage.getItem("profile")) {
         req.headers.Authorization = `Bearer ${JSON.parse(localStorage.getItem("profile")).token}`;
@@ -15,9 +15,9 @@ export var decoded = jwt.decode(JSON.parse(localStorage.getItem("profile"))?.tok
 
 export const addUser = (formData) => API.post("/users/addUser", formData);
 export const signIn = (formData) => API.post("/users/signIn", formData);
-// export const updateUserProfilePicture = (updatedUserProfilePicture) => API.patch("/profile/updateUserProfilePicture", updatedUserProfilePicture);
-// export const updateUserProfileData = (updatedUserProfileData) => API.post("/profile/updateUserProfileData", updatedUserProfileData);
-// export const updateUserPassword = (updatedUserPassword) => API.post("/profile/updateUserPassword", updatedUserPassword);
+export const updateUserProfilePicture = (id, updatedUserProfilePicture) => API.patch(`/profile/updateUserProfilePicture/${id}`, updatedUserProfilePicture);
+export const updateUserProfileData = (updatedUserProfileData) => API.post("/profile/updateUserProfileData", updatedUserProfileData);
+export const updateUserPassword = (updatedUserPassword) => API.post("/profile/updateUserPassword", updatedUserPassword);
 
 export const fetchProjects = () => API.get('/projects');
 export const fetchProjectById = (id) => API.get(`/projects/${id}`);

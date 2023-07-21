@@ -45,28 +45,29 @@ export const createMember = async (req, res) => {
     } = req.body;
 
     const profileImage = req.file;
-    const result = await cloudinary.v2.uploader.upload(profileImage.path, { resource_type: "auto" });
 
     // console.log(profileImage);
 
-    const newMember = new Member({
-        firstname,
-        lastname,
-        spec,
-        city,
-        phone,
-        email,
-        bio,
-        facebook,
-        instagram,
-        linkedin,
-        behance,
-        profileImage: result.secure_url,
-        cloudinary_id: result.public_id,
-        createdAt: new Date(),
-    })
-
     try {
+        
+        const result = await cloudinary.v2.uploader.upload(profileImage.path, { resource_type: "auto" });
+
+        const newMember = new Member({
+            firstname,
+            lastname,
+            spec,
+            city,
+            phone,
+            email,
+            bio,
+            facebook,
+            instagram,
+            linkedin,
+            behance,
+            profileImage: result.secure_url,
+            cloudinary_id: result.public_id,
+            createdAt: new Date(),
+        })
 
         await newMember.save();
 

@@ -51,6 +51,7 @@ import { getSliders } from "./actions/slider";
 import { getCategories } from "./actions/categories";
 import CategoryForm from "./pages/forms/CategoryForm";
 import Categories from "./pages/Categories";
+import EditAccount from "./pages/EditAccount";
 // import NotFound from "./pages/NotFound";
 
 const MyRoute = ({ path, redirect, component }) => {
@@ -108,7 +109,8 @@ const DefaultContainer = () => {
   return (
 
     <Switch>
-      <HomeRoute path="/add-account" component={<AddAccount />} />
+      <HomeRoute path="/ajouter-compte" component={<AddAccount />} />
+      <HomeRoute path="/editer-info" component={<EditAccount />} />
       <MyRoute path="/sign-in" redirect="/" component={<SignIn />} />
       <Route
         exact
@@ -190,7 +192,7 @@ export default App;
 {/* <div className="App">
 <Router>
   <Switch>
-    <Route path="/add-account" exact component={AddAccount} />
+    <Route path="/ajouter-compte" exact component={AddAccount} />
     <Route path="/sign-in" exact component={SignIn} />
 
 

@@ -13,9 +13,11 @@ import jobs from "./jobs";
 import sliders from "./slider";
 import reels from "./reel";
 import pages from "./pages";
+import userProfile from "./userProfile";
 
 export const reducers = combineReducers({
     auth,
+    userProfile,
     projects,
     members,
     posts,

@@ -59,15 +59,22 @@ function Header({
   const [user, setUser] = useState(JSON.parse(localStorage.getItem("profile")));
 
   const profile = [
-    <img
-      width="45"
-      height="45"
-      style={{ borderRadius: '4px', overflow: 'hidden', objectFit: 'cover' }}
-      src={decoded.profilePicture ? decoded.profilePicture : imageProfile}
+    <Link
+      to='/editer-info'
+      style={{
+        cursor: 'pointer'
+      }}
     >
-    </img>,
+      <img
+        width="45"
+        height="45"
+        style={{ borderRadius: '4px', overflow: 'hidden', objectFit: 'cover' }}
+        src={decoded?.profilePicture ? decoded?.profilePicture : imageProfile}
+      >
+      </img>
+    </Link>
   ];
-  
+
 
   const dispatch = useDispatch();
   const history = useHistory();
@@ -103,8 +110,8 @@ function Header({
           <Space>
 
             {decoded?.role[0] === "superAdmin" &&
-              <Link to="/add-account" className="btn-sign-in">
-                <span>Add an account</span>
+              <Link to="/ajouter-compte" className="btn-sign-in">
+                <span>Ajouter Compte</span>
               </Link>
             }
 

@@ -1,16 +1,37 @@
 import mongoose from "mongoose";
 import bcrypt from "bcryptjs";
 import User from "../models/user.js";
+import cloudinary from '../utils/cloudinary.js';
 
 
 export const updateUserProfilePicture = async (req, res) => {
-    const id = req.userId;
+    const { id } = req.params;
+    
+    console.log(id);
     const profilePicture = req.file;
+
+    // console.log(profilePicture);
 
     try {
         if (!mongoose.Types.ObjectId.isValid(id))
             return res.status(404).send(`No User with id: ${id}`);
-        const updatedUserProfilePicture = await User.findByIdAndUpdate(id, { profilePicture: profilePicture.filename }, { new: true });
+
+        let user = await User.findById(id);
+        // Delete image from cloudinary
+        if (user.cloudinary_id)
+            await cloudinary.uploader.destroy(user.cloudinary_id);
+        // Upload image to cloudinary
+        let result;
+        if (profilePicture) {
+            result = await cloudinary.v2.uploader.upload(profilePicture.path, { resource_type: "auto" });
+        }
+
+        // result = await cloudinary.v2.uploader.upload(profilePicture.path, { resource_type: "auto" });
+        const updatedUserProfilePicture = await User.findByIdAndUpdate(id,
+            {
+                profilePicture: result.secure_url,
+                cloudinary_id: result.public_id
+            }, { new: true });
 
         return res.status(200).json(updatedUserProfilePicture);
 
@@ -21,7 +42,7 @@ export const updateUserProfilePicture = async (req, res) => {
 
 export const updateUserProfileData = async (req, res) => {
     const id = req.userId;
-    const { firstname, lastname } = req.body;
+    const { firstname, lastname, username } = req.body;
 
     if (!mongoose.Types.ObjectId.isValid(id))
         return res.status(404).send(`No User with id: ${id}`);
@@ -29,8 +50,8 @@ export const updateUserProfileData = async (req, res) => {
     const updatedUserProfileData = {
         firstname,
         lastname,
+        username,
         name: `${firstname} ${lastname}`,
-        email,
         _id: id,
     };
 
